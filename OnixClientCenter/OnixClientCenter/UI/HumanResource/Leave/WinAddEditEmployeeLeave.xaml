@@ -1,0 +1,266 @@
+﻿<src:WinBase x:Class="Onix.ClientCenter.UI.HumanResource.Leave.WinAddEditEmployeeLeave"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Onix.ClientCenter.Windows"
+        xmlns:src="clr-namespace:Onix.ClientCenter.Commons.Windows" 
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        Activated="DefaultWindow_Activated"
+        WindowState="Maximized"
+        x:Name="self"
+        Title="{Binding ElementName=self, Path=Caption}" Height="900" Width="1400"
+        Closing="DefaultWindow_Closing" ContentRendered="DefaultWindow_ContentRendered">
+
+    <DockPanel LastChildFill="True">
+        <DockPanel DockPanel.Dock="Top">
+
+            <StackPanel DockPanel.Dock="Right" Orientation="Vertical" Width="200">
+                <Button Name="cmdLeaveReport" Content="ข้อมูลการลา" MinWidth="120"  Margin="20,20,20,0" Click="CmdLeaveReport_Click"/>
+                <Button Name="cmdMonthChange" Content="เปลี่ยนเดือน" MinWidth="120"  Margin="20,20,20,0" Click="CmdMonthChange_Click">
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Name="mnuJan" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=jan}" Tag="1" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuFeb" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=feb}" Tag="2" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuMar" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=mar}" Tag="3" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuApr" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=apr}" Tag="4" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuMay" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=may}" Tag="5" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuJun" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=jun}" Tag="6" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuJul" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=jul}" Tag="7" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuAug" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=aug}" Tag="8" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuSep" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=sep}" Tag="9" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuOct" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=oct}" Tag="10" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuNov" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=nov}" Tag="11" Click="MnuMonth_Click"/>
+                            <MenuItem Name="mnuDec" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=dec}" Tag="12" Click="MnuMonth_Click"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+            </StackPanel>
+
+            <Grid DockPanel.Dock="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="2" Content="เดือน"  Name="lblYear"
+                       VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+
+                <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                    <ComboBox Name="cboMonth" DisplayMemberPath="Description" SelectedValuePath="ObjSelf" IsEnabled="False"
+                              SelectionChanged="DefaultComboBox_SelectionChanged" SelectedItem="{Binding LeaveMonthObj}" SelectedValue="{Binding LeaveMonthObj}" 
+                              ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Months}"
+                              VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" Width="150" />
+
+                    <TextBox Width="100" Text="{Binding LeaveYearBD}" Name="txtYear" IsReadOnly="True"
+                             VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left" 
+                             Margin="1,0,0,0" TextChanged="DefaultTextBox_TextChanged" PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+                </StackPanel>
+                
+                <!-- End Gender -->
+
+                <!-- Start Name Th -->
+                <Label Name="lblNameTh" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=employee_name}" Grid.Row="3" HorizontalAlignment="Right"/>
+
+                <TextBox Name="txtNameTh" Grid.Row="3" Grid.Column="1" Width="300" HorizontalAlignment="Left" Text="{Binding EmployeeName}"
+                         IsReadOnly="True"
+                         Margin="5,0,0,5" VerticalContentAlignment="Center"  TextChanged="DefaultTextBox_TextChanged"/>
+
+                <Label Name="lblLastNameTh" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Grid.Column="2" Grid.Row="3"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=last_name}" HorizontalAlignment="Right"/>
+
+                <TextBox Name="txtLastNameTh" Grid.Row="3" Grid.Column="3" Width="300" HorizontalAlignment="Left" Text="{Binding EmployeeLastName}"
+                         IsReadOnly="True"
+                         Margin="5,0,0,5" VerticalContentAlignment="Center"  TextChanged="DefaultTextBox_TextChanged"/>
+            </Grid>
+        </DockPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Height="40" Orientation="Horizontal">
+            <Button Name="cmdOK" MinWidth="80"  Margin="5,0,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="cmdSave" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=save}" MinWidth="80"  Margin="5,0,0,5"
+                    Click="CmdSave_Click"/>
+            
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" MinWidth="80"  Margin="100,0,0,5"/>
+        </StackPanel>
+        
+        <TabControl Margin="5, 0, 5, 5" DockPanel.Dock="Bottom">
+            <TabItem Name="tbiItem">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiItem, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="ข้อมูลการลา"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <!--<Border Margin="5,5,5,5" CornerRadius="10" Background="{DynamicResource WindowBackgroundBrush}" >-->
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical" >
+                            <Button Name="cmdAdd1" Content="เพิ่ม" HorizontalAlignment="Center" Width="80"  Margin="5,5,5,5" Click="CmdAdd_Click"/>
+
+                        
+                    </StackPanel>
+
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,5,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Grid.Column="1" Grid.Row="1" Width="200" IsEnabled="False" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+
+                            <Label Grid.Column="2" Grid.Row="1" Name="lblSickTot"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=sick_leave}" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+                            <TextBox Grid.Column="3" Grid.Row="1" Width="200" Text="{Binding SickLeaveFmt}" IsEnabled="False" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0" HorizontalContentAlignment="Right" TextChanged="DefaultTextBox_TextChanged"/>
+
+                            <Label Grid.Column="4" Grid.Row="1" Name="lblafterDiscount"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=personal_leave}" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+                            <TextBox  Grid.Column="5" Grid.Row="1" Width="200" Text="{Binding PersonalLeaveFmt}" IsEnabled="False" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="5,0,0,0" TextChanged="DefaultTextBox_TextChanged" 
+                                              Foreground="Black" FontWeight="Medium"/>
+
+                            <Label Grid.Column="6" Grid.Row="1" Name="lblTotal"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=extra_personal_leave}" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+                            <TextBox  Grid.Column="7" Grid.Row="1" Width="200" Text="{Binding ExtraLeaveFmt}" IsEnabled="False" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="5,0,0,0" TextChanged="DefaultTextBox_TextChanged" 
+                                              Foreground="Black" FontWeight="Medium"/>
+
+                            <Label Grid.Column="8" Grid.Row="1" Name="lblAnnualTot"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=annual_leave}" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+                            <TextBox  Grid.Column="9" Grid.Row="1" Width="200" Text="{Binding AnnualLeaveFmt}" IsEnabled="False" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="5,0,0,0" TextChanged="DefaultTextBox_TextChanged" 
+                                              Foreground="Black" FontWeight="Medium"/>
+
+                            <!--<Label Grid.Column="10" Grid.Row="1" Name="lblAbnormalTot"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=abnormal_leave}" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+                            <TextBox  Grid.Column="11" Grid.Row="1" Width="120" Text="{Binding AbnormalLeaveFmt}" IsEnabled="False" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="5,0,0,0" TextChanged="DefaultTextBox_TextChanged" 
+                                              Foreground="Black" FontWeight="Medium"/>
+
+                            <Label Grid.Column="12" Grid.Row="1" Name="lblDeductTot"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=deduction_leave}" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+                            <TextBox  Grid.Column="13" Grid.Row="1" Width="120" Text="{Binding DeductionLeaveFmt}" IsEnabled="False" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="5,0,0,0" TextChanged="DefaultTextBox_TextChanged" 
+                                              Foreground="Black" FontWeight="Medium"/>-->
+                        </Grid>
+                    </StackPanel>
+                        
+                    <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding LeaveRecords}"
+                                         Background="{DynamicResource WindowBackgroundBrush_Grid}">
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Name="lblDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=date}" VerticalAlignment="Center" 
+                                           Foreground="Blue" 
+                                           VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+                                    <uc:UDateEntry x:Name="dtLeaveDate" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"
+                                                   SelectedDate="{Binding LeaveDate}" SelectedDateChanged="DefaultUDate_SelectedDateChanged"/>
+
+                                    <Label Name="lblSick" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=sick_leave}" VerticalAlignment="Center" 
+                                           Foreground="Blue" 
+                                           VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,0,0"  />
+
+                                    <ComboBox Name="cboSickLeave" Width="200" VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                                              Margin="5,0,0,0" SelectionChanged="CboPoc_SelectionChanged" SelectedItem="ObjSelf" 
+                                              DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding SickLeaveObj}"
+                                              ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=LeaveDurations}"/>
+                                    
+                                    <Label Name="lblPersonalLeave" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=personal_leave}" VerticalAlignment="Center" 
+                                           Foreground="Blue" 
+                                           VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,0,0"  />
+                                    <ComboBox Name="cboPersonalLeave" Width="200" VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                                              Margin="5,0,0,0" SelectionChanged="CboPoc_SelectionChanged" SelectedItem="ObjSelf" 
+                                              DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding PersonalLeaveObj}"
+                                              ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=LeaveDurations}"/>
+                                    
+                                    <Label Name="lblExtraPersonal" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=extra_personal_leave}" VerticalAlignment="Center" 
+                                           Foreground="Blue" 
+                                           VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,0,0"  />
+                                    <ComboBox Name="cboExtraLeave" Width="200" VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                                              Margin="5,0,0,0" SelectionChanged="CboPoc_SelectionChanged" SelectedItem="ObjSelf" 
+                                              DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding ExtraLeaveObj}"
+                                              ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=LeaveDurations}"/>
+                                    
+                                    <Label Name="lblAnnualLeave" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=annual_leave}" VerticalAlignment="Center" 
+                                           Foreground="Blue" 
+                                           VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,0,0"  />
+                                    <ComboBox Name="cboAnnuualLeave" Width="200" VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                                              Margin="5,0,0,0" SelectionChanged="CboPoc_SelectionChanged" SelectedItem="ObjSelf" 
+                                              DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding AnnualLeaveObj}"
+                                              ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=LeaveDurations}"/>
+
+                                    <!--<Label Name="lblAbnormalLeave" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=abnormal_leave}" VerticalAlignment="Center" 
+                                           Foreground="Blue" 
+                                           VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,0,0"  />
+                                    <TextBox x:Name="txtAbnormalLeave" Text="{Binding AbnormalLeave, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="5,0,0,0" VerticalContentAlignment="Center" 
+                                             PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput" TextChanged="TextBox_TextChanged"/>
+
+                                    <Label Name="lblDeductionLeave" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=deduction_leave}" VerticalAlignment="Center" 
+                                           Foreground="Blue" 
+                                           VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,0,0"  />
+                                    <TextBox x:Name="txtDeductionLeave" Text="{Binding DeductionLeave, UpdateSourceTrigger=PropertyChanged}" Width="50" Margin="5,0,0,0" VerticalContentAlignment="Center" 
+                                             PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput" TextChanged="TextBox_TextChanged"/>
+                                    <Label Name="lblDeductiveUnit" Content="(ชั่วโมง)" VerticalAlignment="Center" 
+                                           VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="5,0,0,0"  />-->
+
+                                    <Button Name="cmdDelete" Click="CmdDelete_Click" Width="30" Margin="10,0,0,0" Focusable="False" Tag="{Binding ObjSelf}">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Image Width="12" Height="12" HorizontalAlignment="Center" 
+                                                   Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </DockPanel>
+                <!--</Border>-->
+            </TabItem>
+        </TabControl>
+
+    </DockPanel>
+</src:WinBase>

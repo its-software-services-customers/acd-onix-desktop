@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Onix.ClientCenter.Commons.UControls.ULookupSearch2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Onix.ClientCenter.UControls"
+             xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+             xmlns:my="clr-namespace:Onix.ClientCenter"
+             xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+             mc:Ignorable="d" 
+             Name="rootElement"
+             Loaded="rootElement_Loaded"
+             GotFocus="rootElement_GotFocus"
+             FocusManager.FocusedElement="{Binding ElementName=txtCode}"
+             d:DesignHeight="30"  d:DesignWidth="600">
+    <Grid>
+        <StackPanel Orientation="Horizontal" >
+            <!--<TextBox Name="txtCode" Width="150" VerticalContentAlignment="Center" PreviewKeyDown="txtCode_PreviewKeyDown" TabIndex="0"/>-->
+
+            <uc:UTextBox x:Name="txtCode" Width="150" VerticalContentAlignment="Center" ShowDetail="True" TextSelected="txtCode_TextSelected"/>
+            <TextBox Name="txtName" Width="400" VerticalContentAlignment="Center" IsEnabled="False" Margin="2,0,0,0" />
+            <Button Name="cmdSearch" Width="30" Margin="2,0,0,0" TabIndex="2" Click="cmdSearch_Click" IsTabStop="False">
+                <Button.Content>
+                    <Image Source="{StaticResource bmpSearch}" Width="16" Height="16"/>
+                </Button.Content>
+
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <!--<MenuItem Name="mnuSearch" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=search}" Click="mnuSearch_Click"/>
+                        <MenuItem Name="mnuClear" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=clear}" Click="mnuClear_Click"/>-->
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </StackPanel>            
+    </Grid>
+</UserControl>

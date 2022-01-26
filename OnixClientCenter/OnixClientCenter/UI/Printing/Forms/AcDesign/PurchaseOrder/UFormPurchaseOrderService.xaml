@@ -1,0 +1,441 @@
+﻿<src:UFormBase x:Class="Onix.ClientCenter.Forms.AcDesign.PurchaseOrder.UFormPurchaseOrderService"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:src="clr-namespace:Onix.ClientCenter.Forms"    
+             xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"    
+             mc:Ignorable="d" 
+             x:Name="rootElement"
+             Loaded="RootElement_Loaded"
+             Width="29.7cm" Height="21cm">
+    <Grid Background="White">
+        <Grid.Resources>
+            <Style x:Key="HeaderTextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="H1TextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="H2TextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="{Binding ElementName=rootElement, Path=TextSize}"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="ItemTextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="{Binding ElementName=rootElement, Path=TextSize}"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+        </Grid.Resources>
+
+        <DockPanel Margin="5" LastChildFill="True">
+            <DockPanel Name="stckTopHeader" LastChildFill="True" DockPanel.Dock="Top" >
+                <DockPanel DockPanel.Dock="Left" Height="140">
+                    <DockPanel Height="140" Width="140" Visibility="{Binding ElementName=rootElement, Path=LogoVisibility}" Margin="5,0,5,5">
+                        <Image Name="img" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding ElementName=rootElement, Path=Logo}"/>
+                    </DockPanel>
+                    <StackPanel Width="{Binding ElementName=rootElement, Path=AddressBoxWidth}" Margin="5,0,0,5" VerticalAlignment="Center">
+                        <Border BorderBrush="Black" BorderThickness="0" CornerRadius="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbCompanyName}" Visibility="{Binding ElementName=rootElement, Path=NamePrefixVisibility}"
+                                           Style="{StaticResource ResourceKey=H1TextFont}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                               Margin="0,0,5,0"/>
+                                    
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=CompanyName}"
+                                           Style="{StaticResource ResourceKey=H1TextFont}" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                    <StackPanel Orientation="Horizontal" Margin="5,0,0,0" Visibility="{Binding ElementName=rootElement, Path=BranchVisibility}">
+                                        <TextBlock Text="(" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" 
+                                                   VerticalAlignment="Center"/>
+
+                                        <TextBlock Text="{Binding BranchName}" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" 
+                                                   VerticalAlignment="Center"/>
+
+                                        <TextBlock Text=")" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" 
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbAddress}" Style="{StaticResource ResourceKey=H2TextFont}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=CompanyAddress}" Margin="5,0,0,0"
+                                           Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbTel}" Style="{StaticResource ResourceKey=H2TextFont}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=CompanyProfile.Telephone}" Style="{StaticResource ResourceKey=H2TextFont}"
+                                       FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,10,0"/>
+
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbFax}" Style="{StaticResource ResourceKey=H2TextFont}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=CompanyProfile.Fax}" Margin="5,0,10,0" Style="{StaticResource ResourceKey=H2TextFont}"
+                                       FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbEmail}" Style="{StaticResource ResourceKey=H2TextFont}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=CompanyProfile.Email}" Margin="5,0,10,0" Style="{StaticResource ResourceKey=H2TextFont}"
+                                       FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbTaxID}" Style="{StaticResource ResourceKey=H2TextFont}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=CompanyProfile.TaxID}" Margin="5,0,10,0"
+                                       Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel DockPanel.Dock="Right" Margin="10,0,0,10" VerticalAlignment="Center">
+                    <DockPanel DockPanel.Dock="Top">
+                        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Margin="10" Grid.Row="0" Text="{Binding ElementName=rootElement, Path=LbDocumentType}" VerticalAlignment="Center" Style="{StaticResource ResourceKey=HeaderTextFont}" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                            </Grid>
+                        </Border>
+                    </DockPanel>
+                    <DockPanel DockPanel.Dock="Top">
+                        <Border BorderBrush="Black">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="{Binding ElementName=rootElement, Path=LbPage}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                            </Grid>
+                        </Border>
+                    </DockPanel>
+                </DockPanel>
+            </DockPanel>
+
+            <DockPanel Name="stckHeader" DockPanel.Dock="Top" LastChildFill="True" >
+                <DockPanel DockPanel.Dock="Left" Width="{Binding ElementName=rootElement, Path=CustomerBoxWidth}">
+                    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="0" Margin="0,0,10,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="75*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding ElementName=rootElement, Path=LbEntityCode}" Margin="10,5,10,0" Grid.Row="0" Grid.Column="0"
+                                       FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding EntityObj.EntityCode}" Margin="0,4,0,0" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                       Grid.Row="0" Grid.Column="1"/>
+                            
+                            <TextBlock Text="{Binding ElementName=rootElement, Path=LbCustomerName}" Margin="10,5,10,0" Grid.Row="1" Grid.Column="0"
+                                       FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                <TextBlock Text="{Binding EntityObj.NamePrefixDesc}" Margin="0,4,0,0" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="{Binding EntityObj.EntityName}" Margin="5,4,5,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <TextBlock Text="{Binding ElementName=rootElement, Path=LbProject}" Margin="10,4,10,0" Grid.Row="2" Grid.Column="0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <WrapPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                                <TextBlock TextWrapping="Wrap" Text="{Binding ProjectObj.ProjectName}"  Margin="0,4,5,5"  FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <TextBlock Text="(" Margin="0,4,5,5"  Style="{StaticResource ResourceKey=ItemTextFont}"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <TextBlock Text="{Binding ElementName=rootElement, Path=LbGProject}" Margin="0,4,5,5"  Style="{StaticResource ResourceKey=ItemTextFont}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <TextBlock Text=":" Margin="0,4,5,5"  Style="{StaticResource ResourceKey=ItemTextFont}"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <TextBlock TextWrapping="Wrap" Text="{Binding ProjectGroupName}" Style="{StaticResource ResourceKey=ItemTextFont}" Margin="0,4,5,5" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <TextBlock Text=")" Margin="0,4,5,5"  Style="{StaticResource ResourceKey=ItemTextFont}"  HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            </WrapPanel>
+
+                            <TextBlock Text="{Binding ElementName=rootElement, Path=LbNetAmount}"  Margin="10,4,10,0" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" >
+                                <TextBlock Text="{Binding PmtRemainAmtFmt}" Margin="0,4,5,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding ElementName=rootElement, Path=LbTHB}"  Margin="0,4,5,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <TextBlock Text="{Binding DocumentDesc}" Margin="10,4,10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                        </Grid>
+                    </Border>
+                </DockPanel>
+
+                <DockPanel DockPanel.Dock="Left">
+                    <Border BorderBrush="Black" BorderThickness="1" CornerRadius="0">
+                        <DockPanel LastChildFill="True">
+                            <uc:UQRPromptPay x:Name="uPromptPayQR" Margin="10" Width="120" DockPanel.Dock="Right">
+                                
+                            </uc:UQRPromptPay>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="45*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="{Binding ElementName=rootElement, Path=LbDocumentNo}" Margin="10,5,10,0" Grid.Row="0" Grid.Column="0"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding DocumentNo}" Margin="0,5,0,0" Grid.Row="0" Grid.Column="1"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="{Binding ElementName=rootElement, Path=LbDate}" Margin="10,4,10,0" Grid.Row="1" Grid.Column="0"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding DocumentDateFmt}" Margin="0,4,0,0" Grid.Row="1" Grid.Column="1"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="{Binding ElementName=rootElement, Path=LbRefDoc}"  Margin="10,4,10,0" Grid.Row="2" Grid.Column="0"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding RefDocNo}" Margin="0,4,0,0" Grid.Row="2" Grid.Column="1"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="{Binding ElementName=rootElement, Path=LbBank}"  Margin="10,4,10,0" Grid.Row="3" Grid.Column="0"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding EntityBankAccountInfo}" Margin="0,4,0,0" Grid.Row="3" Grid.Column="1"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                                <TextBlock Text="" Margin="10,4,10,5" Grid.Row="4" Grid.Column="0"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding EntityBankAccountObj.AccountNo}" Margin="0,4,0,5" Grid.Row="4" Grid.Column="1"
+                                           FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            </Grid >
+                        </DockPanel>
+                    </Border>
+                </DockPanel>
+            </DockPanel>
+
+            <DockPanel Name="stckBody" DockPanel.Dock="Top" Margin="0,15,0,0">
+                <Border BorderBrush="Black" BorderThickness="1" CornerRadius="0">
+                    <DockPanel LastChildFill="True">
+                        <DockPanel Name="stckBottom" DockPanel.Dock="Bottom" Height="40">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column1Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column2Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column3Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column4Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column5Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column6Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column7Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column8Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column9Width}"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border BorderThickness="0,1,1,0" BorderBrush="Black" Grid.Column="0" CornerRadius="0,0,0,0">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbTotalBalance}" Margin="5,5,5,5" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                </Border>
+
+                                <Border BorderThickness="0,1,1,0" BorderBrush="Black" Grid.Column="1">
+                                    <TextBlock Text="{Binding PmtRevenueExpenseAmtFmt}" Margin="5,5,5,5" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                </Border>
+
+                                <Border BorderThickness="0,1,1,0" BorderBrush="Black" Grid.Column="2" >
+                                    <TextBlock Text="{Binding PmtVatAmtFmt}" Margin="5,5,5,5" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                </Border>
+
+                                <Border BorderThickness="0,1,1,0" BorderBrush="Black" Grid.Column="3">
+                                    <TextBlock Text="{Binding PmtVatIncludeAmtFmt}" Margin="5,5,5,5" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                </Border>
+
+                                <Border BorderThickness="0,1,1,0" BorderBrush="Black" Grid.Column="4">
+                                    <TextBlock Text="{Binding PmtWhTaxAmtFmt}" Margin="5,5,5,5" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                </Border>
+
+                                <Border BorderThickness="0,1,1,0" BorderBrush="Black" Grid.Column="5">
+                                    <TextBlock Text="{Binding PmtRemainAmtFmt}" Margin="5,5,5,5" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                </Border>
+
+                                <Border BorderThickness="0,1,0,0" BorderBrush="Black" Grid.Column="6">
+                                    <TextBlock Text="" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,1,0,0" BorderBrush="Black" Grid.Column="7">
+                                    <TextBlock Text="" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,1,1,0" BorderBrush="Black" Grid.Column="8" CornerRadius="0,0,0,0">
+                                    <TextBlock Text="" Style="{StaticResource ResourceKey=H2TextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </DockPanel>
+                        <StackPanel Name="stkBody">
+                            <Grid DockPanel.Dock="Top">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="{Binding ElementName=rootElement, Path=HeaderHeightDot}"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column1Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column2Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column3Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column4Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column5Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column6Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column7Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column8Width}"/>
+                                    <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column9Width}"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border BorderThickness="0,0,1,1" BorderBrush="Black" Grid.Column="0" Background="{Binding ElementName=rootElement, Path=ShadowBackground}" CornerRadius="0,0,0,0">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbJobDetail}" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,0,1,1" BorderBrush="Black" Grid.Column="1" Background="{Binding ElementName=rootElement, Path=ShadowBackground}">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbAmount}" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,0,1,1" BorderBrush="Black" Grid.Column="2" Background="{Binding ElementName=rootElement, Path=ShadowBackground}">
+                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,5,0,5" >
+                                        <TextBlock Text="{Binding ElementName=rootElement, Path=LbVat}" Margin="0" Style="{StaticResource ResourceKey=ItemTextFont}" HorizontalAlignment="Left" 
+                                           VerticalAlignment="Center"/>
+
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding VatPct}" Margin="0,0,5,0" Style="{StaticResource ResourceKey=ItemTextFont}" HorizontalAlignment="Left" 
+                                           VerticalAlignment="Center"/>
+
+                                            <TextBlock Text="%" Margin="0" Style="{StaticResource ResourceKey=ItemTextFont}" HorizontalAlignment="Left" 
+                                           VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <!--<TextBlock Text="{Binding ElementName=rootElement, Path=LbVAT7}" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>-->
+                                </Border>
+
+                                <Border BorderThickness="0,0,1,1" BorderBrush="Black" Grid.Column="3" Background="{Binding ElementName=rootElement, Path=ShadowBackground}">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbMoneyAllVAT7}" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,0,1,1" BorderBrush="Black" Grid.Column="4" Background="{Binding ElementName=rootElement, Path=ShadowBackground}">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbTaxWH3}" Margin="5,0,5,0" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,0,1,1" BorderBrush="Black" Grid.Column="5" Background="{Binding ElementName=rootElement, Path=ShadowBackground}">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbBalanceMoney}" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,0,1,1" BorderBrush="Black" Grid.Column="6" Background="{Binding ElementName=rootElement, Path=ShadowBackground}">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbSaleDepartment}" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,0,1,1" BorderBrush="Black" Grid.Column="7" Background="{Binding ElementName=rootElement, Path=ShadowBackground}">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbAccountDepartment}" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+
+                                <Border BorderThickness="0,0,0,1" BorderBrush="Black" Grid.Column="8" Background="{Binding ElementName=rootElement, Path=ShadowBackground}" CornerRadius="0,0,0,0">
+                                    <TextBlock Text="{Binding ElementName=rootElement, Path=LbCommitteeApproved}" TextAlignment="Center" TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                </Border>
+                            </Grid>
+
+                            <ItemsControl  ItemsSource="{Binding ElementName=rootElement, Path=ItemChunks}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column1Width}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column2Width}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column3Width}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column4Width}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column5Width}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column6Width}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column7Width}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column8Width}"/>
+                                                <ColumnDefinition Width="{Binding ElementName=rootElement, Path=Column9Width}"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border BorderThickness="0,0,1,0" BorderBrush="Black" Grid.Column="0">
+                                                <TextBlock  Margin="5,5,5,5" Text="{Binding Description}"  TextWrapping="Wrap" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                            </Border>
+
+                                            <Border BorderThickness="0,0,1,0" BorderBrush="Black" Grid.Column="1">
+                                                <TextBlock Margin="5,5,5,5" Text="{Binding PaymentAmountFmt}" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            </Border>
+
+                                            <Border BorderThickness="0,0,1,0" BorderBrush="Black" Grid.Column="2">
+                                                <TextBlock Margin="5,5,5,5" Text="{Binding VatAmountFmt}" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            </Border>
+
+                                            <Border BorderThickness="0,0,1,0" BorderBrush="Black" Grid.Column="3">
+                                                <TextBlock Margin="5,5,5,5" Text="{Binding MonneyPlusVatAmountFmt}" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            </Border>
+
+                                            <Border BorderThickness="0,0,1,0" BorderBrush="Black" Grid.Column="4">
+                                                <TextBlock Margin="5,5,5,5" Text="{Binding WhTaxAmountFmt}" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            </Border>
+
+                                            <Border BorderThickness="0,0,1,0" BorderBrush="Black" Grid.Column="5">
+                                                <TextBlock Margin="5,5,5,5" Text="{Binding RemainAmountFmt}" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            </Border>
+
+                                            <Border BorderThickness="0,0,1,0" BorderBrush="Black" Grid.Column="6">
+                                                <TextBlock Margin="5,5,5,5" Text="" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            </Border>
+
+                                            <Border BorderThickness="0,0,1,0" BorderBrush="Black" Grid.Column="7">
+                                                <TextBlock Margin="5,5,5,5" Text="" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            </Border>
+
+                                            <Border BorderThickness="0,0,0,0" BorderBrush="Black" Grid.Column="8">
+                                                <TextBlock Margin="5,5,5,5" Text="" Style="{StaticResource ResourceKey=ItemTextFont}" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                                            </Border>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+            </DockPanel>
+        </DockPanel>
+
+    </Grid>
+</src:UFormBase>

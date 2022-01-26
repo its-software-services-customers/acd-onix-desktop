@@ -1,0 +1,257 @@
+﻿<Window x:Class="Onix.ClientCenter.Windows.WinAddReceiptItems"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Onix.ClientCenter.Windows"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:u="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Name="rootElement"
+        Title="{Binding ElementName=rootElement, Path=Caption}" Height="720" Width="1300" Loaded="Window_Loaded" Closing="Window_Closing" ContentRendered="Window_ContentRendered" Activated="Window_Activated">
+
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="133*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="415*"/>
+                <ColumnDefinition Width="45*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Name="lblCustomerCode" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=customer_code}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,5"  />
+            <TextBox Name="txtCustomerCode" IsEnabled="False" Grid.Row="1" Grid.Column="1" Width="200" Text="{Binding EntityCode}" 
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="txtText_TextChanged"/>
+
+            <Label Name="lblCustomerName" Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=customer_name}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,5"  />
+            <TextBox Name="txtCustomerName" IsEnabled="False" Grid.Row="2" Grid.Column="1" Width="500" Text="{Binding EntityName}" 
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="txtText_TextChanged"/>
+        </Grid>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Name="cmdOK" IsEnabled="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}" Width="80"  Margin="5,5,0,5" Click="cmdOK_Click"/>
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" Width="80"  Margin="15,5,0,5"/>
+        </StackPanel>
+
+        <TabControl Margin="5, 10, 5, 0" DockPanel.Dock="Top" Height="300">
+            <!--AVG movement-->
+            <TabItem Name="tbiAvgMovement">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiAvgMovement, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ar_ap_document}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <DockPanel LastChildFill="True">
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="Auto" Margin="10, 10, 10, 10">
+                        <Label Name="lblFromDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=from_date}" VerticalAlignment="Center" 
+                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                        <u:UDatePicker Margin="10,0,0,0" Width="200" SelectedDate="{Binding FromDocumentDate}"/>
+
+                        <Label Name="lblToDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=to_date}" VerticalAlignment="Center" 
+                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,0,0"  />
+
+                        <u:UDatePicker Margin="10,0,0,0" Width="200" SelectedDate="{Binding ToDocumentDate}"/>
+                        <Button Name="cmdSearch" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=search}" Width="80"  Margin="10,0,0,0" Click="cmdSearch_Click"/>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Label Margin="10,0,0,0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=go_to}" VerticalAlignment="Center"
+                            HorizontalAlignment="Left"/>
+                            <ComboBox Name="cboNavigate" Width="100"  Margin="10,0,0,3" IsEnabled="True" HorizontalAlignment="Left"
+                                DisplayMemberPath="ChunkNo"/>
+
+                            <Button Name="cmdNavigate" Width="30"  Click="cmdNavigate_Click"  HorizontalAlignment="Left" Margin="5,2,0,3">
+                                <StackPanel>
+                                    <Image Source="{StaticResource bmpNext}" />
+                                </StackPanel>
+                            </Button>
+
+                            <Label Margin="10,0,0,0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=total_record}" VerticalAlignment="Center"
+                            HorizontalAlignment="Left"/>
+                            <Label Name="lblTotal" Margin="10,0,0,5" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Grid DockPanel.Dock="Bottom">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="26*"/>
+                            <ColumnDefinition Width="45*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListView Name="lsvMain" SizeChanged="lsvMainMovement_SizeChanged" ItemsSource="{Binding TxArApMovement}" Grid.ColumnSpan="2">
+                            <ListView.View>
+                                <GridView>
+
+                                    <GridViewColumn x:Name="colChecked">
+                                        <Image Width="16" Height="16" Source="{StaticResource bmpTrash}"/>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <CheckBox Name="cbkSelected" Tag="{Binding ObjSelf}" IsChecked="{Binding IsSelectedForDelete}" Checked="cbkSelected_Checked" Unchecked="cbkSelected_Checked"/>
+                                                    <Image Width="16" Height="16" Tag="{Binding ObjSelf}" Source="{StaticResource bmpInfo}">
+                                                        <Image.ToolTip>
+                                                            <u:UToolTipText ItemsSources="{Binding ToolTipItems}"/>
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colDocumentDate" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_date}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Center" Text="{Binding DocumentDateMovementFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colDueDate" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=due_date}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Center" Text="{Binding DueDateFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colDocumentNo" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_no}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding DocumentMovementNo}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colInAmount" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=in_quantity}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Right" Text="{Binding InAmountFmt}"/>
+                                            </DataTemplate> 
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    
+                                    <GridViewColumn x:Name="colNote" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_desc}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Left" Text="{Binding NoteTX}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+
+        <TabControl Margin="5, 10, 5, 0" DockPanel.Dock="Bottom">
+            <!--Selected-->
+            <TabItem Name="tbiSelectedDocument">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiAvgMovement, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=selected_document}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <DockPanel LastChildFill="True">
+                    <Grid DockPanel.Dock="Bottom">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="26*"/>
+                            <ColumnDefinition Width="45*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <ListView Name="lsvSelected" SizeChanged="lsvSelected_SizeChanged" ItemsSource="{Binding TxArApMovement}" Grid.ColumnSpan="2">
+                            <ListView.View>
+                                <GridView>
+
+                                    <GridViewColumn x:Name="colChecked1">
+                                        <Image Width="16" Height="16" Source="{StaticResource bmpTrash}"/>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <Image Width="16" Height="16" Tag="{Binding ObjSelf}" Source="{StaticResource bmpInfo}">
+                                                        <Image.ToolTip>
+                                                            <u:UToolTipText ItemsSources="{Binding ToolTipItems}"/>
+                                                        </Image.ToolTip>
+                                                    </Image>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colDocumentDate1" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_date}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Center" Text="{Binding DocumentDateMovementFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colDueDate1" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=due_date}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Center" Text="{Binding DueDateFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colDocumentNo1" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_no}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding DocumentMovementNo}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colInAmount1" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=in_quantity}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Right" Text="{Binding InAmountFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colNote1" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_desc}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Left" Text="{Binding NoteTX}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </DockPanel>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</Window>

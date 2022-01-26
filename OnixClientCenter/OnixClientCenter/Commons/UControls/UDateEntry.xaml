@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Onix.ClientCenter.Commons.UControls.UDateEntry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:Onix.ClientCenter"
+             mc:Ignorable="d"                
+             Height="Auto" Width="Auto"
+             Name="RootElement">
+
+    <Border Name="bdrBorder" BorderThickness="1" BorderBrush="AliceBlue">
+        <StackPanel Orientation="Horizontal">
+            <TextBox Name="txtDD" Width="30" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,0" PreviewTextInput="NumberValidationTextBox" 
+                     TextChanged="txtText_TextChanged"/>
+            <Label Name="lblSlash1" Content="/" Width="Auto"/>
+
+            <TextBox Name="txtMM" Width="30" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,0" PreviewTextInput="NumberValidationTextBox" 
+                     TextChanged="txtText_TextChanged"/>
+            <Label Content="/" Width="Auto"/>
+
+            <TextBox Name="txtYY1" Width="30" Text="20" IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0" />
+            <TextBox Name="txtYY2" Width="30" MaxLength="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5,0,0,0" PreviewTextInput="NumberValidationTextBox" 
+                     TextChanged="txtText_TextChanged" LostFocus="RootElement_LostFocus"/>
+
+            <Button Name="cmdClear" Grid.Column="1" Margin="2,1,1,1" Click="cmdClear_Click" Width="30" Visibility="Collapsed">
+                <StackPanel>
+                    <Image Width="12" Height="12" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Border>
+    
+
+</UserControl>

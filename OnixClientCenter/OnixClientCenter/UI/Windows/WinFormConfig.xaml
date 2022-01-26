@@ -1,0 +1,177 @@
+﻿<Window x:Class="Onix.ClientCenter.WinFormConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:model="clr-namespace:Onix.Client.Model;assembly=OnixClient"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        Name="rootElement"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Title="{Binding ElementName=rootElement, Path=WindowTitle}"
+        FocusManager.FocusedElement="{Binding ElementName=radAll}"
+        WindowState="Maximized"
+        Width="1200"
+        Height="500"
+        ContentRendered="Window_ContentRendered" Closing="rootElement_Closing" Activated="Window_Activated">
+    <DockPanel LastChildFill="True">
+
+        
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Name="cmdOK" Grid.Column="0" IsEnabled="{Binding IsEditable}" Width="80"  Margin="5,5,0,5" 
+                    HorizontalAlignment="Left" Click="cmdOK_Click" TabIndex="99990">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="cmdCancel" IsCancel="True" HorizontalAlignment="Right" Grid.Column="1" TabIndex="99992"
+                    Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" MinWidth="80"  Margin="5,5,5,5"/>
+        </Grid>
+
+        <DockPanel DockPanel.Dock="Top" Margin="5,5,0,0" LastChildFill="True">
+            <StackPanel DockPanel.Dock="Right" Width="120" Orientation="Vertical">
+                <!--<Button Name="cmdPreview" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=preview}"
+                                Width="100" Height="40" Margin="5,5,5,5" Click="cmdVariableAdd_Click"/>-->
+            </StackPanel>
+            
+            <Grid DockPanel.Dock="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="1" Grid.Column="0" Name="lblReportName" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=report}" VerticalAlignment="Center" 
+                       VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+                <TextBox Grid.Row="1" Grid.Column="1" Name="txtReportName" IsEnabled="False" Width="500" VerticalContentAlignment="Center" 
+                         HorizontalAlignment="Left" Margin="5,0,5,5" Text="{Binding ReportName}"/>
+
+                <StackPanel Grid.Row="2" Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Left">
+                    <RadioButton Name="radAll"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=all}" 
+                             IsChecked="{Binding IsAll}" Margin="5,5,0,0" VerticalAlignment="Center" />
+
+                    <RadioButton Name="radThai"   Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=thai}" 
+                             IsChecked="{Binding IsThai}" Margin="10,5,0,0" VerticalAlignment="Center"/>
+
+                    <RadioButton Name="radEng"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=english}" 
+                             IsChecked="{Binding IsEng}" Margin="10,5,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+
+            </Grid>
+        </DockPanel>
+        
+        <TabControl Margin="5, 0, 5, 0" KeyboardNavigation.TabNavigation="Local">
+            <TabItem Name="tbiServerSorting">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiServerSorting, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=variable}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                
+                <DockPanel LastChildFill="True">
+                    <Grid DockPanel.Dock="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="0" HorizontalAlignment="Left">
+                            <Label  Name="lblLanguage" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=languages}" VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+                            <TextBox Name="txtLanguage" IsEnabled="false" Width="150" Text="{Binding Language}"
+                                     VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,5,5"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                            <Label  Name="lblVariableSearch" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=search}" VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+                            <TextBox Name="txtVariableSearch" Width="300" TextChanged="txtVariableSearch_TextChanged"
+                                     VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,5,5"/>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <StackPanel DockPanel.Dock="Right" Orientation="Vertical" Width="90">
+                        <Button Name="cmdVariableAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="0,0,0,0" Click="cmdVariableAdd_Click"/>
+                    </StackPanel>
+
+                    <Grid>
+                        <ListView Name="lsvMain" Grid.Row="1" SizeChanged="lsvMain_SizeChanged" ItemsSource="{Binding Variables}"
+                                  MouseDoubleClick="lsvMain_MouseDoubleClick" PreviewKeyDown="lsvMain_PreviewKeyDown">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn x:Name="colVariableName" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=variable_name}" DisplayMemberBinding="{Binding VariableName}" />
+
+                                    <GridViewColumn x:Name="colVariableType" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=variable_type}" DisplayMemberBinding="{Binding VariableTypeName}" />
+                                    
+                                    <GridViewColumn x:Name="colVariableValue" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=variable_value}" DisplayMemberBinding="{Binding VariableValue}" />
+
+                                    <GridViewColumn x:Name="colVariableRemove">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    
+                                                <Button Name="cmdVariableRemove" Width="30" Tag="{Binding ObjSelf}" ContextMenuService.IsEnabled="false" 
+                                                        Click="cmdVariableRemove_Click" IsEnabled="{Binding IsEditable}"
+                                                        Visibility="{Binding IsOverrided, Converter={StaticResource TrueToHiddenConverter}}">
+
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                            <Image Width="15" Height="15" HorizontalAlignment="Center" 
+                                                               Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                                    </StackPanel>
+                                                </Button>
+
+                                                <Button Name="cmdVariableOverride" Width="30" Tag="{Binding ObjSelf}" ContextMenuService.IsEnabled="false"
+                                                        Click="cmdVariableOverride_Click" Visibility="{Binding IsOverrided, Converter={StaticResource TrueToVisibleConverter}}">
+
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                            <Image Width="15" Height="15" HorizontalAlignment="Center" 
+                                                               Source="pack://application:,,,/OnixClient;component/Images/edit-icon-16.png"/>
+                                                    </StackPanel>
+                                                </Button>
+                                                    
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    
+                                </GridView>
+                            </ListView.View>
+
+                        </ListView>
+                    </Grid>
+                </DockPanel>
+            </TabItem>
+
+        </TabControl>
+
+    </DockPanel>
+</Window>

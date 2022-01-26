@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="Onix.ClientCenter.Commons.UControls.UReportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:Onix.ClientCenter"
+             xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+             xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+             themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"  
+             Background="{DynamicResource WindowBackgroundBrush}"               
+             d:DesignHeight="300" d:DesignWidth="1200">
+    
+    <DockPanel LastChildFill="True">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Label Name="lblReportName" Margin="10,5,0,5" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_report}" VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+            <ComboBox Name="cboReport" Width="500"  Margin="10,2,0,3" IsEnabled="True" HorizontalAlignment="Left"
+                              DisplayMemberPath="Optional" SelectionChanged="cboReport_SelectionChanged"/>
+
+            <Button Name="cmdRun" Width="40" Height="40" Click="cmdRun_Click"  HorizontalAlignment="Left" Margin="5,2,0,3">
+                <StackPanel>
+                    <Image Source="{StaticResource bmpRun}" />
+                </StackPanel>
+            </Button>
+
+            <Button Name="cmdZoomIn" Width="40" Height="40" Click="cmdZoomIn_Click"  HorizontalAlignment="Left" Margin="25,2,0,3">
+                <StackPanel>
+                    <Image Source="{StaticResource bmpZoomIn}" />
+                </StackPanel>
+            </Button>
+
+            <Button Name="cmdZoomOut" Width="40" Height="40" Click="cmdZoomOut_Click"  HorizontalAlignment="Left" Margin="5,2,0,3">
+                <StackPanel>
+                    <Image Source="{StaticResource bmpZoomOut}" />
+                </StackPanel>
+            </Button>
+
+            <Button Name="cmdFitWidth" Width="40" Height="40" Click="cmdFitWidth_Click"  HorizontalAlignment="Left" Margin="5,2,0,3">
+                <StackPanel>
+                    <Image Source="{StaticResource bmpFitWidth}" />
+                </StackPanel>
+            </Button>
+
+            <Button Name="cmdFitHeigh" Width="40" Height="40" Click="cmdFitHeigh_Click"  HorizontalAlignment="Left" Margin="5,2,0,3">
+                <StackPanel>
+                    <Image Source="{StaticResource bmpFitHeigh}" />
+                </StackPanel>
+            </Button>
+            
+            <Button Name="cmdPrint" Width="40" Height="40" Click="cmdPrint_Click"  HorizontalAlignment="Left" Margin="25,2,0,3">
+                <StackPanel>
+                    <Image Source="{StaticResource bmpPrint}" />
+                </StackPanel>
+            </Button>
+
+            <Button Name="cmdExcel" Width="40" Height="40" Click="cmdExcel_Click"  HorizontalAlignment="Left" Margin="25,2,0,3">
+                <StackPanel>
+                    <Image Source="{StaticResource bmpExcel}" />
+                </StackPanel>
+            </Button>
+
+            <Label Margin="10,5,0,5" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=go_to}" VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+
+            <ComboBox Name="cboPageNo" Width="90"  Margin="10,2,0,3" IsEnabled="True" HorizontalAlignment="Left"
+                              DisplayMemberPath="ChunkNo" SelectionChanged="cboPageNo_SelectionChanged"/>
+        </StackPanel>
+
+        <!--<StackPanel DockPanel.Dock="Bottom"  Orientation="Horizontal">
+            <ProgressBar Name="progPage" Width="100" Height="20"></ProgressBar>
+            <TextBlock Name="tblkDebug" Width="300"/>
+        </StackPanel>-->
+
+        <DocumentViewer Name="docViewer" TextSearch.Text="Column">
+            <DocumentViewer.Resources>
+                <!--Hides the search box-->
+                <Style TargetType="ContentControl">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+
+                <!--<Style TargetType="WrapPanel">
+                    <Setter Property="Background" Value="AntiqueWhite" />
+                </Style>-->
+                
+                <!--Hides the toolbar-->
+                <Style TargetType="ToolBar">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </DocumentViewer.Resources>
+        </DocumentViewer>
+    </DockPanel>
+</UserControl>

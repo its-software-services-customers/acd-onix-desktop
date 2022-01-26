@@ -1,0 +1,47 @@
+﻿<Window x:Class="Onix.ClientCenter.Commons.Windows.WinTextIntellisenseSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        Topmost="True"
+        ResizeMode="CanResize"
+        WindowStyle="None"
+        Name="rootElement"
+        Top="{Binding ElementName=rootElement, Path=T}"
+        Left="{Binding ElementName=rootElement, Path=L}"
+        Activated="rootElement_Activated"
+        Title="" Width="{Binding ElementName=rootElement, Path=WindowWidth}" Height="200">
+
+    <DockPanel LastChildFill="True" Background="Orange">
+        <TextBox Name="txtCurrentText" Margin="5,5,5,0" IsReadOnly="True" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center"/>
+
+        <ListView DockPanel.Dock="Top" Name="lsvFilter" ItemsSource="{Binding ElementName=rootElement, Path=FilterItems}"
+                  SizeChanged="lsvFilter_SizeChanged" Margin="5,5,5,5" MouseDoubleClick="lsvFilter_MouseDoubleClick"
+                  PreviewKeyDown="lsvFilter_PreviewKeyDown">
+
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </ListView.Resources>
+            
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="colText" Header="" DisplayMemberBinding="{Binding Code}" />
+                    
+                    <GridViewColumn x:Name="colDesc" Header="" DisplayMemberBinding="{Binding Description}" />
+                    
+                    <GridViewColumn x:Name="colDescEng" Header="">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock TextAlignment="Right" Text="{Binding DescriptionEng}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>

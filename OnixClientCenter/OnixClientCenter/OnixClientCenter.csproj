@@ -1,0 +1,1493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBB1AC0B-59F8-42BF-9E9C-E2EB29581A1B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Onix.ClientCenter</RootNamespace>
+    <AssemblyName>OnixClientCenter</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>onix.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Markdown.Xaml, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdown.Xaml.1.0.0\lib\net45\Markdown.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownSharp, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownSharp.2.0.5\lib\net40\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Onix.Themes">
+      <HintPath>..\..\..\onix_theme\dll_built\Onix.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.6\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WisWsClientAPI, Version=1.0.6419.32340, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\dll_from_lib\WisWsClientAPI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commons\Factories\FactoryWindow.cs" />
+    <Compile Include="Commons\Factories\FactoryCriteria.cs" />
+    <Compile Include="Commons\UControls\UQRPromptPay.xaml.cs">
+      <DependentUpon>UQRPromptPay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Utils\CBoolToVisibilityConverter.cs" />
+    <Compile Include="Commons\Utils\CProductFilter.cs" />
+    <Compile Include="Commons\Utils\CEntry.cs" />
+    <Compile Include="Commons\Utils\QR\CRC16.cs" />
+    <Compile Include="Commons\Utils\QR\EMVcoConstants.cs" />
+    <Compile Include="Commons\Utils\QR\PromptPayUtils.cs" />
+    <Compile Include="Commons\Windows\CWinLoadParam.cs" />
+    <Compile Include="Commons\Windows\WinBase.cs" />
+    <Compile Include="UI\AccountPayable\StockCost\CCriteriaStockCostDocument.cs" />
+    <Compile Include="UI\AccountPayable\StockCost\MVStockCostDocumentItem.cs" />
+    <Compile Include="UI\AccountPayable\StockCost\MVStockCostDocument.cs" />
+    <Compile Include="UI\AccountPayable\StockCost\UCostDistribution.xaml.cs">
+      <DependentUpon>UCostDistribution.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountPayable\StockCost\WinAddEditCostDocument.xaml.cs">
+      <DependentUpon>WinAddEditCostDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountPayable\TaxDocument\CTaxDocumentUtil.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\CCriteriaTaxDocument.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\MVTaxDocument.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PP30\WinAddEditTaxPP30.xaml.cs">
+      <DependentUpon>WinAddEditTaxPP30.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1Kor\CTaxFormGroupByEmployeeRv1Kor.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1Kor\CTaxFormPageRv1Kor.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1Kor\CTaxformRV1KorPdfField.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1Kor\WinAddEditTaxFormPRV1Kor.xaml.cs">
+      <DependentUpon>WinAddEditTaxFormPRV1Kor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1Kor\WinTaxDocPRV1KorRendererProgress.xaml.cs">
+      <DependentUpon>WinTaxDocPRV1KorRendererProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1\CTaxFormGroupByEmployeeRv1.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1\CTaxFormPageRv1.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1\CTaxformRv1PdfField.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1\MVTaxFormPRV1.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1\WinAddEditTaxFormPRV1.xaml.cs">
+      <DependentUpon>WinAddEditTaxFormPRV1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV1\WinTaxDocRv1RendererProgress.xaml.cs">
+      <DependentUpon>WinTaxDocRv1RendererProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV3_53\CTaxFormGroupBySupplierRv3_53.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV3_53\CTaxFormPageRv3_53.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV3_53\CTaxformRV3_53PdfField.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV3_53\MVTaxFormPRV3_53.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV3_53\WinAddEditTaxFormPRV3_53.xaml.cs">
+      <DependentUpon>WinAddEditTaxFormPRV3_53.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AccountPayable\TaxDocument\PRV3_53\WinTaxDocRendererProgress.xaml.cs">
+      <DependentUpon>WinTaxDocRendererProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\Leave\CCriteriaEmployeeLeave.cs" />
+    <Compile Include="UI\HumanResource\Leave\MLeaveRecord.cs" />
+    <Compile Include="UI\HumanResource\Leave\MEmployeeLeave.cs" />
+    <Compile Include="UI\HumanResource\Leave\WinAddEditEmployeeLeave.xaml.cs">
+      <DependentUpon>WinAddEditEmployeeLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\OrgChart\CWinOrgChartLoadParam.cs" />
+    <Compile Include="UI\HumanResource\OrgChart\MVOrgChart.cs" />
+    <Compile Include="UI\HumanResource\OTDocument\CCriteriaOTDocument.cs" />
+    <Compile Include="UI\HumanResource\OTDocument\MVOTDocument.cs" />
+    <Compile Include="UI\HumanResource\OTDocument\MVOTRate.cs" />
+    <Compile Include="UI\HumanResource\OTDocument\MVPayrollDeductionItem.cs" />
+    <Compile Include="UI\HumanResource\OTDocument\MVPayrollExpenseItem.cs" />
+    <Compile Include="UI\HumanResource\OTDocument\MVOTDocumentItem.cs" />
+    <Compile Include="UI\HumanResource\OTDocument\WinAddEditOtDocItem2.xaml.cs">
+      <DependentUpon>WinAddEditOtDocItem2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\OTDocument\WinAddEditPayrollDeductItem.xaml.cs">
+      <DependentUpon>WinAddEditPayrollDeductItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\OTDocument\WinAddEditPayrollExpenseItem.xaml.cs">
+      <DependentUpon>WinAddEditPayrollExpenseItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\OTDocument\WinAddEditOtDocItem.xaml.cs">
+      <DependentUpon>WinAddEditOtDocItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\OTDocument\WinAddEditOtDoc.xaml.cs">
+      <DependentUpon>WinAddEditOtDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\PayrollDocument\CCriteriaPayrollDocument.cs" />
+    <Compile Include="UI\HumanResource\PayrollDocument\MVPayrollDocumentItem.cs" />
+    <Compile Include="UI\HumanResource\PayrollDocument\MVPayrollDocument.cs" />
+    <Compile Include="UI\HumanResource\PayrollDocument\WinAddEditPayrollDocItem.xaml.cs">
+      <DependentUpon>WinAddEditPayrollDocItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\PayrollDocument\WinAddEditPayrollDoc.xaml.cs">
+      <DependentUpon>WinAddEditPayrollDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\TaxForm\CCriteriaHrTaxDocumentKor.cs" />
+    <Compile Include="UI\HumanResource\TaxForm\CCriteriaHrTaxDocument.cs" />
+    <Compile Include="UI\HumanResource\Utils\HRUtils.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\HREmployeeTax\CFormEmployeeWithholdingTax.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\HREmployeeTax\UFormEmployeeWithholdingTax.xaml.cs">
+      <DependentUpon>UFormEmployeeWithholdingTax.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\HRPayrollDeposit\CFormPayrollDeposit.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\HRPayrollDeposit\UFormPayrollDeposit.xaml.cs">
+      <DependentUpon>UFormPayrollDeposit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\HREmployeeLeave\CFormEmployeeLeave.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\HREmployeeLeave\UFormEmployeeLeave.xaml.cs">
+      <DependentUpon>UFormEmployeeLeave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\HRPayrollWithdraw\CFormPayrollWithdraw.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\HRPayrollWithdraw\UFormPayrollWithdraw.xaml.cs">
+      <DependentUpon>UFormPayrollWithdraw.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\HRPayrollSlip\CFormPayrollSlip.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\HRPayrollSlip\UFormPayrollSlip.xaml.cs">
+      <DependentUpon>UFormPayrollSlip.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Reports\CReportEmployee00_05_EmployeeYearlyTax.cs" />
+    <Compile Include="UI\Printing\Reports\CReportEmployee00_04_EmployeeRevenue.cs" />
+    <Compile Include="UI\Printing\Reports\CReportEmployee00_03_EmployeeSocialInsure.cs" />
+    <Compile Include="UI\Printing\Reports\CReportEmployee00_02_EmployeeTax.cs" />
+    <Compile Include="UI\Printing\Reports\CReportFactory.cs" />
+    <Compile Include="Commons\Windows\WinPDFViewer.xaml.cs">
+      <DependentUpon>WinPDFViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\CriteriaConfig\CCriteriaBase.cs" />
+    <Compile Include="Commons\CriteriaConfig\MCriteriaColumn.cs" />
+    <Compile Include="Commons\CriteriaConfig\CCriteriaColumnBase.cs" />
+    <Compile Include="Commons\CriteriaConfig\CCriteriaButton.cs" />
+    <Compile Include="Commons\CriteriaConfig\CCriteriaColumnButton.cs" />
+    <Compile Include="Commons\CriteriaConfig\CCriteriaColumnCheckbox.cs" />
+    <Compile Include="Commons\CriteriaConfig\CCriteriaColumnImageText.cs" />
+    <Compile Include="Commons\CriteriaConfig\CCriteriaColumnText.cs" />
+    <Compile Include="Commons\CriteriaConfig\CCriteriaContextMenu.cs" />
+    <Compile Include="Commons\CriteriaConfig\CCriteriaEntry.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInventory000_01_ItemList.cs" />
+    <Compile Include="UI\Printing\Reports\CReportEmployee00_01_EmployeeLeave.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInvoice005_PoTransaction.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInvoice004_01_InvoiceTransaction.cs" />
+    <Compile Include="UI\Printing\Reports\CReportPayroll001_02_EmployeeListPayroll.cs" />
+    <Compile Include="UI\Printing\Reports\CReportPayroll001_01_EmployeeListPayroll.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaAuxilaryDocSale.cs" />
+    <Compile Include="UI\General\Entity\CCriteriaArApMovementHistory.cs" />
+    <Compile Include="UI\Cash\Cheque\CCriteriaCheque.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaPurchaseOrderCriteria.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaBorrowItem.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaExpenseFromPayroll.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaPurchaseOrderItem.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaBillSummaryItem.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaExternalPayment.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaReceiptItem.cs" />
+    <Compile Include="UI\Cash\CashAccount\CCriteriaCashMovementHistory.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaItemCostHistory.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaSalePurchaseHistory.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaItemCategory.cs" />
+    <Compile Include="UI\Admin\LoginHistory\CCriteriaLoginHistory.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaBillSimulate.cs" />
+    <Compile Include="UI\Admin\UserGroup\CCriteriaUserGroup.cs" />
+    <Compile Include="UI\Admin\User\CCriteriaUser.cs" />
+    <Compile Include="UI\Cash\CashXfer\CCriteriaCashXfer.cs" />
+    <Compile Include="UI\Cash\CashInOut\CCriteriaCashInOut.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaAuxilaryDocPurchase.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaAccountDocPurchase.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaAccountDocSale.cs" />
+    <Compile Include="UI\Cash\CashAccount\CCriteriaCashAccount.cs" />
+    <Compile Include="UI\General\Project\CCriteriaProject.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaCycle.cs" />
+    <Compile Include="UI\General\MasterReference\CCriteriaMasterRef.cs" />
+    <Compile Include="UI\General\Service\CCriteriaService.cs" />
+    <Compile Include="UI\Iventory\InventoryDocument\CCriteriaInventoryDoc.cs" />
+    <Compile Include="UI\General\Entity\CCriteriaEntity.cs" />
+    <Compile Include="UI\HumanResource\EmployeeInfo\CCriteriaEmployee.cs" />
+    <Compile Include="UI\Iventory\Location\CCriteriaLocation.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaPromotion.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaBillCorrection.cs" />
+    <Compile Include="UI\ZCriteria\CCriteriaBranchConfig.cs" />
+    <Compile Include="UI\Iventory\InventoryItem\CCriteriaInventoryItem.cs" />
+    <Compile Include="UI\ZCriteria\Sass\CCriteriaSassDiskImage.cs" />
+    <Compile Include="UI\ZCriteria\Sass\CCriteriaSassVM.cs" />
+    <Compile Include="UI\ZCriteria\Sass\CCriteriaSassProject.cs" />
+    <Compile Include="UI\ZCriteria\Sass\CCriteriaSassService.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\Inventory\CFormInventoryExportDoc.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\Inventory\CFormInventoryBorrowDoc.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\Inventory\UFormInventoryExportDoc.xaml.cs">
+      <DependentUpon>UFormInventoryExportDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\Inventory\UFormInventoryBorrowDoc.xaml.cs">
+      <DependentUpon>UFormInventoryBorrowDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\OfficialReceipt\CFormOfficialReceipt.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\OfficialReceipt\UFormOfficialReceipt.xaml.cs">
+      <DependentUpon>UFormOfficialReceipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\BillSummary\CFormBillSummary.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\BillSummary\UFormBillSummary.xaml.cs">
+      <DependentUpon>UFormBillSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\DrCrNote\CFormDrCrNote.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\DrCrNote\UFormDrCrNote.xaml.cs">
+      <DependentUpon>UFormDrCrNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\ReceiveVoucher\CReceiveVoucher.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\ReceiveVoucher\UReceiveVoucher.xaml.cs">
+      <DependentUpon>UReceiveVoucher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\PaymentVoucher\CPaymentVoucher.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\PaymentVoucher\UPaymentVoucher.xaml.cs">
+      <DependentUpon>UPaymentVoucher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\Quotation\CFormQuotationAttachSheet.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\Quotation\CFormQuotationComplex.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\Quotation\UFormQuotationAttachSheet.xaml.cs">
+      <DependentUpon>UFormQuotationAttachSheet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\Quotation\UFormQuotationComplex.xaml.cs">
+      <DependentUpon>UFormQuotationComplex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\SaleInvoiceCash\CFormSaleInvoiceFullCash.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\SaleInvoice\CFormSaleInvoiceFull.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\SaleInvoiceCash\UFormSaleInvoiceFullCash.xaml.cs">
+      <DependentUpon>UFormSaleInvoiceFullCash.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\SaleInvoice\UFormSaleInvoiceFull.xaml.cs">
+      <DependentUpon>UFormSaleInvoiceFull.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\SaleOrder\CFormSaleOrder.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\SaleOrder\UFormSaleOrder.xaml.cs">
+      <DependentUpon>UFormSaleOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\Cheque\CFormChequePay.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\Cheque\UFormChequePayment.xaml.cs">
+      <DependentUpon>UFormChequePayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\WitholdingTax\CFormNonResidentWithholdingTax2Pages.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\WitholdingTax\CFormNonResidentWithholdingTax.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\WitholdingTax\UFormNoResidentWithholdingTax2Pages.xaml.cs">
+      <DependentUpon>UFormNoResidentWithholdingTax2Pages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\WitholdingTax\UFormNoResidentWithholdingTax.xaml.cs">
+      <DependentUpon>UFormNoResidentWithholdingTax.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\PurchaseOrder\CFormPurchaseOrder.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\PurchaseOrder\CFormPurchaseOrderService.cs" />
+    <Compile Include="UI\Printing\Forms\AcDesign\PurchaseOrder\UFormPurchaseOrder.xaml.cs">
+      <DependentUpon>UFormPurchaseOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\AcDesign\PurchaseOrder\UFormPurchaseOrderService.xaml.cs">
+      <DependentUpon>UFormPurchaseOrderService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\Obsoleted\InventoryDocImpExp\CFormInventoryDocImpExp.cs" />
+    <Compile Include="UI\Printing\Forms\Obsoleted\InventoryDocImpExp\UFormInventoryDocImpExp.xaml.cs">
+      <DependentUpon>UFormInventoryDocImpExp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\Obsoleted\Quotation\CFormQuotation.cs" />
+    <Compile Include="UI\Printing\Forms\Obsoleted\Quotation\UFormQuotation.xaml.cs">
+      <DependentUpon>UFormQuotation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Printing\Forms\UFormBase.cs" />
+    <Compile Include="Commons\Loader\CExcelLoadercs.cs" />
+    <Compile Include="Commons\Loader\CLoaderBase.cs" />
+    <Compile Include="UI\HumanResource\OrgChart\MVVirtialDirectory.cs" />
+    <Compile Include="UI\Printing\Reports\AcDesign\CReportProfitACD_01_ProfitByMonth.cs" />
+    <Compile Include="UI\Printing\Reports\CReportGeneral001_01_ServicesList.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInventory003_03_MovementSummary.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInventory001_01_ItemBalance.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInvoice001_04_SalePurchase.cs" />
+    <Compile Include="UI\Printing\Reports\CReportCheque001_01_SalePurchase.cs" />
+    <Compile Include="UI\Printing\Reports\CReportPayment001_02_OwnerAccountPurchase.cs" />
+    <Compile Include="UI\Printing\Reports\CReportCash001_01_CashMovementByAccount.cs" />
+    <Compile Include="UI\Printing\Reports\CReportProfit001_02_ProfitByProject.cs" />
+    <Compile Include="UI\Printing\Reports\CReportProfit001_01_ProfitByMonth.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInvoice001_03_SalePurchase.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInvoice001_02_SalePurchase.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInvoice001_01_SalePurchase.cs" />
+    <Compile Include="UI\Printing\Reports\CReportPayment001_01_SalePurchase.cs" />
+    <Compile Include="UI\Printing\Reports\CReportSale004_01_SalePurchaseDailyPerDay.cs" />
+    <Compile Include="UI\Printing\Reports\CReportArAp001_01_Movement.cs" />
+    <Compile Include="UI\Printing\Reports\CReportCash003_01_CashMovementSummary.cs" />
+    <Compile Include="UI\Printing\Reports\CReportPurchase001_02_SalePurchaseWhTax.cs" />
+    <Compile Include="UI\Printing\Reports\CReportPurchase001_01_SalePurchaseTax.cs" />
+    <Compile Include="UI\Printing\Reports\CReportCash006_01_CashXfer.cs" />
+    <Compile Include="UI\Printing\Reports\CReportCash005_01_CashOut.cs" />
+    <Compile Include="UI\Printing\Reports\CReportCash004_01_CashIn.cs" />
+    <Compile Include="UI\Printing\Reports\CReportCash001_01_CashBalance.cs" />
+    <Compile Include="UI\Printing\Reports\CReportCash002_01_CashMovement.cs" />
+    <Compile Include="UI\Printing\Reports\ReportTesting.cs" />
+    <Compile Include="UI\AccountPayable\TaxDocument\PP30\MVTaxFormPP30.cs" />
+    <Compile Include="Commons\UControls\UDateEntry.xaml.cs">
+      <DependentUpon>UDateEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\OrgChart\UCompanyOrgChart.xaml.cs">
+      <DependentUpon>UCompanyOrgChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UPathLabels.xaml.cs">
+      <DependentUpon>UPathLabels.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UTextBox.xaml.cs">
+      <DependentUpon>UTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UCriteriaGeneric.xaml.cs">
+      <DependentUpon>UCriteriaGeneric.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UActionButton.xaml.cs">
+      <DependentUpon>UActionButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\ULookupSearch2.xaml.cs">
+      <DependentUpon>ULookupSearch2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UProductFinalDiscountSelection.xaml.cs">
+      <DependentUpon>UProductFinalDiscountSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UProductPriceDiscountTray.xaml.cs">
+      <DependentUpon>UProductPriceDiscountTray.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UProductPriceSelection.xaml.cs">
+      <DependentUpon>UProductPriceSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UProductBundleSelection.xaml.cs">
+      <DependentUpon>UProductBundleSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UInventoryItemAdjustment.xaml.cs">
+      <DependentUpon>UInventoryItemAdjustment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UTimePicker.xaml.cs">
+      <DependentUpon>UTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UImageBox.xaml.cs">
+      <DependentUpon>UImageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UToolTipText.xaml.cs">
+      <DependentUpon>UToolTipText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\InventoryItem\UInventoryItemByCategorySearch.xaml.cs">
+      <DependentUpon>UInventoryItemByCategorySearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UCustomerSelection.xaml.cs">
+      <DependentUpon>UCustomerSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UProductDiscountSelection.xaml.cs">
+      <DependentUpon>UProductDiscountSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UProductTestSelect.xaml.cs">
+      <DependentUpon>UProductTestSelect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UProductSelection.xaml.cs">
+      <DependentUpon>UProductSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UDatePicker.xaml.cs">
+      <DependentUpon>UDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UPostGiftBuySelection.xaml.cs">
+      <DependentUpon>UPostGiftBuySelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UVoucherBuyProduct.xaml.cs">
+      <DependentUpon>UVoucherBuyProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UVoucherFreeProduct.xaml.cs">
+      <DependentUpon>UVoucherFreeProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Windows\WinUploadProgress.xaml.cs">
+      <DependentUpon>WinUploadProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\Sass\WinAddEditDiskImage.xaml.cs">
+      <DependentUpon>WinAddEditDiskImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\Sass\WinAddEditMicroService.xaml.cs">
+      <DependentUpon>WinAddEditMicroService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\Sass\WinAddEditInstance.xaml.cs">
+      <DependentUpon>WinAddEditInstance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\Sass\WinAddEditSassProject.xaml.cs">
+      <DependentUpon>WinAddEditSassProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAccountMiscDoc.xaml.cs">
+      <DependentUpon>WinAddEditAccountMiscDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAccountPurchaseDocApproved.xaml.cs">
+      <DependentUpon>WinAddEditAccountPurchaseDocApproved.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAccountPurchaseDoc.xaml.cs">
+      <DependentUpon>WinAddEditAccountPurchaseDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAccountMiscDocItem.xaml.cs">
+      <DependentUpon>WinAddEditAccountMiscDocItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAccountPurchaseDocItemApproved.xaml.cs">
+      <DependentUpon>WinAddEditAccountPurchaseDocItemApproved.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAccountPurchaseDocItem.xaml.cs">
+      <DependentUpon>WinAddEditAccountPurchaseDocItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAccountSaleDocItem.xaml.cs">
+      <DependentUpon>WinAddEditAccountSaleDocItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditDiscount.xaml.cs">
+      <DependentUpon>WinAddEditDiscount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\EmployeeInfo\WinAddEditEmployeeInfo.xaml.cs">
+      <DependentUpon>WinAddEditEmployeeInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\UserGroup\WinAddEditGroupAccessRight.xaml.cs">
+      <DependentUpon>WinAddEditGroupAccessRight.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Cash\CashXfer\WinAddEditCashExternalXfer.xaml.cs">
+      <DependentUpon>WinAddEditCashExternalXfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Cash\Cheque\WinAddEditCheque.xaml.cs">
+      <DependentUpon>WinAddEditCheque.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditDrCrNoteApproved.xaml.cs">
+      <DependentUpon>WinAddEditDrCrNoteApproved.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\InventoryDocument\WinAddEditBorrowReturnDoc.xaml.cs">
+      <DependentUpon>WinAddEditBorrowReturnDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\InventoryDocument\WinAddEditBorrowReturnItem.xaml.cs">
+      <DependentUpon>WinAddEditBorrowReturnItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HumanResource\OrgChart\WinAddEditOrgChart.xaml.cs">
+      <DependentUpon>WinAddEditOrgChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditPaymentCriteria.xaml.cs">
+      <DependentUpon>WinAddEditPaymentCriteria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditFormVariable.xaml.cs">
+      <DependentUpon>WinAddEditFormVariable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditMiscItemComplex.xaml.cs">
+      <DependentUpon>WinAddEditMiscItemComplex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditQuotationItemComplex.xaml.cs">
+      <DependentUpon>WinAddEditQuotationItemComplex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditQuotationItem.xaml.cs">
+      <DependentUpon>WinAddEditQuotationItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditQuotation.xaml.cs">
+      <DependentUpon>WinAddEditQuotation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditCashDeposit.xaml.cs">
+      <DependentUpon>WinAddEditCashDeposit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditBillSummary.xaml.cs">
+      <DependentUpon>WinAddEditBillSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinMultiSelection.xaml.cs">
+      <DependentUpon>WinMultiSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinMovementHistory.xaml.cs">
+      <DependentUpon>WinMovementHistory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinFormConfig.xaml.cs">
+      <DependentUpon>WinFormConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinLookupSearch1.xaml.cs">
+      <DependentUpon>WinLookupSearch1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinProgressRenderer.xaml.cs">
+      <DependentUpon>WinProgressRenderer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinTestPageRender.xaml.cs">
+      <DependentUpon>WinTestPageRender.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinScreenConfig.xaml.cs">
+      <DependentUpon>WinScreenConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\Windows\WinTextIntellisense.xaml.cs">
+      <DependentUpon>WinTextIntellisense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditVoidedDoc.xaml.cs">
+      <DependentUpon>WinAddEditVoidedDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\General\Project\WinAddEditProject.xaml.cs">
+      <DependentUpon>WinAddEditProject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditPurchaseOrderItem.xaml.cs">
+      <DependentUpon>WinAddEditPurchaseOrderItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditPurchaseOrder.xaml.cs">
+      <DependentUpon>WinAddEditPurchaseOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditReceiptDoc.xaml.cs">
+      <DependentUpon>WinAddEditReceiptDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditBasketTypeSelection.xaml.cs">
+      <DependentUpon>WinAddEditBasketTypeSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\General\Entity\WinAddEditSupplier.xaml.cs">
+      <DependentUpon>WinAddEditSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditCycle.xaml.cs">
+      <DependentUpon>WinAddEditCycle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditPayment.xaml.cs">
+      <DependentUpon>WinAddEditPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditIntervalConfigEx.xaml.cs">
+      <DependentUpon>WinAddEditIntervalConfigEx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditBranchConfig.xaml.cs">
+      <DependentUpon>WinAddEditBranchConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditItemCategory.xaml.cs">
+      <DependentUpon>WinAddEditItemCategory.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Commons\UControls\UQRPromptPay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Commons\Windows\WinPDFViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AccountPayable\StockCost\UCostDistribution.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AccountPayable\StockCost\WinAddEditCostDocument.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountPayable\TaxDocument\PP30\WinAddEditTaxPP30.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AccountPayable\TaxDocument\PRV1Kor\WinAddEditTaxFormPRV1Kor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountPayable\TaxDocument\PRV1Kor\WinTaxDocPRV1KorRendererProgress.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountPayable\TaxDocument\PRV1\WinAddEditTaxFormPRV1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountPayable\TaxDocument\PRV1\WinTaxDocRv1RendererProgress.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountPayable\TaxDocument\PRV3_53\WinAddEditTaxFormPRV3_53.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\AccountPayable\TaxDocument\PRV3_53\WinTaxDocRendererProgress.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\Leave\WinAddEditEmployeeLeave.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\OTDocument\WinAddEditOtDocItem2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\OTDocument\WinAddEditPayrollDeductItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\OTDocument\WinAddEditPayrollExpenseItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\OTDocument\WinAddEditOtDocItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\OTDocument\WinAddEditOtDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\PayrollDocument\WinAddEditPayrollDocItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\PayrollDocument\WinAddEditPayrollDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\HREmployeeTax\UFormEmployeeWithholdingTax.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\HRPayrollDeposit\UFormPayrollDeposit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\HREmployeeLeave\UFormEmployeeLeave.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\HRPayrollWithdraw\UFormPayrollWithdraw.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\HRPayrollSlip\UFormPayrollSlip.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\Inventory\UFormInventoryExportDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\Inventory\UFormInventoryBorrowDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\OfficialReceipt\UFormOfficialReceipt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\BillSummary\UFormBillSummary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\DrCrNote\UFormDrCrNote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\ReceiveVoucher\UReceiveVoucher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\PaymentVoucher\UPaymentVoucher.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\Quotation\UFormQuotationAttachSheet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\Quotation\UFormQuotationComplex.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\SaleInvoiceCash\UFormSaleInvoiceFullCash.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\SaleInvoice\UFormSaleInvoiceFull.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\SaleOrder\UFormSaleOrder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\Cheque\UFormChequePayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\WitholdingTax\UFormNoResidentWithholdingTax2Pages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\WitholdingTax\UFormNoResidentWithholdingTax.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\PurchaseOrder\UFormPurchaseOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Printing\Forms\AcDesign\PurchaseOrder\UFormPurchaseOrderService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Printing\Forms\Obsoleted\InventoryDocImpExp\UFormInventoryDocImpExp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Printing\Forms\Obsoleted\Quotation\UFormQuotation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Commons\UControls\UDateEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\OrgChart\UCompanyOrgChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\UPathLabels.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\UTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UCriteriaGeneric.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Commons\UControls\UActionButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\ULookupSearch2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UProductFinalDiscountSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UProductPriceDiscountTray.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UProductPriceSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UProductBundleSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UInventoryItemAdjustment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Commons\UControls\UTimePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\UImageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\UToolTipText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Iventory\InventoryItem\UInventoryItemByCategorySearch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UCustomerSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UProductDiscountSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UProductTestSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Commons\UControls\UReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UStandardPackage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UMasterRefSearch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UMasterRef.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\UDatePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UPostGiftBuySelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\UControls\UVoucherBuyProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UControls\UVoucherFreeProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Iventory\InventoryItem\UInventoryItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\UBlank.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\UComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UControls\UProductSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\UControls\UTimeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Commons\Windows\WinUploadProgress.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\Sass\WinAddEditDiskImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\Sass\WinAddEditMicroService.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\Sass\WinAddEditInstance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\Sass\WinAddEditSassProject.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAccountMiscDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAccountPurchaseDocApproved.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAccountPurchaseDoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAccountMiscDocItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAccountPurchaseDocItemApproved.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAccountPurchaseDocItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAccountSaleDocItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditDiscount.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\EmployeeInfo\WinAddEditEmployeeInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Admin\UserGroup\WinAddEditGroupAccessRight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Cash\CashXfer\WinAddEditCashExternalXfer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Cash\Cheque\WinAddEditCheque.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditDrCrNoteApproved.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Iventory\InventoryDocument\WinAddEditBorrowReturnDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Iventory\InventoryDocument\WinAddEditBorrowReturnItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\HumanResource\OrgChart\WinAddEditOrgChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditPaymentCriteria.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditFormVariable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditMiscItemComplex.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditQuotationItemComplex.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditQuotationItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditQuotation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditCashDeposit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditBillSummary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinMultiSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinMovementHistory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinFormConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinLookupSearch1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinProgressRenderer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinTestPageRender.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinScreenConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Commons\Windows\WinTextIntellisense.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditVoidedDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\General\Project\WinAddEditProject.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditPurchaseOrderItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditPurchaseOrder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditReceiptDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditBasketTypeSelection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\General\Entity\WinAddEditSupplier.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditCycle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditPayment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditIntervalConfigEx.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditBranchConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAdjustItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditAccountSaleDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Cash\CashAccount\WinAddEditCashAcc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Cash\CashInOut\WinAddEditCashInOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditItemCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Cash\CashXfer\WinAddEditCashTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditDrCrNote.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Admin\User\WinAdminEditPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinAddReceiptItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinDocumentConfig.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinFormConfigParam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinFormPrinting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinGlobalVariable.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinImportData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinLogImport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinLookupSearch2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinPackageTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinReportParam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinServerSetting.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\General\Service\WinAddEditService.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\General\MasterReference\WinAddEditMasterRef.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\General\Entity\WinAddEditCustomer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinDebugXml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditCompanyProf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Iventory\InventoryDocument\WinAddEditExportItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinAddEditPackage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinErrorDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinItemLotInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinItemBalanceInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Iventory\InventoryDocument\WinAddEditInventoryDoc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Iventory\InventoryDocument\WinAddEditImportItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Iventory\Location\WinAddEditLocation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Iventory\InventoryItem\WinAddEditInventoryItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Admin\UserGroup\WinAddEditUserGroup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Windows\WinDeleteProgress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinEditUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UI\Admin\User\WinAddEditUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\WinMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commons\Utils\CConfig.cs" />
+    <Compile Include="Commons\Utils\CHelper.cs" />
+    <Compile Include="Commons\Utils\CMessageBox.cs" />
+    <Compile Include="Commons\Utils\CThemes.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInv002_01_InventoryMovementSum.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInv003_01_InventoryMoveSumDay.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInv004_01_InventoryImportExport.cs" />
+    <Compile Include="UI\Printing\Reports\CReportInv004_02_InventoryMove.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Commons\UControls\UReportView.xaml.cs">
+      <DependentUpon>UReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UStandardPackage.xaml.cs">
+      <DependentUpon>UStandardPackage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UMasterRefSearch.xaml.cs">
+      <DependentUpon>UMasterRefSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UControls\UMasterRef.xaml.cs">
+      <DependentUpon>UMasterRef.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\InventoryItem\UInventoryItem.xaml.cs">
+      <DependentUpon>UInventoryItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UBlank.xaml.cs">
+      <DependentUpon>UBlank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UComboBox.xaml.cs">
+      <DependentUpon>UComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commons\UControls\UTimeControl.xaml.cs">
+      <DependentUpon>UTimeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAdjustItem.xaml.cs">
+      <DependentUpon>WinAddEditAdjustItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditAccountSaleDoc.xaml.cs">
+      <DependentUpon>WinAddEditAccountSaleDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Cash\CashAccount\WinAddEditCashAcc.xaml.cs">
+      <DependentUpon>WinAddEditCashAcc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Cash\CashInOut\WinAddEditCashInOut.xaml.cs">
+      <DependentUpon>WinAddEditCashInOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Cash\CashXfer\WinAddEditCashTransfer.xaml.cs">
+      <DependentUpon>WinAddEditCashTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditDrCrNote.xaml.cs">
+      <DependentUpon>WinAddEditDrCrNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\User\WinAdminEditPassword.xaml.cs">
+      <DependentUpon>WinAdminEditPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddReceiptItems.xaml.cs">
+      <DependentUpon>WinAddReceiptItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinDocumentConfig.xaml.cs">
+      <DependentUpon>WinDocumentConfig.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinFormConfigParam.xaml.cs">
+      <DependentUpon>WinFormConfigParam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinFormPrinting.xaml.cs">
+      <DependentUpon>WinFormPrinting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinGlobalVariable.xaml.cs">
+      <DependentUpon>WinGlobalVariable.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinImportData.xaml.cs">
+      <DependentUpon>WinImportData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinLogImport.xaml.cs">
+      <DependentUpon>WinLogImport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinLookupSearch2.xaml.cs">
+      <DependentUpon>WinLookupSearch2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinPackageTest.xaml.cs">
+      <DependentUpon>WinPackageTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinProgress.xaml.cs">
+      <DependentUpon>WinProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinReportParam.xaml.cs">
+      <DependentUpon>WinReportParam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinServerSetting.xaml.cs">
+      <DependentUpon>WinServerSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\General\Service\WinAddEditService.xaml.cs">
+      <DependentUpon>WinAddEditService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\General\MasterReference\WinAddEditMasterRef.xaml.cs">
+      <DependentUpon>WinAddEditMasterRef.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\General\Entity\WinAddEditCustomer.xaml.cs">
+      <DependentUpon>WinAddEditCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinDebugXml.xaml.cs">
+      <DependentUpon>WinDebugXml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditCompanyProf.xaml.cs">
+      <DependentUpon>WinAddEditCompanyProf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\InventoryDocument\WinAddEditExportItem.xaml.cs">
+      <DependentUpon>WinAddEditExportItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinAddEditPackage.xaml.cs">
+      <DependentUpon>WinAddEditPackage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinErrorDetails.xaml.cs">
+      <DependentUpon>WinErrorDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinMessageBox.xaml.cs">
+      <DependentUpon>WinMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinItemLotInfo.xaml.cs">
+      <DependentUpon>WinItemLotInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinItemBalanceInfo.xaml.cs">
+      <DependentUpon>WinItemBalanceInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\InventoryDocument\WinAddEditInventoryDoc.xaml.cs">
+      <DependentUpon>WinAddEditInventoryDoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\InventoryDocument\WinAddEditImportItem.xaml.cs">
+      <DependentUpon>WinAddEditImportItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\Location\WinAddEditLocation.xaml.cs">
+      <DependentUpon>WinAddEditLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Iventory\InventoryItem\WinAddEditInventoryItem.xaml.cs">
+      <DependentUpon>WinAddEditInventoryItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\UserGroup\WinAddEditUserGroup.xaml.cs">
+      <DependentUpon>WinAddEditUserGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinDeleteProgress.xaml.cs">
+      <DependentUpon>WinDeleteProgress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinEditUser.xaml.cs">
+      <DependentUpon>WinEditUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\User\WinAddEditUser.xaml.cs">
+      <DependentUpon>WinAddEditUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinLogin.xaml.cs">
+      <DependentUpon>WinLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\WinMain.xaml.cs">
+      <DependentUpon>WinMain.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\PP30_310757K.pdf" />
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\270360_attach3.pdf" />
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\270360_WHT3.pdf" />
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\290360_attach53.pdf" />
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\WHT53_041060.pdf" />
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\PP1_DETAIL.pdf" />
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\PP1_SUMMARY.pdf" />
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\PP1Kor_DETAIL.pdf" />
+    <EmbeddedResource Include="UI\AccountPayable\TaxDocument\Resources\PP1Kor_SUMMARY.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OnixClientDll\OnixClient.csproj">
+      <Project>{53b576ae-0d01-4cb0-a8da-e60e71b9175f}</Project>
+      <Name>OnixClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="onix.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

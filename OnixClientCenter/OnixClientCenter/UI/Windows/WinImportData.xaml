@@ -1,0 +1,17 @@
+﻿<Window x:Class="Onix.ClientCenter.Windows.WinImportData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Onix.ClientCenter.Windows"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"        
+        Title="WinImportData" Height="300" Width="500">
+    <DockPanel LastChildFill="True">
+        <ProgressBar Name="prgProgress" Height="50" DockPanel.Dock="Top" Margin="5,5,5,5"/>
+        <!--<Button Name="cmdStart" Height="100" DockPanel.Dock="Bottom" Content="Start (Import Excel)" Margin="5,5,5,5" Click="cmdStart_Click"/>-->
+        <!--<Button Name="cmdCorrect" Height="80" DockPanel.Dock="Bottom" Content="Start (Correcting)" Margin="5,5,5,5" Click="cmdCorrect_Click"/>-->
+        <Button Name="cmdAdjust" Height="80" DockPanel.Dock="Bottom" Content="Start (Adjust)" Margin="5,5,5,5" Click="cmdAdjust_Click"/>
+    </DockPanel>
+</Window>

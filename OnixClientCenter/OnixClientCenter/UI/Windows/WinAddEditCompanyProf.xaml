@@ -1,0 +1,301 @@
+﻿<Window x:Class="Onix.ClientCenter.Windows.WinAddEditCompanyProf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow"      
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        mc:Ignorable="d"
+        Closing="Window_Closing"
+        ContentRendered="Window_ContentRendered"
+        Title="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=company_profile}" 
+        Activated="Window_Activated"
+        Width="1400" Height="1000" Loaded="Window_Loaded">
+
+    <DockPanel LastChildFill="True">
+
+        <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+            <StackPanel  DockPanel.Dock="Right" Width="200" Orientation="Vertical">
+                <uc:UImageBox x:Name="imgLogo" Width="170" Height="200"  Margin="0,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                             Caption="Logo" FileName="{Binding LogoImageName}"
+                             ExtFlag ="{Binding LogoImageFlag}"
+                             SelectedFileChanged="ImgLogo_SelectedFileChanged">
+                
+                </uc:UImageBox>
+            </StackPanel>
+        
+            <Grid Margin="0,0,0,1" DockPanel.Dock="Left" Width="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="140"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <Label Name="lblNamePrefix" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=name_prefix}" Grid.Row="1" HorizontalAlignment="Right"/>
+
+                <uc:UComboBox x:Name="cboBranch" Width="{Binding ElementName=txtCompanyCode, Path=Width}" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                             Grid.Row="1" Grid.Column="1"
+                             IDFieldName="MasterID" Margin="5,0,5,5" ComboLoadType="NamePrefixCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=NamePrefixes}"
+                             DisplayMemberPath="Description" SelectedObjectChanged="cboBranch_SelectedObjectChanged"
+                             SelectedObject="{Binding NamePrefixObj}" Caption="{Binding ElementName=lblNamePrefix, Path=Content}"/>
+
+                <Label Name="lblCompanyCode" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=company_code}" Grid.Row="2" HorizontalAlignment="Right"/>
+                <TextBox Name="txtCompanyCode" Grid.Row="2" Grid.Column="1" Width="200" HorizontalAlignment="Left" Text="{Binding CompanyCode}"
+                         Margin="5,0,0,5" VerticalContentAlignment="Center"  TextChanged="txtCompanyCode_TextChanged"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right">
+                    <Label Name="lblTaxID" VerticalContentAlignment="Center" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=tax_id}" 
+                            HorizontalContentAlignment="Right" HorizontalAlignment="Right" />
+                    <TextBox Name="txtTaxID"  Width="220" HorizontalAlignment="Left" Margin="5,0,0,5" Text="{Binding TaxID}"
+                             VerticalContentAlignment="Center"  TextChanged="txtCompanyCode_TextChanged"/>
+                </StackPanel>
+
+                <Label Name="lblCompanyNameThai" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=company_name_thai}" HorizontalAlignment="Right" Grid.Row="3"/>
+                <TextBox Name="txtCompanyNameThai" Margin="5,0,0,5"  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding CompanyNameThai}"  VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged"/>
+
+                <Label Name="lblCompanyNameEng" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" 
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=company_name_eng}" HorizontalAlignment="Right" Grid.Row="4"/>
+                <TextBox Name="txtCompanyNameEng"  Grid.Row="4" Grid.Column="1"  Margin="5,0,0,5"
+                        Text="{Binding CompanyNameEng}" VerticalContentAlignment="Center" Grid.ColumnSpan="2" TextChanged="txtCompanyCode_TextChanged"/>
+
+                <Label Name="lblOperatorName" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=operator_name_thai}" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="0"/>
+                <TextBox Name="txtOperatorName"  Grid.Row="5" Grid.Column="1"  
+                        Text="{Binding OperatorNameThai}" Margin="5,0,0,5" VerticalContentAlignment="Center"  Grid.ColumnSpan="2" TextChanged="txtCompanyCode_TextChanged"/>
+
+                <Label Name="lblOperatorNameEng" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=operator_name_eng}" HorizontalAlignment="Right" Grid.Row="6" Grid.Column="0" />
+                <TextBox Name="txtOperatorNameEng"  Grid.Row="6" Grid.Column="1" 
+                        Text="{Binding OperatorNameEng}"  Margin="5,0,0,5" VerticalContentAlignment="Center"  Grid.ColumnSpan="2" TextChanged="txtCompanyCode_TextChanged"/>
+
+                <Label Name="lblAddress" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=address}" HorizontalAlignment="Right" Grid.Row="7" Grid.Column="0" />
+                <TextBox Name="txtAddress"  Grid.Row="7" Grid.Column="1" 
+                         Text="{Binding Address}" Margin="5,0,0,5" VerticalContentAlignment="Center"  Grid.ColumnSpan="2" TextChanged="txtCompanyCode_TextChanged"/>
+
+                <Label Name="lblAddressEng" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=address_eng}" HorizontalAlignment="Right" Grid.Row="8" Grid.Column="0" />
+                <TextBox Name="txtAddressEng"  Grid.Row="8" Grid.Column="1" 
+                         Text="{Binding AddressEng}" Margin="5,0,0,5" VerticalContentAlignment="Center"  Grid.ColumnSpan="2" TextChanged="txtCompanyCode_TextChanged"/>
+
+                <Label Name="lblTel" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=telephone}" HorizontalAlignment="Right" Grid.Row="9" Grid.Column="0" />
+                <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+                    <TextBox Name="txtTel" Width="300" HorizontalAlignment="Left" Margin="5,0,0,5"
+                             Text="{Binding Telephone}" VerticalContentAlignment="Center"   TextChanged="txtCompanyCode_TextChanged"/>
+
+                    <Label Name="lblFax" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Width="70"
+                           Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=fax}" HorizontalAlignment="Right"/>
+                    <TextBox Name="txtFax" Width="250" HorizontalAlignment="Left" Margin="5,0,0,5"
+                             Text="{Binding Fax}" VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged"/>
+                </StackPanel>
+                
+                <Label Name="lblEmail" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right"
+                       Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=email}" HorizontalAlignment="Right" Grid.Row="10" 
+                       Grid.Column="0" />
+
+                <StackPanel Orientation="Horizontal" Grid.Row="10" Grid.Column="1">
+                    <TextBox Name="txtEmail" Width="300" HorizontalAlignment="Left" Margin="5,0,0,5" 
+                         Text="{Binding Email}" VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged"/>
+
+                    <Label Name="lblWebsite" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Width="70"
+                           Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=website}" HorizontalAlignment="Right"  />
+                    <TextBox Name="txtWebsite" Width="250" HorizontalAlignment="Left" Margin="5,0,0,5"
+                              Text="{Binding Website}" VerticalContentAlignment="Center"   TextChanged="txtCompanyCode_TextChanged"/>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+            <Button Name="cmdOK" IsEnabled="{Binding IsEditable}" MinWidth="80"  Margin="5,5,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                               Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" MinWidth="80"  Margin="5,5,0,5"/>
+        </StackPanel>
+        
+        <TabControl Margin="5, 0, 5, 0" DockPanel.Dock="Top">
+            <TabItem Name="tbiItem">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiItem, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=tax_form}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <Border Margin="5,5,5,5" CornerRadius="10" Background="{DynamicResource WindowBackgroundBrush}" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="600"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" Margin="0,10,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Label Name="lblRegisterName" Grid.Row="0" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=company_register_name}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtRegisterName" Grid.Row="0" Grid.Column="1" Margin="5,0,0,5" Text="{Binding RegistrationName}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="400"/>
+
+                            
+                            <Label Name="lblRegisterAddrName" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=company_register_addr_name}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtRegisterAddrName" Grid.Row="1" Grid.Column="1" Margin="5,0,0,5" Text="{Binding RegistrationAddress}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="400"/>
+
+                            <Label Name="lblBuildingName" Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=building_name}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtBuildingName" Grid.Row="2" Grid.Column="1" Margin="5,0,0,5" Text="{Binding BuildingName}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="400"/>
+
+                            <Label Name="lblRoomNo" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=room_no}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                                <TextBox Name="txtRoomNo" Margin="5,0,0,5" Text="{Binding RoomNo}" 
+                                         VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="100"/>
+
+                                <Label Name="lblFloor" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=floor_no}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                                <TextBox Name="txtFloor" Margin="5,0,0,5" Text="{Binding FloorNo}" 
+                                         VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="100"/>
+
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Grid.Column="1" Margin="0,10,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>                                
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Name="lblVillage" Grid.Row="0" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=village_name}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtVillage" Grid.Row="0" Grid.Column="1" Margin="5,0,0,5" Text="{Binding VillageName}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="200"/>
+
+                            <Label Name="lblHomeNo" Grid.Row="0" Grid.Column="2" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=home_no}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtHomeNo" Grid.Row="0" Grid.Column="3" Margin="5,0,0,5" Text="{Binding HomeNo}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="100"/>
+
+                            <Label Name="lblMoo" Grid.Row="0" Grid.Column="4" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=moo_no}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtMoo" Grid.Row="0" Grid.Column="5" Margin="5,0,0,5" Text="{Binding Moo}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="50"/>
+
+                            <Label Name="lblSoi" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=soi_no}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtSoi" Grid.Row="1" Grid.Column="1" Margin="5,0,0,5" Text="{Binding Soi}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="100"/>
+
+                            <Label Name="lblRoad" Grid.Row="1" Grid.Column="2" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=road}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtRoad" Grid.Row="1" Grid.Column="3" Margin="5,0,0,5" Text="{Binding Road}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="200"/>
+
+
+                            <Label Name="lblDistrict" Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=district}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtDistrict" Grid.Row="2" Grid.Column="1" Margin="5,0,0,5" Text="{Binding District}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="200"/>
+
+                            <Label Name="lblTown" Grid.Row="2" Grid.Column="2" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=town}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtTown" Grid.Row="2" Grid.Column="3" Margin="5,0,0,5" Text="{Binding Town}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="200"/>
+
+
+                            <Label Name="lblProvince" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=province}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtProvine" Grid.Row="3" Grid.Column="1" Margin="5,0,0,5" Text="{Binding Province}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="200"/>
+
+                            <Label Name="lblZipCode" Grid.Row="3" Grid.Column="2" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, 
+                                Path=zip_code}" HorizontalContentAlignment="Right" Margin="5,0,0,5"/>
+
+                            <TextBox Name="txtZipCode" Grid.Row="3" Grid.Column="3" Margin="5,0,0,5" Text="{Binding Zip}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtCompanyCode_TextChanged" HorizontalAlignment="Left" Width="200"/>
+
+                        </Grid>
+                    </Grid>
+                </Border>
+            </TabItem>
+        </TabControl>
+
+    </DockPanel>
+</Window>

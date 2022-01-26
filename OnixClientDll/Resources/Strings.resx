@@ -1,0 +1,4599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="company" xml:space="preserve">
+    <value>บริษัท</value>
+  </data>
+  <data name="company_profile" xml:space="preserve">
+    <value>ข้อมูลบริษัท</value>
+  </data>
+  <data name="ERROR_LOGIN" xml:space="preserve">
+    <value>ไม่สามารถล็อคอินเข้าสู่ระบบได้ [{0}]</value>
+  </data>
+  <data name="exit" xml:space="preserve">
+    <value>ออกจากโปรแกรม</value>
+  </data>
+  <data name="filter" xml:space="preserve">
+    <value>กรองข้อมูล</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>ล็อคเอาต์</value>
+  </data>
+  <data name="passwd" xml:space="preserve">
+    <value>เปลี่ยนรหัสผ่าน</value>
+  </data>
+  <data name="program" xml:space="preserve">
+    <value>โปรแกรม</value>
+  </data>
+  <data name="query" xml:space="preserve">
+    <value>ค้นหาข้อมูล</value>
+  </data>
+  <data name="server" xml:space="preserve">
+    <value>เซิร์ฟเวอร์</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>ผู้ใช้งาน</value>
+  </data>
+  <data name="user_group" xml:space="preserve">
+    <value>กลุ่มผู้ใช้</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>เวอร์ชัน</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>ตกลง</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>รหัสผ่าน</value>
+  </data>
+  <data name="CONFIRM_EXIT" xml:space="preserve">
+    <value>คุณต้องการออกจากโปรแกรมใช่หรือไม่</value>
+  </data>
+  <data name="admin" xml:space="preserve">
+    <value>แอดมิน</value>
+  </data>
+  <data name="admin_audit" xml:space="preserve">
+    <value>ตรวจสอบ</value>
+  </data>
+  <data name="admin_group" xml:space="preserve">
+    <value>กลุ่มผู้ใช้งาน</value>
+  </data>
+  <data name="admin_user" xml:space="preserve">
+    <value>ผู้ใช้งาน</value>
+  </data>
+  <data name="add" xml:space="preserve">
+    <value>เพิ่ม</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="description" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="go_to" xml:space="preserve">
+    <value>ไปที่</value>
+  </data>
+  <data name="is_admin" xml:space="preserve">
+    <value>เป็น admin</value>
+  </data>
+  <data name="action" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="ADMIN_DEMOTE" xml:space="preserve">
+    <value>ยกเลิกเป็นแอดมิน</value>
+  </data>
+  <data name="ADMIN_EDIT" xml:space="preserve">
+    <value>แก้ไขข้อมูล</value>
+  </data>
+  <data name="ADMIN_PASSWD" xml:space="preserve">
+    <value>เปลี่ยนรหัสผ่าน</value>
+  </data>
+  <data name="ADMIN_PROMOTE" xml:space="preserve">
+    <value>โปรโมตเป็นแอดมิน</value>
+  </data>
+  <data name="is_active" xml:space="preserve">
+    <value>ใช้งาน</value>
+  </data>
+  <data name="confirm_password" xml:space="preserve">
+    <value>ยืนยันรหัสผ่าน</value>
+  </data>
+  <data name="new_password" xml:space="preserve">
+    <value>รหัสผ่านใหม่</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>ค้นหา</value>
+  </data>
+  <data name="ERROR_TEXT_VALIDATE" xml:space="preserve">
+    <value>กรุณากรอกข้อมูลในฟีลด์ '{0}' ให้เรียบร้อย</value>
+  </data>
+  <data name="ERROR_PASSWORD_VALIDATE" xml:space="preserve">
+    <value>ข้อมูลในฟีลด์ '{0}' และ '{1}' จะต้องตรงกัน</value>
+  </data>
+  <data name="CONFIRM_SAVE" xml:space="preserve">
+    <value>ข้อมูลมีการแก้ไข ต้องการให้บันทึกก่อนออกหรือไม่</value>
+  </data>
+  <data name="ERROR_DUPLICATE_KEY" xml:space="preserve">
+    <value>ข้อมูล '{0}' -&gt; '{1}' อยู่ในระบบแล้ว</value>
+  </data>
+  <data name="ERROR_USER_ADD" xml:space="preserve">
+    <value>ไม่สามารถเพิ่มข้อมูลผู้ใช้ได้ --&gt; {0}</value>
+  </data>
+  <data name="ERROR_USER_EDIT" xml:space="preserve">
+    <value>ไม่สามารถแก้ไขข้อมูลผู้ใช้ได้ --&gt; {0}</value>
+  </data>
+  <data name="ERROR_USER_INFO" xml:space="preserve">
+    <value>ไม่พบข้อมูลผู้ใช้ --&gt; {0}</value>
+  </data>
+  <data name="ERROR_NO_ITEM_SELECTED" xml:space="preserve">
+    <value>ไม่มีข้อมูลถูกเลือกเพื่อทำการลบ</value>
+  </data>
+  <data name="CONFIRM_DELETE" xml:space="preserve">
+    <value>ต้องการลบข้อมูลจำนวน {0} รายการ ใช่หรือไม่</value>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>ทั่วไป</value>
+  </data>
+  <data name="ERROR_VERIFY_ACCESS" xml:space="preserve">
+    <value>คุณไม่มีสิทธ์ในการใช้ข้อมูลส่วนนี้ '{0}'</value>
+  </data>
+  <data name="master_ref" xml:space="preserve">
+    <value>ข้อมูลหลัก</value>
+  </data>
+  <data name="inventory" xml:space="preserve">
+    <value>ระบบคลัง</value>
+  </data>
+  <data name="inventory_item" xml:space="preserve">
+    <value>ข้อมูลไอเท็ม</value>
+  </data>
+  <data name="item_code" xml:space="preserve">
+    <value>รหัสไอเท็ม</value>
+  </data>
+  <data name="item_finish_good" xml:space="preserve">
+    <value>สำเร็จรูป</value>
+  </data>
+  <data name="item_name_en" xml:space="preserve">
+    <value>ชื่อไอเท็ม Eng</value>
+  </data>
+  <data name="item_name_thai" xml:space="preserve">
+    <value>ชื่อไอเท็มไทย</value>
+  </data>
+  <data name="item_part" xml:space="preserve">
+    <value>ชิ้นส่วน</value>
+  </data>
+  <data name="item_production" xml:space="preserve">
+    <value>ผลิต</value>
+  </data>
+  <data name="item_purchase" xml:space="preserve">
+    <value>ซื้อ</value>
+  </data>
+  <data name="item_raw_material" xml:space="preserve">
+    <value>วัตถุดิบ</value>
+  </data>
+  <data name="item_sale" xml:space="preserve">
+    <value>ขาย</value>
+  </data>
+  <data name="item_type" xml:space="preserve">
+    <value>ประเภทไอเท็ม</value>
+  </data>
+  <data name="item_uom" xml:space="preserve">
+    <value>หน่วยนับ</value>
+  </data>
+  <data name="item_balance_check" xml:space="preserve">
+    <value>ตรวจสอบยอดคงเหลือ</value>
+  </data>
+  <data name="item_brand" xml:space="preserve">
+    <value>ยี่ห้อ</value>
+  </data>
+  <data name="item_reference" xml:space="preserve">
+    <value>รหัสอ้างอิง</value>
+  </data>
+  <data name="item_barcode" xml:space="preserve">
+    <value>บาร์โค้ด</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>ที่อยู่</value>
+  </data>
+  <data name="company_code" xml:space="preserve">
+    <value>ชื่อย่อบริษัท</value>
+  </data>
+  <data name="company_name_eng" xml:space="preserve">
+    <value>ชื่อบริษัท-EN</value>
+  </data>
+  <data name="company_name_thai" xml:space="preserve">
+    <value>ชื่อบริษัท-ไทย</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>อีเมลล์</value>
+  </data>
+  <data name="fax" xml:space="preserve">
+    <value>แฟกซ์</value>
+  </data>
+  <data name="logo" xml:space="preserve">
+    <value>โลโก</value>
+  </data>
+  <data name="operator_name_eng" xml:space="preserve">
+    <value>ชื่อผู้ติดต่อ-EN</value>
+  </data>
+  <data name="operator_name_thai" xml:space="preserve">
+    <value>ชื่อผู้ติดต่อ-ไทย</value>
+  </data>
+  <data name="tax_id" xml:space="preserve">
+    <value>เลขที่ผู้เสียภาษี</value>
+  </data>
+  <data name="telephone" xml:space="preserve">
+    <value>โทรศัพท์</value>
+  </data>
+  <data name="website" xml:space="preserve">
+    <value>เว็บไซต์</value>
+  </data>
+  <data name="address_eng" xml:space="preserve">
+    <value>ที่อยู่ - Eng</value>
+  </data>
+  <data name="sale_ar" xml:space="preserve">
+    <value>ขายและลูกหนี้</value>
+  </data>
+  <data name="sale_customer" xml:space="preserve">
+    <value>ข้อมูลลูกค้า</value>
+  </data>
+  <data name="sale_package" xml:space="preserve">
+    <value>ข้อมูลโปรโมชัน</value>
+  </data>
+  <data name="package_code" xml:space="preserve">
+    <value>รหัสโปรโมชัน</value>
+  </data>
+  <data name="package_name" xml:space="preserve">
+    <value>ชื่อโปรโมชัน</value>
+  </data>
+  <data name="package_type" xml:space="preserve">
+    <value>ประเภทโปรโมชัน</value>
+  </data>
+  <data name="effective_date" xml:space="preserve">
+    <value>วันที่เริ่มใช้งาน</value>
+  </data>
+  <data name="expire_date" xml:space="preserve">
+    <value>วันที่หมดอายุ</value>
+  </data>
+  <data name="inventory_location" xml:space="preserve">
+    <value>สถานที่จัดเก็บ</value>
+  </data>
+  <data name="DocuDate" xml:space="preserve">
+    <value>วันที่เอกสาร</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>โปรโมชัน</value>
+  </data>
+  <data name="location_code" xml:space="preserve">
+    <value>รหัสสถานที่จัดเก็บ</value>
+  </data>
+  <data name="location_for_sale" xml:space="preserve">
+    <value>สำหรับขาย</value>
+  </data>
+  <data name="location_name" xml:space="preserve">
+    <value>ชื่อสถานที่จัดเก็บ</value>
+  </data>
+  <data name="location_type" xml:space="preserve">
+    <value>ประเภทสถานที่จัดเก็บ</value>
+  </data>
+  <data name="customer_type" xml:space="preserve">
+    <value>ประเภทลูกค้า</value>
+  </data>
+  <data name="end_time" xml:space="preserve">
+    <value>เวลาสิ้นสุด</value>
+  </data>
+  <data name="special_time" xml:space="preserve">
+    <value>ช่วงเวลาพิเศษ</value>
+  </data>
+  <data name="start_time" xml:space="preserve">
+    <value>เวลาเริ่มต้น</value>
+  </data>
+  <data name="discount" xml:space="preserve">
+    <value>ส่วนลด</value>
+  </data>
+  <data name="discount_val" xml:space="preserve">
+    <value>มูลค่าส่วนลด</value>
+  </data>
+  <data name="from_amnt" xml:space="preserve">
+    <value>จากจำนวน</value>
+  </data>
+  <data name="net_price" xml:space="preserve">
+    <value>ราคาขายสุทธิ</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>ราคา</value>
+  </data>
+  <data name="to_amnt" xml:space="preserve">
+    <value>ถึงจำนวน</value>
+  </data>
+  <data name="Docu_Status" xml:space="preserve">
+    <value>สถานะเอกสาร</value>
+  </data>
+  <data name="note" xml:space="preserve">
+    <value>หมายเหตุ</value>
+  </data>
+  <data name="package_name_en" xml:space="preserve">
+    <value>ชื่อโปรโมชัน - En</value>
+  </data>
+  <data name="inventory_import" xml:space="preserve">
+    <value>รับเข้าคลัง</value>
+  </data>
+  <data name="inventory_doc_date" xml:space="preserve">
+    <value>วันที่เอกสาร</value>
+  </data>
+  <data name="inventory_doc_no" xml:space="preserve">
+    <value>เลขที่เอกสาร</value>
+  </data>
+  <data name="inventory_doc_status" xml:space="preserve">
+    <value>สถานะเอกสาร</value>
+  </data>
+  <data name="inventory_doc_desc" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="from_date" xml:space="preserve">
+    <value>จากวันที่</value>
+  </data>
+  <data name="to_date" xml:space="preserve">
+    <value>ถึงวันที่</value>
+  </data>
+  <data name="INV_DOC_STATUS_APPROVED" xml:space="preserve">
+    <value>อนุมัติแล้ว</value>
+  </data>
+  <data name="INV_DOC_STATUS_PENDING" xml:space="preserve">
+    <value>รออนุมัติ</value>
+  </data>
+  <data name="ADD_ITEM" xml:space="preserve">
+    <value>+สินค้า</value>
+  </data>
+  <data name="ADD_Price" xml:space="preserve">
+    <value>เพิ่มราคา</value>
+  </data>
+  <data name="ADD_SERVICE" xml:space="preserve">
+    <value>+บริการ</value>
+  </data>
+  <data name="ADD_StepPrice" xml:space="preserve">
+    <value>เพิ่ม Step Price</value>
+  </data>
+  <data name="from_location" xml:space="preserve">
+    <value>จากคลัง</value>
+  </data>
+  <data name="to_location" xml:space="preserve">
+    <value>ไปยังคลัง</value>
+  </data>
+  <data name="import_item" xml:space="preserve">
+    <value>รายการนำเข้า</value>
+  </data>
+  <data name="lot_no" xml:space="preserve">
+    <value>หมายเลขล็อต</value>
+  </data>
+  <data name="quantity" xml:space="preserve">
+    <value>จำนวน</value>
+  </data>
+  <data name="total_amount" xml:space="preserve">
+    <value>ราคารวม</value>
+  </data>
+  <data name="unit_price" xml:space="preserve">
+    <value>ราคา/หน่วย</value>
+  </data>
+  <data name="approve" xml:space="preserve">
+    <value>อนุมัติ</value>
+  </data>
+  <data name="item_lot_info" xml:space="preserve">
+    <value>ดูข้อมูลล็อตและการเคลื่อนไหว</value>
+  </data>
+  <data name="balance_amount_avg" xml:space="preserve">
+    <value>มูลค่าคงเหลือ (ราคาเฉลี่ย)</value>
+  </data>
+  <data name="balance_amount_fifo" xml:space="preserve">
+    <value>มูลค่าคงเหลือ (FIFO)</value>
+  </data>
+  <data name="balance_avg" xml:space="preserve">
+    <value>ราคาต่อหน่วย (ราคาเฉลี่ย)</value>
+  </data>
+  <data name="balance_avg_fifo" xml:space="preserve">
+    <value>ราคาต่อหน่วย (FIFO)</value>
+  </data>
+  <data name="balance_quantity" xml:space="preserve">
+    <value>จำนวนคงเหลือ</value>
+  </data>
+  <data name="balance" xml:space="preserve">
+    <value>ยอดคงเหลือ</value>
+  </data>
+  <data name="balance_date" xml:space="preserve">
+    <value>ณ วันที่</value>
+  </data>
+  <data name="lot_info" xml:space="preserve">
+    <value>ข้อมูลล็อต</value>
+  </data>
+  <data name="lot_amount" xml:space="preserve">
+    <value>มูลค่ารวม</value>
+  </data>
+  <data name="lot_annonymous" xml:space="preserve">
+    <value>ล็อตไม่ระบุ</value>
+  </data>
+  <data name="lot_avg" xml:space="preserve">
+    <value>มูลค่าต่อหน่วย</value>
+  </data>
+  <data name="lot_note" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="lot_quantity" xml:space="preserve">
+    <value>จำนวน</value>
+  </data>
+  <data name="inventory_export" xml:space="preserve">
+    <value>เบิกจากคลัง</value>
+  </data>
+  <data name="commission" xml:space="preserve">
+    <value>คอมมิชชั่น</value>
+  </data>
+  <data name="total_amount_fifo" xml:space="preserve">
+    <value>ราคารวม (FIFO)</value>
+  </data>
+  <data name="unit_price_fifo" xml:space="preserve">
+    <value>ราคา/หน่วย (FIFO)</value>
+  </data>
+  <data name="service" xml:space="preserve">
+    <value>สินค้าและบริการทั่วไป</value>
+  </data>
+  <data name="PackGive" xml:space="preserve">
+    <value>โปรโมชันสมนาคุณ</value>
+  </data>
+  <data name="PackPoint" xml:space="preserve">
+    <value>โปรโมชันแต้มสะสม</value>
+  </data>
+  <data name="PackPrice" xml:space="preserve">
+    <value>โปรโมชัน</value>
+  </data>
+  <data name="point_uom" xml:space="preserve">
+    <value>คะแนน/หน่วย</value>
+  </data>
+  <data name="point" xml:space="preserve">
+    <value>คะแนน</value>
+  </data>
+  <data name="price_uom" xml:space="preserve">
+    <value>ราคา/หน่วย</value>
+  </data>
+  <data name="giveaway" xml:space="preserve">
+    <value>ของแถม</value>
+  </data>
+  <data name="give_amnt" xml:space="preserve">
+    <value>จำนวนของแถม</value>
+  </data>
+  <data name="effective_time" xml:space="preserve">
+    <value>ช่วงเวลา</value>
+  </data>
+  <data name="from_date_effective" xml:space="preserve">
+    <value>จากวันที่ เริ่มใช้งาน</value>
+  </data>
+  <data name="from_date_expire" xml:space="preserve">
+    <value>จากวันที่ หมดอายุ</value>
+  </data>
+  <data name="is_enable" xml:space="preserve">
+    <value>ใช้งานได้</value>
+  </data>
+  <data name="PACKAGE_TYPE_ITEM" xml:space="preserve">
+    <value>โปรโมชันตามสินค้า</value>
+  </data>
+  <data name="PACKAGE_TYPE_ITEM_TYPE" xml:space="preserve">
+    <value>โปรโมชันตามประเภทสินค้า</value>
+  </data>
+  <data name="to_date_effective" xml:space="preserve">
+    <value>ถึงวันที่ เริ่มใช้งาน</value>
+  </data>
+  <data name="to_date_expire" xml:space="preserve">
+    <value>ถึงวันที่ หมดอายุ</value>
+  </data>
+  <data name="is_time_internal" xml:space="preserve">
+    <value>ระบุช่วงเวลา</value>
+  </data>
+  <data name="package_item" xml:space="preserve">
+    <value>รายการโปรโมชัน</value>
+  </data>
+  <data name="package_item_code" xml:space="preserve">
+    <value>รหัส</value>
+  </data>
+  <data name="package_item_commission" xml:space="preserve">
+    <value>ช่วง คอมมิชชัน</value>
+  </data>
+  <data name="package_item_discount" xml:space="preserve">
+    <value>ช่วง ส่วนลด</value>
+  </data>
+  <data name="package_item_name" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="package_item_point" xml:space="preserve">
+    <value>ช่วง สะสมแต้ม</value>
+  </data>
+  <data name="package_item_price" xml:space="preserve">
+    <value>ช่วง ราคา</value>
+  </data>
+  <data name="package_item_type" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+  <data name="bonus_package" xml:space="preserve">
+    <value>โปรโมชันแถม ณ จุดขาย</value>
+  </data>
+  <data name="coupon" xml:space="preserve">
+    <value>บัตรกำนัล</value>
+  </data>
+  <data name="price_step" xml:space="preserve">
+    <value>ช่วงราคา</value>
+  </data>
+  <data name="sale_member" xml:space="preserve">
+    <value>บัตรสมาชิก</value>
+  </data>
+  <data name="sale_standard_package" xml:space="preserve">
+    <value>กำหนดลำดับโปรโมชัน</value>
+  </data>
+  <data name="sale_cash_saling" xml:space="preserve">
+    <value>ขาย (เงินสด)</value>
+  </data>
+  <data name="sale_debt_saling" xml:space="preserve">
+    <value>ขาย (เชื่อ)</value>
+  </data>
+  <data name="sale_report" xml:space="preserve">
+    <value>รายงานระบบขาย</value>
+  </data>
+  <data name="coupon_amount" xml:space="preserve">
+    <value>มูลค่าบัตร</value>
+  </data>
+  <data name="coupon_code" xml:space="preserve">
+    <value>หมายเลขบัตรกำนัล</value>
+  </data>
+  <data name="coupon_desc" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="coupon_used_by_document" xml:space="preserve">
+    <value>ถูกใช้โดยเอกสาร</value>
+  </data>
+  <data name="customer_name" xml:space="preserve">
+    <value>ชื่อลูกค้า</value>
+  </data>
+  <data name="is_assigned" xml:space="preserve">
+    <value>ถูกกำหนดเจ้าของแล้ว</value>
+  </data>
+  <data name="is_used" xml:space="preserve">
+    <value>ถูกใช้งานแล้ว</value>
+  </data>
+  <data name="credit_limit" xml:space="preserve">
+    <value>เครดิตลิมิต</value>
+  </data>
+  <data name="credit_term" xml:space="preserve">
+    <value>เครดิตเทิร์ม</value>
+  </data>
+  <data name="customer_code" xml:space="preserve">
+    <value>รหัสลูกค้า</value>
+  </data>
+  <data name="customer_group" xml:space="preserve">
+    <value>กลุ่มลูกค้า</value>
+  </data>
+  <data name="code" xml:space="preserve">
+    <value>รหัส</value>
+  </data>
+  <data name="reference_type" xml:space="preserve">
+    <value>ข้อมูลหลัก *</value>
+  </data>
+  <data name="service_code" xml:space="preserve">
+    <value>รหัสสินค้า/บริการ</value>
+  </data>
+  <data name="service_name" xml:space="preserve">
+    <value>ชื่อสินค้า/บริการ</value>
+  </data>
+  <data name="service_type" xml:space="preserve">
+    <value>ประเภทสินค้า/บริการ</value>
+  </data>
+  <data name="service_uom" xml:space="preserve">
+    <value>หน่วยนับ</value>
+  </data>
+  <data name="PACKAGE_TYPE_SERVICE" xml:space="preserve">
+    <value>โปรโมชันเบ็ดเตล็ด/บริการ</value>
+  </data>
+  <data name="item_uom_sale" xml:space="preserve">
+    <value>หน่วยนับ (คิดราคาขาย)</value>
+  </data>
+  <data name="step_code" xml:space="preserve">
+    <value>รหัสช่วงราคา</value>
+  </data>
+  <data name="step_detail" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="step_name" xml:space="preserve">
+    <value>ชื่อช่วงราคา</value>
+  </data>
+  <data name="step_row1" xml:space="preserve">
+    <value>ช่วงที่ 1</value>
+  </data>
+  <data name="step_row2" xml:space="preserve">
+    <value>ช่วงที่ 2</value>
+  </data>
+  <data name="step_row3" xml:space="preserve">
+    <value>ช่วงที่ 3</value>
+  </data>
+  <data name="step_row4" xml:space="preserve">
+    <value>ช่วงที่ 4</value>
+  </data>
+  <data name="step_type" xml:space="preserve">
+    <value>ประเภทช่วงราคา</value>
+  </data>
+  <data name="STEP_TYPE_AMOUNT" xml:space="preserve">
+    <value>ช่วงตามจำนวนเงิน</value>
+  </data>
+  <data name="STEP_TYPE_QUANTITY" xml:space="preserve">
+    <value>ช่วงตามจำนวนสินค้า</value>
+  </data>
+  <data name="customer_member" xml:space="preserve">
+    <value>สมัครสมาชิก</value>
+  </data>
+  <data name="customer_package" xml:space="preserve">
+    <value>คูปองและโปรโมชันลูกค้า</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="item_pacakage" xml:space="preserve">
+    <value>โปรโมชันสินค้า/ประเภท</value>
+  </data>
+  <data name="sequence" xml:space="preserve">
+    <value>ลำดับ</value>
+  </data>
+  <data name="service_package" xml:space="preserve">
+    <value>โปรโมชันเบ็ดเตล็ด/บริการ</value>
+  </data>
+  <data name="all_day" xml:space="preserve">
+    <value>ทั้งวัน</value>
+  </data>
+  <data name="day" xml:space="preserve">
+    <value>วัน</value>
+  </data>
+  <data name="day_effective" xml:space="preserve">
+    <value>เริ่มใช้งานภายใน</value>
+  </data>
+  <data name="day_expire" xml:space="preserve">
+    <value>หมดอายุภายใน</value>
+  </data>
+  <data name="discount_package" xml:space="preserve">
+    <value>โปรโมชันส่วนลด</value>
+  </data>
+  <data name="friday" xml:space="preserve">
+    <value>วันศุกร์</value>
+  </data>
+  <data name="member_desc" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="member_number" xml:space="preserve">
+    <value>หมายเลขสมาชิก</value>
+  </data>
+  <data name="member_type" xml:space="preserve">
+    <value>ประเภทสมาชิก</value>
+  </data>
+  <data name="pricing_package" xml:space="preserve">
+    <value>โปรโมชันราคา</value>
+  </data>
+  <data name="sathurday" xml:space="preserve">
+    <value>วันเสาร์</value>
+  </data>
+  <data name="sunday" xml:space="preserve">
+    <value>วันอาทิตย์</value>
+  </data>
+  <data name="thursday" xml:space="preserve">
+    <value>วันพฤหัสบดี</value>
+  </data>
+  <data name="tuesday" xml:space="preserve">
+    <value>วันอังคาร</value>
+  </data>
+  <data name="wednesday" xml:space="preserve">
+    <value>วันพุธ</value>
+  </data>
+  <data name="from_time" xml:space="preserve">
+    <value>จากเวลา</value>
+  </data>
+  <data name="to_time" xml:space="preserve">
+    <value>ถึงเวลา</value>
+  </data>
+  <data name="monday" xml:space="preserve">
+    <value>วันจันทร์</value>
+  </data>
+  <data name="PACKAGE_ALL" xml:space="preserve">
+    <value>โปรโมชันไม่ระบุประเภท</value>
+  </data>
+  <data name="percent_discount" xml:space="preserve">
+    <value>% ส่วนลด</value>
+  </data>
+  <data name="refresh" xml:space="preserve">
+    <value>รีเฟรช</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>บันทึก</value>
+  </data>
+  <data name="PACKAGE_VIEW" xml:space="preserve">
+    <value>ดูข้อมูลโปรโมชัน</value>
+  </data>
+  <data name="view" xml:space="preserve">
+    <value>ดูข้อมูล</value>
+  </data>
+  <data name="clear" xml:space="preserve">
+    <value>ล้างข้อมูล</value>
+  </data>
+  <data name="ERROR_NO_SELECTED" xml:space="preserve">
+    <value>กรุณาเลือกข้อมูลอย่างน้อย 1 รายการ</value>
+  </data>
+  <data name="export_item" xml:space="preserve">
+    <value>รายการเบิก</value>
+  </data>
+  <data name="inventory_xfer" xml:space="preserve">
+    <value>โอนย้ายคลัง</value>
+  </data>
+  <data name="xfer_item" xml:space="preserve">
+    <value>รายการโอน</value>
+  </data>
+  <data name="ERROR_APPROVED_INVALID_SEQ" xml:space="preserve">
+    <value>มีการอนุมัติเอกสารที่ใหม่กว่าอยู่ก่อนหน้าแล้วเมื่อวันที่ {0}</value>
+  </data>
+  <data name="ERROR_APPROVED_NOT_ENOUGH" xml:space="preserve">
+    <value>ไม่สามารถทำรายการได้เนื่องจากจำนวนไม่พอ จะมีจำนวนคงเหลือ {0}</value>
+  </data>
+  <data name="approve_error" xml:space="preserve">
+    <value>พบข้อผิดพลาดในการอนุมัติเอกสาร</value>
+  </data>
+  <data name="item_movement_avg" xml:space="preserve">
+    <value>การเคลื่อนไหว avg</value>
+  </data>
+  <data name="item_movement_fifo" xml:space="preserve">
+    <value>การเคลื่อนไหว FIFO</value>
+  </data>
+  <data name="in_amount_avg" xml:space="preserve">
+    <value>มูลค่าเข้า (avg)</value>
+  </data>
+  <data name="in_quantity" xml:space="preserve">
+    <value>จำนวนเข้า</value>
+  </data>
+  <data name="left_amount_avg" xml:space="preserve">
+    <value>มูลค่าคงเหลือ (avg)</value>
+  </data>
+  <data name="left_quantity" xml:space="preserve">
+    <value>จำนวนคงเหลือ</value>
+  </data>
+  <data name="out_amount_avg" xml:space="preserve">
+    <value>มูลค่าออก (avg)</value>
+  </data>
+  <data name="out_quantity" xml:space="preserve">
+    <value>จำนวนออก</value>
+  </data>
+  <data name="unit_price_avg" xml:space="preserve">
+    <value>ราคาต่อหน่วย (avg)</value>
+  </data>
+  <data name="balance_forward" xml:space="preserve">
+    <value>ยอดยกมา</value>
+  </data>
+  <data name="in_amount_fifo" xml:space="preserve">
+    <value>มูลค่าเข้า (FIFO)</value>
+  </data>
+  <data name="left_amount_fifo" xml:space="preserve">
+    <value>มูลค่าคงเหลือ (FIFO)</value>
+  </data>
+  <data name="out_amount_fifo" xml:space="preserve">
+    <value>มูลค่าออก (FIFO)</value>
+  </data>
+  <data name="item_movement_summary" xml:space="preserve">
+    <value>สรุปการเคลื่อนไหว</value>
+  </data>
+  <data name="in_amount" xml:space="preserve">
+    <value>มูลค่าเข้า</value>
+  </data>
+  <data name="ERROR_XFER_SAME_LOCATION" xml:space="preserve">
+    <value>ไม่สามารถโอนย้ายภายในสถานที่จัดเก็บเดียวกันได้ {0}</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>ไม่ใช่</value>
+  </data>
+  <data name="yes" xml:space="preserve">
+    <value>ใช่</value>
+  </data>
+  <data name="verify" xml:space="preserve">
+    <value>ตรวจสอบ</value>
+  </data>
+  <data name="VERIFY_SUCCESS" xml:space="preserve">
+    <value>การตรวจสอบความถูกต้อง ไม่พบข้อผิดพลาดใด ๆ</value>
+  </data>
+  <data name="inventory_adjust" xml:space="preserve">
+    <value>ปรับยอดคลัง</value>
+  </data>
+  <data name="adjust_item" xml:space="preserve">
+    <value>รายการปรับยอด</value>
+  </data>
+  <data name="adjust_down" xml:space="preserve">
+    <value>ปรับลด</value>
+  </data>
+  <data name="adjust_up" xml:space="preserve">
+    <value>ปรับขึ้น</value>
+  </data>
+  <data name="E" xml:space="preserve">
+    <value>ลด</value>
+  </data>
+  <data name="I" xml:space="preserve">
+    <value>เพิ่ม</value>
+  </data>
+  <data name="X" xml:space="preserve">
+    <value>โอน</value>
+  </data>
+  <data name="admin_report" xml:space="preserve">
+    <value>รายงานระบบแอดมิน</value>
+  </data>
+  <data name="copy" xml:space="preserve">
+    <value>คัดลอกข้อมูล</value>
+  </data>
+  <data name="inventory_report" xml:space="preserve">
+    <value>รายงานระบบคลัง</value>
+  </data>
+  <data name="theme" xml:space="preserve">
+    <value>ธีม</value>
+  </data>
+  <data name="server_setting" xml:space="preserve">
+    <value>เซิร์ฟเวอร์</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="key" xml:space="preserve">
+    <value>คีย์</value>
+  </data>
+  <data name="test" xml:space="preserve">
+    <value>ทดสอบ</value>
+  </data>
+  <data name="url" xml:space="preserve">
+    <value>ลิงค์ URL</value>
+  </data>
+  <data name="returned_xml" xml:space="preserve">
+    <value>XML กลับมา</value>
+  </data>
+  <data name="submited_xml" xml:space="preserve">
+    <value>XML ส่งไป</value>
+  </data>
+  <data name="connect_success" xml:space="preserve">
+    <value>ทดสอบการเชื่อมต่อเซิร์ฟเวอร์เป็นผลสำเร็จ</value>
+  </data>
+  <data name="connect_fail" xml:space="preserve">
+    <value>ทดสอบการเชื่อมต่อเซิร์ฟเวอร์ไม่สำเร็จ</value>
+  </data>
+  <data name="remark" xml:space="preserve">
+    <value>หมายเหตุ</value>
+  </data>
+  <data name="rpt_inv_movement_avg" xml:space="preserve">
+    <value>I002-01 - รายงาน การเคลื่อนไหวข้อมูลไอเท็ม (ราคาเฉลี่ย)</value>
+  </data>
+  <data name="rpt_inv_movement_summary_avg" xml:space="preserve">
+    <value>I003-01 - รายงาน สรุปการเคลื่อนไหวข้อมูลไอเท็มรายวัน(ราคาเฉลี่ย)</value>
+  </data>
+  <data name="progress" xml:space="preserve">
+    <value>ความคืบหน้า</value>
+  </data>
+  <data name="minimum_allowed" xml:space="preserve">
+    <value>จำนวนต่ำสุดที่ยินยอม</value>
+  </data>
+  <data name="login_history" xml:space="preserve">
+    <value>ประวัติการล็อคอิน</value>
+  </data>
+  <data name="error_desc" xml:space="preserve">
+    <value>ข้อผิดพลาด</value>
+  </data>
+  <data name="ip_address" xml:space="preserve">
+    <value>ไอพีแอดเดรส</value>
+  </data>
+  <data name="is_login_success" xml:space="preserve">
+    <value>ล็อคอินสำเร็จ?</value>
+  </data>
+  <data name="login_date_time" xml:space="preserve">
+    <value>วันเวลาที่ล็อคอิน</value>
+  </data>
+  <data name="total_record" xml:space="preserve">
+    <value>จำนวนข้อมูลรวม</value>
+  </data>
+  <data name="a4" xml:space="preserve">
+    <value>A4 (8.3 x 11.7 นิ้ว)</value>
+  </data>
+  <data name="landscape" xml:space="preserve">
+    <value>แนวนอน</value>
+  </data>
+  <data name="letter" xml:space="preserve">
+    <value>Letter (8.5 x 11 นิ้ว)</value>
+  </data>
+  <data name="margin_bottom" xml:space="preserve">
+    <value>ขอบล่าง (นิ้ว)</value>
+  </data>
+  <data name="margin_left" xml:space="preserve">
+    <value>ขอบซ้าย (นิ้ว)</value>
+  </data>
+  <data name="margin_right" xml:space="preserve">
+    <value>ขอบขวา (นิ้ว)</value>
+  </data>
+  <data name="margin_top" xml:space="preserve">
+    <value>ขอบบน (นิ้ว)</value>
+  </data>
+  <data name="paper_type" xml:space="preserve">
+    <value>ขนาดกระดาษ</value>
+  </data>
+  <data name="potrait" xml:space="preserve">
+    <value>แนวตั้ง</value>
+  </data>
+  <data name="disconnect" xml:space="preserve">
+    <value>ดิสคอนเนค</value>
+  </data>
+  <data name="login_duration" xml:space="preserve">
+    <value>ระยะเวลาที่ล็อคอิน</value>
+  </data>
+  <data name="login_session" xml:space="preserve">
+    <value>เซสชันการล็อคอิน</value>
+  </data>
+  <data name="rpt_inv_balance_summary_avg" xml:space="preserve">
+    <value>I001-01 - รายงาน ยอดคงเหลือไอเท็ม (ราคาเฉลี่ย)</value>
+  </data>
+  <data name="session" xml:space="preserve">
+    <value>เซสชัน</value>
+  </data>
+  <data name="amount" xml:space="preserve">
+    <value>มูลค่า</value>
+  </data>
+  <data name="amount_per_unit" xml:space="preserve">
+    <value>ราคาต่อหน่วย</value>
+  </data>
+  <data name="rpt_inv_balance_summary_fifo" xml:space="preserve">
+    <value>I001-02 - รายงาน ยอดคงเหลือไอเท็ม (FIFO)</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>ชั่วโมง</value>
+  </data>
+  <data name="minute" xml:space="preserve">
+    <value>นาที</value>
+  </data>
+  <data name="total" xml:space="preserve">
+    <value>รวม</value>
+  </data>
+  <data name="sale_credit_note" xml:space="preserve">
+    <value>ใบลดหนี้ (ขาย)</value>
+  </data>
+  <data name="sale_debit_note" xml:space="preserve">
+    <value>ใบเพิ่มหนี้ (ขาย)</value>
+  </data>
+  <data name="account_doc_status" xml:space="preserve">
+    <value>สถานะการอนุมัติ</value>
+  </data>
+  <data name="account_flow_status" xml:space="preserve">
+    <value>สถานะเอกสาร</value>
+  </data>
+  <data name="status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="add_product" xml:space="preserve">
+    <value />
+  </data>
+  <data name="rpt_inv_movement_fifo" xml:space="preserve">
+    <value>I002-02 - รายงาน การเคลื่อนไหวข้อมูลไอเท็ม (FIFO)</value>
+  </data>
+  <data name="sale_item" xml:space="preserve">
+    <value>รายการขาย</value>
+  </data>
+  <data name="VAT" xml:space="preserve">
+    <value>ภาษีมูลค่าเพิ่ม %</value>
+  </data>
+  <data name="Bath" xml:space="preserve">
+    <value>บาท</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>หน่วย</value>
+  </data>
+  <data name="Cash" xml:space="preserve">
+    <value>เงินสด</value>
+  </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>บัตรเครดิต</value>
+  </data>
+  <data name="DiscUnit" xml:space="preserve">
+    <value>หน่วยส่วนลด</value>
+  </data>
+  <data name="PayType" xml:space="preserve">
+    <value>ประเภทการชำระเงิน</value>
+  </data>
+  <data name="ProdServ" xml:space="preserve">
+    <value>สินค้า/บริการ</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>โอน</value>
+  </data>
+  <data name="item_uom_stock" xml:space="preserve">
+    <value>หน่วยนับ(คลัง)</value>
+  </data>
+  <data name="version_mismatch" xml:space="preserve">
+    <value>เวอร์ชันไม่สอดคล้องกันระหว่าง API {0} กับ โปรแกรม {1}</value>
+  </data>
+  <data name="String2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AddDebt" xml:space="preserve">
+    <value>เพิ่มหนี้</value>
+  </data>
+  <data name="ProdValue" xml:space="preserve">
+    <value>มูลค่าสินค้า</value>
+  </data>
+  <data name="SumAddDebt" xml:space="preserve">
+    <value>เพิ่มหนี้รวม</value>
+  </data>
+  <data name="SumRecDebt" xml:space="preserve">
+    <value>ลดหนี้รวม</value>
+  </data>
+  <data name="balance_amount" xml:space="preserve">
+    <value>มูลค่าคงเหลือ</value>
+  </data>
+  <data name="out_amount" xml:space="preserve">
+    <value>มูลค่าออก</value>
+  </data>
+  <data name="ARRec" xml:space="preserve">
+    <value>รับชำระลูกหนี้</value>
+  </data>
+  <data name="CashAcc" xml:space="preserve">
+    <value>บัญชีเงินสด</value>
+  </data>
+  <data name="CashFlow" xml:space="preserve">
+    <value>การเงิน</value>
+  </data>
+  <data name="CashIn" xml:space="preserve">
+    <value>เงินเข้า</value>
+  </data>
+  <data name="CashOut" xml:space="preserve">
+    <value>เงินออก</value>
+  </data>
+  <data name="Trans" xml:space="preserve">
+    <value>โอนเงิน</value>
+  </data>
+  <data name="AccName" xml:space="preserve">
+    <value>ชื่อบัญชี</value>
+  </data>
+  <data name="AccNo" xml:space="preserve">
+    <value>หมายเลขบัญชี</value>
+  </data>
+  <data name="Bank" xml:space="preserve">
+    <value>ธนาคาร</value>
+  </data>
+  <data name="Branch" xml:space="preserve">
+    <value>สาขา</value>
+  </data>
+  <data name="cash_report" xml:space="preserve">
+    <value>รายงานการเงิน</value>
+  </data>
+  <data name="rpt_inv_movement_summary_fifo" xml:space="preserve">
+    <value>I003-02 - รายงาน สรุปการเคลื่อนไหวข้อมูลไอเท็มรายวัน(FIFO)</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>วันที่</value>
+  </data>
+  <data name="money_quantity" xml:space="preserve">
+    <value>จำนวนเงิน</value>
+  </data>
+  <data name="num" xml:space="preserve">
+    <value>เลขที่</value>
+  </data>
+  <data name="FromAcc" xml:space="preserve">
+    <value>จากบัญชี</value>
+  </data>
+  <data name="ToAcc" xml:space="preserve">
+    <value>ไปยังบัญชี</value>
+  </data>
+  <data name="TransBal" xml:space="preserve">
+    <value>ยอดโอน</value>
+  </data>
+  <data name="Member" xml:space="preserve">
+    <value>สมาชิก</value>
+  </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>โปรโมชั่น</value>
+  </data>
+  <data name="rpt_inv_in" xml:space="preserve">
+    <value>I004-01 - รายงานสรุปรับเข้าคลัง</value>
+  </data>
+  <data name="rpt_inv_out" xml:space="preserve">
+    <value>I004-02 - รายงานสรุปเบิกจากคลัง</value>
+  </data>
+  <data name="couponcode" xml:space="preserve">
+    <value>รหัสคูปอง</value>
+  </data>
+  <data name="coupon_type" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+  <data name="rpt_inv_adjust" xml:space="preserve">
+    <value>I004-03 - รายงานสรุปปรับยอดคลัง</value>
+  </data>
+  <data name="rpt_inv_move" xml:space="preserve">
+    <value>I004-04 - รายงานสรุปย้ายโอนคลัง</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="ItemGroup" xml:space="preserve">
+    <value>กลุ่มสินค้า</value>
+  </data>
+  <data name="rpt_sale_day" xml:space="preserve">
+    <value>I001-01 - รายงานการขายประจำวัน</value>
+  </data>
+  <data name="pos_no" xml:space="preserve">
+    <value>รหัสเครื่อง POS</value>
+  </data>
+  <data name="StandardPrice" xml:space="preserve">
+    <value>ราคามาตรฐาน</value>
+  </data>
+  <data name="sale_order" xml:space="preserve">
+    <value>ใบสั่งขาย</value>
+  </data>
+  <data name="req_date" xml:space="preserve">
+    <value>วันที่ต้องการ</value>
+  </data>
+  <data name="order_type" xml:space="preserve">
+    <value>ประเภทใบสั่งขาย</value>
+  </data>
+  <data name="sale_person" xml:space="preserve">
+    <value>พนักงานขาย</value>
+  </data>
+  <data name="adv" xml:space="preserve">
+    <value>เงินมัดจำ</value>
+  </data>
+  <data name="adv_amt" xml:space="preserve">
+    <value>จนง.เงินมัดจำ</value>
+  </data>
+  <data name="adv_percent" xml:space="preserve">
+    <value>%เงินมัดจำ</value>
+  </data>
+  <data name="adv_ratio" xml:space="preserve">
+    <value>มัดจำเป็นร้อยละ</value>
+  </data>
+  <data name="amt_bef_vat" xml:space="preserve">
+    <value>จนง.ก่อนVat</value>
+  </data>
+  <data name="item_detail" xml:space="preserve">
+    <value>รายละเอียดสินค้า</value>
+  </data>
+  <data name="number" xml:space="preserve">
+    <value>ลำดับ</value>
+  </data>
+  <data name="ref_doc_no" xml:space="preserve">
+    <value>เอกสารอ้างอิง</value>
+  </data>
+  <data name="ref_doc_type" xml:space="preserve">
+    <value>ปภ.เอกสารอ้างอิง</value>
+  </data>
+  <data name="stock" xml:space="preserve">
+    <value>สต๊อกคงเหลือสุทธิ</value>
+  </data>
+  <data name="stock_cfm" xml:space="preserve">
+    <value>สต๊อกสั่งจอง</value>
+  </data>
+  <data name="stock_so" xml:space="preserve">
+    <value>สต๊อกรอขาย</value>
+  </data>
+  <data name="vat_amt" xml:space="preserve">
+    <value>มูลค่า Vat</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>พาธ</value>
+  </data>
+  <data name="PurchaseAP" xml:space="preserve">
+    <value>ซื้อและเจ้าหนี้</value>
+  </data>
+  <data name="PurchaseReqisition" xml:space="preserve">
+    <value>ใบขอซื้อ</value>
+  </data>
+  <data name="vendor" xml:space="preserve">
+    <value>ผู้จำหน่าย</value>
+  </data>
+  <data name="bal_qty" xml:space="preserve">
+    <value>จำนวนคงค้าง</value>
+  </data>
+  <data name="size" xml:space="preserve">
+    <value>ขนาด</value>
+  </data>
+  <data name="DemandT" xml:space="preserve">
+    <value>ประเภทความต้องการ</value>
+  </data>
+  <data name="item" xml:space="preserve">
+    <value>ไอเทม</value>
+  </data>
+  <data name="itempic" xml:space="preserve">
+    <value>รูปภาพสินค้า</value>
+  </data>
+  <data name="ReqDep" xml:space="preserve">
+    <value>แผนกขอซื้อ</value>
+  </data>
+  <data name="ReqStaff" xml:space="preserve">
+    <value>พนักงานขอซื้อ</value>
+  </data>
+  <data name="acc_recept" xml:space="preserve">
+    <value>ลูกหนี้</value>
+  </data>
+  <data name="bill_addr" xml:space="preserve">
+    <value>ที่อยู่เปิดบิล</value>
+  </data>
+  <data name="bill_name" xml:space="preserve">
+    <value>ชื่อเปิดบิล</value>
+  </data>
+  <data name="bill_type" xml:space="preserve">
+    <value>ประเภทวางบิล</value>
+  </data>
+  <data name="cncy" xml:space="preserve">
+    <value>สกุลเงิน</value>
+  </data>
+  <data name="control_cr" xml:space="preserve">
+    <value>เครดิตเทอม-ควบคุม</value>
+  </data>
+  <data name="cus_branch" xml:space="preserve">
+    <value>สาขาของลูกค้า</value>
+  </data>
+  <data name="exchg_rate" xml:space="preserve">
+    <value>อัตราแลกเปลี่ยน</value>
+  </data>
+  <data name="export" xml:space="preserve">
+    <value>ส่งออก</value>
+  </data>
+  <data name="head_office" xml:space="preserve">
+    <value>สำนักงานใหญ่</value>
+  </data>
+  <data name="incoterms" xml:space="preserve">
+    <value>เงื่อนไขทางการค้า</value>
+  </data>
+  <data name="pay_type" xml:space="preserve">
+    <value>วิธีชำระเงิน</value>
+  </data>
+  <data name="sale_dep" xml:space="preserve">
+    <value>แผนกขาย</value>
+  </data>
+  <data name="BuyReqList" xml:space="preserve">
+    <value>รายการขอซื้อ</value>
+  </data>
+  <data name="CopyPR" xml:space="preserve">
+    <value>คัดลอก PR</value>
+  </data>
+  <data name="CreatePO" xml:space="preserve">
+    <value>สร้างใบสั่งขาย</value>
+  </data>
+  <data name="DiscPrice" xml:space="preserve">
+    <value>ส่วนลด/หน่วย</value>
+  </data>
+  <data name="DiscType" xml:space="preserve">
+    <value>ประเภทส่วนลด</value>
+  </data>
+  <data name="GNralData" xml:space="preserve">
+    <value>ข้อมูลทั่วไป</value>
+  </data>
+  <data name="netBuyPrice" xml:space="preserve">
+    <value>ราคาซื้อสุทธิ</value>
+  </data>
+  <data name="PO" xml:space="preserve">
+    <value>ใบสั่งซื้อ</value>
+  </data>
+  <data name="ProcOfficer" xml:space="preserve">
+    <value>พนักงานจัดซื้อ</value>
+  </data>
+  <data name="RefDoc" xml:space="preserve">
+    <value>เอกสารอ้างอิง</value>
+  </data>
+  <data name="BuyQuantity" xml:space="preserve">
+    <value>จำนวนขอซื้อ</value>
+  </data>
+  <data name="disprice" xml:space="preserve">
+    <value>ราคาหลังหักส่วนลด</value>
+  </data>
+  <data name="TotalVat" xml:space="preserve">
+    <value>รวมภาษีมูลค่าเพิ่ม</value>
+  </data>
+  <data name="sale_inv" xml:space="preserve">
+    <value>ใบแจ้งหนี้ขาย</value>
+  </data>
+  <data name="cb_order" xml:space="preserve">
+    <value>ใบสั่ง</value>
+  </data>
+  <data name="cb_vat" xml:space="preserve">
+    <value>รวมภาษี</value>
+  </data>
+  <data name="due_date" xml:space="preserve">
+    <value>วันที่ครบกำหนดชำระ</value>
+  </data>
+  <data name="export_no" xml:space="preserve">
+    <value>เลขที่ใบเบิก</value>
+  </data>
+  <data name="exp_no" xml:space="preserve">
+    <value>เลขที่ใบเบิก</value>
+  </data>
+  <data name="inv_adv_amt" xml:space="preserve">
+    <value>จำนวนเงินแจ้งหนี้มัดจำ</value>
+  </data>
+  <data name="inv_adv_no" xml:space="preserve">
+    <value>เลขที่แจ้งหนี้มัดจำ</value>
+  </data>
+  <data name="inv_doc_tpy" xml:space="preserve">
+    <value>ประเภทใบแจ้งหนี้</value>
+  </data>
+  <data name="per_vat" xml:space="preserve">
+    <value>ร้อยละ (ภาษี)</value>
+  </data>
+  <data name="so_no" xml:space="preserve">
+    <value>เลขที่ใบสั่งขาย</value>
+  </data>
+  <data name="tab_payment" xml:space="preserve">
+    <value>ชำระเงิน &amp; ส่วนลด</value>
+  </data>
+  <data name="PONo" xml:space="preserve">
+    <value>เลขที่ใบขอซื้อ</value>
+  </data>
+  <data name="creditor" xml:space="preserve">
+    <value>เจ้าหนี้</value>
+  </data>
+  <data name="import" xml:space="preserve">
+    <value>นำเข้า</value>
+  </data>
+  <data name="payment" xml:space="preserve">
+    <value>ชำระเงิน</value>
+  </data>
+  <data name="vendor_branch" xml:space="preserve">
+    <value>สาขาผู้จำหน่าย</value>
+  </data>
+  <data name="ItemCategoryName" xml:space="preserve">
+    <value>ชื่อกลุ่มไอเท็ม</value>
+  </data>
+  <data name="ItemCategoryID" xml:space="preserve">
+    <value>รหัสกลุ่มไอเท็ม</value>
+  </data>
+  <data name="ItemCategoryCount" xml:space="preserve">
+    <value>จำนวนนับกลุ่มไอเท็ม</value>
+  </data>
+  <data name="ItemCategoryParentID" xml:space="preserve">
+    <value>กลุ่มไอเท็มแม่</value>
+  </data>
+  <data name="inventory_item_by_category" xml:space="preserve">
+    <value>ข้อมูลไอเท็ม (แบบผัง)</value>
+  </data>
+  <data name="inventory_item_by_table" xml:space="preserve">
+    <value>ข้อมูลไอเท็ม (ตาราง)</value>
+  </data>
+  <data name="item_category" xml:space="preserve">
+    <value>กลุ่มไอเท็ม</value>
+  </data>
+  <data name="CONFIRM_DELETE_ITEM" xml:space="preserve">
+    <value>ต้องการลบข้อมูลรายการ {0} ใช่หรือไม่</value>
+  </data>
+  <data name="ERROR_ITEM_ADD" xml:space="preserve">
+    <value>ไม่สามารถเพิ่มรายการ ภายใน '{0}' ได้ เนื่องจากมีไอเท็มแล้ว</value>
+  </data>
+  <data name="ERROR_ITEM_DELETE" xml:space="preserve">
+    <value>ไม่สามารถลบรายการ '{0}' ได้ เนื่องจากยังมีรายการอื่นค้างอยู่</value>
+  </data>
+  <data name="ERROR_ITEM_ADD_PLS" xml:space="preserve">
+    <value>กรุณาเลือกกลุ่มไอเท็ม สำหรับการเพิ่มรายการ</value>
+  </data>
+  <data name="from_qty" xml:space="preserve">
+    <value>จำนวนเริ่มต้น</value>
+  </data>
+  <data name="to_qty" xml:space="preserve">
+    <value>จำนวนสิ้นสุด</value>
+  </data>
+  <data name="ERROR_NOT_LAST_CHILD" xml:space="preserve">
+    <value>ไม่สามารถเพิ่มรายการที่กลุ่มไอเท็ม '{0}' ได้ เนื่องจากใช่ไม่กลุ่มไอเท็มสุดท้าย</value>
+  </data>
+  <data name="format_doc" xml:space="preserve">
+    <value>ข้อมูลเลขที่เอกสาร</value>
+  </data>
+  <data name="formatDoc_Current_SEQ" xml:space="preserve">
+    <value>ลำดับเลขที่ปัจจุบัน</value>
+  </data>
+  <data name="formatDoc_doctype" xml:space="preserve">
+    <value>ชนิดเอกสาร</value>
+  </data>
+  <data name="formatDoc_Fomula" xml:space="preserve">
+    <value>รูปแบบเลขที่เอกสาร</value>
+  </data>
+  <data name="formatDoc_LastRunMONTH" xml:space="preserve">
+    <value>เดือนล่าสุด</value>
+  </data>
+  <data name="formatDoc_LastRunYAER" xml:space="preserve">
+    <value>ปีล่าสุด</value>
+  </data>
+  <data name="formatDoc_MONTH" xml:space="preserve">
+    <value>เดือน</value>
+  </data>
+  <data name="formatDoc_Reset_Criteria" xml:space="preserve">
+    <value>รูปแบบการรีเซต</value>
+  </data>
+  <data name="formatDoc_SEQ_Lenght" xml:space="preserve">
+    <value>จำนวนดิจิต</value>
+  </data>
+  <data name="formatDoc_Start_SEQ" xml:space="preserve">
+    <value>เริ่มต้นจากเลขที่</value>
+  </data>
+  <data name="formatDoc_YEAR" xml:space="preserve">
+    <value>ปี</value>
+  </data>
+  <data name="formatDoc_YEAR_Offset" xml:space="preserve">
+    <value>ออฟเซต ปี</value>
+  </data>
+  <data name="linear" xml:space="preserve">
+    <value>ราคาคงที่</value>
+  </data>
+  <data name="stepprice" xml:space="preserve">
+    <value>สเต็ป</value>
+  </data>
+  <data name="tier" xml:space="preserve">
+    <value>เทียร์</value>
+  </data>
+  <data name="vat_amount" xml:space="preserve">
+    <value>มูลค่าภาษี</value>
+  </data>
+  <data name="vat_percent" xml:space="preserve">
+    <value>ภาษี</value>
+  </data>
+  <data name="vat_total" xml:space="preserve">
+    <value>รวมทั้งหมด</value>
+  </data>
+  <data name="cost_amount" xml:space="preserve">
+    <value>ต้นทุนรวม</value>
+  </data>
+  <data name="cost_perUnit" xml:space="preserve">
+    <value>ต้นทุน/หน่วย</value>
+  </data>
+  <data name="rpt_Testing" xml:space="preserve">
+    <value>ทดสอบสร้างรายงาน</value>
+  </data>
+  <data name="locationTo_name" xml:space="preserve">
+    <value>ชื่อสถานที่จัดเก็บปลายทาง</value>
+  </data>
+  <data name="package_price_item_category" xml:space="preserve">
+    <value>ราคาสินค้า</value>
+  </data>
+  <data name="package_price_service" xml:space="preserve">
+    <value>ราคาเบ็ดเตล็ด/บริการ</value>
+  </data>
+  <data name="package_addPrice_item" xml:space="preserve">
+    <value>เพิ่มราคาสินค้า</value>
+  </data>
+  <data name="package_addPrice_itemcategory" xml:space="preserve">
+    <value>เพิ่มราคากลุ่มไอเท็ม</value>
+  </data>
+  <data name="package_addPrice_service" xml:space="preserve">
+    <value>เพิ่มราคาบริการ</value>
+  </data>
+  <data name="member_edit" xml:space="preserve">
+    <value>แก้ไขข้อมูลสมาชิก</value>
+  </data>
+  <data name="member_register" xml:space="preserve">
+    <value>สมัครสมาชิก</value>
+  </data>
+  <data name="price_test" xml:space="preserve">
+    <value>ทดสอบราคา</value>
+  </data>
+  <data name="voucher_package" xml:space="preserve">
+    <value>โปรโมชันสมนาคุณ</value>
+  </data>
+  <data name="bonus" xml:space="preserve">
+    <value>ของแถม ณ จุดขาย</value>
+  </data>
+  <data name="buy" xml:space="preserve">
+    <value>ซื้อ</value>
+  </data>
+  <data name="customer_specify" xml:space="preserve">
+    <value>ระบุลูกค้า</value>
+  </data>
+  <data name="ItemCategoryPath" xml:space="preserve">
+    <value>พาธกลุ่มไอเท็ม</value>
+  </data>
+  <data name="customer" xml:space="preserve">
+    <value>ลูกค้า</value>
+  </data>
+  <data name="discount_specify" xml:space="preserve">
+    <value>ระบุส่วนลด</value>
+  </data>
+  <data name="calcutate" xml:space="preserve">
+    <value>คำนวณ</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>เวลา</value>
+  </data>
+  <data name="coupon_name" xml:space="preserve">
+    <value>ชื่อบัตรกำนัล</value>
+  </data>
+  <data name="promotion_marketting" xml:space="preserve">
+    <value>โปรโมชัน</value>
+  </data>
+  <data name="voucher" xml:space="preserve">
+    <value>สมนาคุณ</value>
+  </data>
+  <data name="selected" xml:space="preserve">
+    <value>เลือก</value>
+  </data>
+  <data name="reference_no" xml:space="preserve">
+    <value>เอกสารอ้างอิง</value>
+  </data>
+  <data name="vat_exclude" xml:space="preserve">
+    <value>ไม่รวม VAT</value>
+  </data>
+  <data name="vat_include" xml:space="preserve">
+    <value>รวม VAT</value>
+  </data>
+  <data name="ERROR_XFER_SAME_ACCOUNT" xml:space="preserve">
+    <value>ไม่สามารถโอนย้ายภายในบัญชีเดียวกันได้ {0}</value>
+  </data>
+  <data name="package_sort" xml:space="preserve">
+    <value>กำหนดลำดับโปรโมชั่น</value>
+  </data>
+  <data name="package_typeName" xml:space="preserve">
+    <value>ชนิดโปรโมชัน</value>
+  </data>
+  <data name="cash_movement" xml:space="preserve">
+    <value>การเคลื่อนไหวเงินสด</value>
+  </data>
+  <data name="rpt_cash_balance" xml:space="preserve">
+    <value>C001-01 - รายงานยอดคงเหลือเงินสด</value>
+  </data>
+  <data name="rpt_cash_in" xml:space="preserve">
+    <value>C004_01 - รายงานการรับเงินสด</value>
+  </data>
+  <data name="rpt_cash_movement" xml:space="preserve">
+    <value>CSH001_01 - รายงานการเคลื่อนไหวเงินสดรายบัญชี</value>
+  </data>
+  <data name="rpt_cash_movement_summary" xml:space="preserve">
+    <value>C003_01 - รายงานสรุปการเคลื่อนไหวเงินสด</value>
+  </data>
+  <data name="rpt_cash_out" xml:space="preserve">
+    <value>C005_01 - รายงานการเบิกเงินสด</value>
+  </data>
+  <data name="rpt_cash_xfer" xml:space="preserve">
+    <value>C006_01 - รายงานการโอนย้ายเงินสด</value>
+  </data>
+  <data name="package_reload" xml:space="preserve">
+    <value>รีโหลดโปรโมชัน</value>
+  </data>
+  <data name="result" xml:space="preserve">
+    <value>ผลลัพธ์</value>
+  </data>
+  <data name="net" xml:space="preserve">
+    <value>สุทธิ</value>
+  </data>
+  <data name="free_in_group" xml:space="preserve">
+    <value>แถม ณ จุดขาย</value>
+  </data>
+  <data name="free_voucher" xml:space="preserve">
+    <value>สมนาคุณ</value>
+  </data>
+  <data name="approve_success" xml:space="preserve">
+    <value>อนุมัติเรียบร้อย</value>
+  </data>
+  <data name="check" xml:space="preserve">
+    <value>ตรวจสอบ</value>
+  </data>
+  <data name="check_error" xml:space="preserve">
+    <value>พบข้อผิดพลาดในการตรวจสอบเอกสาร</value>
+  </data>
+  <data name="check_success" xml:space="preserve">
+    <value>ตรวจสอบเรียบร้อย</value>
+  </data>
+  <data name="pkg_group_discount" xml:space="preserve">
+    <value>ส่วนลด</value>
+  </data>
+  <data name="pkg_group_final_discount" xml:space="preserve">
+    <value>ส่วนลดท้ายบิล</value>
+  </data>
+  <data name="pkg_group_grouping" xml:space="preserve">
+    <value>จัดกลุ่ม</value>
+  </data>
+  <data name="pkg_group_pricing" xml:space="preserve">
+    <value>คิดราคา</value>
+  </data>
+  <data name="pkg_group_operation" xml:space="preserve">
+    <value>โอเปอร์เรชัน</value>
+  </data>
+  <data name="operator_name" xml:space="preserve">
+    <value>โอเปอเรเตอร์</value>
+  </data>
+  <data name="error_code" xml:space="preserve">
+    <value>รหัส</value>
+  </data>
+  <data name="ERROR_CUSTOMER_NOT_MATCH" xml:space="preserve">
+    <value>ข้อมูลลูกค้าไม่ตรง</value>
+  </data>
+  <data name="ERROR_TIME_NOT_MATCH" xml:space="preserve">
+    <value>ข้อมูลช่วงเวลาไม่ตรง</value>
+  </data>
+  <data name="ERROR_NO_PROMOTION_MATCH" xml:space="preserve">
+    <value>เงื่อนไขไม่ตรงที่จะใช้โปรโมชันนี้</value>
+  </data>
+  <data name="ERROR_PROMOTION_IS_DISABLE" xml:space="preserve">
+    <value>โปรโมชันถูกดีสเอเบิล</value>
+  </data>
+  <data name="ERROR_PROMOTION_IS_EXPIRE" xml:space="preserve">
+    <value>โปรโมชันนี้หมดอายุแล้ว</value>
+  </data>
+  <data name="ERROR_PROMOTION_NOT_EFFECTIVE" xml:space="preserve">
+    <value>ยังไม่ถึงวันที่ใช้งานโปรโมชันได้</value>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>ค่า</value>
+  </data>
+  <data name="sort" xml:space="preserve">
+    <value>เรียง</value>
+  </data>
+  <data name="for_total_price" xml:space="preserve">
+    <value>สำหรับราคารวม</value>
+  </data>
+  <data name="for_unit_price" xml:space="preserve">
+    <value>สำหรับราคาต่อหน่วย</value>
+  </data>
+  <data name="ERROR_TEXT_ESCAPE" xml:space="preserve">
+    <value>กรุณาใช้ตัวอักขระอื่นนอกจาก '{0}' </value>
+  </data>
+  <data name="discount_mapping_type" xml:space="preserve">
+    <value>รูปแบบส่วนลด</value>
+  </data>
+  <data name="discount_map_amount" xml:space="preserve">
+    <value>เทียบจากมูลค่า</value>
+  </data>
+  <data name="discount_map_quantity" xml:space="preserve">
+    <value>เทียบจากจำนวน</value>
+  </data>
+  <data name="discount_output_fix" xml:space="preserve">
+    <value>ส่วนลดคงที่</value>
+  </data>
+  <data name="discount_output_percent" xml:space="preserve">
+    <value>ส่วนลดเป็น %</value>
+  </data>
+  <data name="discount_output_per_unit" xml:space="preserve">
+    <value>ส่วนลดต่อหน่วย</value>
+  </data>
+  <data name="approve_date" xml:space="preserve">
+    <value>วันที่อนุมัติ</value>
+  </data>
+  <data name="bundle" xml:space="preserve">
+    <value>เหมาจ่าย</value>
+  </data>
+  <data name="bundle_package" xml:space="preserve">
+    <value>โปรโมชันเหมาจ่าย</value>
+  </data>
+  <data name="other" xml:space="preserve">
+    <value>อื่นๆ</value>
+  </data>
+  <data name="create" xml:space="preserve">
+    <value>สร้างใหม่</value>
+  </data>
+  <data name="barcode_type" xml:space="preserve">
+    <value>ประเภทบาร์โค้ด</value>
+  </data>
+  <data name="default_sell_price" xml:space="preserve">
+    <value>ราคาขายเบื้องต้น</value>
+  </data>
+  <data name="final_discount_package" xml:space="preserve">
+    <value>ส่วนลดท้ายบิล</value>
+  </data>
+  <data name="basket_type" xml:space="preserve">
+    <value>กลุ่มที่นำมาคิดเงิน</value>
+  </data>
+  <data name="exclude_item_discounted" xml:space="preserve">
+    <value>ไม่รวมที่คิดส่วนลดรายการแล้ว</value>
+  </data>
+  <data name="include_item_discounted" xml:space="preserve">
+    <value>รวมที่คิดส่วนลดรายการแล้ว</value>
+  </data>
+  <data name="product_specify" xml:space="preserve">
+    <value>ระบุสินค้า</value>
+  </data>
+  <data name="minimum_quantity" xml:space="preserve">
+    <value>จำนวนขั้นต่ำ</value>
+  </data>
+  <data name="pkg_default_price" xml:space="preserve">
+    <value>ราคาดีฟอลต์</value>
+  </data>
+  <data name="simulation_code" xml:space="preserve">
+    <value>รหัสทดสอบ</value>
+  </data>
+  <data name="simulation_date" xml:space="preserve">
+    <value>วันที่</value>
+  </data>
+  <data name="simulation_desc" xml:space="preserve">
+    <value>รายละเอียดการทดสอบ</value>
+  </data>
+  <data name="simulation_test" xml:space="preserve">
+    <value>ทดสอบราคา</value>
+  </data>
+  <data name="wh_tax_pct" xml:space="preserve">
+    <value>% หัก ณ ที่จ่าย</value>
+  </data>
+  <data name="branch_specific" xml:space="preserve">
+    <value>ระบุสาขา</value>
+  </data>
+  <data name="ERROR_BRANCH_NOT_MATCH" xml:space="preserve">
+    <value>ข้อมูลสาขาไม่ตรง</value>
+  </data>
+  <data name="Bundled" xml:space="preserve">
+    <value>เหมาจ่าย</value>
+  </data>
+  <data name="Discounted" xml:space="preserve">
+    <value>คิดส่วนลดแล้ว</value>
+  </data>
+  <data name="Priced" xml:space="preserve">
+    <value>คิดราคาแล้ว (ไม่รวมส่วนลด)</value>
+  </data>
+  <data name="post_gift" xml:space="preserve">
+    <value>ของแถมท้ายบิล</value>
+  </data>
+  <data name="ratio" xml:space="preserve">
+    <value>อัตรส่วน</value>
+  </data>
+  <data name="pkg_group_post_gift" xml:space="preserve">
+    <value>ของแถมท้ายบิล</value>
+  </data>
+  <data name="FinalDiscounted" xml:space="preserve">
+    <value>ส่วนลดท้ายบิล</value>
+  </data>
+  <data name="FinalDiscount" xml:space="preserve">
+    <value>คิดส่วนลดท้ายบิล</value>
+  </data>
+  <data name="PostGift" xml:space="preserve">
+    <value>คิดของแถมท้ายบิล</value>
+  </data>
+  <data name="INVENTORY_DOC_ADJ_APPROVED" xml:space="preserve">
+    <value>คลัง-เอกสารการปรับยอด (อนุมัติ)</value>
+  </data>
+  <data name="INVENTORY_DOC_ADJ_TEMP" xml:space="preserve">
+    <value>คลัง-เอกสารการปรับยอด (ชั่วคราว)</value>
+  </data>
+  <data name="INVENTORY_DOC_EXFER_APPROVED" xml:space="preserve">
+    <value>คลัง-เอกสารการโอน (อนุมัติ)</value>
+  </data>
+  <data name="INVENTORY_DOC_EXFER_TEMP" xml:space="preserve">
+    <value>คลัง-เอกสารการโอน (ชั่วคราว)</value>
+  </data>
+  <data name="INVENTORY_DOC_EXPORT_APPROVED" xml:space="preserve">
+    <value>คลัง-เอกสารการนำเบิก (อนุมัติ)</value>
+  </data>
+  <data name="INVENTORY_DOC_EXPORT_TEMP" xml:space="preserve">
+    <value>คลัง-เอกสารการเบิก (ชั่วคราว)</value>
+  </data>
+  <data name="INVENTORY_DOC_IMPORT_APPROVED" xml:space="preserve">
+    <value>คลัง-เอกสารการนำเข้า (อนุมัติ)</value>
+  </data>
+  <data name="INVENTORY_DOC_IMPORT_TEMP" xml:space="preserve">
+    <value>คลัง-เอกสารการนำเข้า (ชั่วคราว)</value>
+  </data>
+  <data name="ERROR_CUSTOMER_SELECT" xml:space="preserve">
+    <value>กรุณาระบุรายการลูกค้า ลำดับที่ {0} ให้ถูกต้อง</value>
+  </data>
+  <data name="ERROR_ITEM_COUNT" xml:space="preserve">
+    <value>กรุณาเลือกรายการอย่างน้อย 1 รายการ</value>
+  </data>
+  <data name="ERROR_SELECTION_TYPE" xml:space="preserve">
+    <value>กรุณาระบุประเภทรายการ ลำดับที่ {0} ให้ถูกต้อง</value>
+  </data>
+  <data name="ERROR_ITEM_DUPLICATED" xml:space="preserve">
+    <value>มีรายการซ้ำกันมากกว่า 1 รายการ กรุณาตรวจสอบรายการที่ {0}</value>
+  </data>
+  <data name="total_amount_afterDiscount" xml:space="preserve">
+    <value>ราคารวมสุทธิ</value>
+  </data>
+  <data name="tray_package" xml:space="preserve">
+    <value>กระบะ</value>
+  </data>
+  <data name="tray_name" xml:space="preserve">
+    <value>ชื่อกระบะ</value>
+  </data>
+  <data name="tray_package_price" xml:space="preserve">
+    <value>กระบะ (คิดราคา/ส่วนลด)</value>
+  </data>
+  <data name="is_standard_price" xml:space="preserve">
+    <value>ราคามาตรฐาน</value>
+  </data>
+  <data name="tray_package_bonus" xml:space="preserve">
+    <value>กระบะ (แถม ณ จุดขาย)</value>
+  </data>
+  <data name="tray_package_bundle" xml:space="preserve">
+    <value>กระบะ (เหมาจ่าย)</value>
+  </data>
+  <data name="tray_package_group" xml:space="preserve">
+    <value>กระบะ (จัดกลุ่ม)</value>
+  </data>
+  <data name="salesman" xml:space="preserve">
+    <value>พนักงานขาย</value>
+  </data>
+  <data name="salesman_code" xml:space="preserve">
+    <value>รหัสพนักงานขาย</value>
+  </data>
+  <data name="salesman_group" xml:space="preserve">
+    <value>กลุ่มพนักงานขาย</value>
+  </data>
+  <data name="salesman_id" xml:space="preserve">
+    <value>ไอดีพนักงานขาย</value>
+  </data>
+  <data name="salesman_name" xml:space="preserve">
+    <value>ชื่อพนักงานขาย</value>
+  </data>
+  <data name="salesman_type" xml:space="preserve">
+    <value>ชนิดพนักงานขาย</value>
+  </data>
+  <data name="BundledTray" xml:space="preserve">
+    <value>กระบะ (เหมาจ่าย)</value>
+  </data>
+  <data name="DiscountedTray" xml:space="preserve">
+    <value>กระบะ (คิดส่วนลดแล้ว)</value>
+  </data>
+  <data name="PricedTray" xml:space="preserve">
+    <value>กระบะ (คิดราคาแล้ว)</value>
+  </data>
+  <data name="version_mismatch_warn" xml:space="preserve">
+    <value>เวอร์ชันไม่สอดคล้องกันระหว่าง API {0} กับ โปรแกรม {1} แต่รันจากซอร์สโค้ดเพื่อการดีบัก</value>
+  </data>
+  <data name="real_total" xml:space="preserve">
+    <value>คิดเป็นเงินทั้งสิ้น</value>
+  </data>
+  <data name="wh_tax_total" xml:space="preserve">
+    <value>มูลค่าหัก ณ ที่จ่ายทั้งหมด</value>
+  </data>
+  <data name="wh_tax_value" xml:space="preserve">
+    <value>มูลค่าหัก ณ ที่จ่าย</value>
+  </data>
+  <data name="docno" xml:space="preserve">
+    <value>เลขที่เอกสาร</value>
+  </data>
+  <data name="mode" xml:space="preserve">
+    <value>โหมด</value>
+  </data>
+  <data name="newbill" xml:space="preserve">
+    <value>สร้างบิล</value>
+  </data>
+  <data name="outstanding_balance" xml:space="preserve">
+    <value>ยอดค้างชำระ</value>
+  </data>
+  <data name="paid" xml:space="preserve">
+    <value>ชำระ</value>
+  </data>
+  <data name="paycash" xml:space="preserve">
+    <value>เงินสด</value>
+  </data>
+  <data name="pos" xml:space="preserve">
+    <value>หน้างานขาย</value>
+  </data>
+  <data name="print" xml:space="preserve">
+    <value>พิมพ์</value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>ชื่อสินค้า</value>
+  </data>
+  <data name="report" xml:space="preserve">
+    <value>รายงาน</value>
+  </data>
+  <data name="revoke" xml:space="preserve">
+    <value>เรียกดูบิล</value>
+  </data>
+  <data name="setting" xml:space="preserve">
+    <value>ตั้งค่า</value>
+  </data>
+  <data name="sync" xml:space="preserve">
+    <value>ซิ้งค์</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>ผู้ใช้งาน</value>
+  </data>
+  <data name="comm_profile" xml:space="preserve">
+    <value>โปรไฟล์คอมมิชชัน</value>
+  </data>
+  <data name="comm_profile_code" xml:space="preserve">
+    <value>รหัสโปรไฟล์</value>
+  </data>
+  <data name="comm_profile_name" xml:space="preserve">
+    <value>ชื่อโปรไฟล์</value>
+  </data>
+  <data name="comm_profile_type" xml:space="preserve">
+    <value>ประเภทโปรไฟล์</value>
+  </data>
+  <data name="comm_by_group" xml:space="preserve">
+    <value>คอมมิชชันตามมูลค่ารวม</value>
+  </data>
+  <data name="comm_by_item" xml:space="preserve">
+    <value>คอมมิชชันรายชิ้น</value>
+  </data>
+  <data name="is_employee_specific" xml:space="preserve">
+    <value>ระบุพนักงาน</value>
+  </data>
+  <data name="byQuantity" xml:space="preserve">
+    <value>คิดตามจำนวน</value>
+  </data>
+  <data name="bySaleUnitPrice" xml:space="preserve">
+    <value>คิดตามราคาขาย/หน่วย</value>
+  </data>
+  <data name="isProductSpecific" xml:space="preserve">
+    <value>ระบุรายการสินค้า</value>
+  </data>
+  <data name="employee_group" xml:space="preserve">
+    <value>แผนกพนักงาน</value>
+  </data>
+  <data name="employee_type" xml:space="preserve">
+    <value>ประเภทพนักงาน</value>
+  </data>
+  <data name="modeselect" xml:space="preserve">
+    <value>โหมดออนไลน์</value>
+  </data>
+  <data name="company_commission_profile" xml:space="preserve">
+    <value>กำหนดลำดับคอมมิชชั่น</value>
+  </data>
+  <data name="logout_date_time" xml:space="preserve">
+    <value>วันเวลาที่ล็อคเอาต์</value>
+  </data>
+  <data name="cycle" xml:space="preserve">
+    <value>ข้อมูลรอบบิล</value>
+  </data>
+  <data name="active" xml:space="preserve">
+    <value>ด</value>
+  </data>
+  <data name="inactive" xml:space="preserve">
+    <value>ยังไม่สำเร็จ</value>
+  </data>
+  <data name="confirm_select" xml:space="preserve">
+    <value>โปรดเลือกข้อมูล</value>
+  </data>
+  <data name="no_data" xml:space="preserve">
+    <value>ไม่พบข้อมูลที่ต้องการ</value>
+  </data>
+  <data name="negative_price" xml:space="preserve">
+    <value>ราคาสินค้าติดลบ</value>
+  </data>
+  <data name="no_item_in_bill" xml:space="preserve">
+    <value>ยังไม่มีรายการสินค้า</value>
+  </data>
+  <data name="please_create_new_bill" xml:space="preserve">
+    <value>กรุณาสร้างบิลใหม่</value>
+  </data>
+  <data name="no_customer" xml:space="preserve">
+    <value>ไม่มีลูกค้า</value>
+  </data>
+  <data name="no_selected_item" xml:space="preserve">
+    <value>ไม่มีสินค้าที่ถูกเลือก</value>
+  </data>
+  <data name="cycle_monthly" xml:space="preserve">
+    <value>รายเดือน</value>
+  </data>
+  <data name="cycle_weekly" xml:space="preserve">
+    <value>รายสัปดาห์</value>
+  </data>
+  <data name="cycle_code" xml:space="preserve">
+    <value>รหัสรอบ</value>
+  </data>
+  <data name="cycle_day_monthly" xml:space="preserve">
+    <value>วัน(สัปดาห์)</value>
+  </data>
+  <data name="cycle_day_weekly" xml:space="preserve">
+    <value>วันที่(เดือน)</value>
+  </data>
+  <data name="cycle_description" xml:space="preserve">
+    <value>คำอธิบาย</value>
+  </data>
+  <data name="cycle_type" xml:space="preserve">
+    <value>ชนิดรอบ</value>
+  </data>
+  <data name="FromAccountNo" xml:space="preserve">
+    <value>จากบัญชี</value>
+  </data>
+  <data name="ToAccountNo" xml:space="preserve">
+    <value>ไปยังบัญชี</value>
+  </data>
+  <data name="success" xml:space="preserve">
+    <value>สำเร็จ</value>
+  </data>
+  <data name="allow_negative" xml:space="preserve">
+    <value>ติดลบได้</value>
+  </data>
+  <data name="employee" xml:space="preserve">
+    <value>ข้อมูลพนักงาน</value>
+  </data>
+  <data name="employee_code" xml:space="preserve">
+    <value>รหัสพนักงาน</value>
+  </data>
+  <data name="employee_name" xml:space="preserve">
+    <value>ชื่อพนักงาน</value>
+  </data>
+  <data name="employee_category" xml:space="preserve">
+    <value>ประเภทพนักงาน</value>
+  </data>
+  <data name="employee_general" xml:space="preserve">
+    <value>พนักงานทั่วไป</value>
+  </data>
+  <data name="employee_saleman" xml:space="preserve">
+    <value>พนักงานขาย</value>
+  </data>
+  <data name="is_salesman_specific" xml:space="preserve">
+    <value>เป็นพนักงานขาย</value>
+  </data>
+  <data name="allow_cash_negative" xml:space="preserve">
+    <value>เงินติดลบได้</value>
+  </data>
+  <data name="allow_inventory_negative" xml:space="preserve">
+    <value>คลังติดลบได้</value>
+  </data>
+  <data name="exclude_vat" xml:space="preserve">
+    <value>คิดภาษีแยก</value>
+  </data>
+  <data name="include_vat" xml:space="preserve">
+    <value>คิดภาษีรวม</value>
+  </data>
+  <data name="no_vat" xml:space="preserve">
+    <value>ไม่คิดภาษี</value>
+  </data>
+  <data name="revenue" xml:space="preserve">
+    <value>รายรับ</value>
+  </data>
+  <data name="comm_batch" xml:space="preserve">
+    <value>คิดคอมมิชชัน</value>
+  </data>
+  <data name="comm_batch_code" xml:space="preserve">
+    <value>รหัสเบ็ท</value>
+  </data>
+  <data name="comm_batch_name" xml:space="preserve">
+    <value>ชื่อเบ็ท</value>
+  </data>
+  <data name="comm_batch_type" xml:space="preserve">
+    <value>ประเภทเบ็ท</value>
+  </data>
+  <data name="cricle" xml:space="preserve">
+    <value>รอบ</value>
+  </data>
+  <data name="cricle_type" xml:space="preserve">
+    <value>ประเภท Cricle</value>
+  </data>
+  <data name="doc_date_batch" xml:space="preserve">
+    <value>วันที่เอกสาร</value>
+  </data>
+  <data name="allow_ar_ap_negative" xml:space="preserve">
+    <value>ยอดหนี้ติดลบได้</value>
+  </data>
+  <data name="ar_ap_balance" xml:space="preserve">
+    <value>มูลค่าหนี้</value>
+  </data>
+  <data name="ar_ap_movement" xml:space="preserve">
+    <value>การเคลื่อนไหวหนี้</value>
+  </data>
+  <data name="String3" xml:space="preserve">
+    <value>รอบ</value>
+  </data>
+  <data name="bill_amount" xml:space="preserve">
+    <value>จำนวนบิล</value>
+  </data>
+  <data name="comm_cal" xml:space="preserve">
+    <value>คำนวณคอมมิสชั่น</value>
+  </data>
+  <data name="sum_bill" xml:space="preserve">
+    <value>มูลค่าบิลรวม</value>
+  </data>
+  <data name="login_disable" xml:space="preserve">
+    <value>ผู้ใช้งานนี้ถูกระงับการใช้งานอยู่</value>
+  </data>
+  <data name="login_incorrect" xml:space="preserve">
+    <value>รหัสผ่านไม่ถูกต้อง</value>
+  </data>
+  <data name="login_nouser" xml:space="preserve">
+    <value>ไม่พบข้อมูลผู้ใช้งานในฐานข้อมูล</value>
+  </data>
+  <data name="String4" xml:space="preserve">
+    <value>Due Date</value>
+  </data>
+  <data name="over_due_date" xml:space="preserve">
+    <value>จำนวนวัน เกินกำหนดชำระ</value>
+  </data>
+  <data name="tx_in" xml:space="preserve">
+    <value>รับเข้า</value>
+  </data>
+  <data name="tx_out" xml:space="preserve">
+    <value>จ่ายออก</value>
+  </data>
+  <data name="reconcile_amt" xml:space="preserve">
+    <value>ยอดตรวจนับ</value>
+  </data>
+  <data name="cash_in" xml:space="preserve">
+    <value>นำเงินเข้า</value>
+  </data>
+  <data name="cash_out" xml:space="preserve">
+    <value>นำเงินออก</value>
+  </data>
+  <data name="cash_reconcile" xml:space="preserve">
+    <value>นับเงิน</value>
+  </data>
+  <data name="machine" xml:space="preserve">
+    <value>เครื่อง</value>
+  </data>
+  <data name="bank_note" xml:space="preserve">
+    <value>ธนบัตร</value>
+  </data>
+  <data name="coin" xml:space="preserve">
+    <value>เหรียญ</value>
+  </data>
+  <data name="coin_note" xml:space="preserve">
+    <value>เหรียญ/ธนบัตร</value>
+  </data>
+  <data name="diff" xml:space="preserve">
+    <value>ผลต่าง</value>
+  </data>
+  <data name="server_connection" xml:space="preserve">
+    <value>เชื่อมต่อไปยังเซิร์ฟเวอร์</value>
+  </data>
+  <data name="confirm_cancel" xml:space="preserve">
+    <value>คุณต้องการยกเลิกรายการนี้ใช่หรือไม่</value>
+  </data>
+  <data name="item_quantity" xml:space="preserve">
+    <value>จำนวนชิ้น</value>
+  </data>
+  <data name="vat_type" xml:space="preserve">
+    <value>ประเภท VAT</value>
+  </data>
+  <data name="default_customer_code" xml:space="preserve">
+    <value>รหัสลูกค้า (ดีฟอลต์)</value>
+  </data>
+  <data name="default_employee_code" xml:space="preserve">
+    <value>รหัสพนักงานขาย (ดีฟอลต์)</value>
+  </data>
+  <data name="sale_by_cash" xml:space="preserve">
+    <value>ขายสด</value>
+  </data>
+  <data name="sale_by_debt" xml:space="preserve">
+    <value>ขายเชื่อ</value>
+  </data>
+  <data name="sale_type" xml:space="preserve">
+    <value>ประเภทการขาย</value>
+  </data>
+  <data name="commission_batch" xml:space="preserve">
+    <value>คอมมิสชั่นเบ็ท</value>
+  </data>
+  <data name="CONFIRM_LOGOUT" xml:space="preserve">
+    <value>คุณต้องการล็อคเอาต์ออกจากโปรแกรมใช่หรือไม่</value>
+  </data>
+  <data name="with_holding" xml:space="preserve">
+    <value>หัก ณ ที่จ่าย %</value>
+  </data>
+  <data name="for_cal_comm_all_amount" xml:space="preserve">
+    <value>คำนวณคอมมิชชันตามจำนวนรวม</value>
+  </data>
+  <data name="for_cal_comm_per_amount" xml:space="preserve">
+    <value>คำนวณคอมมิชชันตามจำนวน/หน่วย</value>
+  </data>
+  <data name="error_document_approved" xml:space="preserve">
+    <value>เอกสาร {0} ได้ถูกอนุมัติแล้ว ไม่สามารถแก้ไขได้</value>
+  </data>
+  <data name="ERROR_APPROVED_INVALID_DATE" xml:space="preserve">
+    <value>มีการอนุมัติเอกสารที่ใหม่กว่าอยู่ก่อนหน้าแล้ว</value>
+  </data>
+  <data name="branch_setting" xml:space="preserve">
+    <value>ตั้งค่าสาขา</value>
+  </data>
+  <data name="default_setting" xml:space="preserve">
+    <value>ตั้งค่าเริ่มต้น</value>
+  </data>
+  <data name="computer_name" xml:space="preserve">
+    <value>ชื่อคอมพิวเตอร์</value>
+  </data>
+  <data name="pos_serial_no" xml:space="preserve">
+    <value>รหัสเครื่อง POS</value>
+  </data>
+  <data name="ERROR_KEY_EMPTY" xml:space="preserve">
+    <value>ข้อมูล {0} ยังไม่ถูกเซต กรุณาเซตค่าให้เรียบร้อยก่อน</value>
+  </data>
+  <data name="doc_cash_novat" xml:space="preserve">
+    <value>เลขที่เอกสาร ขายสด (NV)</value>
+  </data>
+  <data name="doc_cash_vat" xml:space="preserve">
+    <value>เลขที่เอกสาร ขายสด</value>
+  </data>
+  <data name="doc_debt_novat" xml:space="preserve">
+    <value>เลขที่เอกสาร ขายเชื่อ (NV)</value>
+  </data>
+  <data name="doc_debt_vat" xml:space="preserve">
+    <value>เลขที่เอกสาร ขายเชื่อ</value>
+  </data>
+  <data name="year_offset" xml:space="preserve">
+    <value>ออฟเซตปี</value>
+  </data>
+  <data name="ERROR_FIRST_RUN" xml:space="preserve">
+    <value>นี่เป็นการใช้งานโปรแกรมครั้งแรก กรุณาทำการซิงค์ข้อมูลก่อน</value>
+  </data>
+  <data name="ACCOUNT_DOC_CASH_APPROVED" xml:space="preserve">
+    <value>ขาย-เอกสารขายสด (อนุมัติ)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CASH_TEMP" xml:space="preserve">
+    <value>ขาย-เอกสารขายสด (ชั่วคราว)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CR_APPROVED" xml:space="preserve">
+    <value>ขาย-เอกสารลดหนี้ (อนุมัติ)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CR_TEMP" xml:space="preserve">
+    <value>ขาย-เอกสารลดหนี้ (ชั่วคราว)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DEPT_APPROVED" xml:space="preserve">
+    <value>ขาย-เอกสารขายเชื่อ (อนุมัติ)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DEPT_TEMP" xml:space="preserve">
+    <value>ขาย-เอกสารขายเชื่อ (ชั่วคราว)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DR_APPROVED" xml:space="preserve">
+    <value>ขาย-เอกสารเพิ่มหนี้ (อนุมัติ)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DR_TEMP" xml:space="preserve">
+    <value>ขาย-เอกสารเพิ่มหนี้ (ชั่วคราว)</value>
+  </data>
+  <data name="change" xml:space="preserve">
+    <value>ทอน</value>
+  </data>
+  <data name="close_drawer" xml:space="preserve">
+    <value>ปิดลิ้นชัก</value>
+  </data>
+  <data name="open_drawer" xml:space="preserve">
+    <value>เปิดลิ้นชัก</value>
+  </data>
+  <data name="receive" xml:space="preserve">
+    <value>รับ</value>
+  </data>
+  <data name="cash_payment" xml:space="preserve">
+    <value>ชำระเงินสด</value>
+  </data>
+  <data name="download" xml:space="preserve">
+    <value>ดาวน์โหลด</value>
+  </data>
+  <data name="upload" xml:space="preserve">
+    <value>อัพโหลด</value>
+  </data>
+  <data name="rpt_comm_batch" xml:space="preserve">
+    <value>CB001-01 - รายงานสรุปคอมมิชชันแบช</value>
+  </data>
+  <data name="rpt_pos_revenue_by_group" xml:space="preserve">
+    <value>POS_004 - รายงานรายรับตามกลุ่มสินค้า</value>
+  </data>
+  <data name="rpt_pos_revenue_by_item" xml:space="preserve">
+    <value>POS_002 - รายงานรายรับตามสินค้า</value>
+  </data>
+  <data name="rpt_pos_revenue_by_type" xml:space="preserve">
+    <value>POS_003 - รายงานรายรับตามประเภทสินค้า</value>
+  </data>
+  <data name="rpt_pos_sale_daily" xml:space="preserve">
+    <value>POS_001 - รายงานขายรายวัน</value>
+  </data>
+  <data name="report_commission" xml:space="preserve">
+    <value>รายงานคอมมิชชัน</value>
+  </data>
+  <data name="initial" xml:space="preserve">
+    <value>ตั้งต้น</value>
+  </data>
+  <data name="branch_setting_not_found" xml:space="preserve">
+    <value>กรุณาเซตข้อมูลเกี่ยวกับสาขาให้เรียบร้อย</value>
+  </data>
+  <data name="branch_setting_key_error" xml:space="preserve">
+    <value>คีย์ที่ป้อนไม่ตรงกับที่มีในระบบ</value>
+  </data>
+  <data name="branch_setting_serial_error" xml:space="preserve">
+    <value>ข้อมูลหมายเลขเครื่อง POS ไม่มีในระบบ</value>
+  </data>
+  <data name="mapping_by_amount" xml:space="preserve">
+    <value>เทียบจากมูลค่า</value>
+  </data>
+  <data name="mapping_by_quantity" xml:space="preserve">
+    <value>เทียบจากจำนวน</value>
+  </data>
+  <data name="mapping_type" xml:space="preserve">
+    <value>แมพด้วย</value>
+  </data>
+  <data name="final_discount_explain" xml:space="preserve">
+    <value>ในกรณีที่ระบุสินค้า เฉพาะสินค้าที่ถูกเลือกจะถูกนำไปใช้ในการคิดส่วนลดท้ายบิล</value>
+  </data>
+  <data name="bill_issue" xml:space="preserve">
+    <value>ข้อผิดพลาด (เอกสาร)</value>
+  </data>
+  <data name="branch_name" xml:space="preserve">
+    <value>ชื่อสาขา</value>
+  </data>
+  <data name="branch_no" xml:space="preserve">
+    <value>รหัสสาขา</value>
+  </data>
+  <data name="pos_machine" xml:space="preserve">
+    <value>เครื่อง POS</value>
+  </data>
+  <data name="general_novat" xml:space="preserve">
+    <value>ทั่วไป (NV)</value>
+  </data>
+  <data name="general_vat" xml:space="preserve">
+    <value>ทั่วไป</value>
+  </data>
+  <data name="CashAccNV" xml:space="preserve">
+    <value>บัญชีเงินสด (NV)</value>
+  </data>
+  <data name="location_name_nv" xml:space="preserve">
+    <value>ชื่อสถานที่จัดเก็บ (NV)</value>
+  </data>
+  <data name="rpt_sale_per_bill" xml:space="preserve">
+    <value>รายงานยอดขายรายบิล</value>
+  </data>
+  <data name="cost" xml:space="preserve">
+    <value>ต้นทุน</value>
+  </data>
+  <data name="uploaded" xml:space="preserve">
+    <value>อัพโหลดแล้ว</value>
+  </data>
+  <data name="upload_status" xml:space="preserve">
+    <value>สถานะการอัพโหลด</value>
+  </data>
+  <data name="primary_profit" xml:space="preserve">
+    <value>กำไรขั้นต้น</value>
+  </data>
+  <data name="rpt_sale_daily_by_bill" xml:space="preserve">
+    <value>S001-01 - รายงานกำไรขายรายวัน</value>
+  </data>
+  <data name="rpt_sale_daily_by_item" xml:space="preserve">
+    <value>S002-01 - รายงานกำไรขายรายวันตามสินค้า</value>
+  </data>
+  <data name="import_status" xml:space="preserve">
+    <value>สถานะการนำเข้า</value>
+  </data>
+  <data name="import_error_fixed" xml:space="preserve">
+    <value>ข้อผิดพลาดถูกแก้ไขแล้ว</value>
+  </data>
+  <data name="import_error_open" xml:space="preserve">
+    <value>พบข้อผิดพลาด</value>
+  </data>
+  <data name="ERROR_BALANCE" xml:space="preserve">
+    <value>ไม่สามารถทำรายการของคลัง [{0}] ไอเท็ม [{1}] ได้เนื่องจากจำนวนไม่พอ จะมีจำนวนคงเหลือ [{2}]</value>
+  </data>
+  <data name="ERROR_DOCUMENT_DATE" xml:space="preserve">
+    <value>มีการอนุมัติเอกสารของคลัง [{0}] ไอเท็ม [{1}] ก่อนหน้าแล้ว เมื่อวันที่ [{2}]</value>
+  </data>
+  <data name="ERROR_INVALID_DATE" xml:space="preserve">
+    <value>ข้อมูลวันที่ของเอกสาร [{0}] เกินจากวันที่ [{1}]</value>
+  </data>
+  <data name="import_by" xml:space="preserve">
+    <value>นำเข้าโดย</value>
+  </data>
+  <data name="ref_id" xml:space="preserve">
+    <value>รหัสอ้างอิง</value>
+  </data>
+  <data name="allow_cash_negative_nv" xml:space="preserve">
+    <value>เงินติดลบได้ (NV)</value>
+  </data>
+  <data name="allow_inventory_negative_nv" xml:space="preserve">
+    <value>คลังติดลบได้ (NV)</value>
+  </data>
+  <data name="bill_correction" xml:space="preserve">
+    <value>ปรับแก้เอกสาร</value>
+  </data>
+  <data name="ERROR_MUST_DOWNLOAD_FIRST" xml:space="preserve">
+    <value>ไม่พบข้อมูลตัวแปรระบบ กรุณาทำการซิงค์ข้อมูลก่อน</value>
+  </data>
+  <data name="ERROR_PROGRAM_ALREADY_RUN" xml:space="preserve">
+    <value>โปรแกรมมีการถูกเรียกใช้งานอยู่แล้ว</value>
+  </data>
+  <data name="global_variable" xml:space="preserve">
+    <value>ข้อมูลตัวแปรระบบ</value>
+  </data>
+  <data name="dataType_double" xml:space="preserve">
+    <value>จำนวนจริง (Double)</value>
+  </data>
+  <data name="dataType_integer" xml:space="preserve">
+    <value>จำนวนเต็ม (Interger)</value>
+  </data>
+  <data name="dataType_text" xml:space="preserve">
+    <value>ข้อความ (Text)</value>
+  </data>
+  <data name="MAX_OVERHEAD_APPROVE_DATE" xml:space="preserve">
+    <value>จำนวนวันอนุมัติเกินวันที่ปัจจุบัน</value>
+  </data>
+  <data name="boolean_false" xml:space="preserve">
+    <value>เท็จ</value>
+  </data>
+  <data name="boolean_true" xml:space="preserve">
+    <value>จริง</value>
+  </data>
+  <data name="VAT_PERCENTAGE" xml:space="preserve">
+    <value>ภาษี (%)</value>
+  </data>
+  <data name="dataType_boolean" xml:space="preserve">
+    <value>ค่าตรรกะ (Boolean)</value>
+  </data>
+  <data name="address_type" xml:space="preserve">
+    <value>ประเภทที่อยู่</value>
+  </data>
+  <data name="id_card_no" xml:space="preserve">
+    <value>เลขที่บัตรประชาชน</value>
+  </data>
+  <data name="rpt_ar_movement_debtor" xml:space="preserve">
+    <value>AR001_01 - รายงานการเคลื่อนไหวลูกหนี้</value>
+  </data>
+  <data name="personal_id" xml:space="preserve">
+    <value>เลขที่บัตรประชาชน</value>
+  </data>
+  <data name="ACCOUNT_DOC_CASH_APPROVED_NV" xml:space="preserve">
+    <value>ขาย-เอกสารขายสด (อนุมัติ NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CASH_TEMP_NV" xml:space="preserve">
+    <value>ขาย-เอกสารขายสด (ชั่วคราว NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CR_APPROVED_NV" xml:space="preserve">
+    <value>ขาย-เอกสารลดหนี้ (อนุมัติ NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CR_TEMP_NV" xml:space="preserve">
+    <value>ขาย-เอกสารลดหนี้ (ชั่วคราว NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DEPT_APPROVED_NV" xml:space="preserve">
+    <value>ขาย-เอกสารขายเชื่อ (อนุมัติ NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DEPT_TEMP_NV" xml:space="preserve">
+    <value>ขาย-เอกสารขายเชื่อ (ชั่วคราว NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DR_APPROVED_NV" xml:space="preserve">
+    <value>ขาย-เอกสารเพิ่มหนี้ (อนุมัติ NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DR_TEMP_NV" xml:space="preserve">
+    <value>ขาย-เอกสารเพิ่มหนี้ (ชั่วคราว NV)</value>
+  </data>
+  <data name="paid_amount" xml:space="preserve">
+    <value>จ่ายแล้ว</value>
+  </data>
+  <data name="receipt_amount" xml:space="preserve">
+    <value>จำนวนที่ต้องชำระ</value>
+  </data>
+  <data name="remain_amount" xml:space="preserve">
+    <value>คงค้าง</value>
+  </data>
+  <data name="payment_type" xml:space="preserve">
+    <value>ประเภทการชำระเงิน</value>
+  </data>
+  <data name="ERROR_NO_PAYMENT" xml:space="preserve">
+    <value>กรุณากรอกข้อมูลการชำระเงินให้เรียบร้อย</value>
+  </data>
+  <data name="ERROR_PAYMENT_NOT_ENOUGH" xml:space="preserve">
+    <value>ยอดเงินที่รับชำระไม่เพียงพอ</value>
+  </data>
+  <data name="bill_itemtype" xml:space="preserve">
+    <value>ประเภทบิล</value>
+  </data>
+  <data name="exclude_bill" xml:space="preserve">
+    <value>แยกรายการ</value>
+  </data>
+  <data name="include_bill" xml:space="preserve">
+    <value>รวบรายการ</value>
+  </data>
+  <data name="DOC_NO_CASH_DEFAULT" xml:space="preserve">
+    <value>เลขที่เอกสารเงินสด</value>
+  </data>
+  <data name="DOC_NO_CASH_DEFAULT_NV" xml:space="preserve">
+    <value>เลขที่เอกสารเงินสด (NO VAT)</value>
+  </data>
+  <data name="DOC_NO_DEBT_DEFAULT" xml:space="preserve">
+    <value>เลขที่เอกสารเงินเชื่อ</value>
+  </data>
+  <data name="DOC_NO_DEBT_DEFAULT_NV" xml:space="preserve">
+    <value>เลขที่เอกสารเงินเชื่อ (NO VAT)</value>
+  </data>
+  <data name="DOC_NO_RESET_DEFAULT" xml:space="preserve">
+    <value>ตั้งค่าเริ่มต้นรูปแบบเลขที่เอกสาร</value>
+  </data>
+  <data name="DOC_NO_YEAR_OFFSET_DEFAULT" xml:space="preserve">
+    <value>ตั้งค่ารูปแบบ (พ.ศ., ค.ศ)</value>
+  </data>
+  <data name="DOC_SEQ_LENGTH_DEFAULT" xml:space="preserve">
+    <value>ความยาวลำดับตัวเลข (เลขที่เอกสาร)</value>
+  </data>
+  <data name="SALE_PETTY_CASH_ACCT_NO" xml:space="preserve">
+    <value>เลขที่บัญชีเงินสดย่อย (ขาย)</value>
+  </data>
+  <data name="INV_DOC_STATUS_CANCEL_APPROVED" xml:space="preserve">
+    <value>ยกเลิกอนุมัติ</value>
+  </data>
+  <data name="void_bill" xml:space="preserve">
+    <value>ยกเลิกบิล</value>
+  </data>
+  <data name="error_document_cancel_approved" xml:space="preserve">
+    <value>เอกสาร {0} ได้ถูกยกเลิกอนุมัติแล้ว ไม่สามารถแก้ไขได้</value>
+  </data>
+  <data name="error_document_cancel_approved_already" xml:space="preserve">
+    <value>เอกสาร {0} ได้ถูกยกเลิกอนุมัติอยู่แล้ว</value>
+  </data>
+  <data name="error_document_not_yet_approved" xml:space="preserve">
+    <value>เอกสาร {0} ยังไม่ถูกอนุมัติ ไม่สามารถยกเลิกอนุมัติได้</value>
+  </data>
+  <data name="confirm_cancal_approved" xml:space="preserve">
+    <value>คุณต้องการยกเลิกอนุมัติบิลนี้ใช่หรือไม่</value>
+  </data>
+  <data name="error_document_upload_already" xml:space="preserve">
+    <value>เอกสาร {0} ได้ถูกอัปโหลดเรียบร้อยแล้ว ไม่สามารถยกเลิกบิลได้</value>
+  </data>
+  <data name="xfer_add_delta" xml:space="preserve">
+    <value>ปรับยอดคลังแบบระบุส่วนต่าง</value>
+  </data>
+  <data name="xfer_add_net" xml:space="preserve">
+    <value>ปรับยอดคลังแบบระบุยอดคงเหลือ</value>
+  </data>
+  <data name="ERROR_ITEM_COUNT_EXCEED" xml:space="preserve">
+    <value>จำนวนรายการเกินจากที่กำหนดไว้ [{0}]</value>
+  </data>
+  <data name="approve_print" xml:space="preserve">
+    <value>อนุมัติ &amp; พิมพ์</value>
+  </data>
+  <data name="preview" xml:space="preserve">
+    <value>พรีวีว</value>
+  </data>
+  <data name="SaleInvoiceReceiptShort" xml:space="preserve">
+    <value>ใบกำกับภาษี/ใบเสร็จ (แบบย่อ)</value>
+  </data>
+  <data name="SalePackageLabel" xml:space="preserve">
+    <value>ใบแปะพัสดุสินค้า</value>
+  </data>
+  <data name="void_bill_pass" xml:space="preserve">
+    <value>รหัสยกเลิกบิล</value>
+  </data>
+  <data name="branch_setting_void_bill_password" xml:space="preserve">
+    <value>รหัสยกเลิกบิลที่ป้อนไม่ถูกต้อง</value>
+  </data>
+  <data name="amount_unit" xml:space="preserve">
+    <value>มูลค่าคงเหลือต่อหน่วย</value>
+  </data>
+  <data name="amout_total" xml:space="preserve">
+    <value>มูลค่าคงเหลือรวม</value>
+  </data>
+  <data name="item_no" xml:space="preserve">
+    <value>ลำดับ</value>
+  </data>
+  <data name="receipt_invoice_short" xml:space="preserve">
+    <value>ใบเสร็จรับเงิน / ใบกำกับภาษี (อย่างย่อ)</value>
+  </data>
+  <data name="SaleReceiptInvoiceFull" xml:space="preserve">
+    <value>ใบกำกับภาษี/ใบเสร็จ (แบบเต็ม)</value>
+  </data>
+  <data name="Rd_PIT_90" xml:space="preserve">
+    <value>ภ.ง.ด.90</value>
+  </data>
+  <data name="supplier" xml:space="preserve">
+    <value>ซัพพลายเออร์</value>
+  </data>
+  <data name="purchase_supplier" xml:space="preserve">
+    <value>ข้อมูลผู้ผลิต</value>
+  </data>
+  <data name="supplier_code" xml:space="preserve">
+    <value>รหัสผู้ผลิต</value>
+  </data>
+  <data name="supplier_group" xml:space="preserve">
+    <value>กลุ่มผู้ผลิต</value>
+  </data>
+  <data name="supplier_name" xml:space="preserve">
+    <value>ชื่อผู้ผลิต</value>
+  </data>
+  <data name="supplier_type" xml:space="preserve">
+    <value>ประเภทผู้ผลิต</value>
+  </data>
+  <data name="purchase_ap" xml:space="preserve">
+    <value>ซื้อและเจ้าหนี้</value>
+  </data>
+  <data name="purchase_cash" xml:space="preserve">
+    <value>ซื้อ (เงินสด)</value>
+  </data>
+  <data name="page_no" xml:space="preserve">
+    <value>หน้าที่</value>
+  </data>
+  <data name="receiver" xml:space="preserve">
+    <value>ผู้รับ</value>
+  </data>
+  <data name="sender" xml:space="preserve">
+    <value>ผู้ส่ง</value>
+  </data>
+  <data name="tel" xml:space="preserve">
+    <value>โทร.</value>
+  </data>
+  <data name="ACCOUNT_DOC_CASH_BUY_APPROVED" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้อสด (อนุมัติ)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CASH_BUY_APPROVED_NV" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้อสด (อนุมัติ NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CASH_BUY_TEMP" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้อสด (ชั่วคราว)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CASH_BUY_TEMP_NV" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้อสด (ชั่วคราว NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CR_BUY_APPROVED" xml:space="preserve">
+    <value>ซื้อ-เอกสารลดหนี้ (อนุมัติ)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CR_BUY_APPROVED_NV" xml:space="preserve">
+    <value>ซื้อ-เอกสารลดหนี้ (อนุมัติ NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CR_BUY_TEMP" xml:space="preserve">
+    <value>ซื้อ-เอกสารลดหนี้ (ชั่วคราว)</value>
+  </data>
+  <data name="ACCOUNT_DOC_CR_BUY_TEMP_NV" xml:space="preserve">
+    <value>ซื้อ-เอกสารลดหนี้ (ชั่วคราว NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DEPT_BUY_APPROVED" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้อเชื่อ (อนุมัติ)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DEPT_BUY_APPROVED_NV" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้อเชื่อ (อนุมัติ NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DEPT_BUY_TEMP" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้อเชื่อ (ชั่วคราว)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DEPT_BUY_TEMP_NV" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้อเชื่อ (ชั่วคราว NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DR_BUY_APPROVED" xml:space="preserve">
+    <value>ซื้อ-เอกสารเพิ่มหนี้ (อนุมัติ)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DR_BUY_APPROVED_NV" xml:space="preserve">
+    <value>ซื้อ-เอกสารเพิ่มหนี้ (อนุมัติ NV)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DR_BUY_TEMP" xml:space="preserve">
+    <value>ซื้อ-เอกสารเพิ่มหนี้ (ชั่วคราว)</value>
+  </data>
+  <data name="ACCOUNT_DOC_DR_BUY_TEMP_NV" xml:space="preserve">
+    <value>ซื้อ-เอกสารเพิ่มหนี้ (ชั่วคราว NV)</value>
+  </data>
+  <data name="vat_rpt" xml:space="preserve">
+    <value>ภาษีมูลค่าเพิ่ม</value>
+  </data>
+  <data name="purchase_debt" xml:space="preserve">
+    <value>ซื้อ (เชื่อ)</value>
+  </data>
+  <data name="margin_bottom_cm" xml:space="preserve">
+    <value>ขอบล่าง (cm)</value>
+  </data>
+  <data name="margin_left_cm" xml:space="preserve">
+    <value>ขอบซ้าย (cm)</value>
+  </data>
+  <data name="margin_right_cm" xml:space="preserve">
+    <value>ขอบขวา (cm)</value>
+  </data>
+  <data name="margin_top_cm" xml:space="preserve">
+    <value>ขอบบน (cm)</value>
+  </data>
+  <data name="report_setting" xml:space="preserve">
+    <value>ตั้งค่ารายงาน</value>
+  </data>
+  <data name="height_cm" xml:space="preserve">
+    <value>สูง (cm)</value>
+  </data>
+  <data name="lang_english" xml:space="preserve">
+    <value>ภาษาอังกฤษ</value>
+  </data>
+  <data name="lang_thai" xml:space="preserve">
+    <value>ภาษาไทย</value>
+  </data>
+  <data name="size_custom" xml:space="preserve">
+    <value>กำหนดขนาดเอง</value>
+  </data>
+  <data name="size_predefine" xml:space="preserve">
+    <value>ขนาดมาตรฐาน</value>
+  </data>
+  <data name="width_cm" xml:space="preserve">
+    <value>กว้าง (cm)</value>
+  </data>
+  <data name="allow_creditor_negative" xml:space="preserve">
+    <value>เจ้าหนี้ติดลบได้</value>
+  </data>
+  <data name="purchase_item" xml:space="preserve">
+    <value>รายการซื้อ</value>
+  </data>
+  <data name="name_prefix" xml:space="preserve">
+    <value>คำนำหน้าชื่อ</value>
+  </data>
+  <data name="menu_tax" xml:space="preserve">
+    <value>ข้อมูลการยื่นภาษี</value>
+  </data>
+  <data name="RD_PP_30" xml:space="preserve">
+    <value>ภ.พ.30</value>
+  </data>
+  <data name="RD_PP_30_Attach" xml:space="preserve">
+    <value>ใบแนบ ภ.พ.30</value>
+  </data>
+  <data name="vat_eligible" xml:space="preserve">
+    <value>คิด VAT</value>
+  </data>
+  <data name="grpSaleByCashInvoice" xml:space="preserve">
+    <value>ขายสด</value>
+  </data>
+  <data name="grpSaleByDebtInvoice" xml:space="preserve">
+    <value>ขายเชื่อ</value>
+  </data>
+  <data name="form_config" xml:space="preserve">
+    <value>ตั้งค่าฟอร์ม</value>
+  </data>
+  <data name="report_SaleInvoice" xml:space="preserve">
+    <value>รายงานภาษีขาย</value>
+  </data>
+  <data name="sale_ar_receipt" xml:space="preserve">
+    <value>รับชำระลูกหนี้</value>
+  </data>
+  <data name="debt_amount" xml:space="preserve">
+    <value>ยอดหนี้</value>
+  </data>
+  <data name="debt_remain" xml:space="preserve">
+    <value>หนี้คงเหลือ</value>
+  </data>
+  <data name="receipt_item" xml:space="preserve">
+    <value>รายการชำระหนี้</value>
+  </data>
+  <data name="ar_ap_document" xml:space="preserve">
+    <value>เอกสาร</value>
+  </data>
+  <data name="selected_document" xml:space="preserve">
+    <value>เอกสารที่เลือกแล้ว</value>
+  </data>
+  <data name="purchase_po" xml:space="preserve">
+    <value>ใบสั่งซื้อ (PO)</value>
+  </data>
+  <data name="PoApproved" xml:space="preserve">
+    <value>อนุมัติ</value>
+  </data>
+  <data name="PoCancelApproved" xml:space="preserve">
+    <value>ยกเลิกการอนุมัติ</value>
+  </data>
+  <data name="PoPending" xml:space="preserve">
+    <value>รออนุมัติ</value>
+  </data>
+  <data name="po_doc_status" xml:space="preserve">
+    <value>สถานะใบสั่งซื้อ</value>
+  </data>
+  <data name="po_item" xml:space="preserve">
+    <value>รายการสั่งซื้อ</value>
+  </data>
+  <data name="delivery_date" xml:space="preserve">
+    <value>วันที่กำหนดส่ง</value>
+  </data>
+  <data name="ok_print" xml:space="preserve">
+    <value>ตกลง &amp; พิมพ์</value>
+  </data>
+  <data name="project" xml:space="preserve">
+    <value>โปรเจกต์</value>
+  </data>
+  <data name="shift_to" xml:space="preserve">
+    <value>ที่จัดส่งสินค้า</value>
+  </data>
+  <data name="AUX_DOC_PO_TEMP" xml:space="preserve">
+    <value>ซื้อ-เอกสารใบสั่งซื้อ</value>
+  </data>
+  <data name="DEFAULT_SELECTION_TYPE_PERCHASE" xml:space="preserve">
+    <value>ประเภทรายการ (ซื้อ)</value>
+  </data>
+  <data name="DEFAULT_VAT_TYPE_PERCHASE" xml:space="preserve">
+    <value>ประเภท VAT (ซื้อ)</value>
+  </data>
+  <data name="project_code" xml:space="preserve">
+    <value>รหัสโปรเจกต์</value>
+  </data>
+  <data name="project_description" xml:space="preserve">
+    <value>รายละเอียดโปรเจกต์</value>
+  </data>
+  <data name="project_name" xml:space="preserve">
+    <value>ชื่อโปรเจกต์</value>
+  </data>
+  <data name="same_tax_id" xml:space="preserve">
+    <value>(สามารถกรอกเป็นเลขที่ผู้เสียภาษีแทนได้)</value>
+  </data>
+  <data name="wh_eligible" xml:space="preserve">
+    <value>หัก ณ ที่จ่าย</value>
+  </data>
+  <data name="wh_amt" xml:space="preserve">
+    <value>มูลค่า WH</value>
+  </data>
+  <data name="expense" xml:space="preserve">
+    <value>รายจ่าย</value>
+  </data>
+  <data name="payment_criteria" xml:space="preserve">
+    <value>เงื่อนไขการจ่ายเงิน</value>
+  </data>
+  <data name="percent" xml:space="preserve">
+    <value>เปอร์เซ็นต์</value>
+  </data>
+  <data name="ERROR_PERCENT_NOT_EQUAL_100" xml:space="preserve">
+    <value>จำนวนรวมเปอร์เซ็นต์จะต้องเท่ากับ 100</value>
+  </data>
+  <data name="PurchaseOrder_Form" xml:space="preserve">
+    <value>ใบสั่งซื้อ</value>
+  </data>
+  <data name="grpPurchasePO" xml:space="preserve">
+    <value>สั่งซื้อ</value>
+  </data>
+  <data name="approvedBy" xml:space="preserve">
+    <value>อนุมัติโดย</value>
+  </data>
+  <data name="authorizerSign" xml:space="preserve">
+    <value>ผู้รับมอบอำนาจ</value>
+  </data>
+  <data name="HeaderPO" xml:space="preserve">
+    <value>ใบสั่งซื้อ/Purchase Order</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>ชื่อ</value>
+  </data>
+  <data name="payMethod" xml:space="preserve">
+    <value>วิธีการชำระเงิน</value>
+  </data>
+  <data name="ship_to" xml:space="preserve">
+    <value>ติดต่อ</value>
+  </data>
+  <data name="project_group" xml:space="preserve">
+    <value>กลุ่มโปรเจกต์</value>
+  </data>
+  <data name="Cheque" xml:space="preserve">
+    <value>จ่ายเช็ค</value>
+  </data>
+  <data name="void_document" xml:space="preserve">
+    <value>ยกเลิกเอกสาร</value>
+  </data>
+  <data name="CONFIRM_VOID_DOCUMENT" xml:space="preserve">
+    <value>คุณต้องการที่จะยกเลิกเอกสารนี้ใช่หรือไม่</value>
+  </data>
+  <data name="ERROR_DOC_STATUS" xml:space="preserve">
+    <value>สถานะเอกสารไม่ถูกต้องที่จะทำการยกเลิก</value>
+  </data>
+  <data name="allow_arap_negative" xml:space="preserve">
+    <value>ยอดหนี้ติดลบได้</value>
+  </data>
+  <data name="document_no" xml:space="preserve">
+    <value>เลขที่เอกสาร</value>
+  </data>
+  <data name="void_reason" xml:space="preserve">
+    <value>เหตุผลการยกเลิก</value>
+  </data>
+  <data name="rpt_inv_movement_summary_all" xml:space="preserve">
+    <value>I003-03 - รายงาน สรุปการเคลื่อนไหวข้อมูลไอเท็มรวม</value>
+  </data>
+  <data name="begin_amt" xml:space="preserve">
+    <value>มูลค่ายกมา</value>
+  </data>
+  <data name="begin_qty" xml:space="preserve">
+    <value>จำนวนยกมา</value>
+  </data>
+  <data name="end_amt" xml:space="preserve">
+    <value>มูลค่าคงเหลือ</value>
+  </data>
+  <data name="end_qty" xml:space="preserve">
+    <value>จำนวนคงเหลือ</value>
+  </data>
+  <data name="in_amt" xml:space="preserve">
+    <value>มูลค่ารับ</value>
+  </data>
+  <data name="in_qty" xml:space="preserve">
+    <value>จำนวนรับ</value>
+  </data>
+  <data name="out_amt" xml:space="preserve">
+    <value>มูลค่าออก</value>
+  </data>
+  <data name="out_qty" xml:space="preserve">
+    <value>จำนวนออก</value>
+  </data>
+  <data name="pricing_by_manual" xml:space="preserve">
+    <value>ใช้ราคาแบบกำหนดเอง</value>
+  </data>
+  <data name="pricing_by_promotion" xml:space="preserve">
+    <value>ใช้ราคาตามโปรโมชัน</value>
+  </data>
+  <data name="COMPANY_LOGO_URL" xml:space="preserve">
+    <value>URL โลโกบริษัท</value>
+  </data>
+  <data name="DEFAULT_SELECTION_TYPE_SALE" xml:space="preserve">
+    <value>ประเภทรายการ (ขาย)</value>
+  </data>
+  <data name="DEFAULT_VAT_TYPE_SALE" xml:space="preserve">
+    <value>ประเภท VAT (ขาย)</value>
+  </data>
+  <data name="receipt_invoice_dept_full" xml:space="preserve">
+    <value>ใบกำกับภาษี</value>
+  </data>
+  <data name="receipt_invoice_dept_short" xml:space="preserve">
+    <value>ใบกำกับภาษี (อย่างย่อ)</value>
+  </data>
+  <data name="receipt_invoice_full" xml:space="preserve">
+    <value>ใบเสร็จรับเงิน / ใบกำกับภาษี</value>
+  </data>
+  <data name="SaleInvoiceDeptReceiptFull" xml:space="preserve">
+    <value>ใบกำกับภาษี (แบบเต็ม)</value>
+  </data>
+  <data name="SaleInvoiceDeptReceiptShort" xml:space="preserve">
+    <value>ใบกำกับภาษี (แบบย่อ)</value>
+  </data>
+  <data name="bank_account_type" xml:space="preserve">
+    <value>ประเภทบัญชีธนาคาร</value>
+  </data>
+  <data name="bank_account" xml:space="preserve">
+    <value>บัญชีธนาคาร</value>
+  </data>
+  <data name="supplier_bank_account" xml:space="preserve">
+    <value>เลขที่บัญชีธนาคารผู้ผลิต</value>
+  </data>
+  <data name="PurchaseOrderService_Form" xml:space="preserve">
+    <value>ใบเบิกจ่าย ค่าของ ค่าแรง</value>
+  </data>
+  <data name="account_department" xml:space="preserve">
+    <value>ฝ่ายบัญชี  อนุมัติจ่าย</value>
+  </data>
+  <data name="balance_money" xml:space="preserve">
+    <value>ยอดเงินที่ต้องจ่าย</value>
+  </data>
+  <data name="committee_approved" xml:space="preserve">
+    <value>กรรมการ  อนุมัติจ่าย</value>
+  </data>
+  <data name="job_detail" xml:space="preserve">
+    <value>รายละเอียดงาน</value>
+  </data>
+  <data name="money_before_vat" xml:space="preserve">
+    <value>จำนวนเงินก่อน VAT</value>
+  </data>
+  <data name="money_vat7" xml:space="preserve">
+    <value>รวมเงินสุทธิ</value>
+  </data>
+  <data name="sale_department" xml:space="preserve">
+    <value>ฝ่ายจัดซื้อ  อนุมัติจ่าย</value>
+  </data>
+  <data name="tax_WH3" xml:space="preserve">
+    <value>หัก ณ ที่ จ่าย 3%</value>
+  </data>
+  <data name="total_balance" xml:space="preserve">
+    <value>ยอดเงินทั้งหมด :</value>
+  </data>
+  <data name="vat7" xml:space="preserve">
+    <value>VAT 7%</value>
+  </data>
+  <data name="adjust_by_delta" xml:space="preserve">
+    <value>ปรับยอดโดยระบุส่วนต่าง</value>
+  </data>
+  <data name="adjust_by_total" xml:space="preserve">
+    <value>ปรับยอดโดยระบุยอดรวม</value>
+  </data>
+  <data name="sale_quotation" xml:space="preserve">
+    <value>ใบเสนอราคา</value>
+  </data>
+  <data name="quotation_item" xml:space="preserve">
+    <value>รายการเสนอราคา</value>
+  </data>
+  <data name="currency" xml:space="preserve">
+    <value>สกุลเงิน</value>
+  </data>
+  <data name="payment_term" xml:space="preserve">
+    <value>เงื่อนไขการชำระเงิน</value>
+  </data>
+  <data name="day_validity" xml:space="preserve">
+    <value>จำนวนวันที่ยืนราคา</value>
+  </data>
+  <data name="validate_until" xml:space="preserve">
+    <value>ยืนราคาถึงวันที่</value>
+  </data>
+  <data name="AUX_DOC_QUOTATION_TEMP" xml:space="preserve">
+    <value>ขาย-เอกสารใบเสนอราคา</value>
+  </data>
+  <data name="auto_calculate" xml:space="preserve">
+    <value>คำนวณอัตโนมัติ</value>
+  </data>
+  <data name="manual_calculate" xml:space="preserve">
+    <value>คำนวณเอง</value>
+  </data>
+  <data name="rpt_buyer" xml:space="preserve">
+    <value>ผู้สั่งซื้อ</value>
+  </data>
+  <data name="rpt_lb_salesManager" xml:space="preserve">
+    <value>ผู้จัดการแผนกขาย</value>
+  </data>
+  <data name="purchase_credit_note" xml:space="preserve">
+    <value>ใบลดหนี้ (ซื้อ)</value>
+  </data>
+  <data name="purchase_debit_note" xml:space="preserve">
+    <value>ใบเพิ่มหนี้ (ซื้อ)</value>
+  </data>
+  <data name="sorting_local_side" xml:space="preserve">
+    <value>การเรียงข้อมูล (โลคอล)</value>
+  </data>
+  <data name="sorting_server_side" xml:space="preserve">
+    <value>การเรียงข้อมูล (เซิร์ฟเวอร์)</value>
+  </data>
+  <data name="sorting_config" xml:space="preserve">
+    <value>ตั้งค่าการเรียงข้อมูล</value>
+  </data>
+  <data name="column_name" xml:space="preserve">
+    <value>ชื่อคอลัมน์</value>
+  </data>
+  <data name="sorting_by" xml:space="preserve">
+    <value>เรียงจาก</value>
+  </data>
+  <data name="sort_asc" xml:space="preserve">
+    <value>น้อยไปมาก</value>
+  </data>
+  <data name="sort_desc" xml:space="preserve">
+    <value>มากไปน้อย</value>
+  </data>
+  <data name="position" xml:space="preserve">
+    <value>ตำแหน่ง</value>
+  </data>
+  <data name="style" xml:space="preserve">
+    <value>สไตล์</value>
+  </data>
+  <data name="variable" xml:space="preserve">
+    <value>ตัวแปร</value>
+  </data>
+  <data name="variable_name" xml:space="preserve">
+    <value>ชื่อตัวแปร</value>
+  </data>
+  <data name="variable_type" xml:space="preserve">
+    <value>ชนิดตัวแปร</value>
+  </data>
+  <data name="variable_value" xml:space="preserve">
+    <value>ค่าตัวแปร</value>
+  </data>
+  <data name="languages" xml:space="preserve">
+    <value>ภาษา</value>
+  </data>
+  <data name="system_variable" xml:space="preserve">
+    <value>ตัวแปรระบบ</value>
+  </data>
+  <data name="VarBinding" xml:space="preserve">
+    <value>ไบด์ดิง</value>
+  </data>
+  <data name="VarLangKey" xml:space="preserve">
+    <value>คีย์ภาษา</value>
+  </data>
+  <data name="VarNumber" xml:space="preserve">
+    <value>ตัวเลข</value>
+  </data>
+  <data name="VarString" xml:space="preserve">
+    <value>สตริง</value>
+  </data>
+  <data name="all" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="english" xml:space="preserve">
+    <value>ภาษาอังกฤษ</value>
+  </data>
+  <data name="thai" xml:space="preserve">
+    <value>ภาษาไทย</value>
+  </data>
+  <data name="is_overrided" xml:space="preserve">
+    <value>โอเวอร์ไรด์</value>
+  </data>
+  <data name="sale_purchase_history" xml:space="preserve">
+    <value>ประวัติการซื้อขาย</value>
+  </data>
+  <data name="purchase_history" xml:space="preserve">
+    <value>ประวัติการซื้อ</value>
+  </data>
+  <data name="sale_history" xml:space="preserve">
+    <value>ประวัติการขาย</value>
+  </data>
+  <data name="grpSaleQuotation" xml:space="preserve">
+    <value>เสนอราคา</value>
+  </data>
+  <data name="company_footer" xml:space="preserve">
+    <value>ทางเราหวังเป็นอย่างยิ่งว่าคงจะได้ให้บริการใน เร็ววันนี้</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>เรียน</value>
+  </data>
+  <data name="quote_desc" xml:space="preserve">
+    <value>มีความยินดีที่จะเสนอราคาสินค้าดังต่อไปนี้</value>
+  </data>
+  <data name="rpt_approved" xml:space="preserve">
+    <value>ผู้อนุมัติ</value>
+  </data>
+  <data name="rpt_salesManager" xml:space="preserve">
+    <value>ผู้จัดการฝ่ายขาย</value>
+  </data>
+  <data name="for_both" xml:space="preserve">
+    <value>ทั้งซื้อและขาย</value>
+  </data>
+  <data name="for_purchase" xml:space="preserve">
+    <value>สำหรับซื้อ</value>
+  </data>
+  <data name="for_sale" xml:space="preserve">
+    <value>สำหรับขาย</value>
+  </data>
+  <data name="PURCHASE_DOC_RECEIPT_APPROVED" xml:space="preserve">
+    <value>ซื้อ-เอกสารใบเสร็จ (อนุมัติ)</value>
+  </data>
+  <data name="PURCHASE_DOC_RECEIPT_TEMP" xml:space="preserve">
+    <value>ซื้อ-เอกสารใบเสร็จ (ชั่วคราว)</value>
+  </data>
+  <data name="SALE_DOC_RECEIPT_APPROVED" xml:space="preserve">
+    <value>ขาย-เอกสารใบเสร็จ (อนุมัติ)</value>
+  </data>
+  <data name="SALE_DOC_RECEIPT_TEMP" xml:space="preserve">
+    <value>ขาย-เอกสารใบเสร็จ (ชั่วคราว)</value>
+  </data>
+  <data name="day_overdue" xml:space="preserve">
+    <value>วันเกินดิว</value>
+  </data>
+  <data name="is_overdue" xml:space="preserve">
+    <value>เกินดิว</value>
+  </data>
+  <data name="grpPurchaseByCashInvoice" xml:space="preserve">
+    <value>ซื้อสด</value>
+  </data>
+  <data name="payment_voucher" xml:space="preserve">
+    <value>ใบสำคัญจ่าย/ค่าใช่จ่ายอื่นๆ</value>
+  </data>
+  <data name="claim_date" xml:space="preserve">
+    <value>วันที่เคลม</value>
+  </data>
+  <data name="purchase_bill_no" xml:space="preserve">
+    <value>เลขที่บิลซื้อ</value>
+  </data>
+  <data name="cheque_date" xml:space="preserve">
+    <value>วันที่เช็ค</value>
+  </data>
+  <data name="cheque_no" xml:space="preserve">
+    <value>เลขที่เช็ค</value>
+  </data>
+  <data name="paid_by" xml:space="preserve">
+    <value>ผู้จ่ายเงิน</value>
+  </data>
+  <data name="rpt_supplier" xml:space="preserve">
+    <value>ผู้ขาย</value>
+  </data>
+  <data name="type_cash" xml:space="preserve">
+    <value>ประเภทเงิน</value>
+  </data>
+  <data name="wh_tax_desc" xml:space="preserve">
+    <value>ภาษี หัก ณ ที่จ่าย</value>
+  </data>
+  <data name="quotation" xml:space="preserve">
+    <value>ใบเสนอราคา</value>
+  </data>
+  <data name="include_invoice_no" xml:space="preserve">
+    <value>เลขที่อินวอยซ์ที่ถูกใช้อยู่</value>
+  </data>
+  <data name="net_amount" xml:space="preserve">
+    <value>ยอดจำนวนสุทธิ</value>
+  </data>
+  <data name="free_text" xml:space="preserve">
+    <value>กำหนดเอง</value>
+  </data>
+  <data name="reference_doc_no" xml:space="preserve">
+    <value>เอกสารอ้างอิง</value>
+  </data>
+  <data name="ERROR_TYPE_NOT_SUPPORT" xml:space="preserve">
+    <value>ประเภทรายการไม่ซัพพอร์ตสำหรับงานขาย</value>
+  </data>
+  <data name="add_by_po" xml:space="preserve">
+    <value>เพิ่มจาก PO</value>
+  </data>
+  <data name="ref_by_criteria" xml:space="preserve">
+    <value>ตามเงื่อนไขการชำระเงิน</value>
+  </data>
+  <data name="ref_by_item" xml:space="preserve">
+    <value>ตามรายการ</value>
+  </data>
+  <data name="description_eng" xml:space="preserve">
+    <value>รายละเอียด (ENG)</value>
+  </data>
+  <data name="optional" xml:space="preserve">
+    <value>เพิ่มเติม</value>
+  </data>
+  <data name="optional_eng" xml:space="preserve">
+    <value>เพิ่มเติม (ENG)</value>
+  </data>
+  <data name="employee_name_eng" xml:space="preserve">
+    <value>ชื่อพนักงาน (ENG)</value>
+  </data>
+  <data name="ERROR_INVALID_ENTITY" xml:space="preserve">
+    <value>ข้อมูลเจ้าหนี้/ลูกหนี้ไม่สอดคล้องกัน</value>
+  </data>
+  <data name="ERROR_RECEIPT_AMOUNT" xml:space="preserve">
+    <value>มูลค่ารวมจะต้องมากกว่าหรือเท่ากับ 0</value>
+  </data>
+  <data name="payee" xml:space="preserve">
+    <value>ผู้รับเงิน</value>
+  </data>
+  <data name="grpSaleArReceipt" xml:space="preserve">
+    <value>รับชำระลูกหนี้</value>
+  </data>
+  <data name="official_receipt" xml:space="preserve">
+    <value>ใบเสร็จรับเงิน</value>
+  </data>
+  <data name="APRec" xml:space="preserve">
+    <value>จ่ายชำระเจ้าหนี้</value>
+  </data>
+  <data name="purchase_ap_receipt" xml:space="preserve">
+    <value>จ่ายชำระเจ้าหนี้</value>
+  </data>
+  <data name="value_product" xml:space="preserve">
+    <value>มูลค่าสินค้า</value>
+  </data>
+  <data name="PurchasePaymentVoucher" xml:space="preserve">
+    <value>ใบสำคัญจ่ายเจ้าหนี้</value>
+  </data>
+  <data name="grpPurchaseApReceipt" xml:space="preserve">
+    <value>จ่ายชำระเจ้าหนี้</value>
+  </data>
+  <data name="approved_by" xml:space="preserve">
+    <value>ผู้อนุมัติ</value>
+  </data>
+  <data name="received_by" xml:space="preserve">
+    <value>ผู้รับสินค้า</value>
+  </data>
+  <data name="sent_by" xml:space="preserve">
+    <value>ผู้ส่งสินค้า</value>
+  </data>
+  <data name="no_resident_witholding_tax" xml:space="preserve">
+    <value>หนังสืบรับรองหัก ณ ที่จ่าย (A4)</value>
+  </data>
+  <data name="change_by_cash" xml:space="preserve">
+    <value>ทอนด้วยเงินสด</value>
+  </data>
+  <data name="change_by_credit" xml:space="preserve">
+    <value>ทอนด้วยเครดิต</value>
+  </data>
+  <data name="PURCHASE_CASH_CHANGE_TYPE" xml:space="preserve">
+    <value>เงินทอนจากการซื้อสด</value>
+  </data>
+  <data name="PURCHASE_DEBT_CHANGE_TYPE" xml:space="preserve">
+    <value>เงินทอนจากการจ่ายชำระหนี้</value>
+  </data>
+  <data name="SALE_CASH_CHANGE_TYPE" xml:space="preserve">
+    <value>เงินทอนจากการขายสด</value>
+  </data>
+  <data name="SALE_DEBT_CHANGE_TYPE" xml:space="preserve">
+    <value>เงินทอนจากการรับชำระหนี้</value>
+  </data>
+  <data name="master_ref_group" xml:space="preserve">
+    <value>กลุ่มภาษีหัก ณ ที่จ่าย</value>
+  </data>
+  <data name="purchase_report" xml:space="preserve">
+    <value>รายงานระบบซื้อ</value>
+  </data>
+  <data name="rpt_ap_movement" xml:space="preserve">
+    <value>AP001_01 - รายงานการเคลื่อนไหวเจ้าหนี้</value>
+  </data>
+  <data name="item_cost_balance" xml:space="preserve">
+    <value>ยอดคงเหลือและมูลค่า</value>
+  </data>
+  <data name="actual_receive_date" xml:space="preserve">
+    <value>วันที่ชำระจริง</value>
+  </data>
+  <data name="discount_by_pct" xml:space="preserve">
+    <value>ส่วนลดเป็น %</value>
+  </data>
+  <data name="cr_note" xml:space="preserve">
+    <value>ลดหนี้</value>
+  </data>
+  <data name="personal_account" xml:space="preserve">
+    <value>เงินโอนบัญชีส่วนตัว</value>
+  </data>
+  <data name="invoice_no" xml:space="preserve">
+    <value>เลขที่ใบกำกับ</value>
+  </data>
+  <data name="po_no" xml:space="preserve">
+    <value>เลขที่ใบสั่งซื้อ</value>
+  </data>
+  <data name="receipt_no" xml:space="preserve">
+    <value>เลขที่ใบเสร็จ</value>
+  </data>
+  <data name="wh_doc_no" xml:space="preserve">
+    <value>หนังสือรับรอง ภาษีหัก ณ ที่จ่าย</value>
+  </data>
+  <data name="service_other" xml:space="preserve">
+    <value>สินค้าและบริการอื่น ๆ</value>
+  </data>
+  <data name="document_type" xml:space="preserve">
+    <value>ประเภทเอกสาร</value>
+  </data>
+  <data name="rpt_ap_invoiceList002_01" xml:space="preserve">
+    <value>AP002_01 - รายงานใบกำกับค้างชำระ (ซื้อ)</value>
+  </data>
+  <data name="rpt_ar_invoiceList002_01" xml:space="preserve">
+    <value>AR002_01 - รายงานใบกำกับค้างชำระ (ขาย)</value>
+  </data>
+  <data name="Credit" xml:space="preserve">
+    <value>เงินเชื่อ</value>
+  </data>
+  <data name="PURCHASE_DOC_EXPENSE_APPROVED" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้ออื่น ๆ (อนุมัติ)</value>
+  </data>
+  <data name="PURCHASE_DOC_EXPENSE_TEMP" xml:space="preserve">
+    <value>ซื้อ-เอกสารซื้ออื่น ๆ (ชั่วคราว)</value>
+  </data>
+  <data name="SALE_DOC_REVENUE_APPROVED" xml:space="preserve">
+    <value>ขาย-เอกสารขายอื่น ๆ (อนุมัติ)</value>
+  </data>
+  <data name="SALE_DOC_REVENUE_TEMP" xml:space="preserve">
+    <value>ขาย-เอกสารขายอื่น ๆ (ชั่วคราว)</value>
+  </data>
+  <data name="purchase_misc" xml:space="preserve">
+    <value>ซื้ออื่น ๆ (เงินสด)</value>
+  </data>
+  <data name="duedate" xml:space="preserve">
+    <value>วันที่ครบกำหนด</value>
+  </data>
+  <data name="from_duedate" xml:space="preserve">
+    <value>จากวันที่ครบกำหนด</value>
+  </data>
+  <data name="to_duedate" xml:space="preserve">
+    <value>ถึงวันที่ครบกำหนด</value>
+  </data>
+  <data name="bank_name" xml:space="preserve">
+    <value>ธนาคาร</value>
+  </data>
+  <data name="cheque_status" xml:space="preserve">
+    <value>สถานะเช็ค</value>
+  </data>
+  <data name="payee_name" xml:space="preserve">
+    <value>ชื่อผู้รับเช็ค</value>
+  </data>
+  <data name="payable_cheque" xml:space="preserve">
+    <value>เช็คจ่าย</value>
+  </data>
+  <data name="receivable_cheque" xml:space="preserve">
+    <value>เช็ครับ</value>
+  </data>
+  <data name="cheque_due_date" xml:space="preserve">
+    <value>วันที่ดิวเช็ค</value>
+  </data>
+  <data name="final_discount" xml:space="preserve">
+    <value>ลดท้ายบิล</value>
+  </data>
+  <data name="discount_type" xml:space="preserve">
+    <value>ประเภทส่วนลด</value>
+  </data>
+  <data name="sale_misc" xml:space="preserve">
+    <value>ขายอื่น ๆ (เงินสด)</value>
+  </data>
+  <data name="payment_voucher_new" xml:space="preserve">
+    <value>ใบสำคัญจ่าย (A4)</value>
+  </data>
+  <data name="ref_wh_doc_no" xml:space="preserve">
+    <value>เลขที่เอกสารหักฯ ณ ที่จ่าย</value>
+  </data>
+  <data name="grpChequePayment" xml:space="preserve">
+    <value>เช็คจ่าย</value>
+  </data>
+  <data name="ac_payee_only" xml:space="preserve">
+    <value>AC PAYEE ONLY</value>
+  </data>
+  <data name="rv_tax_3" xml:space="preserve">
+    <value>ภ.ง.ด. 3</value>
+  </data>
+  <data name="rv_tax_53" xml:space="preserve">
+    <value>ภ.ง.ด. 53</value>
+  </data>
+  <data name="grpPurchaseByDebtInvoice" xml:space="preserve">
+    <value>ซื้อเชื่อ</value>
+  </data>
+  <data name="BALANCE_DATE_BY_CURRENT_DATE" xml:space="preserve">
+    <value>ใช้วันที่ปัจจุบันในการสร้างยอด balance</value>
+  </data>
+  <data name="rpt_purchase_tax" xml:space="preserve">
+    <value>PS001_01 - รายงานภาษีซื้อตามเอกสาร</value>
+  </data>
+  <data name="AcctDocCashPurchase" xml:space="preserve">
+    <value>ซื้อสด</value>
+  </data>
+  <data name="AcctDocCashSale" xml:space="preserve">
+    <value>ขายสด</value>
+  </data>
+  <data name="AcctDocCrNote" xml:space="preserve">
+    <value>ลดหนี้ขาย</value>
+  </data>
+  <data name="AcctDocCrNotePurchase" xml:space="preserve">
+    <value>ลดหนี้ซื้อ</value>
+  </data>
+  <data name="AcctDocDebtPurchase" xml:space="preserve">
+    <value>ซื้อเชื่อ</value>
+  </data>
+  <data name="AcctDocDebtSale" xml:space="preserve">
+    <value>ขายเชื่อ</value>
+  </data>
+  <data name="AcctDocDrNote" xml:space="preserve">
+    <value>เพิ่มหนี้ขาย</value>
+  </data>
+  <data name="AcctDocDrNotePurchase" xml:space="preserve">
+    <value>เพิ่มหนี้ซื้อ</value>
+  </data>
+  <data name="AcctDocMiscExpense" xml:space="preserve">
+    <value>ซื้ออื่น ๆ</value>
+  </data>
+  <data name="AcctDocMiscRevenue" xml:space="preserve">
+    <value>ขายอื่น ๆ</value>
+  </data>
+  <data name="rpt_sale_tax_by_document" xml:space="preserve">
+    <value>S003-01 - รายงานภาษีขายตามเอกสาร</value>
+  </data>
+  <data name="cheque_bank_name" xml:space="preserve">
+    <value>เช็คของธนาคาร</value>
+  </data>
+  <data name="rpt_purchase_wh_tax" xml:space="preserve">
+    <value>PS001_02 - รายงานภาษีหัก ณ ที่จ่าย (ซื้อ)</value>
+  </data>
+  <data name="rpt_sale_wh_tax" xml:space="preserve">
+    <value>S003-02 - รายงานภาษีหัก ณ ที่จ่าย (ขาย)</value>
+  </data>
+  <data name="select_all" xml:space="preserve">
+    <value>เลือกทั้งหมด</value>
+  </data>
+  <data name="is_invoice_available" xml:space="preserve">
+    <value>มีอินวอยซ์จริง</value>
+  </data>
+  <data name="ALLOW_NEGATIVE_STRING" xml:space="preserve">
+    <value>เซตค่าให้มีการติดลบได้</value>
+  </data>
+  <data name="document_adjust" xml:space="preserve">
+    <value>ปรับแก้เอกสาร</value>
+  </data>
+  <data name="ERROR_DOC_ADJUST_STATUS" xml:space="preserve">
+    <value>สถานะเอกสารไม่ถูกต้องที่จะทำการปรับแก้</value>
+  </data>
+  <data name="rpt_sale_daily_per_day" xml:space="preserve">
+    <value>S004-01 - รายงานเอกสารการขายรายวัน</value>
+  </data>
+  <data name="from_cheque_duedate" xml:space="preserve">
+    <value>จากวันที่ดิวเช็ค</value>
+  </data>
+  <data name="rpt_cheque_payable" xml:space="preserve">
+    <value>CHQ001_01 - รายงานเช็คจ่าย</value>
+  </data>
+  <data name="to_cheque_duedate" xml:space="preserve">
+    <value>ถึงวันที่ดิวเช็ค</value>
+  </data>
+  <data name="rpt_cheque_receivable" xml:space="preserve">
+    <value>CHQ002_01 - รายงานเช็ครับ</value>
+  </data>
+  <data name="grpInventoryExport" xml:space="preserve">
+    <value>เอกสารการเบิกคลัง</value>
+  </data>
+  <data name="grpPurchaseMiscInvoice" xml:space="preserve">
+    <value>จ่ายอื่น ๆ </value>
+  </data>
+  <data name="no_resident_witholding_tax_con" xml:space="preserve">
+    <value>หนังสืบรับรองหัก ณ ที่จ่าย (CON)</value>
+  </data>
+  <data name="payment_voucher_a4" xml:space="preserve">
+    <value>ใบสำคัญจ่าย (A4)</value>
+  </data>
+  <data name="payment_voucher_cont" xml:space="preserve">
+    <value>ใบสำคัญจ่าย (CON)</value>
+  </data>
+  <data name="company_saving_account" xml:space="preserve">
+    <value>บัญชีออมทรัพย์บริษัท</value>
+  </data>
+  <data name="wh_pay_type" xml:space="preserve">
+    <value>ประเภทการหัก ณ ที่จ่าย</value>
+  </data>
+  <data name="wh_pay_type1" xml:space="preserve">
+    <value>1) หัก ณ ที่จ่าย</value>
+  </data>
+  <data name="wh_pay_type2" xml:space="preserve">
+    <value>2) ออกให้ตลอดไป</value>
+  </data>
+  <data name="wh_pay_type3" xml:space="preserve">
+    <value>3) ออกให้ครั้งเดียว</value>
+  </data>
+  <data name="wh_pay_type4" xml:space="preserve">
+    <value>4) อื่น ๆ</value>
+  </data>
+  <data name="exporter" xml:space="preserve">
+    <value>ผู้เบิกสินค้า/ผู้รับสินค้า</value>
+  </data>
+  <data name="cash_deposit_ap" xml:space="preserve">
+    <value>ชำระเงินล่วงหน้า (จ่าย)</value>
+  </data>
+  <data name="cash_deposit_ar" xml:space="preserve">
+    <value>ชำระเงินล่วงหน้า (รับ)</value>
+  </data>
+  <data name="deposit_item" xml:space="preserve">
+    <value>รายการชำระล่วงหน้า</value>
+  </data>
+  <data name="ERROR_CHANGE_BY_CASH_NEGATIVE" xml:space="preserve">
+    <value>เงินทอนด้วยเงินสด [{0}] มีค่าน้อยกว่า 0.00</value>
+  </data>
+  <data name="grpCrNote" xml:space="preserve">
+    <value>ลดหนี้</value>
+  </data>
+  <data name="grpDrNote" xml:space="preserve">
+    <value>เพิ่มหนี้</value>
+  </data>
+  <data name="rpt_operator" xml:space="preserve">
+    <value>ผู้ทำรายการ</value>
+  </data>
+  <data name="ERROR_VAT_DIFFERENT" xml:space="preserve">
+    <value>ยอด VAT ไม่เท่ากัน ({0}) ต้องการจะให้มีการบันทึกหรือไม่?</value>
+  </data>
+  <data name="invoice_date" xml:space="preserve">
+    <value>วันที่ใบกำกับ</value>
+  </data>
+  <data name="WH_DOC_NUMBER" xml:space="preserve">
+    <value>เอกสารหัก ณ ที่จ่าย</value>
+  </data>
+  <data name="gen_doc_no" xml:space="preserve">
+    <value>สร้างเลขที่เอกสาร</value>
+  </data>
+  <data name="SO_DOC_NUMBER" xml:space="preserve">
+    <value>ขาย-ใบสั่งขาย</value>
+  </data>
+  <data name="ERROR_CHANGE_BY_DRCR" xml:space="preserve">
+    <value>มีการทอนเงินด้วยระบบ เครดิต/เดบิต ต้องการให้ดำเนินการต่อใช่หรือไม่</value>
+  </data>
+  <data name="wh_doc_no_short" xml:space="preserve">
+    <value>หนังสือรับรองฯ</value>
+  </data>
+  <data name="AcctDocApReceipt" xml:space="preserve">
+    <value>จ่ายชำระเจ้าหนี้</value>
+  </data>
+  <data name="rpt_purchase_payment" xml:space="preserve">
+    <value>PS002_01 - รายงานการชำระเงิน (ซื้อ)</value>
+  </data>
+  <data name="rpt_purchase_sale" xml:space="preserve">
+    <value>รายงานการชำระเงิน (ขาย)</value>
+  </data>
+  <data name="AcctDocArReceipt" xml:space="preserve">
+    <value>รับชำระลูกหนี้</value>
+  </data>
+  <data name="rpt_sale_payment" xml:space="preserve">
+    <value>S005_01 - รายงานการชำระเงิน (ขาย)</value>
+  </data>
+  <data name="vat_month" xml:space="preserve">
+    <value>เดือนที่ยื่น VAT</value>
+  </data>
+  <data name="internal_doc" xml:space="preserve">
+    <value>เอกสารภายใน</value>
+  </data>
+  <data name="so_by_manual" xml:space="preserve">
+    <value>สร้างแบบกำหนดเอง</value>
+  </data>
+  <data name="so_by_quotation" xml:space="preserve">
+    <value>สร้างจากใบเสนอราคา</value>
+  </data>
+  <data name="invoice_from_saleorder" xml:space="preserve">
+    <value>สร้างจากใบสั่งขาย</value>
+  </data>
+  <data name="custom_seq" xml:space="preserve">
+    <value>กำหนดลำดับเอง</value>
+  </data>
+  <data name="a3" xml:space="preserve">
+    <value>A3 (11.7 x 16.5 นิ้ว)</value>
+  </data>
+  <data name="rpt_purchase_invoice_list" xml:space="preserve">
+    <value>PS002_02 - รายงานตรวจสอบการชำระเงิน (ซื้อ)</value>
+  </data>
+  <data name="rpt_purchase_invoice_by_project" xml:space="preserve">
+    <value>PS002_03 - รายงานตรวจสอบการชำระเงินตามโปรเจกต์ (ซื้อ)</value>
+  </data>
+  <data name="rpt_sale_invoice_by_project" xml:space="preserve">
+    <value>S005_02 - รายงานตรวจสอบการชำระเงินตามโปรเจกต์ (ขาย)</value>
+  </data>
+  <data name="rpt_sale_invoice_list" xml:space="preserve">
+    <value>S005_03 - รายงานตรวจสอบการชำระเงิน (ขาย)</value>
+  </data>
+  <data name="APPROVED_DOC_NUMBER_STRING" xml:space="preserve">
+    <value>ใช้เลขที่เอกสารแบบอนุมัติทันที</value>
+  </data>
+  <data name="copy_head" xml:space="preserve">
+    <value>คัดลอกข้อมูล (เฉพาะหัว)</value>
+  </data>
+  <data name="SaleInvoiceDeptReceiptFullContACD" xml:space="preserve">
+    <value>ใบกำกับภาษี (กระดาษต่อเนื่อง)</value>
+  </data>
+  <data name="rpt_purchase_invoice_detail_list" xml:space="preserve">
+    <value>PS003_05 - รายงานรายละเอียดการชำระเงิน (ซื้อ)</value>
+  </data>
+  <data name="wh_pct" xml:space="preserve">
+    <value>% WH</value>
+  </data>
+  <data name="rpt_purchase_invoice_by_project_group" xml:space="preserve">
+    <value>PS002_04 - รายงานรายละเอียดการชำระเงินตามกลุ่มโปรเจกต์ (ซื้อ)</value>
+  </data>
+  <data name="project_group_code" xml:space="preserve">
+    <value>รหัสกลุ่มโปรเจกต์</value>
+  </data>
+  <data name="rpt_sale_invoice_by_project_group" xml:space="preserve">
+    <value>S005_04 - รายงานรายละเอียดการชำระเงินตามกลุ่มโปรเจกต์ (ขาย)</value>
+  </data>
+  <data name="rpt_sale_invoice_detail_list" xml:space="preserve">
+    <value>S002_05 - รายงานรายละเอียดการชำระเงิน (ขาย)</value>
+  </data>
+  <data name="bill_summary" xml:space="preserve">
+    <value>ใบวางบิล</value>
+  </data>
+  <data name="SALE_BILL_SUMMARY" xml:space="preserve">
+    <value>ขาย-เอกสารใบวางบิล</value>
+  </data>
+  <data name="bill_summary_item" xml:space="preserve">
+    <value>รายการวางบิล</value>
+  </data>
+  <data name="grpBillSummary" xml:space="preserve">
+    <value>วางบิล</value>
+  </data>
+  <data name="SaleBillSummaryACD" xml:space="preserve">
+    <value>ใบวางบิล (กระดาษต่อเนื่อง)</value>
+  </data>
+  <data name="appoint_date" xml:space="preserve">
+    <value>วันนัดชำระ</value>
+  </data>
+  <data name="grpSaleOrder" xml:space="preserve">
+    <value>สั่งขาย</value>
+  </data>
+  <data name="SaleInvoiceFullCashContACD" xml:space="preserve">
+    <value>ใบกำกับภาษี/ใบเสร็จ (กระดาษต่อเนื่อง)</value>
+  </data>
+  <data name="SaleOrderACD" xml:space="preserve">
+    <value>ใบสั่งขาย</value>
+  </data>
+  <data name="CONFIRM_DELETE_DATA" xml:space="preserve">
+    <value>คุณต้องการจะลบรายการที่ {0} ใช่หรือไม่</value>
+  </data>
+  <data name="ERROR_MUST_KEEP" xml:space="preserve">
+    <value>ไม่สามารถลบได้ จะต้องมีรายการอย่างน้อย 1 รายการ</value>
+  </data>
+  <data name="quotation_by_detail" xml:space="preserve">
+    <value>แบบแยกรายละเอียด</value>
+  </data>
+  <data name="quotation_by_summary" xml:space="preserve">
+    <value>แบบรวมรายการ</value>
+  </data>
+  <data name="quotation_type" xml:space="preserve">
+    <value>ประเภทใบเสนอราคา</value>
+  </data>
+  <data name="quotation_complext" xml:space="preserve">
+    <value>ใบเสนอราคา (ละเอียด)</value>
+  </data>
+  <data name="from_page" xml:space="preserve">
+    <value>จาก</value>
+  </data>
+  <data name="to_page" xml:space="preserve">
+    <value>ถึง</value>
+  </data>
+  <data name="is_page_range" xml:space="preserve">
+    <value>ระบุหน้า</value>
+  </data>
+  <data name="quotation_attached_sheet" xml:space="preserve">
+    <value>เอกสารแนบใบเสนอราคา</value>
+  </data>
+  <data name="ERROR_PAGE_RANGE" xml:space="preserve">
+    <value>เลขหน้าสุดท้ายจะต้องมากกว่าหรือเท่ากับเลขหน้าเริ่มต้น</value>
+  </data>
+  <data name="tax_revenue_type" xml:space="preserve">
+    <value>ประเภทภาษีเงินได้</value>
+  </data>
+  <data name="approved_date" xml:space="preserve">
+    <value>วันที่อนุมัติ</value>
+  </data>
+  <data name="due_date1" xml:space="preserve">
+    <value>วันที่ครบดิว</value>
+  </data>
+  <data name="ERROR_PREVIEW_AGAIN" xml:space="preserve">
+    <value>เพื่อความถูกต้อง กรุณา พรีวีวเพื่อดูฟอร์มอีกครั้งหนึ่ง</value>
+  </data>
+  <data name="fee" xml:space="preserve">
+    <value>ค่าธรรมเนียม</value>
+  </data>
+  <data name="service_category" xml:space="preserve">
+    <value>รูปแบบสินค้าบริการ</value>
+  </data>
+  <data name="receive_voucher_a4" xml:space="preserve">
+    <value>ใบสำคัญรับ (A4)</value>
+  </data>
+  <data name="grpReceiveMiscInvoice" xml:space="preserve">
+    <value>ซื้ออื่น ๆ </value>
+  </data>
+  <data name="grpSaleMiscInvoice" xml:space="preserve">
+    <value>ขายอื่น ๆ</value>
+  </data>
+  <data name="pv_no" xml:space="preserve">
+    <value>เลขที่ใบสำคัญจ่าย</value>
+  </data>
+  <data name="rv_no" xml:space="preserve">
+    <value>เลขที่ใบเสร็จ</value>
+  </data>
+  <data name="rpt_profit_summary_by_month" xml:space="preserve">
+    <value>PRF001_01 - รายงานกำไร/ขาดทุนขั้นต้น ตามเดือน</value>
+  </data>
+  <data name="year_century" xml:space="preserve">
+    <value>ปี (ค.ศ.)</value>
+  </data>
+  <data name="apr" xml:space="preserve">
+    <value>เมษายน</value>
+  </data>
+  <data name="aug" xml:space="preserve">
+    <value>สิงหาคม</value>
+  </data>
+  <data name="dec" xml:space="preserve">
+    <value>ธันวาคม</value>
+  </data>
+  <data name="doc_1" xml:space="preserve">
+    <value>ขายสด</value>
+  </data>
+  <data name="doc_11" xml:space="preserve">
+    <value>ขายอื่น ๆ</value>
+  </data>
+  <data name="doc_12" xml:space="preserve">
+    <value>ซื้ออื่น ๆ</value>
+  </data>
+  <data name="doc_2" xml:space="preserve">
+    <value>ขายเชื่อ</value>
+  </data>
+  <data name="doc_3" xml:space="preserve">
+    <value>ลดหนี้ขาย</value>
+  </data>
+  <data name="doc_4" xml:space="preserve">
+    <value>เพิ่มหนี้ขาย</value>
+  </data>
+  <data name="doc_5" xml:space="preserve">
+    <value>ซื้อสด</value>
+  </data>
+  <data name="doc_6" xml:space="preserve">
+    <value>ซื้อเชื่อ</value>
+  </data>
+  <data name="doc_7" xml:space="preserve">
+    <value>ลดหนี้ซื้อ</value>
+  </data>
+  <data name="doc_8" xml:space="preserve">
+    <value>เพิ่มหนี้ซื้อ</value>
+  </data>
+  <data name="feb" xml:space="preserve">
+    <value>กุมภาพันธ์</value>
+  </data>
+  <data name="gain_loss" xml:space="preserve">
+    <value>กำไร/ขาดทุน</value>
+  </data>
+  <data name="jan" xml:space="preserve">
+    <value>มกราคม</value>
+  </data>
+  <data name="jul" xml:space="preserve">
+    <value>กรกฎาคม</value>
+  </data>
+  <data name="jun" xml:space="preserve">
+    <value>มิถุนายน</value>
+  </data>
+  <data name="mar" xml:space="preserve">
+    <value>มีนาคม</value>
+  </data>
+  <data name="may" xml:space="preserve">
+    <value>พฤษภาคม</value>
+  </data>
+  <data name="nov" xml:space="preserve">
+    <value>พฤศจิกายน</value>
+  </data>
+  <data name="oct" xml:space="preserve">
+    <value>ตุลาคม</value>
+  </data>
+  <data name="sep" xml:space="preserve">
+    <value>กันยายน</value>
+  </data>
+  <data name="total_expense" xml:space="preserve">
+    <value>รวม (จ่าย)</value>
+  </data>
+  <data name="total_receive" xml:space="preserve">
+    <value>รวม (รับ)</value>
+  </data>
+  <data name="unlink" xml:space="preserve">
+    <value>ยกเลิกการเชื่อมโยง</value>
+  </data>
+  <data name="ERROR_SALE_ORDER_UNLINK" xml:space="preserve">
+    <value>คุณต้องการจะยกเลิกเลิกการเชื่อมต่อกับใบสั่งขาย {0} ใช่หรือไม่?</value>
+  </data>
+  <data name="contact_person" xml:space="preserve">
+    <value>ส่งถึง</value>
+  </data>
+  <data name="is_in_used" xml:space="preserve">
+    <value>ถูกใช้งานแล้ว</value>
+  </data>
+  <data name="no_resident_witholding_tax_half_a4" xml:space="preserve">
+    <value>หนังสืบรับรองหัก ณ ที่จ่าย (ครึ่ง A4)</value>
+  </data>
+  <data name="rpt_profit_summary_by_project" xml:space="preserve">
+    <value>PRF001_02 - รายงานกำไร/ขาดทุนขั้นต้น ตามโปรเจกต์</value>
+  </data>
+  <data name="rpt_profit_summary_by_project_group" xml:space="preserve">
+    <value>PRF001_03 - รายงานกำไร/ขาดทุนขั้นต้น ตามกลุ่มโปรเจกต์</value>
+  </data>
+  <data name="rpt_purchase_invoice_by_project_code" xml:space="preserve">
+    <value>PS003_04 - รายงานรายละเอียดการชำระเงินตามโปรเจกต์ (ซื้อ)</value>
+  </data>
+  <data name="sass" xml:space="preserve">
+    <value>ซอฟต์แวร์</value>
+  </data>
+  <data name="micro_service" xml:space="preserve">
+    <value>ไมโครเซอร์วิส</value>
+  </data>
+  <data name="docker_url" xml:space="preserve">
+    <value>ด็อกเกอร์ URL</value>
+  </data>
+  <data name="microservice_code" xml:space="preserve">
+    <value>รหัสไมโครเซอร์วิส</value>
+  </data>
+  <data name="microservice_name" xml:space="preserve">
+    <value>ชื่อไมโครเซอร์วิส</value>
+  </data>
+  <data name="cloud_project" xml:space="preserve">
+    <value>คลาวด์โปรเจกต์</value>
+  </data>
+  <data name="ERROR_NO_SASS_PROJECT_FOUND" xml:space="preserve">
+    <value>ไม่พบกลุ่มโปรเจกต์ [SASS] ในระบบ!!!</value>
+  </data>
+  <data name="virtual_machine" xml:space="preserve">
+    <value>เวอร์ชวลแมชชีน</value>
+  </data>
+  <data name="vm_disk_type" xml:space="preserve">
+    <value>ประเภทดิสก์</value>
+  </data>
+  <data name="vm_image_name" xml:space="preserve">
+    <value>อิมเมจ</value>
+  </data>
+  <data name="vm_machine_type" xml:space="preserve">
+    <value>ประเภท</value>
+  </data>
+  <data name="vm_name" xml:space="preserve">
+    <value>ชื่อเครื่อง</value>
+  </data>
+  <data name="vm_status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="borrow_eligible" xml:space="preserve">
+    <value>สำหรับ ยืม/คืน</value>
+  </data>
+  <data name="inventory_borrow" xml:space="preserve">
+    <value>ยืมพัสดุ/อุปกรณ์</value>
+  </data>
+  <data name="inventory_return" xml:space="preserve">
+    <value>คืนพัสดุ/อุปกรณ์</value>
+  </data>
+  <data name="stage" xml:space="preserve">
+    <value>เสตจ</value>
+  </data>
+  <data name="vm_role" xml:space="preserve">
+    <value>บทบาท</value>
+  </data>
+  <data name="vm_type" xml:space="preserve">
+    <value>เสป็คเครื่อง</value>
+  </data>
+  <data name="dev" xml:space="preserve">
+    <value>เดเวล็อบเมนต์</value>
+  </data>
+  <data name="master" xml:space="preserve">
+    <value>มาสเตอร์</value>
+  </data>
+  <data name="micro" xml:space="preserve">
+    <value>ไมโคร  0.6 GB Ram</value>
+  </data>
+  <data name="prod" xml:space="preserve">
+    <value>โปรดักต์ชัน</value>
+  </data>
+  <data name="qa" xml:space="preserve">
+    <value>คิวเอ</value>
+  </data>
+  <data name="small" xml:space="preserve">
+    <value>เล็ก 1.7 GB Ram</value>
+  </data>
+  <data name="storage" xml:space="preserve">
+    <value>สตอเรจ</value>
+  </data>
+  <data name="vcpu1" xml:space="preserve">
+    <value>1-vCPU 3.75 GB Ram</value>
+  </data>
+  <data name="worker" xml:space="preserve">
+    <value>เวิร์คเกอร์</value>
+  </data>
+  <data name="INVENTORY_DOC_BORROW_APPROVED" xml:space="preserve">
+    <value>คลัง-เอกสารการยืม (อนุมัติ)</value>
+  </data>
+  <data name="INVENTORY_DOC_BORROW_TEMP" xml:space="preserve">
+    <value>คลัง-เอกสารการยืม (ชั่วคราว)</value>
+  </data>
+  <data name="INVENTORY_DOC_RETURN_APPROVED" xml:space="preserve">
+    <value>คลัง-เอกสารการคืน (อนุมัติ)</value>
+  </data>
+  <data name="INVENTORY_DOC_RETURN_TEMP" xml:space="preserve">
+    <value>คลัง-เอกสารการคืน (ชั่วคราว)</value>
+  </data>
+  <data name="rpt_profit_summary_by_month_acd" xml:space="preserve">
+    <value>ACD001_01 - รายงานสรุปกำไร/ขาดทุนขั้นต้น ตามเดือน</value>
+  </data>
+  <data name="grpInventoryBorrow" xml:space="preserve">
+    <value>ยืม/คืนพัสดุ</value>
+  </data>
+  <data name="inventory_borrow_document" xml:space="preserve">
+    <value>ใบยืมพัสดุ</value>
+  </data>
+  <data name="report_type" xml:space="preserve">
+    <value>ประเภทรายงาน</value>
+  </data>
+  <data name="return_due_date" xml:space="preserve">
+    <value>กำหนดคืน</value>
+  </data>
+  <data name="borrower" xml:space="preserve">
+    <value>ผู้ยืม</value>
+  </data>
+  <data name="returner" xml:space="preserve">
+    <value>ผู้คืน</value>
+  </data>
+  <data name="borrow_return_item" xml:space="preserve">
+    <value>รายการยืม/คืน</value>
+  </data>
+  <data name="return_need" xml:space="preserve">
+    <value>จำนวนที่ต้องคืน</value>
+  </data>
+  <data name="disk_image" xml:space="preserve">
+    <value>ดิสก์อิมเมจ</value>
+  </data>
+  <data name="disk_image_name" xml:space="preserve">
+    <value>ชื่อดิสก์อิมเมจ</value>
+  </data>
+  <data name="disk_status" xml:space="preserve">
+    <value>สถานะดิสก์อิมเมจ</value>
+  </data>
+  <data name="vat_claimable" xml:space="preserve">
+    <value>เคลม VAT</value>
+  </data>
+  <data name="total_vat" xml:space="preserve">
+    <value>รวม VAT</value>
+  </data>
+  <data name="reason_type" xml:space="preserve">
+    <value>สาเหตุ (ระบบคลัง)</value>
+  </data>
+  <data name="inventory_export_document" xml:space="preserve">
+    <value>เอกสารการเบิกพัสดุ</value>
+  </data>
+  <data name="general_report" xml:space="preserve">
+    <value>รายงานข้อมูลทั่วไป</value>
+  </data>
+  <data name="rpt_service_list" xml:space="preserve">
+    <value>GEN001_01 - รายงานข้อมูลบริการ</value>
+  </data>
+  <data name="rpt_purchase_invoice_summ_by_project_group" xml:space="preserve">
+    <value>PS002_05 - รายงานสรุปการชำระเงินอินวอยตามกลุ่มโปรเจกต์ (ซื้อ)</value>
+  </data>
+  <data name="cash_account_for_owner" xml:space="preserve">
+    <value>บัญชีกรรมการ</value>
+  </data>
+  <data name="NoRefunded" xml:space="preserve">
+    <value>รอการคืนเงิน</value>
+  </data>
+  <data name="Refunded" xml:space="preserve">
+    <value>คืนเงินแล้ว</value>
+  </data>
+  <data name="refund_status" xml:space="preserve">
+    <value>สถานะการคืนเงิน</value>
+  </data>
+  <data name="rpt_account_owner_payment" xml:space="preserve">
+    <value>PS003_06 - รายงานเงินยืมคืนกรรมการ (ซื้อ)</value>
+  </data>
+  <data name="OWNER_PAYMENT_TYPE_SET" xml:space="preserve">
+    <value>ประเภทการชำระเงินสำหรับบัญชีกรรมการ</value>
+  </data>
+  <data name="CHEQUE_APPROVE_IMMEDIATE_FLAG" xml:space="preserve">
+    <value>อนุมัติเช็คทันทีพร้อมเอกสาร</value>
+  </data>
+  <data name="deposit" xml:space="preserve">
+    <value>ฝาก</value>
+  </data>
+  <data name="withdraw" xml:space="preserve">
+    <value>ถอน</value>
+  </data>
+  <data name="external_cash_xfer" xml:space="preserve">
+    <value>โอนเงินบัญชีภายนอก</value>
+  </data>
+  <data name="regular_cash_xfer" xml:space="preserve">
+    <value>โอนเงินบัญชีภายใน</value>
+  </data>
+  <data name="cash_xfer_type" xml:space="preserve">
+    <value>ประเภทการโอนเงิน</value>
+  </data>
+  <data name="NotSelected" xml:space="preserve">
+    <value>ยังไม่ถูกทำรายการ</value>
+  </data>
+  <data name="payment_doc_no" xml:space="preserve">
+    <value>เลขที่เอกสารคืนเงิน</value>
+  </data>
+  <data name="group_permission" xml:space="preserve">
+    <value>สิทธ์การเข้าถึงหน้าจอ</value>
+  </data>
+  <data name="access_right" xml:space="preserve">
+    <value>สิทธิการเข้าถึงข้อมูล</value>
+  </data>
+  <data name="hr" xml:space="preserve">
+    <value>ระบบข้อมูลบุคคล</value>
+  </data>
+  <data name="daily" xml:space="preserve">
+    <value>รายวัน</value>
+  </data>
+  <data name="department" xml:space="preserve">
+    <value>แผนก</value>
+  </data>
+  <data name="female" xml:space="preserve">
+    <value>หญิง</value>
+  </data>
+  <data name="finger_print_code" xml:space="preserve">
+    <value>รหัสลายนิ้วมือ</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>เพศ</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>นามสกุล</value>
+  </data>
+  <data name="last_name_eng" xml:space="preserve">
+    <value>นามสกุล (Eng)</value>
+  </data>
+  <data name="line_id" xml:space="preserve">
+    <value>ไลน์ ID</value>
+  </data>
+  <data name="male" xml:space="preserve">
+    <value>ชาย</value>
+  </data>
+  <data name="monthly" xml:space="preserve">
+    <value>รายเดือน</value>
+  </data>
+  <data name="ERROR_UPLOAD_FILE_SIZE" xml:space="preserve">
+    <value>ไฟล์มีขนาดใหญ่กว่าที่กำหนด ({0} ไบต์)</value>
+  </data>
+  <data name="organize_chart" xml:space="preserve">
+    <value>ผังองค์กร</value>
+  </data>
+  <data name="tax_form" xml:space="preserve">
+    <value>แบบฟอร์มภาษี</value>
+  </data>
+  <data name="tax_form_pp300" xml:space="preserve">
+    <value>PP30 - แบบฟอร์ม ภ.พ. 30</value>
+  </data>
+  <data name="building_name" xml:space="preserve">
+    <value>ชื่ออาคาร</value>
+  </data>
+  <data name="company_register_addr_name" xml:space="preserve">
+    <value>ชื่อสถานที่ประกอบการ</value>
+  </data>
+  <data name="company_register_name" xml:space="preserve">
+    <value>ชื่อผู้ประกอบการ</value>
+  </data>
+  <data name="district" xml:space="preserve">
+    <value>ตำบล/แขวง</value>
+  </data>
+  <data name="floor_no" xml:space="preserve">
+    <value>ชั้น</value>
+  </data>
+  <data name="home_no" xml:space="preserve">
+    <value>บ้านเลขที่</value>
+  </data>
+  <data name="moo_no" xml:space="preserve">
+    <value>หมู่</value>
+  </data>
+  <data name="province" xml:space="preserve">
+    <value>จังหวัด</value>
+  </data>
+  <data name="road" xml:space="preserve">
+    <value>ถนน</value>
+  </data>
+  <data name="room_no" xml:space="preserve">
+    <value>ห้อง</value>
+  </data>
+  <data name="soi_no" xml:space="preserve">
+    <value>ซอย</value>
+  </data>
+  <data name="town" xml:space="preserve">
+    <value>อำเภอ/เขต</value>
+  </data>
+  <data name="village_name" xml:space="preserve">
+    <value>หมู่บ้าน</value>
+  </data>
+  <data name="zip_code" xml:space="preserve">
+    <value>รหัสไปรษณีย์</value>
+  </data>
+  <data name="ap_revenue_department" xml:space="preserve">
+    <value>ชำระภาษี (สรรพกร)</value>
+  </data>
+  <data name="month" xml:space="preserve">
+    <value>เดือน</value>
+  </data>
+  <data name="tax_document_type" xml:space="preserve">
+    <value>เอกสาภาษี</value>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>ปี</value>
+  </data>
+  <data name="tax_pp30" xml:space="preserve">
+    <value>ภ.พ. 30</value>
+  </data>
+  <data name="REVENUE_DEP_SUPPLIER_CODE" xml:space="preserve">
+    <value>รหัสซัพพลายเออร์ กรมสรรพกร</value>
+  </data>
+  <data name="error_revenue_dep_code_missing" xml:space="preserve">
+    <value>ตัวแปร {0} ไม่ได้ถูกเซต</value>
+  </data>
+  <data name="error_supplier_code_missing" xml:space="preserve">
+    <value>ไม่พบรหัสซัพพลายเออร์ {0}</value>
+  </data>
+  <data name="wh_type" xml:space="preserve">
+    <value>ประเภทเงินได้</value>
+  </data>
+  <data name="calculate" xml:space="preserve">
+    <value>คำนวณ</value>
+  </data>
+  <data name="ERROR_NO_ITEM_FOUND" xml:space="preserve">
+    <value>ไม่พบข้อมูลที่ค้นหา</value>
+  </data>
+  <data name="ERROR_PLEASE_SAVE_FIRST" xml:space="preserve">
+    <value>กรุณาทำการบันทึกข้อมูลก่อนการใช้งานปุ่มนี้</value>
+  </data>
+  <data name="ERROR_PLEASE_RE_CALCULATE" xml:space="preserve">
+    <value>กรุณาทำการคำนวณข้อมูลอีกครั้งหนึ่ง</value>
+  </data>
+  <data name="ERROR_CREATE_CHEQUE_FIRST" xml:space="preserve">
+    <value>กรุณาสร้างเช็คก่อนทำการอนุมัติ</value>
+  </data>
+  <data name="is_salary" xml:space="preserve">
+    <value>เงินเดือน</value>
+  </data>
+  <data name="separate_salary" xml:space="preserve">
+    <value>แยกเงินเดือน</value>
+  </data>
+  <data name="display_exception_expense" xml:space="preserve">
+    <value>ซ่อนค่าทางด่วน ที่จอดรถ</value>
+  </data>
+  <data name="for_expense_revenue" xml:space="preserve">
+    <value>เป็นรายรับ/รายจ่าย ด้วย</value>
+  </data>
+  <data name="payroll" xml:space="preserve">
+    <value>ข้อมูลเปย์โรล</value>
+  </data>
+  <data name="add_multiple" xml:space="preserve">
+    <value>เพิ่มเป็นชุด</value>
+  </data>
+  <data name="deduct" xml:space="preserve">
+    <value>หัก</value>
+  </data>
+  <data name="remain" xml:space="preserve">
+    <value>คงเหลือ</value>
+  </data>
+  <data name="company_saving_account2" xml:space="preserve">
+    <value>เงินโอนบัญชีบริษัท</value>
+  </data>
+  <data name="ERROR_WH_MUST_GREATER_THAN_ZERO" xml:space="preserve">
+    <value>% ภาษีหัก ณ ที่จ่ายจะต้องมากกว่า 0.00</value>
+  </data>
+  <data name="grpHRSlip" xml:space="preserve">
+    <value>สลิปเงินเดือน</value>
+  </data>
+  <data name="hr_payroll_slip" xml:space="preserve">
+    <value>สลิปเงินเดือนพนักงาน</value>
+  </data>
+  <data name="balance_document" xml:space="preserve">
+    <value>ตั้งยอดยกมา</value>
+  </data>
+  <data name="hr_report" xml:space="preserve">
+    <value>รายงานข้อมูลบุคคล</value>
+  </data>
+  <data name="rpt_employee_payroll_list" xml:space="preserve">
+    <value>HR001_01 - รายงานรับจ่ายเงินเดือนพนักงานตามวันที่</value>
+  </data>
+  <data name="absent_late" xml:space="preserve">
+    <value>ขาด/สาย</value>
+  </data>
+  <data name="account" xml:space="preserve">
+    <value>บัญชี</value>
+  </data>
+  <data name="coverage" xml:space="preserve">
+    <value>เงินประกัน</value>
+  </data>
+  <data name="deduct_total" xml:space="preserve">
+    <value>รวมจ่าย</value>
+  </data>
+  <data name="ot" xml:space="preserve">
+    <value>โอที</value>
+  </data>
+  <data name="return_advance" xml:space="preserve">
+    <value>คืนพนักงาน</value>
+  </data>
+  <data name="revenue_allowance" xml:space="preserve">
+    <value>เบี้ยขยัน</value>
+  </data>
+  <data name="revenue_bonus" xml:space="preserve">
+    <value>โบนัส</value>
+  </data>
+  <data name="revenue_commission" xml:space="preserve">
+    <value>คอมฯ</value>
+  </data>
+  <data name="revenue_position" xml:space="preserve">
+    <value>ค่าตำแหน่ง</value>
+  </data>
+  <data name="revenue_telephone" xml:space="preserve">
+    <value>โทรศัพท์</value>
+  </data>
+  <data name="revenue_total" xml:space="preserve">
+    <value>รวมรับ</value>
+  </data>
+  <data name="revenue_transportation" xml:space="preserve">
+    <value>ค่ารถ</value>
+  </data>
+  <data name="salary" xml:space="preserve">
+    <value>เงินเดือน</value>
+  </data>
+  <data name="social_security" xml:space="preserve">
+    <value>ปกส</value>
+  </data>
+  <data name="tax" xml:space="preserve">
+    <value>ภาษี</value>
+  </data>
+  <data name="total_receive_emp" xml:space="preserve">
+    <value>รับสุทธิ</value>
+  </data>
+  <data name="rpt_employee_payroll_by_date" xml:space="preserve">
+    <value>HR001_02 - รายงานรับจ่ายเงินเดือนพนักงานตามพนักงาน</value>
+  </data>
+  <data name="hr_ot_form" xml:space="preserve">
+    <value>แบบฟอร์มสวัสดิการ-โอที</value>
+  </data>
+  <data name="ot_amount" xml:space="preserve">
+    <value>จำนวนเงิน</value>
+  </data>
+  <data name="ot_from_date" xml:space="preserve">
+    <value>วันที่เริ่ม OT</value>
+  </data>
+  <data name="ot_from_time" xml:space="preserve">
+    <value>จากเวลา OT</value>
+  </data>
+  <data name="ot_hour" xml:space="preserve">
+    <value>จำนวนชั่วโมง OT</value>
+  </data>
+  <data name="ot_multiplier" xml:space="preserve">
+    <value>ตัวคูณ</value>
+  </data>
+  <data name="ot_rate" xml:space="preserve">
+    <value>ค่าแรง/ช.ม.</value>
+  </data>
+  <data name="ot_to_date" xml:space="preserve">
+    <value>ถึงวันที่ OT</value>
+  </data>
+  <data name="ot_to_time" xml:space="preserve">
+    <value>ถึงเวลา OT</value>
+  </data>
+  <data name="hour_rate" xml:space="preserve">
+    <value>อัตราค่าแรง</value>
+  </data>
+  <data name="hour_rate_unit" xml:space="preserve">
+    <value>บาท/ช.ม.</value>
+  </data>
+  <data name="ERROR_TIME_2_DIGIT" xml:space="preserve">
+    <value>เวลาจะต้องมี 2 หลัก</value>
+  </data>
+  <data name="ERROR_TIME_RANGE_INVALID" xml:space="preserve">
+    <value>ค่าของข้อมูลไม่ถูกต้อง</value>
+  </data>
+  <data name="adjust_hour" xml:space="preserve">
+    <value>ปรับชั่วโมง</value>
+  </data>
+  <data name="expense_carpark" xml:space="preserve">
+    <value>ค่าที่จอดรถ</value>
+  </data>
+  <data name="expense_fuel" xml:space="preserve">
+    <value>ค่าน้ำมัน</value>
+  </data>
+  <data name="expense_tollway" xml:space="preserve">
+    <value>ค่าทางด่วน</value>
+  </data>
+  <data name="expense_vehicle" xml:space="preserve">
+    <value>ค่ายานพาหนะ</value>
+  </data>
+  <data name="hr_allowance_form" xml:space="preserve">
+    <value>เงินสำรองจ่าย</value>
+  </data>
+  <data name="ot_amount_money" xml:space="preserve">
+    <value>จำนวนเงิน OT</value>
+  </data>
+  <data name="work_adjust_hour" xml:space="preserve">
+    <value>ปรับชั่วโมงทำงาน</value>
+  </data>
+  <data name="work_amount_money" xml:space="preserve">
+    <value>ค่าแรง</value>
+  </data>
+  <data name="work_from_date" xml:space="preserve">
+    <value>วันที่ทำงาน</value>
+  </data>
+  <data name="work_hour" xml:space="preserve">
+    <value>ชั่วโมงทำงาน</value>
+  </data>
+  <data name="hr_payroll_deposit" xml:space="preserve">
+    <value>ใบฝากเงินเข้าบัญชีพนักงาน (ธนชาติ)</value>
+  </data>
+  <data name="hr_payroll_withdraw" xml:space="preserve">
+    <value>ใบถอนเงินเพื่อฝากเงินเดือนพนักงาน (ธนชาติ)</value>
+  </data>
+  <data name="cash_account_for_payroll" xml:space="preserve">
+    <value>สำหรับเปย์โรล</value>
+  </data>
+  <data name="payroll_cash_account" xml:space="preserve">
+    <value>บัญชีเปย์โรล</value>
+  </data>
+  <data name="add_payroll" xml:space="preserve">
+    <value>เปย์โรล</value>
+  </data>
+  <data name="payroll_item" xml:space="preserve">
+    <value>รายการเปย์โรล</value>
+  </data>
+  <data name="PAYROLL_PROJECT_CODE" xml:space="preserve">
+    <value>รหัสโปรเจกต์เปย์โรล</value>
+  </data>
+  <data name="PAYROLL_SERVICE_CODE" xml:space="preserve">
+    <value>รหัสค่าใช้จ่ายเปย์โรล</value>
+  </data>
+  <data name="social_insurance_item" xml:space="preserve">
+    <value>รายการประกันสังคม</value>
+  </data>
+  <data name="SOCIAL_SECURITY_SERVICE_CODE" xml:space="preserve">
+    <value>รหัสค่าใช้จ่ายประกันสังคม</value>
+  </data>
+  <data name="item_info" xml:space="preserve">
+    <value>รายการสินค้า</value>
+  </data>
+  <data name="rv_tax_1" xml:space="preserve">
+    <value>ภ.ง.ด. 1</value>
+  </data>
+  <data name="tax_deductable" xml:space="preserve">
+    <value>มีการหักภาษี</value>
+  </data>
+  <data name="sort_order" xml:space="preserve">
+    <value>ลำดับ</value>
+  </data>
+  <data name="hr_revenue_tax_1" xml:space="preserve">
+    <value>ภ.ง.ด. 1 (พนักงาน)</value>
+  </data>
+  <data name="deduction_type" xml:space="preserve">
+    <value>รายการหัก</value>
+  </data>
+  <data name="redeem_flag" xml:space="preserve">
+    <value>คืน?</value>
+  </data>
+  <data name="ap_stock_cost" xml:space="preserve">
+    <value>ต้นทุนสินค้า</value>
+  </data>
+  <data name="begin_stock_balance" xml:space="preserve">
+    <value>สต็อคต้นเดือน</value>
+  </data>
+  <data name="end_stock_balance" xml:space="preserve">
+    <value>สต็อคปลายเดือน</value>
+  </data>
+  <data name="stock_in_amount" xml:space="preserve">
+    <value>สต็อครับเข้า</value>
+  </data>
+  <data name="stock_out_amount" xml:space="preserve">
+    <value>สต็อคใช้ไป</value>
+  </data>
+  <data name="begin_stock_balance_year" xml:space="preserve">
+    <value>สต็อคต้นปี</value>
+  </data>
+  <data name="end_stock_balance_year" xml:space="preserve">
+    <value>สต็อคปลายปี</value>
+  </data>
+  <data name="in_stock_amount" xml:space="preserve">
+    <value>สต็อคเข้า</value>
+  </data>
+  <data name="out_stock_amount" xml:space="preserve">
+    <value>สต็อคออก</value>
+  </data>
+  <data name="display_sale_cost" xml:space="preserve">
+    <value>แสดงต้นทุนขาย</value>
+  </data>
+  <data name="add_multiple_item" xml:space="preserve">
+    <value>เพิ่มไอเท็ม</value>
+  </data>
+  <data name="add_multiple_service" xml:space="preserve">
+    <value>เพิ่มทั่วไป</value>
+  </data>
+  <data name="duration" xml:space="preserve">
+    <value>ระยะเวลา</value>
+  </data>
+  <data name="total_minute" xml:space="preserve">
+    <value>รวมจำนวนนาที</value>
+  </data>
+  <data name="rpt_inv_item_list" xml:space="preserve">
+    <value>I000-01 - แบบฟอร์มรายชื่อไอเท็ม</value>
+  </data>
+  <data name="has_resigned" xml:space="preserve">
+    <value>ลาออก?</value>
+  </data>
+  <data name="PromptPayID" xml:space="preserve">
+    <value>เลขที่พรอมต์เพย์</value>
+  </data>
+  <data name="leave" xml:space="preserve">
+    <value>วันลาพนักงาน</value>
+  </data>
+  <data name="abnormal_leave" xml:space="preserve">
+    <value>ขาดงาน</value>
+  </data>
+  <data name="annual_leave" xml:space="preserve">
+    <value>พักร้อน</value>
+  </data>
+  <data name="deduction_leave" xml:space="preserve">
+    <value>ทำงานไม่ครบ</value>
+  </data>
+  <data name="extra_personal_leave" xml:space="preserve">
+    <value>ลากิจพิเศษ</value>
+  </data>
+  <data name="late" xml:space="preserve">
+    <value>สาย</value>
+  </data>
+  <data name="personal_leave" xml:space="preserve">
+    <value>ลากิจ</value>
+  </data>
+  <data name="sick_leave" xml:space="preserve">
+    <value>ลาป่วย</value>
+  </data>
+  <data name="ERROR_NOT_IN_SAME_MONTH" xml:space="preserve">
+    <value>วันที่จะต้องอยู่ในเดือนเดียวกัน [{0}]</value>
+  </data>
+  <data name="ERROR_DUPLICATE_DATE" xml:space="preserve">
+    <value>มีวันที่ [{0}] อยู่ในรายการแล้ว</value>
+  </data>
+  <data name="ERROR_LEAVE_OVER_DAY" xml:space="preserve">
+    <value>ผลรวมการลา [{0}] เกิน 1 วัน</value>
+  </data>
+  <data name="rpt_employee_leave" xml:space="preserve">
+    <value>HR001_03 - รายงานการขาดลามาสายพนักงาน</value>
+  </data>
+  <data name="hr_employee_leave" xml:space="preserve">
+    <value>ข้อมูลการลาพนักงาน</value>
+  </data>
+  <data name="grpHRLeave" xml:space="preserve">
+    <value>ข้อมูลการลา</value>
+  </data>
+  <data name="hiring_date" xml:space="preserve">
+    <value>วันที่เริ่มงาน</value>
+  </data>
+  <data name="hiring_duration" xml:space="preserve">
+    <value>อายุงาน</value>
+  </data>
+  <data name="abnormal_leave_hr" xml:space="preserve">
+    <value>ขาดงาน (ช.ม.)</value>
+  </data>
+  <data name="deduction_leave_hr" xml:space="preserve">
+    <value>ทำงานไม่ครบ (ช.ม.)</value>
+  </data>
+  <data name="late_min" xml:space="preserve">
+    <value>สาย (นาที)</value>
+  </data>
+  <data name="expense_other" xml:space="preserve">
+    <value>อื่น ๆ</value>
+  </data>
+  <data name="adjust_amount" xml:space="preserve">
+    <value>หักเงิน</value>
+  </data>
+  <data name="rpt_invoice_detail" xml:space="preserve">
+    <value>PS004_01 - รายงานซื้อแสดงรายการตามอินวอยซ์</value>
+  </data>
+  <data name="rpt_employee_tax" xml:space="preserve">
+    <value>HR001_04 - รายงานการหักภาษีพนักงาน</value>
+  </data>
+  <data name="rpt_employee_social_insurance" xml:space="preserve">
+    <value>HR001_05 - รายงานการหักเงินประกันสังคมพนักงาน</value>
+  </data>
+  <data name="rpt_employee_revenue" xml:space="preserve">
+    <value>HR001_06 - รายงานรายรับพนักงาน</value>
+  </data>
+  <data name="rpt_po_detail" xml:space="preserve">
+    <value>PS005_01 - รายงานซื้อแสดงรายการตาม PO</value>
+  </data>
+  <data name="rpt_employee_yearly_tax" xml:space="preserve">
+    <value>HR001_07 - รายงานสรุปรายรับและภาษีรายปี</value>
+  </data>
+  <data name="social_insurance" xml:space="preserve">
+    <value>ประกันสังคม</value>
+  </data>
+  <data name="grpHRTax" xml:space="preserve">
+    <value>ข้อมูลภาษีพนักงาน</value>
+  </data>
+  <data name="hr_employee_witholding_tax" xml:space="preserve">
+    <value>ข้อมูลภาษีหัก ณ ที่จ่ายพนักงาน</value>
+  </data>
+  <data name="hr_revenue_tax_1kor" xml:space="preserve">
+    <value>ภ.ง.ด. 1ก (พนักงาน)</value>
+  </data>
+  <data name="rv_tax_1_kor" xml:space="preserve">
+    <value>ภ.ง.ด. 1 ก</value>
+  </data>
+</root>

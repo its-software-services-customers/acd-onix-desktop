@@ -1,0 +1,838 @@
+﻿<Window x:Class="Onix.ClientCenter.WinAddEditPackage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="CanMinimize"
+        WindowStyle="SingleBorderWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"       
+        Name="RootElement"
+        Title="" Height="720" Width="1300" Loaded="Window_Loaded" Closing="Window_Closing" ContentRendered="Window_ContentRendered" Activated="Window_Activated">
+    <DockPanel LastChildFill="True">
+        
+        <DockPanel LastChildFill="True" DockPanel.Dock="Top">
+            <!--<DockPanel Name="pnlBranches" DockPanel.Dock="Right" Width="400" Height="120" Margin="0,20,10,20">
+                <ListBox ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageCustomers}">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox Height="25" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Content="{Binding CustomerCode}" Margin="0, 0, 0, 0" Unchecked="cbxCheckBox_Checked" Checked="cbxCheckBox_Checked"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>-->
+            
+            <Grid DockPanel.Dock="Left" Name="grdMaster">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="133*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="140"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Name="lblPackageCode" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=package_code}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                    <uc:UTextBox x:Name="txtPackageCode" Grid.Row="2" Grid.Column="1" TabIndex="0" Width="300" Text="{Binding PackageCode}" 
+                        TextSearchNameSpace="PromotionCodeNS" ShowDetail="True" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,5,0,5" TextChanged="txtPackageCode_TextChanged"/>
+
+                    <CheckBox Name="cbxEnable" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=is_enable}" 
+                              IsChecked="{Binding Path=IsEnabled}"
+                              HorizontalAlignment="Left" Margin="10,15,0,0" Checked="cbxEnable_Checked" Unchecked="cbxEnable_Unchecked"/>
+                </StackPanel>
+
+                <Label Name="lblPackageName" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=package_name}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+                <uc:UTextBox x:Name="txtPackageName" Grid.Row="3" Grid.Column="1" Width="800" TextChanged="txtPackageCode_TextChanged"
+                   TextSearchNameSpace="PromotionNameNS" Text="{Binding PackageName}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Name="lblEffectiveDate" Grid.Row="4" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=effective_date}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+                    <Grid Grid.Row="4" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <uc:UDateEntry x:Name="dtEffectiveDate" Grid.Column="0" Margin="5,0,0,5" SelectedDate="{Binding EffectiveDate}"
+                                SelectedDateChanged="dtEffectiveDate_SelectedDateChanged"  HorizontalAlignment="Left" VerticalContentAlignment="Center" 
+                                Width="200"/>
+
+                        <Label Name="lblExpireDate" Grid.Row="2" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=expire_date}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+                        <uc:UDateEntry x:Name="dtExpireDate" Grid.Column="2" Margin="5,0,0,5" SelectedDate="{Binding ExpireDate}"
+                                SelectedDateChanged="dtEffectiveDate_SelectedDateChanged"  HorizontalAlignment="Left" VerticalContentAlignment="Center" 
+                                Width="200"/>
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1" >
+                    <CheckBox Name="cbxTimeInterval" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=is_time_internal}" 
+                                  IsChecked="{Binding Path=IsTimeSpecific}" HorizontalContentAlignment="Right"
+                                  HorizontalAlignment="Left" Margin="5,5,0,0" Checked="cbxEnable_Checked" Unchecked="cbxEnable_Unchecked"/>
+            
+                    <CheckBox Name="cbxAllowAllCustomer" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=customer_specify}" 
+                                            HorizontalAlignment="Left" Margin="20,5,0,0" Checked="cbxCheckBox_Checked" Unchecked="cbxEnable_Unchecked"
+                                                IsChecked="{Binding Path=IsCustomerSpecific}"/>
+
+                    <CheckBox Name="cbxAllBranch" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=branch_specific}" 
+                                            HorizontalAlignment="Left" Margin="20,5,0,0" Checked="cbxCheckBox_Checked" Unchecked="cbxEnable_Unchecked"
+                                                IsChecked="{Binding Path=IsBranchSpecific}"/>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+        
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Name="cmdOK" IsEnabled="{Binding ElementName=RootElement, Path=IsEditableMode}" TabIndex="99990"
+                    MinWidth="80"  Margin="5,5,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" MinWidth="80" 
+                    TabIndex="99991" Margin="5,5,0,5"/>
+        </StackPanel>
+
+        <TabControl Margin="5, 10, 5, 0" Name="TabMain" KeyboardNavigation.TabNavigation="Local">
+            <TabItem Name="tbiTimeInterval">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiTimeInterval, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=is_time_internal}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <WrapPanel Orientation="Vertical" Background="{DynamicResource WindowBackgroundBrush}">
+
+                    <uc:UTimeControl HorizontalAlignment="Left" IsEnabled="{Binding ElementName=cbxTimeInterval, Path=IsChecked}" 
+                                     DataContext="{Binding MondayPeriod}" Margin="10,10,0,0" Day="MONDAY_ENUM" 
+                                     FromHour="{Binding FromHour1, Mode=TwoWay}"
+                                     FromMinute="{Binding FromMinute1, Mode=TwoWay}"
+                                     ToHour="{Binding ToHour1, Mode=TwoWay}"
+                                     ToMinute="{Binding ToMinute1, Mode=TwoWay}"
+                                     DayInterval="{Binding PeriodType, Mode=TwoWay}"
+                                     Selected="{Binding IsEnabled, Mode=TwoWay}"
+                                     OnChanged="UTimeControl_OnChanged"/>
+
+                    <uc:UTimeControl HorizontalAlignment="Left" IsEnabled="{Binding ElementName=cbxTimeInterval, Path=IsChecked}" 
+                                     DataContext="{Binding TuesdayPeriod}" Margin="10,10,0,0" Day="TUESDAY_ENUM"
+                                     FromHour="{Binding FromHour1, Mode=TwoWay}"
+                                     FromMinute="{Binding FromMinute1, Mode=TwoWay}"
+                                     ToHour="{Binding ToHour1, Mode=TwoWay}"
+                                     ToMinute="{Binding ToMinute1, Mode=TwoWay}"
+                                     DayInterval="{Binding PeriodType, Mode=TwoWay}"
+                                     Selected="{Binding IsEnabled, Mode=TwoWay}"
+                                     OnChanged="UTimeControl_OnChanged"/>
+
+                    <uc:UTimeControl HorizontalAlignment="Left" IsEnabled="{Binding ElementName=cbxTimeInterval, Path=IsChecked}" 
+                                     DataContext="{Binding WednesdayPeriod}" Margin="10,10,0,0" Day="WEDNESDAY_ENUM"
+                                     FromHour="{Binding FromHour1, Mode=TwoWay}"
+                                     FromMinute="{Binding FromMinute1, Mode=TwoWay}"
+                                     ToHour="{Binding ToHour1, Mode=TwoWay}"
+                                     ToMinute="{Binding ToMinute1, Mode=TwoWay}"
+                                     DayInterval="{Binding PeriodType, Mode=TwoWay}"
+                                     Selected="{Binding IsEnabled, Mode=TwoWay}"
+                                     OnChanged="UTimeControl_OnChanged"/>
+
+                    <uc:UTimeControl HorizontalAlignment="Left" IsEnabled="{Binding ElementName=cbxTimeInterval, Path=IsChecked}" 
+                                     DataContext="{Binding ThursdayPeriod}" Margin="10,10,0,0" Day="THURSDAY_ENUM"
+                                     FromHour="{Binding FromHour1, Mode=TwoWay}"
+                                     FromMinute="{Binding FromMinute1, Mode=TwoWay}"
+                                     ToHour="{Binding ToHour1, Mode=TwoWay}"
+                                     ToMinute="{Binding ToMinute1, Mode=TwoWay}"
+                                     DayInterval="{Binding PeriodType, Mode=TwoWay}"
+                                     Selected="{Binding IsEnabled, Mode=TwoWay}"
+                                     OnChanged="UTimeControl_OnChanged"/>
+
+                    <uc:UTimeControl HorizontalAlignment="Left" IsEnabled="{Binding ElementName=cbxTimeInterval, Path=IsChecked}" 
+                                     DataContext="{Binding FridayPeriod}" Margin="10,10,0,0" Day="FRIDAY_ENUM"
+                                     FromHour="{Binding FromHour1, Mode=TwoWay}"
+                                     FromMinute="{Binding FromMinute1, Mode=TwoWay}"
+                                     ToHour="{Binding ToHour1, Mode=TwoWay}"
+                                     ToMinute="{Binding ToMinute1, Mode=TwoWay}"
+                                     DayInterval="{Binding PeriodType, Mode=TwoWay}"
+                                     Selected="{Binding IsEnabled, Mode=TwoWay}"
+                                     OnChanged="UTimeControl_OnChanged"/>
+
+                    <uc:UTimeControl HorizontalAlignment="Left" IsEnabled="{Binding ElementName=cbxTimeInterval, Path=IsChecked}" 
+                                     DataContext="{Binding SathurdayPeriod}" Margin="10,10,0,0" Day="SATHURDAY_ENUM"
+                                     FromHour="{Binding FromHour1, Mode=TwoWay}"
+                                     FromMinute="{Binding FromMinute1, Mode=TwoWay}"
+                                     ToHour="{Binding ToHour1, Mode=TwoWay}"
+                                     ToMinute="{Binding ToMinute1, Mode=TwoWay}"
+                                     DayInterval="{Binding PeriodType, Mode=TwoWay}"
+                                     Selected="{Binding IsEnabled, Mode=TwoWay}"
+                                     OnChanged="UTimeControl_OnChanged"/>
+
+                    <uc:UTimeControl HorizontalAlignment="Left" IsEnabled="{Binding ElementName=cbxTimeInterval, Path=IsChecked}" 
+                                     DataContext="{Binding SundayPeriod}" Margin="10,10,0,0" Day="SUNDAY_ENUM"
+                                     FromHour="{Binding FromHour1, Mode=TwoWay}"
+                                     FromMinute="{Binding FromMinute1, Mode=TwoWay}"
+                                     ToHour="{Binding ToHour1, Mode=TwoWay}"
+                                     ToMinute="{Binding ToMinute1, Mode=TwoWay}"
+                                     DayInterval="{Binding PeriodType, Mode=TwoWay}"
+                                     Selected="{Binding IsEnabled, Mode=TwoWay}"
+                                     OnChanged="UTimeControl_OnChanged"/>
+                </WrapPanel>
+            </TabItem>
+
+            <!-- Branches -->
+            <TabItem Name="tbiBranches"  Tag="PACKAGE_BRANCHES_ITEM">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiBranches, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=Branch}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <Grid>
+                    <ListView Name="lsvBranch" ItemsSource="{Binding PackageBranches}" Style="{StaticResource SearchListView}"
+                              SizeChanged="lsvBranch_SizeChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn x:Name="colChecked">
+                                    <Image Width="16" Height="16" Source="{StaticResource bmpOK}"/>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <CheckBox Name="cbxBranch" HorizontalAlignment="Center" Tag="{Binding ObjSelf}" IsThreeState="False" IsChecked="{Binding IsSelected}" 
+                                                          IsEnabled="{Binding ElementName=cbxAllBranch, Path=IsChecked}" Checked="cbxBranch_Checked" Unchecked="cbxBranch_Unchecked"/>
+                                                <!--<Image Width="16" Height="16" Tag="{Binding ObjSelf}" Source="{StaticResource bmpInfo}">
+                                                    <Image.ToolTip>
+                                                        <uc:UToolTipText ItemsSources="{Binding ToolTipItems}"/>
+                                                    </Image.ToolTip>
+                                                </Image>-->
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colCode" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=code}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Code}" HorizontalAlignment="Left"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colName" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=Branch}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Name}" HorizontalAlignment="Left"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            
+            <!-- Customer -->
+            <TabItem Name="tbiCustomer"  Tag="PACKAGE_CUSTOMER_ITEM">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiCustomer, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=customer_specify}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <Grid>
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdCustomerAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdCustomerAdd_Click"/>
+                        </StackPanel>
+
+                        <ListBox Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageCustomers}"
+                                        Background="{DynamicResource WindowBackgroundBrush}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <u:UCustomerSelection Margin="0, 0, 0, 0" OnChanged="OnCustomerSelectedChanged" CustomerSelected="{Binding ObjSelf}"
+                                                                    IsEnabled="{Binding ElementName=cbxAllowAllCustomer, Path=IsChecked}"/>
+
+                                        <Button Name="cmdCustomerDelete" Click="cmdCustomerDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="tbiPriceOfItem" Tag="PACKAGE_ITEM_PRICE_ITEM" Visibility="{Binding ElementName=RootElement, Path=PricingVisibility}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiPriceOfItem, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=package_price_item_category}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdPriceAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdPriceAdd_Click"/>
+                        </StackPanel>
+
+                        <ListBox Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageItemPrices}"
+                                         Background="{DynamicResource WindowBackgroundBrush}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                        <u:UProductPriceSelection Margin="0, 0, 0, 0" OnChanged="UProductPriceSelection_OnChanged" ProductSelected="{Binding ObjSelf}"/>
+
+                                        <Button Name="cmdPriceDelete" Click="cmdPriceDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+
+            <!-- Bonus -->
+            <TabItem Name="tbiBonus"  Tag="PACKAGE_BONUS_ITEM" Visibility="{Binding ElementName=RootElement, Path=BonusVisibility}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiBonus, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=bonus}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel Margin="0,5,0,0" LastChildFill="True">
+                        <DockPanel LastChildFill="True">
+                            <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+                                <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                                    <Button Name="cmdBonusBuyAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                        Width="80"  Margin="5,5,5,0" Click="cmdBonusBuyAdd_Click"/>
+                                </StackPanel>
+                                
+                                <ListBox DockPanel.Dock="Left" Margin="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageBonusBuy}"
+                                            Height="300" Background="{DynamicResource WindowBackgroundBrush}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <u:UProductSelection Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"/>
+                                                <Button Name="cmdBonusBuyDelete" Click="cmdBonusBuyDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                        <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                                    </StackPanel>
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+
+                            <StackPanel DockPanel.Dock="Top" />
+
+                            <DockPanel DockPanel.Dock="Bottom" LastChildFill="True">
+                                <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                                    <Button Name="cmdBonusFreeAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                        Width="80"  Margin="5,5,5,0" Click="cmdBonusFreeAdd_Click"/>
+                                </StackPanel>
+
+                                <ListBox DockPanel.Dock="Left" Margin="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageBonusFree}"
+                                            Background="{DynamicResource WindowBackgroundBrush}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <u:UProductSelection Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"/>
+                                                <Button Name="cmdBonusGetDelete" Click="cmdBonusGetDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                        <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                                    </StackPanel>
+                                                </Button>                                            
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </DockPanel>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Discount -->
+            <TabItem Name="tbiDiscount"  Tag="PACKAGE_DISCOUNT_ITEM" Visibility="{Binding ElementName=RootElement, Path=DiscountVisibility}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiDiscount, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=discount}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+                        
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="Auto"/>    
+                                </Grid.ColumnDefinitions>
+                                
+                                <!--<Label Name="lblDiscountMappingType" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=discount_mapping_type}" VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,0" />
+
+                                <ComboBox Name="cboDiscountMappingType" Grid.Column="1" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=DiscuntMappingTypes}"
+                                  SelectedIndex="{Binding DiscountMapType}" Width="200"  HorizontalAlignment="Left" Margin="0,5,0,0" SelectionChanged="cboDiscountMappingType_SelectionChanged"/>-->
+                            </Grid>
+                        </StackPanel>    
+                        
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdDiscountAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdDiscountAdd_Click"/>
+                        </StackPanel>
+                        
+                        <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageDiscount}"
+                                         Background="{DynamicResource WindowBackgroundBrush}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <u:UProductDiscountSelection Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"
+                                                    IsEnabled="{Binding ElementName=cbxAllowAllDiscount, Path=IsChecked}"/>
+
+                                        <Button Name="cmdDiscountDelete" Click="cmdDiscountDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Voucher -->
+            <TabItem Name="tbiVoucher"  Tag="PACKAGE_VOUCHER_ITEM" Visibility="{Binding ElementName=RootElement, Path=VoucherVisibility}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiVoucher, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=voucher}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel Margin="0,5,0,0" LastChildFill="True">
+                        <DockPanel LastChildFill="True">
+                            <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+                                <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                                    <Button Name="cmdVoucherBuyAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                        Width="80"  Margin="5,5,5,0" Click="cmdVoucherBuyAdd_Click"/>
+                                </StackPanel>
+
+                                <ListBox DockPanel.Dock="Left" Margin="0,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageVoucherBuy}"
+                                          Height="300" Background="{DynamicResource WindowBackgroundBrush}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <u:UVoucherBuyProduct Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"/>
+                                                <Button Name="cmdVoucherBuyDelete" Click="cmdVoucherBuyDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                        <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                                    </StackPanel>
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                            
+                            <!--<StackPanel DockPanel.Dock="Top" />-->
+                            
+                            <DockPanel DockPanel.Dock="Bottom" LastChildFill="True">
+                                <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                                    <Button Name="cmdVoucherFreeAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                        Width="80"  Margin="5,5,5,0" Click="cmdVoucherFreeAdd_Click"/>
+                                </StackPanel>
+
+                                <ListBox Margin="0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageVoucherFree}"
+                                         Background="{DynamicResource WindowBackgroundBrush}">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <u:UVoucherFreeProduct Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"/>
+                                                <Button Name="cmdVoucherFreeDelete" Click="cmdVoucherFreeDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                        <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                                    </StackPanel>
+                                                </Button>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </DockPanel>
+                        </DockPanel>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Bundle -->
+            <TabItem Name="tbiBundle"  Tag="PACKAGE_BUNDLE_ITEM" Visibility="{Binding ElementName=RootElement, Path=BundleVisibility}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiBundle, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=bundle}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Name="lblBundleAmount" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=amount}" VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,5,0" />
+
+                                <TextBox Name="txtBundleAmount" Text="{Binding BundleAmount}" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Grid.Column="1" Width="100"  
+                                         HorizontalAlignment="Left" Margin="0,5,0,0" PreviewTextInput="txtBundleAmount_PreviewTextInput" TextChanged="txtTextBox_TextChanged"/>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdBundleAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdBundleAdd_Click"/>
+                        </StackPanel>
+
+                        <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageBundles}"
+                                         Background="{DynamicResource WindowBackgroundBrush}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <u:UProductBundleSelection Margin="0, 0, 0, 0" OnChanged="UProductBundleSelection_OnChanged" ProductSelected="{Binding ObjSelf}"/>
+
+                                        <Button Name="cmdBundleDelete" Click="cmdBundleDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Final Discount -->
+            <TabItem Name="tbiFinalDiscount"  Tag="PACKAGE_FINAL_DISCOUNT_ITEM" Visibility="{Binding ElementName=RootElement, Path=FinalDiscountVisibility}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiFinalDiscount, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=final_discount_package}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="5">
+                                    <!--<ComboBox Name="cboFinalDiscMappingType" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=DiscuntMappingTypes}"
+                                      SelectedIndex="{Binding DiscountMapType}" Width="200"  HorizontalAlignment="Left" Margin="0,5,0,0" SelectionChanged="cboDiscountMappingType_SelectionChanged"/>-->
+
+                                    <CheckBox Name="cbxProductSpecefic" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=product_specify}" 
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Checked="cbxProductSpecefic_Checked" Unchecked="cbxProductSpecefic_Unchecked"
+                                            IsChecked="{Binding IsProductSpecific}"/>
+
+                                    <Button Name="cmdBasketType" Margin="10,0,0,0" MinWidth="200"  Click="cmdBasketType_Click">
+                                        <Button.Content>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="16" Height="16" Source="{Binding DiscountBasketTypeConfigIcon}" Margin="0,0,5,0">
+                                                </Image>
+                                                <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=basket_type}"/>
+                                            </StackPanel>
+                                        </Button.Content>
+                                    </Button>
+                                    
+                                    <Button Name="cmdFinalDiscountInterval" Margin="10,0,0,0" MinWidth="80"  Click="cmdFinalDiscountInterval_Click">
+                                        <Button.Content>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="16" Height="16" Source="{Binding DiscountDefinitionConfigIcon}" Margin="0,0,5,0">
+                                                </Image>
+                                                <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=discount}"/>
+                                            </StackPanel>
+                                        </Button.Content>
+                                    </Button>
+
+                                    <Label Name="lblFinalDiscDesc" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=final_discount_explain}" VerticalAlignment="Center" 
+                                           Foreground="Blue" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,0" />
+
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdFinalDiscAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdFinalDiscAdd_Click"/>
+                        </StackPanel>
+
+                        <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageFinalDiscounts}"
+                                         Background="{DynamicResource WindowBackgroundBrush}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <u:UProductFinalDiscountSelection Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"
+                                                                      IsEnabled="{Binding ElementName=cbxProductSpecefic, Path=IsChecked}"/>
+
+                                        <Button Name="cmdFinalDiscDelete" Click="cmdFinalDiscDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+            <!-- Post Gift -->
+            <TabItem Name="tbiPostGift"  Tag="PACKAGE_POST_GIFT_ITEM" Visibility="{Binding ElementName=RootElement, Path=PostGiftVisibility}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiPostGift, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=post_gift}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Orientation="Horizontal" Grid.Column="0" Margin="5">
+
+                                    <CheckBox Name="cbxPGProductSpecefic" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=product_specify}" 
+                                        HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Checked="cbxProductSpecefic_Checked" Unchecked="cbxProductSpecefic_Unchecked"
+                                            IsChecked="{Binding IsProductSpecific}"/>
+
+                                    <Button Name="cmdPGBasketType" Margin="10,0,0,0" Width="200"  Click="cmdPGBasketType_Click">
+                                        <Button.Content>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="16" Height="16" Source="{Binding DiscountBasketTypeConfigIcon}" Margin="0,0,5,0">
+                                                </Image>
+                                                <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=basket_type}"/>
+                                            </StackPanel>
+                                        </Button.Content>
+                                    </Button>
+
+                                    <Button Name="cmdPostGiftInterval" Margin="10,0,0,0" MinWidth="100"  Click="cmdPostGiftInterval_Click">
+                                        <Button.Content>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="16" Height="16" Source="{Binding DiscountDefinitionConfigIcon}" Margin="0,0,5,0">
+                                                </Image>
+                                                <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ratio}"/>
+                                            </StackPanel>
+                                        </Button.Content>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+
+                        <DockPanel DockPanel.Dock="Bottom" LastChildFill="True" Height="200">
+                            <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                                <Button Name="cmdPostGiftFreeAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                        Width="80"  Margin="5,5,5,0" Click="cmdPostGiftFreeAdd_Click"/>
+                            </StackPanel>
+
+                            <ListBox Margin="0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackagePostGiftFrees}"
+                                         Background="{DynamicResource WindowBackgroundBrush}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <u:UVoucherFreeProduct Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"/>
+                                            <Button Name="cmdPostGiftFreeDelete" Click="cmdPostGiftFreeDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                    <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+
+                        <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+                            <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdPostGiftBuyAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdPostGiftBuyAdd_Click"/>
+                            </StackPanel>
+
+                            <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackagePostGiftBuys}"
+                                              Background="{DynamicResource WindowBackgroundBrush}">
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <u:UPostGiftBuySelection Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"
+                                                                          IsEnabled="{Binding ElementName=cbxPGProductSpecefic, Path=IsChecked}"/>
+
+                                            <Button Name="cmdPostFreeBuyDelete" Click="cmdPostFreeBuyDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                    <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+
+            <!-- Tray By Item -->
+            <TabItem Name="tbiTrayByItem"  Tag="PACKAGE_TRAY_BY_ITEM" Visibility="{Binding ElementName=RootElement, Path=TrayVisibility}">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiTrayByItem, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=tray_package_price}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--<Label Name="lblTrayDiscountMapType" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=discount_mapping_type}" VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,0" />
+
+                                <StackPanel Orientation="Horizontal" Grid.Column="1" >
+                                    <ComboBox Name="cboTrayDiscountMapType" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=DiscuntMappingTypes}"
+                                  SelectedIndex="{Binding DiscountMapType}" Width="200"  HorizontalAlignment="Left" Margin="0,5,0,0" SelectionChanged="cboDiscountMappingType_SelectionChanged"/>
+
+                                </StackPanel>-->
+                            </Grid>
+                        </StackPanel>
+
+                        <DockPanel DockPanel.Dock="Top" LastChildFill="True">
+                            <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                                <Button Name="cmdTrayByItemAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdTrayByItemAdd_Click"/>
+                            </StackPanel>
+
+                            <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding PackageTrayByItems}"
+                                              Background="{DynamicResource WindowBackgroundBrush}">
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <u:UProductPriceDiscountTray Margin="0, 0, 0, 0" OnChanged="UProductSelection_OnChanged" ProductSelected="{Binding ObjSelf}"/>
+
+                                            <Button Name="cmdTrayByItemDelete" Click="cmdTrayByItemDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                    <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                                </StackPanel>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </DockPanel>
+
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </DockPanel>
+</Window>

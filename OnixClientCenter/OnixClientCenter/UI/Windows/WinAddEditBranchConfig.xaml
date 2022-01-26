@@ -1,0 +1,320 @@
+﻿<Window x:Class="Onix.ClientCenter.WinAddEditBranchConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Title="" Height="710" Width="1200" Loaded="Window_Loaded" Closing="Window_Closing" ContentRendered="Window_ContentRendered" Activated="Window_Activated">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="133*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Name="lblBranch" Grid.Row="1" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=branch_name}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+
+            <ComboBox Name="cboBranch" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Branches}" 
+                      Grid.Row="1" Grid.Column="2" DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding BranchObj}" 
+                      SelectedItem="{Binding BranchObj}" Width="400"  HorizontalAlignment="Left" Margin="5,0,0,5" 
+                      SelectionChanged="cboBranch_SelectionChanged" />
+                        
+            <Label Name="lblKey" Grid.Row="2" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=key}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            <TextBox Name="txtKey" Grid.Row="2" Grid.Column="2" Width="400" TextChanged="txtTextBox_TextChanged"
+               Text="{Binding Key}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            <Label Name="lblVoidBill" Grid.Row="3" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=void_bill_pass}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            <TextBox Name="txtVoidBill" Grid.Row="3" Grid.Column="2" Width="400" TextChanged="txtTextBox_TextChanged"
+               Text="{Binding VoidBillPassword}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+        </Grid>
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left -->
+            <Label Name="lblSaleByCashDocVat" Grid.Row="1" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=doc_cash_vat}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" >
+                <TextBox Name="txtSaleByCashDocVatPrefix" Width="100" TextChanged="txtTextBox_TextChanged"
+                   Text="{Binding DocNoCashPrefix}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Content="-" VerticalAlignment="Center" Margin="0,0,0,4" />
+
+                <TextBox Name="txtSaleByCashDocVatPattern" Width="200" TextChanged="txtTextBox_TextChanged"
+                   Text="{Binding DocNoCashPattern}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Name="lblCashVatLen" Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_SEQ_Lenght}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox Name="txtCashVatLen" Margin="5,0,0,5" Width="30" Text="{Binding DocNoCashSeqLength}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextChanged="txtTextBox_TextChanged"/>
+
+                <Label Name="lblCashVatOffset" Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_YEAR_Offset}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox Name="txtCashVatOffset" Margin="5,0,0,5" Width="60" Text="{Binding DocNoCashYearOffset}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextChanged="txtTextBox_TextChanged"/>
+
+                <Label Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_Reset_Criteria}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                <RadioButton Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_YEAR}" Margin="5,0,0,0" Checked="RadioButton_Checked"
+                             IsChecked="{Binding IsCashVatResetByYear}" VerticalAlignment="Center"/>
+                <RadioButton Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_MONTH}" Margin="5,0,0,0" Checked="RadioButton_Checked"
+                             IsChecked="{Binding IsCashVatResetByMonth}" VerticalAlignment="Center"/>
+
+            </StackPanel>
+
+            <Label Name="lblSaleByDebtDocVat" Grid.Row="2" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=doc_debt_vat}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" >
+                <TextBox Name="txtSaleByDebtDocVatPrefix" Width="100" TextChanged="txtTextBox_TextChanged"
+                   Text="{Binding DocNoDebtPrefix}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Content="-" VerticalAlignment="Center" Margin="0,0,0,4" />
+
+                <TextBox Name="txtSaleByDebtDocVatPattern" Width="200" TextChanged="txtTextBox_TextChanged"
+                   Text="{Binding DocNoDebtPattern}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Name="lblDebtVatLen" Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_SEQ_Lenght}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox Name="txtDebtVatLen" Margin="5,0,0,5" Width="30" Text="{Binding DocNoDebtSeqLength}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextChanged="TextBox_TextChanged"/>
+
+                <Label Name="lblDebtVatOffset" Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_YEAR_Offset}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox Name="txtDebtVatOffset" Margin="5,0,0,5" Width="60" Text="{Binding DocNoDebtYearOffset}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextChanged="TextBox_TextChanged"/>
+
+                <Label Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_Reset_Criteria}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                <RadioButton Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_YEAR}" Margin="5,0,0,0" Checked="RadioButton_Checked"
+                             IsChecked="{Binding IsDebtVatResetByYear}" VerticalAlignment="Center"/>
+                <RadioButton Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_MONTH}" Margin="5,0,0,0" Checked="RadioButton_Checked"
+                             IsChecked="{Binding IsDebtVatResetByMonth}" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Right -->
+            <Label Name="lblSaleByCashDocNV" Grid.Row="3" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=doc_cash_novat}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" >
+                <TextBox Name="txtSaleByCashDocNVPrefix" Width="100" TextChanged="txtTextBox_TextChanged"
+                   Text="{Binding DocNoCashNVPrefix}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Content="-" VerticalAlignment="Center" Margin="0,0,0,4" />
+
+                <TextBox Name="txtSaleByCashDocNVPattern" Width="200" TextChanged="txtTextBox_TextChanged"
+                   Text="{Binding DocNoCashNVPattern}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Name="lblCashNoVatLen" Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_SEQ_Lenght}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox Name="txtCashNoVatLen" Margin="5,0,0,5" Width="30" Text="{Binding DocNoCashNVSeqLength}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextChanged="TextBox_TextChanged"/>
+
+                <Label Name="lblCashNoVatOffset" Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_YEAR_Offset}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox Name="txtCashNoVatOffset" Margin="5,0,0,5" Width="60" Text="{Binding DocNoCashNVYearOffset}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextChanged="TextBox_TextChanged"/>
+
+                <Label Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_Reset_Criteria}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                <RadioButton Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_YEAR}" Margin="5,0,0,0" Checked="RadioButton_Checked"
+                             IsChecked="{Binding IsCashNoVatResetByYear}" VerticalAlignment="Center"/>
+                <RadioButton Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_MONTH}" Margin="5,0,0,0" Checked="RadioButton_Checked"
+                             IsChecked="{Binding IsCashNoVatResetByMonth}" VerticalAlignment="Center"/>
+
+            </StackPanel>
+
+            <Label Name="lblSaleByDebtDocNV" Grid.Row="4" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=doc_debt_novat}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+
+            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal" >
+                <TextBox Name="txtSaleByDebtDocNVPrefix" Width="100" TextChanged="txtTextBox_TextChanged"
+                   Text="{Binding DocNoDebtNVPrefix}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Content="-" VerticalAlignment="Center" Margin="0,0,0,4" />
+
+                <TextBox Name="txtSaleByDebtDocNVPattern" Width="200" TextChanged="txtTextBox_TextChanged"
+                   Text="{Binding DocNoDebtNVPattern}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Label Name="lblDebtNoVatLen" Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_SEQ_Lenght}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox Name="txtDebtNoVatLen" Margin="5,0,0,5" Width="30" Text="{Binding DocNoDebtNVSeqLength}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextChanged="TextBox_TextChanged"/>
+
+                <Label  Name="lblDebtNoVatOffset"  Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_YEAR_Offset}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBox Name="txtDebtNoVatOffset" Margin="5,0,0,5" Width="60" Text="{Binding DocNoDebtNVYearOffset}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" TextChanged="TextBox_TextChanged"/>
+
+                <Label Margin="5, 0, 0, 0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_Reset_Criteria}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                <RadioButton Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_YEAR}" Margin="5,0,0,0" Checked="RadioButton_Checked"
+                             IsChecked="{Binding IsDebtNoVatResetByYear}" VerticalAlignment="Center"/>
+                <RadioButton Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=formatDoc_MONTH}" Margin="5,0,0,0" Checked="RadioButton_Checked"
+                             IsChecked="{Binding IsDebtNoVatResetByMonth}" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Right -->
+        </Grid>
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Name="lblLocationVat" Grid.Row="1" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=location_name}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                <ComboBox Name="cboLocationVat" ItemsSource="{Binding Locations}" 
+                          DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding LocationVatObj}" 
+                          SelectedItem="{Binding LocationVatObj}" Width="300"  HorizontalAlignment="Left" Margin="5,0,0,5"
+                          SelectionChanged="cboLocationVat_SelectionChanged" />
+
+                <Label Name="lblAccountVat" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=CashAcc}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" Width="150" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+
+                <ComboBox Name="cboAccountVat" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=CashAccounts}" 
+                          DisplayMemberPath="AccountNo" SelectedValuePath="ObjSelf" SelectedValue="{Binding CashAccountVatObj}" 
+                          SelectedItem="{Binding CashAccountVatObj}" Width="300"  HorizontalAlignment="Left" Margin="5,0,0,5" 
+                          SelectionChanged="cboAccountVat_SelectionChanged" />
+            </StackPanel>
+
+            <Label Name="lblLocationNoVat" Grid.Row="2" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=location_name_nv}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                <ComboBox Name="cboLocationNoVat" ItemsSource="{Binding Locations}"  
+                          DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding LocationNoVatObj}" 
+                          SelectedItem="{Binding LocationNoVatObj}" Width="300"  HorizontalAlignment="Left" Margin="5,0,0,5" 
+                          SelectionChanged="cboLocationNoVat_SelectionChanged" />
+
+                <Label Name="lblAccountNoVat" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=CashAccNV}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" Width="150" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+
+                <ComboBox Name="cboAccountNoVat" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=CashAccounts}" 
+                          DisplayMemberPath="AccountNo" SelectedValuePath="ObjSelf" SelectedValue="{Binding CashAccountNoVatObj}" 
+                          SelectedItem="{Binding CashAccountNoVatObj}" Width="300"  HorizontalAlignment="Left" Margin="5,0,0,5" 
+                          SelectionChanged="cboAccountNoVat_SelectionChanged" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" Margin="5,0,0,5">
+                <CheckBox IsThreeState="false" Name="cbxFinishedGood" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=allow_inventory_negative}" Margin="5,5,0,5" 
+                      Unchecked="cbxCheckBox_Checked" Checked="cbxCheckBox_Checked" IsChecked="{Binding AllowInventoryNegative}" VerticalAlignment="Center"/>
+
+                <CheckBox IsThreeState="false" Name="cbxPart" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=allow_inventory_negative_nv}" Margin="5,5,0,5"
+                       Unchecked="cbxCheckBox_Checked" Checked="cbxCheckBox_Checked" IsChecked="{Binding AllowInventoryNegativeNV}" VerticalAlignment="Center"/>
+
+                <CheckBox IsThreeState="false" Name="cbxRawMaterial" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=allow_cash_negative}" Margin="5,5,0,5"
+                       Unchecked="cbxCheckBox_Checked" Checked="cbxCheckBox_Checked" IsChecked="{Binding AllowCashNegative}" VerticalAlignment="Center"/>
+
+                <CheckBox IsThreeState="false" Name="cbxPurchase" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=allow_cash_negative_nv}" VerticalAlignment="Center" Margin="15,5,0,5" 
+                      Unchecked="cbxCheckBox_Checked" Checked="cbxCheckBox_Checked" IsChecked="{Binding AllowCashNegativeNV}"/>
+
+            </StackPanel>
+        </Grid>
+        
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Name="cmdOK" IsEnabled="{Binding ElementName=RootElement, Path=IsEditableMode}"
+                    MinWidth="80"  Margin="5,5,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" MinWidth="80"  Margin="5,5,0,5" Click="cmdCancel_Click"/>
+        </StackPanel>
+
+        <TabControl Margin="5, 10, 5, 0">
+            <TabItem Name="tbiPos">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                       Visibility="{Binding ElementName=tbiPos, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=pos_machine}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdPOSAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                MinWidth="80"  Margin="5,5,5,0" Click="cmdPOSAdd_Click"/>
+                        </StackPanel>
+
+                        <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding BranchConfigPos}"
+                                         Background="{DynamicResource WindowBackgroundBrush_Grid}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <Label Name="lblBarcode" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=pos_serial_no}" VerticalAlignment="Center" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                                        <TextBox x:Name="txtPosSerialNo" Text="{Binding PosSerialNo}" Width="250" Margin="5,0,0,0" VerticalContentAlignment="Center" TextChanged="txtText_TextChanged"/>
+
+                                        <Button Name="cmdPosSerialNoDelete" Click="cmdPosSerialNoDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </DockPanel>
+</Window>

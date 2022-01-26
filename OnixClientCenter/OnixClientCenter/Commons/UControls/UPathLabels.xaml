@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Onix.ClientCenter.Commons.UControls.UPathLabels"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             Height="40" Width="Auto"
+             BorderBrush="Ivory" BorderThickness="1"
+             Loaded="RootElement_Loaded"
+             Name="RootElement">
+
+    <DockPanel x:Name="dckMain" Margin="0,0,0,0">
+        <StackPanel Name="pnlMain" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,5,0">
+
+            <!--<Border Margin="0, 0, 0, 0" ForceCursor="True" BorderBrush="Blue" BorderThickness="1" CornerRadius="2" Padding="10, 5, 10, 5">
+                <TextBlock Foreground="Blue" MouseDown="TextBlock_MouseDown" Text="/" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
+            </Border>-->
+
+            <!--<Border Margin="5, 0, 0, 0" BorderBrush="Blue" BorderThickness="1" CornerRadius="2" Padding="10, 5, 10, 5">
+                <TextBlock Text="ผู้จัดการทั่วไป" Foreground="Blue" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
+            </Border>
+
+            <Border Margin="5, 0, 0, 0" BorderBrush="Blue" BorderThickness="1" CornerRadius="2" Padding="10, 5, 10, 5">
+                <TextBlock Text="หัวหน้าโฟร์แมน" Foreground="Blue" MouseEnter="TextBlock_MouseEnter" MouseLeave="TextBlock_MouseLeave"/>
+            </Border>-->
+        </StackPanel>
+    </DockPanel>
+</UserControl>

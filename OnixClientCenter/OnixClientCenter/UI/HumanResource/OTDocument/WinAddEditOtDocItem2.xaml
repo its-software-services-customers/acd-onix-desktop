@@ -1,0 +1,172 @@
+﻿<src:WinBase x:Class="Onix.ClientCenter.UI.HumanResource.OTDocument.WinAddEditOtDocItem2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        xmlns:src="clr-namespace:Onix.ClientCenter.Commons.Windows" 
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"    
+        x:Name="rootElement"
+        Closing="DefaultItemWindow_Closing"
+        ContentRendered="DefaultItemWindow_ContentRendered"
+        KeyboardNavigation.ControlTabNavigation="Cycle"
+        Activated="DefaultWindow_Activated"
+        Title="{Binding ElementName=rootElement, Path=Caption}" SizeToContent="WidthAndHeight" MinHeight="250" MinWidth="1100" >
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="140"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="110"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Label Name="lblFromDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=date}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0"
+                   HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <uc:UDateEntry x:Name="uFromDate"  Grid.Row="2" Grid.Column="1" Margin="5,5,0,0" Width="200" HorizontalAlignment="Left"
+                               LostFocus="UFromDate_LostFocus" SelectedDate="{Binding FromOtDate}" 
+                               IsEnabled="{Binding ElementName=cbxOt, Path=IsChecked}"
+                               SelectedDateChanged="DefaultUDate_SelectedDateChanged"/>
+
+                <TextBox Name="txtFromHour" Width="30" MaxLength="2" IsEnabled="{Binding ElementName=cbxOt, Path=IsChecked}"
+                        VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,5,0,0" 
+                         Text="{Binding FromTimeHH, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         TextChanged="DefaultTextBox_TextChanged"
+                         PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+
+                <Label Name="lblColon1" Content=":" VerticalAlignment="Center" IsEnabled="{Binding ElementName=radInterval, Path=IsChecked}"
+                                        VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+                <TextBox Name="txtFromMin" Width="30" IsEnabled="{Binding ElementName=cbxOt, Path=IsChecked}" MaxLength="2"
+                         VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0" 
+                         TextChanged="DefaultTextBox_TextChanged"
+                         Text="{Binding FromTimeMM, UpdateSourceTrigger=PropertyChanged}"
+                         PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+
+                <Label Name="lblToColon" Content=" - " VerticalAlignment="Center" IsEnabled="{Binding ElementName=radInterval, Path=IsChecked}"
+                                        VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+                
+                <TextBox Name="txtToHour" Width="30" IsEnabled="{Binding ElementName=cbxOt, Path=IsChecked}" MaxLength="2"
+                         VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0" 
+                         TextChanged="DefaultTextBox_TextChanged"
+                         Text="{Binding ToTimeHH, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+
+                <Label Name="lblToColonn" Content=":" VerticalAlignment="Center" IsEnabled="{Binding ElementName=radInterval, Path=IsChecked}"
+                                        VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+                <TextBox Name="txtToMin" Width="30" IsEnabled="{Binding ElementName=cbxOt, Path=IsChecked}" MaxLength="2"
+                         VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0" 
+                         TextChanged="DefaultTextBox_TextChanged"
+                         Text="{Binding ToTimeMM, UpdateSourceTrigger=PropertyChanged}"
+                         PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+
+                <TextBox Name="txtDayOfWeekFrom" Width="150"  IsEnabled="False" MaxLength="2"
+                         VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="10,5,0,0" 
+                         Text="{Binding FromDayOfWeekDesc}"
+                         PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+            </StackPanel>
+
+            <Label Name="lblToDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=ot_hour}" Margin="0,0,0,0" Grid.Row="2" Grid.Column="0"
+                   HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1" >
+
+                <TextBox Name="txtHour" Width="100" MaxLength="4" IsEnabled="False" 
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="5,5,0,0" 
+                         Text="{Binding OtHourFmt, UpdateSourceTrigger=PropertyChanged}"
+                         PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+            </StackPanel>
+
+            <Label Name="lblAdjust" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=adjust_hour}" 
+                       Margin="0,0,0,0" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Grid.Row="2" Grid.Column="2"
+                       VerticalAlignment="Center"/>
+
+            <TextBox Name="txtAdjust" Width="100" MaxLength="4" Grid.Row="2" Grid.Column="3"
+                     IsEnabled="{Binding ElementName=cbxOt, Path=IsChecked}"
+                     VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0" 
+                     Text="{Binding OtAdjustHour, UpdateSourceTrigger=PropertyChanged}"
+                     PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+
+            <Label Name="lblMultiplier" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=ot_multiplier}" Margin="0,0,0,0" Grid.Row="3" Grid.Column="0"
+                   HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Row="3" Grid.Column="1" Margin="5,0,0,0" Orientation="Horizontal">
+                <TextBox Name="txtMultiplier" Width="100" MaxLength="4" IsEnabled="False" 
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,0" 
+                         Text="{Binding MultiplierType, UpdateSourceTrigger=PropertyChanged}"
+                         PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+            </StackPanel>
+
+            <Label Name="lblToAccount" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=ot_rate}" 
+                   Margin="0,0,0,0" Grid.Row="5" Grid.Column="0"
+                   HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+
+            <StackPanel Grid.Row="5" Grid.Column="1" Margin="5,0,0,0" Orientation="Horizontal">
+                <TextBox Name="txtHourRate" Width="150" MaxLength="4" IsEnabled="False" HorizontalContentAlignment="Right"
+                         VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,5,0,0" 
+                         Text="{Binding OtRate, UpdateSourceTrigger=PropertyChanged}"
+                         PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+            </StackPanel>
+
+
+            <Label Name="lblAmount" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=ot_amount_money}" Margin="0,0,0,0" Grid.Row="7" Grid.Column="0"
+                   HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top"/>
+            <TextBox Name="txtAmount" Grid.Row="7" Grid.Column="1" Margin="5,5,0,0" Width="150"  HorizontalAlignment="Left" 
+                     HorizontalContentAlignment="Right" IsEnabled="False"
+                     Text="{Binding OtAmountFmt}" PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput" 
+                     TextChanged="DefaultTextBox_TextChanged" VerticalContentAlignment="Center"/>
+
+            <Label Name="lblNote" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=note}" Margin="0,0,0,0" Grid.Row="8" Grid.Column="0"
+                   HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top"/>
+            <TextBox Name="txtNote" Grid.Row="8" Grid.Column="1" Margin="5,5,0,0" Width="605"  VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                     Text="{Binding Note}" TextChanged="DefaultTextBox_TextChanged" />
+
+            <DockPanel Grid.Row="9" Grid.Column="1" LastChildFill="True" Margin="5,5,0,0" KeyboardNavigation.TabNavigation="Local">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" />
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="cmdOK" IsEnabled="{Binding IsEditable}" MinWidth="80" Margin="0,0,0,0" HorizontalAlignment="Right"
+                     Click="cmdOK_Click" TabIndex="99990">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                               Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                                <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button Name="cmdCancel"  MinWidth="80" Margin="5,0,0,0" HorizontalAlignment="Right" TabIndex="99991"
+                    Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=cancel}" IsCancel="True"/>
+                </StackPanel>
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</src:WinBase>

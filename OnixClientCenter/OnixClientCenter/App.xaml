@@ -1,0 +1,241 @@
+﻿<Application x:Class="Onix.ClientCenter.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:classes="clr-namespace:Onix.ClientCenter.Commons.Utils"
+             xmlns:helper="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+             StartupUri="UI/Windows/WinMain.xaml">
+
+    <Application.Resources>
+
+        <Style TargetType="FlowDocument" x:Key="DocumentStyle">
+            <Setter Property="FontFamily" Value="Calibri" />
+            <Setter Property="TextAlignment" Value="Left" />
+        </Style>
+
+        <Style x:Key="H1Style" TargetType="Paragraph">
+            <Setter Property="FontSize" Value="42" />
+            <Setter Property="Foreground" Value="#ff000000" />
+            <Setter Property="FontWeight" Value="Light" />
+        </Style>
+
+        <Style x:Key="H2Style" TargetType="Paragraph">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Foreground" Value="#ff000000" />
+            <Setter Property="FontWeight" Value="Light" />
+        </Style>
+
+        <Style x:Key="H3Style" TargetType="Paragraph">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Foreground" Value="#99000000" />
+            <Setter Property="FontWeight" Value="Light" />
+        </Style>
+
+        <Style x:Key="H4Style" TargetType="Paragraph">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#99000000" />
+            <Setter Property="FontWeight" Value="Light" />
+        </Style>
+
+        <Style x:Key="LinkStyle" TargetType="Hyperlink">
+            <Setter Property="TextDecorations" Value="None" />
+        </Style>
+
+        <Style x:Key="ImageStyle" TargetType="Image">
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+            <Style.Triggers>
+                <Trigger Property="Tag" Value="imageright">
+                    <Setter Property="Margin" Value="20,0,0,0" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SeparatorStyle" TargetType="Line">
+            <Setter Property="X2" Value="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=FlowDocumentScrollViewer}}" />
+            <Setter Property="Stroke" Value="#99000000" />
+            <Setter Property="StrokeThickness" Value="2" />
+        </Style>
+        
+        <classes:BoolToVisibilityConverter x:Key="TrueToHiddenConverter" TrueValue="Collapsed" FalseValue="Visible" />
+        <classes:BoolToVisibilityConverter x:Key="TrueToVisibleConverter" TrueValue="Visible" FalseValue="Collapsed" />
+        <helper:CInverseBooleanConverter x:Key="BooleanInverseConverter" />
+
+        <BooleanToVisibilityConverter x:Key="boolToVisibilityConverter" />
+
+        <Style TargetType="{x:Type DatePickerTextBox}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+
+                        <TextBox  x:Name="PART_TextBox" VerticalContentAlignment="Center" VerticalAlignment="Stretch" Margin="-1,-1, 0, -2"
+                                 IsEnabled="False"
+                                 Text="{Binding Path=SelectedDate, StringFormat='dd/MM/yyyy', RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="{x:Type GroupBox}">
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+        <Style x:Key="SearchBoxBorder" TargetType="{x:Type Border}">
+            <Setter Property="BorderThickness" Value="1.5" />
+            <Setter Property="BorderBrush" Value="LightSkyBlue" />
+            <Setter Property="CornerRadius" Value="0" />
+        </Style>
+
+        <Style x:Key="SearchListView" TargetType="{x:Type ListView}">
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="BorderBrush" Value="LightSkyBlue"/>
+        </Style>
+        
+
+        <BitmapImage x:Key="bmpQueryIcon" UriSource="pack://application:,,,/OnixClient;component/Images/database-search-icon.png" />
+        <BitmapImage x:Key="bmpLogout" UriSource="pack://application:,,,/OnixClient;component/Images/logout-icon.png" />
+        <BitmapImage x:Key="bmpPasswd" UriSource="pack://application:,,,/OnixClient;component/Images/passwd-icon.png" />
+        <BitmapImage x:Key="bmpExit" UriSource="pack://application:,,,/OnixClient;component/Images/exit-icon.png" />
+
+        <BitmapImage x:Key="bmpUser" UriSource="pack://application:,,,/OnixClient;component/Images/user-icon.png" />
+        <BitmapImage x:Key="bmpUserGroup" UriSource="pack://application:,,,/OnixClient;component/Images/user-group-icon.png" />
+        <BitmapImage x:Key="bmpAudit" UriSource="pack://application:,,,/OnixClient;component/Images/certificate-icon.png" />
+
+        <BitmapImage x:Key="bmpCompany" UriSource="pack://application:,,,/OnixClient;component/Images/company-icon.png" />
+        <BitmapImage x:Key="bmpGreenBullet" UriSource="pack://application:,,,/OnixClient;component/Images/bullet-green-icon-16.png" />
+        
+        <BitmapImage x:Key="bmpYes" UriSource="pack://application:,,,/OnixClient;component/Images/yes-icon-16.png" />
+        <BitmapImage x:Key="bmpNo" UriSource="pack://application:,,,/OnixClient;component/Images/no-icon-16.png" />
+        <BitmapImage x:Key="bmpTrash" UriSource="pack://application:,,,/OnixClient;component/Images/trash-icon-16.png" />
+        <BitmapImage x:Key="bmpThumbUp" UriSource="pack://application:,,,/OnixClient;component/Images/thumb-up-icon-24.png" />
+
+        <BitmapImage x:Key="bmpRedBullet" UriSource="pack://application:,,,/OnixClient;component/Images/bullet-red-icon-16.png" />
+        <BitmapImage x:Key="bmpMasterRef" UriSource="pack://application:,,,/OnixClient;component/Images/master-ref-icon.png" />
+        <BitmapImage x:Key="bmpFormatDoc" UriSource="pack://application:,,,/OnixClient;component/Images/FormatDoc.png" />
+        <BitmapImage x:Key="bmpCycleCalendar" UriSource="pack://application:,,,/OnixClient;component/Images/cycle-calendar.png" />
+        <BitmapImage x:Key="bmpTaxReport" UriSource="pack://application:,,,/OnixClient;component/Images/tax_report.png" />
+
+        <BitmapImage x:Key="bmpInventory" UriSource="pack://application:,,,/OnixClient;component/Images/inventory-icon.png" />
+        <BitmapImage x:Key="bmpWareHouse" UriSource="pack://application:,,,/OnixClient;component/Images/warehouse-icon.png" />
+        
+        <BitmapImage x:Key="bmpAdd" UriSource="pack://application:,,,/OnixClient;component/Images/add-icon-16.png" />
+        <BitmapImage x:Key="bmpEdit" UriSource="pack://application:,,,/OnixClient;component/Images/edit-icon-16.png" />
+        <BitmapImage x:Key="bmpDelete" UriSource="pack://application:,,,/OnixClient;component/Images/delete-icon-16.png" />
+        <BitmapImage x:Key="bmpNormal" UriSource="pack://application:,,,/OnixClient;component/Images/normal-icon-16.png" />
+
+        <BitmapImage x:Key="bmpCustomer" UriSource="pack://application:,,,/OnixClient;component/Images/customer-icon.png" />
+        <BitmapImage x:Key="bmpSupplier" UriSource="pack://application:,,,/OnixClient;component/Images/supplier-icon.png" />
+        <BitmapImage x:Key="bmpPricePlan" UriSource="pack://application:,,,/OnixClient;component/Images/priceplan-icon.png" />
+        <BitmapImage x:Key="bmpNext" UriSource="pack://application:,,,/OnixClient;component/Images/next-icon.png" />
+		<BitmapImage x:Key="bmpSaleInv" UriSource="pack://application:,,,/OnixClient;component/Images/Sales-inv.png" />
+
+        <BitmapImage x:Key="bmpInventoryImport" UriSource="pack://application:,,,/OnixClient;component/Images/inventory-in-icon.png" />
+        <BitmapImage x:Key="bmpInventoryExport" UriSource="pack://application:,,,/OnixClient;component/Images/inventory-out-icon.png" />
+        <BitmapImage x:Key="bmpInventoryAdjust" UriSource="pack://application:,,,/OnixClient;component/Images/Gear-icon.png" />
+        <BitmapImage x:Key="bmpOption" UriSource="pack://application:,,,/OnixClient;component/Images/Gear-icon.png" />
+        
+        <BitmapImage x:Key="bmpSelect" UriSource="pack://application:,,,/OnixClient;component/Images/select-icon.png" />
+        <BitmapImage x:Key="bmpDeSelect" UriSource="pack://application:,,,/OnixClient;component/Images/deselect-icon.png" />
+        <BitmapImage x:Key="bmpSelectAll" UriSource="pack://application:,,,/OnixClient;component/Images/select-all-icon.png" />
+        <BitmapImage x:Key="bmpDeSelectAll" UriSource="pack://application:,,,/OnixClient;component/Images/deselect-all-icon.png" />
+
+        <BitmapImage x:Key="bmpService" UriSource="pack://application:,,,/OnixClient;component/Images/service-icon.png" />
+        <BitmapImage x:Key="bmpFree" UriSource="pack://application:,,,/OnixClient;component/Images/free-icon.png" />
+        <BitmapImage x:Key="bmpCoupon" UriSource="pack://application:,,,/OnixClient;component/Images/coupon-icon.png" />
+        <BitmapImage x:Key="bmpStep" UriSource="pack://application:,,,/OnixClient;component/Images/step-icon.png" />
+        <BitmapImage x:Key="bmpMember" UriSource="pack://application:,,,/OnixClient;component/Images/member-icon.png" />
+        <BitmapImage x:Key="bmpStandardPackage" UriSource="pack://application:,,,/OnixClient;component/Images/standard-package-icon.png" />
+        <BitmapImage x:Key="bmpCashSale" UriSource="pack://application:,,,/OnixClient;component/Images/cash-sale-icon.png" />
+        <BitmapImage x:Key="bmpDebtSale" UriSource="pack://application:,,,/OnixClient;component/Images/invoice-icon.png" />
+        <BitmapImage x:Key="bmpReport" UriSource="pack://application:,,,/OnixClient;component/Images/reports-icon.png" />
+        <BitmapImage x:Key="bmpDiscount" UriSource="pack://application:,,,/OnixClient;component/Images/discount-icon.png" />
+        <BitmapImage x:Key="bmpUp" UriSource="pack://application:,,,/OnixClient;component/Images/up-icon.png" />
+        <BitmapImage x:Key="bmpDown" UriSource="pack://application:,,,/OnixClient;component/Images/down-icon.png" />
+        <BitmapImage x:Key="bmpXfer" UriSource="pack://application:,,,/OnixClient;component/Images/transfer-icon.png" />
+        <BitmapImage x:Key="bmpLog" UriSource="pack://application:,,,/OnixClient;component/Images/log-icon.png" />
+		<BitmapImage x:Key="bmpSaleOrder" UriSource="pack://application:,,,/OnixClient;component/Images/sales-order2.png" />
+
+		<BitmapImage x:Key="bmpThai" UriSource="pack://application:,,,/OnixClient;component/Images/Thailand-Flag-icon.png" />
+        <BitmapImage x:Key="bmpEN" UriSource="pack://application:,,,/OnixClient;component/Images/English-Language-Flag-1-icon.png" />
+
+        <BitmapImage x:Key="bmpServer" UriSource="pack://application:,,,/OnixClient;component/Images/Server-icon.png" />
+        <BitmapImage x:Key="bmpServer24" UriSource="pack://application:,,,/OnixClient;component/Images/Server-icon-24.png" />
+
+        <BitmapImage x:Key="bmpZoomIn" UriSource="pack://application:,,,/OnixClient;component/Images/Zoom-In-icon.png" />
+        <BitmapImage x:Key="bmpZoomOut" UriSource="pack://application:,,,/OnixClient;component/Images/Zoom-Out-icon.png" />
+        <BitmapImage x:Key="bmpPrint" UriSource="pack://application:,,,/OnixClient;component/Images/print-icon.png" />
+        <BitmapImage x:Key="bmpFit" UriSource="pack://application:,,,/OnixClient;component/Images/Apps-Zoom-Fit-icon.png" />
+        <BitmapImage x:Key="bmpPDF" UriSource="pack://application:,,,/OnixClient;component/Images/pdf-icon.png" />
+        <BitmapImage x:Key="bmpRun" UriSource="pack://application:,,,/OnixClient;component/Images/Apps-Run-icon.png" />
+        <BitmapImage x:Key="bmpFitWidth" UriSource="pack://application:,,,/OnixClient;component/Images/Actions-zoom-fit-width-icon.png" />
+        <BitmapImage x:Key="bmpFitHeigh" UriSource="pack://application:,,,/OnixClient;component/Images/Actions-zoom-fit-height-icon.png" />
+
+        <BitmapImage x:Key="bmpLoginHistory" UriSource="pack://application:,,,/OnixClient;component/Images/File-History-icon.png" />
+        <BitmapImage x:Key="bmpAlert" UriSource="pack://application:,,,/OnixClient;component/Images/alert-icon.png" />
+        <BitmapImage x:Key="bmpSession" UriSource="pack://application:,,,/OnixClient;component/Images/session-icon.png" />
+
+        <BitmapImage x:Key="bmpSaleDebitNote" UriSource="pack://application:,,,/OnixClient;component/Images/debit-note.png" />
+        <BitmapImage x:Key="bmpSaleCreditNote" UriSource="pack://application:,,,/OnixClient;component/Images/credit-icon.png" />
+        <BitmapImage x:Key="bmpMoney" UriSource="pack://application:,,,/OnixClient;component/Images/Money.png" />
+        <BitmapImage x:Key="bmpMoneyBag" UriSource="pack://application:,,,/OnixClient;component/Images/23.png" />
+        <BitmapImage x:Key="bmpMoney_Bag" UriSource="pack://application:,,,/OnixClient;component/Images/Money_Bag.png" />
+        <BitmapImage x:Key="bmpTransfer" UriSource="pack://application:,,,/OnixClient;component/Images/transfert.png" />
+        <BitmapImage x:Key="bmpARRec" UriSource="pack://application:,,,/OnixClient;component/Images/cash_register.png" />
+        <BitmapImage x:Key="bmpDiscount2" UriSource="pack://application:,,,/OnixClient;component/Images/discount.png" />
+        <BitmapImage x:Key="bmpGift" UriSource="pack://application:,,,/OnixClient;component/Images/Gift.png" />
+        <BitmapImage x:Key="bmpCoupon2" UriSource="pack://application:,,,/OnixClient;component/Images/coupon.png" />
+        <BitmapImage x:Key="bmpbenchmarking" UriSource="pack://application:,,,/OnixClient;component/Images/benchmarking.png" />
+        <BitmapImage x:Key="bmpPR" UriSource="pack://application:,,,/OnixClient;component/Images/1495026262_Mail.png" />
+        <BitmapImage x:Key="bmpPO" UriSource="pack://application:,,,/OnixClient;component/Images/purchase.png" />
+        <BitmapImage x:Key="bmpError" UriSource="pack://application:,,,/OnixClient;component/Images/error_24.png" />
+        
+        <BitmapImage x:Key="bmpInfo" UriSource="pack://application:,,,/OnixClient;component/Images/info-icon.png" />
+        <BitmapImage x:Key="bmpSearch" UriSource="pack://application:,,,/OnixClient;component/Images/Search-icon.png" />
+        <BitmapImage x:Key="bmpBundle" UriSource="pack://application:,,,/OnixClient;component/Images/bundle-icon.png" />
+        <BitmapImage x:Key="bmpOK" UriSource="pack://application:,,,/OnixClient;component/Images/ok-icon.png" />
+        <BitmapImage x:Key="bmpAlertRed" UriSource="pack://application:,,,/OnixClient;component/Images/AlertSqr.png" />
+
+        <BitmapImage x:Key="bmpPurchaseCash" UriSource="pack://application:,,,/OnixClient;component/Images/purchase-cash.png" />
+        
+        <BitmapImage x:Key="bmpCommission" UriSource="pack://application:,,,/OnixClient;component/Images/discount-icon.png" />
+        <BitmapImage x:Key="bmpConfigCommission" UriSource="pack://application:,,,/OnixClient;component/Images/Money.png" /> 
+        <BitmapImage x:Key="bmpEmployee" UriSource="pack://application:,,,/OnixClient;component/Images/employee.png" />
+        <BitmapImage x:Key="bmpCommissionBatch" UriSource="pack://application:,,,/OnixClient;component/Images/Money_Bag.png" />
+        
+        <BitmapImage x:Key="bmpDayWeekly" UriSource="pack://application:,,,/OnixClient;component/Images/view-calendar-week.png" />
+        <BitmapImage x:Key="bmpDayMonthly" UriSource="pack://application:,,,/OnixClient;component/Images/view-calendar-month.png" />
+
+        <BitmapImage x:Key="bmpPosShop" UriSource="pack://application:,,,/OnixClient;component/Images/pos/pos_pos.png" />
+        <BitmapImage x:Key="bmpBillIssue" UriSource="pack://application:,,,/OnixClient;component/Images/certificate-icon.png" />
+        
+        <!--General icon-->
+        <BitmapImage x:Key="bmpSystemConfig" UriSource="pack://application:,,,/OnixClient;component/Images/SystemConfig.png" />
+        <BitmapImage x:Key="bmpConfig" UriSource="pack://application:,,,/OnixClient;component/Images/Gear-icon.png" />
+        <BitmapImage x:Key="bmpSave" UriSource="pack://application:,,,/OnixClient;component/Images/Save-icon.png" />
+
+        <BitmapImage x:Key="bmpPurchaseDebt" UriSource="pack://application:,,,/OnixClient;component/Images/invoice-icon.png" />
+        <BitmapImage x:Key="bmpPurchasePO" UriSource="pack://application:,,,/OnixClient;component/Images/FormatDoc.png" />
+        <BitmapImage x:Key="bmpQuotation" UriSource="pack://application:,,,/OnixClient;component/Images/description.png" />
+        <BitmapImage x:Key="bmpScreenConfig" UriSource="pack://application:,,,/OnixClient;component/Images/Gear-icon.png" />
+        <BitmapImage x:Key="bmpSort" UriSource="pack://application:,,,/OnixClient;component/Images/sort-icon.png" />
+        <BitmapImage x:Key="bmpProject" UriSource="pack://application:,,,/OnixClient;component/Images/project.png" />
+
+        <BitmapImage x:Key="bmpWalletOut" UriSource="pack://application:,,,/OnixClient;component/Images/wallet-icon.png" />
+        <BitmapImage x:Key="bmpCheque1" UriSource="pack://application:,,,/OnixClient;component/Images/Bank-Check-icon.png" />
+        <BitmapImage x:Key="bmpCheque2" UriSource="pack://application:,,,/OnixClient;component/Images/cheque.png" />
+
+        <BitmapImage x:Key="bmpCashDepositAr" UriSource="pack://application:,,,/OnixClient;component/Images/cash-deposit1.png" />
+        <BitmapImage x:Key="bmpCashDepositAp" UriSource="pack://application:,,,/OnixClient;component/Images/cash-deposit2.png" />
+        <BitmapImage x:Key="bmpSaleOrders" UriSource="pack://application:,,,/OnixClient;component/Images/order-icon.png" />
+        <BitmapImage x:Key="bmpPrintPage" UriSource="pack://application:,,,/OnixClient;component/Images/print-icon-page.png" />
+        <BitmapImage x:Key="bmpExcel" UriSource="pack://application:,,,/OnixClient;component/Images/excel-xls-icon.png" />
+        <BitmapImage x:Key="bmpMicroService" UriSource="pack://application:,,,/OnixClient;component/Images/micro-services-icon.png" />
+
+        <BitmapImage x:Key="bmpInventoryBorrow" UriSource="pack://application:,,,/OnixClient;component/Images/borrow-icon.png" />
+        <BitmapImage x:Key="bmpInventoryReturn" UriSource="pack://application:,,,/OnixClient;component/Images/return-icon.png" />
+        <BitmapImage x:Key="bmpDiskImage" UriSource="pack://application:,,,/OnixClient;component/Images/disk-icon.png" />
+
+        <BitmapImage x:Key="bmpLoading" UriSource="pack://application:,,,/OnixClient;component/Images/loading.gif" />
+        <BitmapImage x:Key="bmpCost" UriSource="pack://application:,,,/OnixClient;component/Images/money-in.png" />
+        <BitmapImage x:Key="bmpLeave" UriSource="pack://application:,,,/OnixClient;component/Images/disk-icon.png" />
+    </Application.Resources>
+</Application>

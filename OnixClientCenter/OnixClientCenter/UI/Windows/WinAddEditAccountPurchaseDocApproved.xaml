@@ -1,0 +1,360 @@
+﻿<Window x:Class="Onix.ClientCenter.Windows.WinAddEditAccountPurchaseDocApproved"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Onix.ClientCenter.Windows"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="CanMinimize"
+        WindowStyle="SingleBorderWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"    
+        Name="rootElement"
+        KeyboardNavigation.ControlTabNavigation="Cycle"
+        FocusManager.FocusedElement="{Binding ElementName=txtRefDoc}"              
+        Title=""  Height="720" Width="1300" Loaded="Window_Loaded" Closing="Window_Closing" ContentRendered="Window_ContentRendered" Activated="Window_Activated">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="133*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="320*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="210*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Name="lblCode" Grid.Row="1" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_no}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,5,5"  />
+            
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                <TextBox Name="txtCode" IsEnabled="False" Margin="5,0,0,5" Text="{Binding DocumentNo}" 
+                VerticalContentAlignment="Center" TextChanged="txtTextBox_TextChanged" HorizontalAlignment="Left" Width="230"/>
+
+                <Label Name="lblRefDoc" Grid.Row="1" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=invoice_no}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,5,5" 
+                       Visibility="{Binding ElementName=rootElement, Path=IsInvoice, Converter={StaticResource TrueToVisibleConverter}}"/>
+
+                <TextBox Name="txtRefDoc" Margin="0,0,0,5" Text="{Binding RefDocNo}" Visibility="{Binding ElementName=rootElement, Path=IsInvoice, Converter={StaticResource TrueToVisibleConverter}}"
+                VerticalContentAlignment="Center" TextChanged="txtTextBox_TextChanged" HorizontalAlignment="Left" Width="230"/>
+
+                <CheckBox  Name="cbxInvoiceAvailable" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=is_invoice_available}" 
+                              IsChecked="{Binding Path=IsInvoiceAvailable}" VerticalAlignment="Center"
+                              HorizontalAlignment="Right" Margin="10,0,0,0" Checked="cbxInvoiceAvailable_Checked" Unchecked="cbxInvoiceAvailable_Checked"
+                           Visibility="{Binding ElementName=rootElement, Path=IsInvoice, Converter={StaticResource TrueToVisibleConverter}}"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="1" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Name="lblStatus"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_status}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="30,0,0,5"  />
+                <TextBox Name="txtStatus" Width="{Binding ElementName=txtCode, Path=Width}"  Text="{Binding DocumentStatusDesc}" IsEnabled="False"
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,5,5" TextChanged="txtTextBox_TextChanged"/>
+            </StackPanel>
+
+            <Label Name="lblDocumentDate" Grid.Row="2" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_date}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,5,5" />
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" >
+                <uc:UDateEntry x:Name="dtFromDate" Margin="5,0,5,5" SelectedDate="{Binding DocumentDate}"
+                        SelectedDateChanged="dtFromDate_SelectedDateChanged"  HorizontalAlignment="Left" VerticalContentAlignment="Center" Width="{Binding ElementName=txtCode, Path=Width}"/>
+
+                <Label Name="lblRefDocDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=invoice_date}" VerticalAlignment="Center" 
+                       VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,5,5" Width="{Binding ElementName=lblRefDoc, Path=Width}"
+                       Visibility="{Binding ElementName=rootElement, Path=IsInvoice, Converter={StaticResource TrueToVisibleConverter}}"/>
+                
+                <uc:UDateEntry x:Name="dtInvoiceDate" Margin="0,0,0,5" SelectedDate="{Binding RefDocDate}"
+                              Visibility="{Binding ElementName=rootElement, Path=IsInvoice, Converter={StaticResource TrueToVisibleConverter}}"
+                              SelectedDateChanged="dtDueDate_SelectedDateChanged"  HorizontalAlignment="Left" VerticalContentAlignment="Center" Width="{Binding ElementName=txtCode, Path=Width}"/>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Name="lblDueDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=due_date}" VerticalAlignment="Center"
+                       Visibility="{Binding ElementName=rootElement, Path=IsApReceipt, Converter={StaticResource TrueToHiddenConverter}}"/>
+                
+                <uc:UDateEntry x:Name="dtDueDate" Margin="5,0,5,5" SelectedDate="{Binding DueDate}"
+                              Visibility="{Binding ElementName=rootElement, Path=IsApReceipt, Converter={StaticResource TrueToHiddenConverter}}"
+                        SelectedDateChanged="dtDueDate_SelectedDateChanged"  HorizontalAlignment="Left" VerticalContentAlignment="Center" Width="{Binding ElementName=txtCode, Path=Width}"/>
+
+                
+                <Label Name="lblReceiptDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=actual_receive_date}" VerticalAlignment="Center" 
+                       Visibility="{Binding ElementName=rootElement, Path=IsApReceipt, Converter={StaticResource TrueToVisibleConverter}}"/>
+                
+                <uc:UDateEntry x:Name="dtReceiptDate" Margin="5,0,5,5" SelectedDate="{Binding ActualTxDate}"
+                              Visibility="{Binding ElementName=rootElement, Path=IsApReceipt, Converter={StaticResource TrueToVisibleConverter}}"
+                        SelectedDateChanged="dtDueDate_SelectedDateChanged"  HorizontalAlignment="Left" VerticalContentAlignment="Center" Width="{Binding ElementName=txtCode, Path=Width}"/>
+
+            </StackPanel>
+
+            <Label Name="lblDesc" Grid.Row="3" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_desc}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,5,5" />
+
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                <TextBox Name="txtDesc" Width="584" TextChanged="txtTextBox_TextChanged" Grid.ColumnSpan="3"
+                   Text="{Binding DocumentDesc}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,5,5"/>
+
+                <CheckBox Name="cbxVatClaimable" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=vat_claimable}" 
+                          IsChecked="{Binding Path=IsVatClaimable}" VerticalAlignment="Center"
+                          IsEnabled="{Binding ElementName=rootElement, Path=IsExpense}"
+                          HorizontalAlignment="Left" Margin="10,0,0,0" Checked="cbxInvoiceAvailable_Checked" Unchecked="cbxInvoiceAvailable_Checked"/>
+            </StackPanel>
+            
+
+            <StackPanel Grid.Row="3" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Name="lblBranch" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=Branch}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="30,0,0,5" />
+                <ComboBox Name="cboBranch" DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectionChanged="ComboBox_SelectionChanged"
+                  SelectedItem="{Binding BranchObj}" SelectedValue="{Binding BranchObj}" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Branchs}"
+                  VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,5,5" Width="{Binding ElementName=txtCode, Path=Width}" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right"/>
+        </Grid>
+
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" DockPanel.Dock="Left">
+                <Button Name="cmdOK" TabIndex="99990" MinWidth="80"  Margin="5,5,5,5" Click="cmdOK_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                            <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Name="cmdSave" TabIndex="99991" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=save}" MinWidth="80"  Margin="15,5,05,5" Click="cmdSave_Click"/>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+
+                <Button Name="cmdCancel" TabIndex="99996" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" MinWidth="80"  Margin="15,5,5,5"/>
+            </StackPanel>
+        </Grid>
+
+        <TabControl Margin="5, 10, 5, 0" KeyboardNavigation.TabNavigation="Local">
+            <TabItem Name="tbiItem">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiItem, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=purchase_item}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <DockPanel LastChildFill="True">
+                    <DockPanel LastChildFill="True">
+                        <ListView Name="lsvAccoutItem" Style="{StaticResource SearchListView}" SizeChanged="lsvAccoutItem_SizeChanged" Grid.Column="0"  Margin="5" ItemsSource="{Binding AccountItem}" 
+                                  PreviewKeyDown="lsvAccoutItem_PreviewKeyDown" MouseDoubleClick ="lsvAccoutItem_MouseDoubleClick">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn x:Name="colChecked">
+                                        <Image Width="16" Height="16" Source="{StaticResource bmpTrash}"/>
+                                   </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colAction" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=action}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Name="cmdAction" Width="30" Tag="{Binding ObjSelf}" Content="..." Click="cmdAction_Click">
+                                                    <Button.ContextMenu>
+                                                        <ContextMenu>
+                                                            <MenuItem Name="mnuDocumentEdit" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ADMIN_EDIT}" Click="mnuDocumentEdit_Click"/>
+                                                        </ContextMenu>
+                                                    </Button.ContextMenu>
+                                                </Button>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colVoucherOrTray">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                    <Image Width="20" Height="20" Source="{Binding IsVoucherIcon}" Margin="0,0,5,0"/>
+                                                    <Image Width="20" Height="20" Source="{Binding IsTrayIcon}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    
+                                    <GridViewColumn x:Name="colItemCode" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=package_item_code}" DisplayMemberBinding="{Binding SelectItemCode}"/>
+                                    <GridViewColumn x:Name="colItemName" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=package_item_name}" DisplayMemberBinding="{Binding SelectItemName}" />
+
+                                    <GridViewColumn x:Name="colQuantity" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=quantity}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Right" Text="{Binding QuantityFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colPrice" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=unit_price}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Right" Text="{Binding UnitPriceFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colDiscount" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=discount}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Right" Text="{Binding DiscountFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn x:Name="colAmount" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=total_amount_afterDiscount}">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextAlignment="Right" Text="{Binding TotalAfterDiscountFmt}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </DockPanel>
+                </DockPanel>
+            </TabItem>
+
+            <!-- Start Other -->
+            <TabItem Name="tbiOther">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiOther, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=other}"/>
+                        <TextBlock Text="{Binding TotalFreeItemCountTxt}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <DockPanel LastChildFill="True" Margin="2" >
+                    <Border Margin="5,5,5,5" CornerRadius="10" Background="{DynamicResource WindowBackgroundBrush}" >
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="60*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!--<Label Name="lblProject" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=project}" VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="5,0,5,5"
+                                   Visibility="{Binding ElementName=rootElement, Path=IsProjectShow, Converter={StaticResource TrueToVisibleConverter}}"/>
+
+                            <u:ULookupSearch2 x:Name="uProject" Lookup="ProjectLookup" SelectedObject="{Binding ProjectObj}" 
+                              Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=project}"
+                              Visibility="{Binding ElementName=rootElement, Path=IsProjectShow, Converter={StaticResource TrueToVisibleConverter}}"
+                              Grid.Row="1" Grid.Column="1" Margin="5,0,0,5" SelectedObjectChanged = "uProject_SelectedObjectChanged"/>
+
+                            <Label Name="lblProjectGroupName" Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=project_group}" 
+                                   Visibility="{Binding ElementName=rootElement, Path=IsProjectShow, Converter={StaticResource TrueToVisibleConverter}}"
+                                   HorizontalContentAlignment="Right" Margin="5,0,5,5"/>
+
+                            <TextBox Name="txtProjectGroup" Grid.Row="2" Grid.Column="1" IsEnabled="False"  Margin="5,0,0,5" Text="{Binding ProjectGroupName}" 
+                                     VerticalContentAlignment="Center" TextChanged="txtTextBox_TextChanged" HorizontalAlignment="Left" Width="400"
+                                     Visibility="{Binding ElementName=rootElement, Path=IsProjectShow, Converter={StaticResource TrueToVisibleConverter}}"/>-->
+
+                            <Label Name="lblWhDocNo" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=wh_doc_no}" 
+                                   Visibility="{Binding ElementName=rootElement, Path=IsReceipt, Converter={StaticResource TrueToVisibleConverter}}"
+                                   HorizontalContentAlignment="Right" Margin="5,0,5,5"/>
+
+                            <TextBox Name="txtWhDocNo" Grid.Row="3" Grid.Column="1" Margin="5,0,0,5" Text="{Binding RefWhDocNo}" IsEnabled="{Binding ElementName=rootElement, Path=IsCash}"
+                                     Visibility="{Binding ElementName=rootElement, Path=IsReceipt, Converter={StaticResource TrueToVisibleConverter}}"
+                                     VerticalContentAlignment="Center" TextChanged="txtTextBox_TextChanged" HorizontalAlignment="Left" Width="300"/>
+
+                            <Label Name="lblReceiptNo" Grid.Row="4" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=receipt_no}" 
+                                   Visibility="{Binding ElementName=rootElement, Path=IsReceipt, Converter={StaticResource TrueToVisibleConverter}}"
+                                   HorizontalContentAlignment="Right" Margin="5,0,5,5"/>
+
+                            <TextBox Name="txtReceiptNo" Grid.Row="4" Grid.Column="1" Margin="5,0,0,5" Text="{Binding RefReceiptNo}" IsEnabled="{Binding ElementName=rootElement, Path=IsCash}"
+                                     Visibility="{Binding ElementName=rootElement, Path=IsReceipt, Converter={StaticResource TrueToVisibleConverter}}"
+                                     VerticalContentAlignment="Center" TextChanged="txtTextBox_TextChanged" HorizontalAlignment="Left" Width="300"/>
+
+                            <Label Name="lblPoNo" Grid.Row="5" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=po_no}" 
+                                   Visibility="{Binding ElementName=rootElement, Path=IsReceipt, Converter={StaticResource TrueToHiddenConverter}}"
+                                   HorizontalContentAlignment="Right" Margin="5,0,5,5"/>
+
+                            <TextBox Name="txtPoNo" Grid.Row="5" Grid.Column="1" Margin="5,0,0,5" Text="{Binding RefPoNo}" 
+                                     Visibility="{Binding ElementName=rootElement, Path=IsReceipt, Converter={StaticResource TrueToHiddenConverter}}"
+                                     VerticalContentAlignment="Center" TextChanged="txtTextBox_TextChanged" HorizontalAlignment="Left" Width="500"/>
+
+                            <Label Name="lblSaleMan" Grid.Row="6" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=employee_name}" VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="5,0,5,5"/>
+
+                            <uc:ULookupSearch2 x:Name="uEmployee" Lookup="EmployeeLookup" SelectedObject="{Binding SalesmanObj}" 
+                              Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=salesman}"
+                              Grid.Row="6" Grid.Column="1" Margin="5,0,0,5" SelectedObjectChanged ="uProject_SelectedObjectChanged"/>
+
+                            <Label Name="lblWhType" Grid.Row="7" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=wh_pay_type}" VerticalAlignment="Center" 
+                                   Visibility="{Binding ElementName=rootElement, Path=IsReceipt, Converter={StaticResource TrueToVisibleConverter}}"
+                                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="5,0,5,5"/>
+
+                            <StackPanel Grid.Row="7" Grid.Column="1"  Orientation="Horizontal" HorizontalAlignment="Left" IsEnabled="{Binding ElementName=rootElement, Path=IsCash}"
+                                        Visibility="{Binding ElementName=rootElement, Path=IsReceipt, Converter={StaticResource TrueToVisibleConverter}}">
+                                <RadioButton Name="radType1"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=wh_pay_type1}"
+                                             IsChecked="{Binding IsWhPayType1, UpdateSourceTrigger=PropertyChanged}" Margin="10,5,0,0" Checked="radType1_Checked" VerticalAlignment="Center" />
+
+                                <RadioButton Name="radType2"   Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=wh_pay_type2}" 
+                                             IsChecked="{Binding IsWhPayType2, UpdateSourceTrigger=PropertyChanged}" Margin="10,5,0,0" Checked="radType1_Checked" VerticalAlignment="Center"/>
+
+                                <RadioButton Name="radType3"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=wh_pay_type3}" 
+                                             IsChecked="{Binding IsWhPayType3, UpdateSourceTrigger=PropertyChanged}" Margin="10,5,0,0" Checked="radType1_Checked" VerticalAlignment="Center"/>
+
+                                <RadioButton Name="radType4"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=wh_pay_type4}" 
+                                             IsChecked="{Binding IsWhPayType4, UpdateSourceTrigger=PropertyChanged}" Margin="10,5,0,0" Checked="radType1_Checked" VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <Label Name="lblVatMonth" Grid.Row="8" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=vat_month}" VerticalAlignment="Center" 
+                                   VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="10,0,5,5"/>
+
+                            <uc:UDateEntry x:Name="dtVatDate" Grid.Row="8" Grid.Column="1" Margin="5,5,0,5" SelectedDate="{Binding VatMonthYear}" SelectedDateChanged="dtFromDate_SelectedDateChanged"  HorizontalAlignment="Left" 
+                                          OnlyMonth="true" VerticalContentAlignment="Center" />
+
+                        </Grid>
+                    </Border>
+                </DockPanel>
+            </TabItem>
+            <!-- End Other -->
+
+        </TabControl>
+
+    </DockPanel>
+</Window>

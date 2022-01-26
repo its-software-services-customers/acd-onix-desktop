@@ -1,0 +1,72 @@
+﻿<Window x:Class="Onix.ClientCenter.WinLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        mc:Ignorable="d"
+        Title="" SizeToContent="WidthAndHeight"  MinHeight="225" MinWidth="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" Activated="Window_Activated" Closing="Window_Closing" ContentRendered="Window_ContentRendered">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" Margin="0,0,0,0">
+            <RadioButton Name="radThai" GroupName="1" Margin="0, 10, 0, 10" Checked="radThai_Checked">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource bmpThai}"/>
+                    <TextBlock Text="ภาษาไทย" Margin="10,10,10,0"/>
+                </StackPanel>
+            </RadioButton>
+
+            <RadioButton Name="radEng" GroupName="1" Margin="5,10,0,10" Checked="radEng_Checked">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource bmpEN}"/>
+                    <TextBlock Text="English Language" Margin="10,10,10,0"/>
+                </StackPanel>
+            </RadioButton>
+        </StackPanel>
+        
+        <Label Name="lblUserName" Grid.Row="2" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=user}" 
+              Margin="0,0,5,0" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <TextBox Name="txtUserName" Grid.Row="2" Grid.Column="2" VerticalContentAlignment="Center" 
+                 Margin="0,0,0,0" BorderBrush="Black" ClipToBounds="True" CaretBrush="Black" />
+        <Button Content="..." Focusable="False" Grid.Row="2" Grid.Column="3" Name="cmdSetting" Click="cmdSetting_Click"  Width="30" 
+                HorizontalAlignment="Left" Margin="5,0,0,0"/>
+
+        <Label Name="lblPassword" Grid.Row="3" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=password}" 
+              Margin="0,0,5,0" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <PasswordBox Name="txtPassword" Grid.Row="3" Grid.Column="2" VerticalContentAlignment="Center" Margin="0,5,0,0" 
+                     CaretBrush="Black" BorderBrush="Black" KeyDown="txtBox_KeyDown" />
+
+        <Label Name="lblTheme" Grid.Row="4" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=theme}" 
+              Margin="0,0,5,0" HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <ComboBox Grid.Row="4" Grid.Column="2" SelectedItem="ObjSelf" DisplayMemberPath="Description" SelectedValuePath="ObjSelf"
+                        Name="cboTheme" Margin="0,5,0,0" SelectionChanged="cboTheme_SelectionChanged"/>
+
+        <StackPanel Grid.Row="5" Grid.Column="2" Margin="0,10,0,0" Orientation="Horizontal">
+            <Button Name="cmdOK" Click="cmdOK_Click" Width="80" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}" 
+                    Grid.Column="0" HorizontalAlignment="Left"/>
+
+            <Button Name="cmdCancel" Click="cmdCancel_Click" Width="80" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" 
+                    Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

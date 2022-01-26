@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53B576AE-0D01-4CB0-A8DA-E60E71B9175F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Onix.Client</RootNamespace>
+    <AssemblyName>OnixClient</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>dll_built\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <HintPath>..\OnixClientCenter\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WisWsClientAPI">
+      <HintPath>..\..\dll_from_lib\WisWsClientAPI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\OnixWebServiceAPI.cs" />
+    <Compile Include="Helper\CBahtText.cs" />
+    <Compile Include="Helper\CAccessValidator.cs" />
+    <Compile Include="Helper\CInverseBooleanConverter.cs" />
+    <Compile Include="Helper\CBoolToVisibilityConverter.cs" />
+    <Compile Include="Helper\CBuild.cs" />
+    <Compile Include="Helper\CGlobalVariable.cs" />
+    <Compile Include="Helper\CLanguage.cs" />
+    <Compile Include="Helper\CMasterReference.cs" />
+    <Compile Include="Helper\CReportConfigs.cs" />
+    <Compile Include="Helper\CTextLabel.cs" />
+    <Compile Include="Helper\CThreadSync.cs" />
+    <Compile Include="Helper\CToolTipItem.cs" />
+    <Compile Include="Helper\CUserVariables.cs" />
+    <Compile Include="Models\MAccountDocDeposit.cs" />
+    <Compile Include="Models\MAccountDocDiscount.cs" />
+    <Compile Include="Models\MAccountDocReceipt.cs" />
+    <Compile Include="Models\MAuxilaryDocSubItem.cs" />
+    <Compile Include="Models\MCheque.cs" />
+    <Compile Include="Models\MCashDocXferDetail.cs" />
+    <Compile Include="Models\MAccessRight.cs" />
+    <Compile Include="Models\MCompanyImage.cs" />
+    <Compile Include="Models\MEmployeeTax.cs" />
+    <Compile Include="Models\MSalePurchaseHistory.cs" />
+    <Compile Include="Models\MAuxilaryDocRemark.cs" />
+    <Compile Include="Models\MAuxilaryDocItem.cs" />
+    <Compile Include="Models\MAuxilaryDoc.cs" />
+    <Compile Include="Models\MEntityBankAccount.cs" />
+    <Compile Include="Models\MPaymentCriteria.cs" />
+    <Compile Include="Models\MFormConfig.cs" />
+    <Compile Include="Models\MScreenConfig.cs" />
+    <Compile Include="Models\MFormConfigVariable.cs" />
+    <Compile Include="Models\MWhGroup.cs" />
+    <Compile Include="Models\MVoidDoc.cs" />
+    <Compile Include="Models\MProject.cs" />
+    <Compile Include="Models\MReceiptItem.cs" />
+    <Compile Include="Models\MReceiptDoc.cs" />
+    <Compile Include="Models\MAccountDocPayment.cs" />
+    <Compile Include="Models\MEntityAddress.cs" />
+    <Compile Include="Models\MReportFilter.cs" />
+    <Compile Include="Models\MReportGroup.cs" />
+    <Compile Include="Models\MInventoryAdjustment.cs" />
+    <Compile Include="Models\MMenuItem.cs" />
+    <Compile Include="Models\MReportConfig.cs" />
+    <Compile Include="Models\MUserVariable.cs" />
+    <Compile Include="Models\MGlobalVariable.cs" />
+    <Compile Include="Models\MLogImportError.cs" />
+    <Compile Include="Models\MLogImportIssue.cs" />
+    <Compile Include="Models\MBranchConfigPosCenter.cs" />
+    <Compile Include="Models\MCommissionTransaction.cs" />
+    <Compile Include="Models\MAccountDoc.cs" />
+    <Compile Include="Models\MAccountDocItem.cs" />
+    <Compile Include="Models\MArApTransaction.cs" />
+    <Compile Include="Models\MBillSimulateResulte.cs" />
+    <Compile Include="Models\MCashDocIn.cs" />
+    <Compile Include="Models\MCashDocOut.cs" />
+    <Compile Include="Models\MCashDocXfer.cs" />
+    <Compile Include="Models\MCashTransaction.cs" />
+    <Compile Include="Models\MCommissionBatch.cs" />
+    <Compile Include="Models\MCommissionBatchDetail.cs" />
+    <Compile Include="Models\MCommissionProfileDisplay.cs" />
+    <Compile Include="Models\MCompanyCommissionProfile.cs" />
+    <Compile Include="Models\MCompanyPackageSelected.cs" />
+    <Compile Include="Models\MCompanyProfile.cs" />
+    <Compile Include="Models\MCoupon.cs" />
+    <Compile Include="Models\MBranchConfigCenter.cs" />
+    <Compile Include="Models\MCycle.cs" />
+    <Compile Include="Models\MDocumentNumber.cs" />
+    <Compile Include="Models\MEmployee.cs" />
+    <Compile Include="Models\MGroupPermission.cs" />
+    <Compile Include="Models\MInventoryBarcodeItem.cs" />
+    <Compile Include="Models\MInventoryCurrentBalance.cs" />
+    <Compile Include="Models\MInventoryDoc.cs" />
+    <Compile Include="Models\MInventoryLot.cs" />
+    <Compile Include="Models\MBalanceTransaction.cs" />
+    <Compile Include="Models\MInventoryTransaction.cs" />
+    <Compile Include="Models\MInventoryTransactionImport.cs" />
+    <Compile Include="Models\MItemPackage.cs" />
+    <Compile Include="Models\MLocation.cs" />
+    <Compile Include="Models\MCashAccount.cs" />
+    <Compile Include="Models\MCashDoc.cs" />
+    <Compile Include="Models\MError.cs" />
+    <Compile Include="Models\MChunkNavigate.cs" />
+    <Compile Include="Models\MLoginHistory.cs" />
+    <Compile Include="Models\MLoginSession.cs" />
+    <Compile Include="Models\MMember.cs" />
+    <Compile Include="Models\MModule.cs" />
+    <Compile Include="Models\MCommissionProfile.cs" />
+    <Compile Include="Models\MCommissionProfileDetail.cs" />
+    <Compile Include="Models\MPackageTest.cs" />
+    <Compile Include="Models\MParameter.cs" />
+    <Compile Include="Models\MStandardPackage.cs" />
+    <Compile Include="Models\MUserGroup.cs" />
+    <Compile Include="Models\MUserView.cs" />
+    <Compile Include="Models\Sass\MDiskImage.cs" />
+    <Compile Include="Models\Sass\MInstance.cs" />
+    <Compile Include="Models\Sass\MMicroService.cs" />
+    <Compile Include="Pricing\CBaseBasket.cs" />
+    <Compile Include="Pricing\CBasket.cs" />
+    <Compile Include="Pricing\CBasketItem.cs" />
+    <Compile Include="Pricing\CBasketItemDisplay.cs" />
+    <Compile Include="Pricing\CBasketSet.cs" />
+    <Compile Include="Pricing\CPackageItemAdapter.cs" />
+    <Compile Include="Pricing\CPrice.cs" />
+    <Compile Include="Pricing\CPriceProcessor.cs" />
+    <Compile Include="Pricing\CProcessingResult.cs" />
+    <Compile Include="Pricing\CProcessingResultGroup.cs" />
+    <Compile Include="Pricing\CProcessingResultJob.cs" />
+    <Compile Include="Pricing\CPromotionProcessor.cs" />
+    <Compile Include="Pricing\CPromotionProcessorBonus.cs" />
+    <Compile Include="Pricing\CPromotionProcessorBundle.cs" />
+    <Compile Include="Pricing\CPromotionProcessorFinalDiscount.cs" />
+    <Compile Include="Pricing\CPromotionProcessorGift.cs" />
+    <Compile Include="Pricing\CPromotionProcessorItemDiscount.cs" />
+    <Compile Include="Pricing\CPromotionProcessorOperation.cs" />
+    <Compile Include="Pricing\CPromotionProcessorPostGift.cs" />
+    <Compile Include="Pricing\CPromotionProcessorPricing.cs" />
+    <Compile Include="Pricing\CPromotionProcessorPricingDefault.cs" />
+    <Compile Include="Pricing\CPromotionProcessorTrayBonus.cs" />
+    <Compile Include="Pricing\CPromotionProcessorTrayBundle.cs" />
+    <Compile Include="Pricing\CPromotionProcessorTrayPricing.cs" />
+    <Compile Include="Helper\CUtil.cs" />
+    <Compile Include="Models\MPackageBonus.cs" />
+    <Compile Include="Models\MPackageBranch.cs" />
+    <Compile Include="Models\MPackageBundle.cs" />
+    <Compile Include="Models\MPackageCustomer.cs" />
+    <Compile Include="Models\MPackageDiscount.cs" />
+    <Compile Include="Models\MPackageFinalDiscount.cs" />
+    <Compile Include="Models\MPackagePrice.cs" />
+    <Compile Include="Models\MPackageTrayPriceDiscount.cs" />
+    <Compile Include="Models\MPackageVoucher.cs" />
+    <Compile Include="Models\MPeriod.cs" />
+    <Compile Include="Models\MInventoryItem.cs" />
+    <Compile Include="Models\MItemCategory.cs" />
+    <Compile Include="Models\MService.cs" />
+    <Compile Include="Models\MVoucherTemplate.cs" />
+    <Compile Include="Models\MIntervalConfig.cs" />
+    <Compile Include="Models\MInterval.cs" />
+    <Compile Include="Models\MMasterRef.cs" />
+    <Compile Include="Models\MEntity.cs" />
+    <Compile Include="Models\MSelectedItem.cs" />
+    <Compile Include="Models\MBasketTypeConfig.cs" />
+    <Compile Include="Models\MBillSimulate.cs" />
+    <Compile Include="Models\MCompanyPackage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\MBaseModel.cs" />
+    <Compile Include="Models\MPackage.cs" />
+    <Compile Include="Reports\CBaseReport.cs" />
+    <Compile Include="Reports\CExcelRenderer.cs" />
+    <Compile Include="Reports\CReportColConfig.cs" />
+    <Compile Include="Reports\CTableElements.cs" />
+    <Compile Include="Reports\UReportPage.xaml.cs">
+      <DependentUpon>UReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Strings.Designer.cs">
+      <DependentUpon>Strings.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Strings_EN.Designer.cs">
+      <DependentUpon>Strings_EN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Reports\UReportPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings_EN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings_EN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\001-information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\002-asterisk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\004-question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\005-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\006-warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1495026262_Mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Actions-zoom-fit-height-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Actions-zoom-fit-width-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\alert-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Apps-Run-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Apps-Zoom-Fit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\benchmarking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bullet-green-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bullet-red-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bundle-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cash-sale-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cash_register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\certificate-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\company-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\coupon-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\coupon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\credit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\customer-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database-search-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\debit-note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\deselect-all-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\deselect-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\discount-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\discount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\down-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\edit-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\English-Language-Flag-1-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\error_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\File-History-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\File_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FormatDoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\free-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gear-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\gift-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\info-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\inventory-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\inventory-in-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\inventory-out-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\invoice-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Letter-I-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\log-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logout-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\master-ref-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\member-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Money_Bag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\next-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\no-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\normal-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ok-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\passwd-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pdf-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\priceplan-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\print-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\purchase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\reports-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Sales-inv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sales-order2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Sales-report-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Search-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\select-all-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\select-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Server-icon-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Server-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\service-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\session-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\standard-package-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\step-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Thailand-Flag-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\thumb-up-icon-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\transfer-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\transfert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\trash-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\up-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\user-group-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\warehouse-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\X11-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\yes-icon-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Zoom-In-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Zoom-Out-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\System-settings-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\POS-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cash-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Button-Delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Save-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\count.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\description.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\log3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\money-in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Network Connection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\search-red-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sendmoney.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shopping_cart_add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shopping_cart_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pos\pos_add.png" />
+    <Resource Include="Images\pos\pos_addbill.png" />
+    <Resource Include="Images\pos\pos_bank.png" />
+    <Resource Include="Images\pos\pos_calmoney.png" />
+    <Resource Include="Images\pos\pos_cancel.png" />
+    <Resource Include="Images\pos\pos_cash.png" />
+    <Resource Include="Images\pos\pos_coins.png" />
+    <Resource Include="Images\pos\pos_download.png" />
+    <Resource Include="Images\pos\pos_edit.png" />
+    <Resource Include="Images\pos\pos_exit.png" />
+    <Resource Include="Images\pos\pos_logout.png" />
+    <Resource Include="Images\pos\pos_money.png" />
+    <Resource Include="Images\pos\pos_newbill.png" />
+    <Resource Include="Images\pos\pos_ok.png" />
+    <Resource Include="Images\pos\pos_preview.png" />
+    <Resource Include="Images\pos\pos_print.png" />
+    <Resource Include="Images\pos\pos_report.png" />
+    <Resource Include="Images\pos\pos_report1.png" />
+    <Resource Include="Images\pos\pos_sale.png" />
+    <Resource Include="Images\pos\pos_save.png" />
+    <Resource Include="Images\pos\pos_setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pos\pos_pos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pos\pos_shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pos\pos_trash.png" />
+    <Resource Include="Images\pos\pos_viewer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pos\pos_searchBox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cycle-calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\view-calendar-month.png" />
+    <Resource Include="Images\view-calendar-week.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\employee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\alert-red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AlertCycle.png" />
+    <Resource Include="Images\AlertSqr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SystemConfig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pos\pos_void.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pos\pos_cancel_void.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\supplier-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\purchase-cash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tax_report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\sort-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wallet-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bank-Check-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cheque-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cheque.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cash-deposit1.png" />
+    <Resource Include="Images\cash-deposit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\order-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\print-icon-page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\excel-xls-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\micro-services-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\borrow-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\return-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\disk-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loading.gif" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

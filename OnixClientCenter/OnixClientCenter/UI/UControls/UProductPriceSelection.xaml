@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="Onix.ClientCenter.UControls.UProductPriceSelection"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:Onix.ClientCenter"
+             xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+            xmlns:uc="clr-namespace:Onix.ClientCenter.UControls"  
+             xmlns:u="clr-namespace:Onix.ClientCenter.Commons.UControls" 
+             mc:Ignorable="d" 
+             Height="Auto" Width="Auto" MinWidth="600"
+             Name="RootElement">
+    <Grid x:Name="LayoutRoot" Width="Auto" Height="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Name="cbxEnable" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=is_enable}" 
+                          HorizontalAlignment="Left" Margin="10,5,0,0" Checked="cbxEnable_Checked" Unchecked="cbxEnable_Unchecked"/>
+
+                <ComboBox Name="cboSelectionType" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=ProductSelectionTypes}"
+                          Width="200"  HorizontalAlignment="Left" Margin="10,0,0,0" SelectionChanged="cboSelectionType_SelectionChanged"
+                          IsEnabled="{Binding ElementName=cbxEnable, Path=IsChecked}" />
+                
+                <u:ULookupSearch2 x:Name="lkupItem" Lookup="ServiceLookup" Margin="10,0,0,0"
+                                   IsEnabled="{Binding ElementName=cbxEnable, Path=IsChecked}" SelectedObjectChanged="lkupItem_SelectedObjectChanged"/>
+
+                <Button Name="cmdInterval" Margin="10,0,0,0" Width="80"  Click="cmdInterval_Click" IsEnabled="{Binding ElementName=cbxEnable, Path=IsChecked}">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="16" Height="16" Source="{Binding PriceConfigIcon}" Margin="0,0,5,0">
+                            </Image>
+                            <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=price}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

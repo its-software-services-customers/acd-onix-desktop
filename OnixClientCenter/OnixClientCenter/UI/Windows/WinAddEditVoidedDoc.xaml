@@ -1,0 +1,100 @@
+﻿<Window x:Class="Onix.ClientCenter.Windows.WinAddEditVoidedDoc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Onix.ClientCenter.Windows"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        KeyboardNavigation.ControlTabNavigation="Cycle"
+        FocusManager.FocusedElement="{Binding ElementName=cbxCashNegative}"            
+        Activated="Window_Activated"
+        SizeToContent="WidthAndHeight" MinWidth="900" Loaded="Window_Loaded" Closing="Window_Closing" ContentRendered="Window_ContentRendered">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="30"/>
+            
+        </Grid.ColumnDefinitions>
+
+        <Label Name="lblDate" Grid.Row="1" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=date}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,5"  />
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+            <uc:UDateEntry x:Name="dtFromDate" Margin="5,0,5,5" SelectedDate="{Binding DocumentDate}"
+                        SelectedDateChanged="dtFromDate_SelectedDateChanged"  HorizontalAlignment="Left" VerticalContentAlignment="Center" Width="250"/>
+
+            <CheckBox Name="cbxAllowArApNegative" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=allow_cash_negative}" 
+                                  IsChecked="{Binding Path=AllowCashNegative}" HorizontalContentAlignment="Right"
+                                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Checked="cbxEnable_Checked" Unchecked="cbxEnable_Unchecked"/>
+
+            <CheckBox Name="cbxCashNegative" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=allow_inventory_negative}" 
+                                  IsChecked="{Binding Path=AllowInventoryNegative}" HorizontalContentAlignment="Right"
+                                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Checked="cbxEnable_Checked" Unchecked="cbxEnable_Unchecked"/>
+
+            <CheckBox Name="cbxInventory" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=allow_arap_negative}" 
+                                  IsChecked="{Binding Path=AllowARAPNegative}" HorizontalContentAlignment="Right"
+                                  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Checked="cbxEnable_Checked" Unchecked="cbxEnable_Unchecked"/>
+
+        </StackPanel>
+
+        <Label Name="lblCode" Grid.Row="2" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=document_no}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+        <TextBox Name="txtCode" Grid.Row="2" Grid.Column="2" Width="250" TextChanged="txtTextBox_TextChanged" IsEnabled="False"
+                Text="{Binding DocumentNo}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+        <Label Name="lblNote" Grid.Row="3" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=note}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+        <TextBox Name="txtNote" Grid.Row="3" Grid.Column="2" Width="700" TextChanged="txtTextBox_TextChanged"
+                Text="{Binding Note}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+        <Label Name="lblReason" Grid.Row="4" Grid.Column="1" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=void_reason}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+        <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+
+            <uc:UComboBox x:Name="cboVoidReason"  Width="285" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="VoidReasonCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=VoidReasons}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="cboCycleID_SelectedObjectChanged"
+                         SelectedObject="{Binding VoidReasonObj}" Caption="{Binding ElementName=lblReason, Path=Content}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="2">
+            <Button Name="cmdOK" MinWidth="80"  Margin="5,0,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" MinWidth="80"  Margin="5,0,0,5"/>
+
+            <Button Name="cmdVerify" IsEnabled="{Binding IsEditable}" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=verify}" 
+                        HorizontalAlignment="Right" MinWidth="80"  Margin="45,5,5,5" Click="cmdVerify_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
