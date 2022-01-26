@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Onix.ClientCenter.UI.AccountPayable.StockCost.UCostDistribution"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Onix.ClientCenter.UI.AccountPayable.StockCost"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="1600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox Name="txtCaption" Grid.Column="0" Width="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,5,0" IsEnabled="False"/>
+        
+        <TextBox Name="txtJan" Grid.Column="1" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtJan_TextChanged"/>
+        <TextBox Name="txtFeb" Grid.Column="2" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtFeb_TextChanged"/>
+        <TextBox Name="txtMar" Grid.Column="3" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtMar_TextChanged"/>
+        <TextBox Name="txtApr" Grid.Column="4" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtApr_TextChanged"/>
+        <TextBox Name="txtMay" Grid.Column="5" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtMay_TextChanged"/>
+        <TextBox Name="txtJun" Grid.Column="6" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtJun_TextChanged"/>
+        <TextBox Name="txtJul" Grid.Column="7" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtJul_TextChanged"/>
+        <TextBox Name="txtAug" Grid.Column="8" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtAug_TextChanged"/>
+        <TextBox Name="txtSep" Grid.Column="9" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtSep_TextChanged"/>
+        <TextBox Name="txtOct" Grid.Column="10" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtOct_TextChanged"/>
+        <TextBox Name="txtNov" Grid.Column="11" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtNov_TextChanged"/>
+        <TextBox Name="txtDec" Grid.Column="12" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" 
+                 TextChanged="TxtDec_TextChanged"/>
+        <TextBox Name="txtTot" Grid.Column="13" Width="Auto" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Margin="0,0,5,0" IsEnabled="False"/>
+    </Grid>
+</UserControl>

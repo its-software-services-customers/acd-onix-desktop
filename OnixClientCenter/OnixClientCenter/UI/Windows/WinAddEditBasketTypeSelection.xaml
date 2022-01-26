@@ -1,0 +1,102 @@
+﻿<Window x:Class="Onix.ClientCenter.Windows.WinAddEditBasketTypeSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.UControls"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        Name="RootElement"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}" 
+        Activated="RootElement_Activated"
+        Title="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=basket_type}" Width="700" Height="500" ContentRendered="RootElement_ContentRendered" Closing="RootElement_Closing">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <Grid Margin="10,5,5,0" DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <!--<RowDefinition Height="35"/>-->
+                    <!--<RowDefinition Height="5"/>-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>                    
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <!--<Label Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Right" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item}" />
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" VerticalContentAlignment="Center" Width="500" IsEnabled="False" 
+                         Text="{Binding Name}" TextChanged="TextBox_TextChanged"/>-->
+            </Grid>
+
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="5,0,5,5">
+                <Button Name="cmdOK" MinWidth="80"  Margin="0,0,0,0" Click="cmdOK_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0">
+                            </Image>
+
+                            <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Name="cmdCancel"  Margin="5,0,0,0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" IsEnabled="{Binding ElementName=RootElement, Path=IsEditableMode}"
+                          IsCancel="True" MinWidth="80"  Click="cmdCancel_Click"/>
+            </StackPanel>
+
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+
+                    <!--<Button Name="cmdValidate" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=verify}"
+                                Width="80"  Margin="0,5,5,0" Click="cmdValidate_Click"/>
+
+                        <Button Name="cmdSort" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=sort}"
+                                Width="80"  Margin="0,5,5,0" Click="cmdSort_Click"/>-->
+                </StackPanel>
+
+                <ListView Name="lsvBasketType" ItemsSource="{Binding SelectedBaskets}" Margin="5,5,5,5" 
+                              SizeChanged="lsvBasketType_SizeChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn x:Name="colChecked">
+                                <Image Width="16" Height="16" Source="{StaticResource bmpOK}"/>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <CheckBox Name="cbxBasketType" HorizontalAlignment="Center" Tag="{Binding ObjSelf}" IsThreeState="False" IsChecked="{Binding IsSelected}" 
+                                                          Checked="cbxBasketType_Checked" Unchecked="cbxBasketType_Unchecked"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn x:Name="colCode" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=code}">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Code}" HorizontalAlignment="Left"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn x:Name="colName" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=basket_type}">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Description}" HorizontalAlignment="Left"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

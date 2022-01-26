@@ -1,0 +1,131 @@
+﻿<src:WinBase x:Class="Onix.ClientCenter.UI.AccountPayable.StockCost.WinAddEditCostDocument"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:src="clr-namespace:Onix.ClientCenter.Commons.Windows" 
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.UI.AccountPayable.StockCost"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="CanMinimize"
+        WindowStyle="SingleBorderWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"    
+        x:Name="self"
+        Closing="DefaultWindow_Closing"
+        KeyboardNavigation.ControlTabNavigation="Cycle"
+        FocusManager.FocusedElement="{Binding ElementName=txtYear}"              
+        Title="{Binding ElementName=self, Path=Caption}"  Height="720" Width="1300"
+        ContentRendered="DefaultWindow_ContentRendered" 
+        Activated="DefaultWindow_Activated">
+
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="133*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Grid.Column="1" Grid.Row="1" Content="ปี (ค.ศ.)"  Name="lblYear"
+                       VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="5,0,0,0"/>
+            <TextBox Grid.Column="2" Grid.Row="1" Width="100" Text="{Binding CostDocYear}" Name="txtYear"
+                     VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left" 
+                     Margin="5,0,0,0" TextChanged="DefaultTextBox_TextChanged" PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+
+            <StackPanel Grid.Column="2" Grid.Row="2" Orientation="Horizontal"/>
+        </Grid>
+
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" DockPanel.Dock="Left">
+                <Button Name="cmdOK" IsEnabled="{Binding IsEditable}" MinWidth="80"  Margin="5,5,5,5" Click="CmdOK_Click" TabIndex="99990">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                            <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Name="cmdSave" IsEnabled="{Binding IsEditable}" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=save}" MinWidth="80"  
+                        Margin="15,5,05,5" Click="CmdSave_Click" TabIndex="99991"/>
+
+                <Button Name="cmdVerify" IsEnabled="{Binding IsEditable}" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=verify}" 
+                        HorizontalAlignment="Right" MinWidth="80" Visibility="Collapsed" Margin="45,5,5,5" Click="CmdVerify_Click" TabIndex="99992"/>
+
+                <Button Name="cmdApprove" IsEnabled="{Binding IsEditable}" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=approve}" Visibility="Collapsed"
+                        HorizontalAlignment="Right" MinWidth="80"  Margin="15,5,5,5" Click="CmdApprove_Click" TabIndex="99993"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+
+                <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" 
+                        TabIndex="99996" MinWidth="80" Margin="15,5,5,5"/>
+            </StackPanel>
+        </Grid>
+
+        <TabControl Margin="5, 10, 5, 0" KeyboardNavigation.TabNavigation="Local">
+            <TabItem Name="tbiItem">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiItem, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding ElementName=self, Path=Caption}"/>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <DockPanel LastChildFill="True">
+
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                   Width="{Binding ElementName=lsvAccoutItem, Path=ActualWidth}" Margin="0,0,5,0">
+                            
+
+                        </StackPanel>
+
+                        <Border Margin="5,5,5,5" CornerRadius="10" Background="{DynamicResource WindowBackgroundBrush}">
+                            <StackPanel Grid.Column="0" Margin="5" Orientation="Vertical">
+                                <uc:UCostDistribution Margin="0,5,0,0" IsForLabel="True" Enabled="False" Caption=""/>
+
+                                <uc:UCostDistribution Margin="0,5,0,0" Enabled="True" ItemObj="{Binding BeginStock}" TextChanged="UCostDistribution_TextChanged"
+                                                      Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=begin_stock_balance}"/>
+                                <uc:UCostDistribution Margin="0,5,0,0" Enabled="True" ItemObj="{Binding EndingStock}" TextChanged="UCostDistribution_TextChanged"
+                                                      Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=end_stock_balance}"/>
+                                <uc:UCostDistribution Margin="0,5,0,0" Enabled="True" ItemObj="{Binding InStock}" TextChanged="UCostDistribution_TextChanged"
+                                                        Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=in_stock_amount}"/>
+                                <uc:UCostDistribution Margin="0,5,0,0" Enabled="False" ItemObj="{Binding OutStock}" TextChanged="UCostDistribution_TextChanged"
+                                                        Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=out_stock_amount}"/>
+                            </StackPanel>
+                        </Border>
+                    </DockPanel>
+                </DockPanel>
+            </TabItem>
+
+        </TabControl>
+
+    </DockPanel>
+</src:WinBase>

@@ -1,0 +1,231 @@
+﻿<src:WinBase x:Class="Onix.ClientCenter.UI.Inventory.InventoryItem.WinAddEditInventoryItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:src="clr-namespace:Onix.ClientCenter.Commons.Windows" 
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="CanMinimize"
+        WindowStyle="SingleBorderWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Title="{Binding ElementName=rootElement, Path=Caption}" Height="710" Width="800" 
+        Closing="DefaultWindow_Closing" ContentRendered="DefaultWindow_ContentRendered" Activated="DefaultWindow_Activated">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="133*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="140"/>
+            <ColumnDefinition Width="415*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+
+            <Label Name="lblCode" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_code}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,5"  />
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <uc:UTextBox x:Name="txtCode" TabIndex="0" Width="200" Text="{Binding ItemCode}" TextSearchNameSpace="ItemCodeNS"
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,5,0,5" TextChanged="DefaultUTxtbox_TextChanged"/>
+
+                <Label Name="lblReference" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_reference}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="5,0,0,5"  />
+                
+                <TextBox Name="txtReference" Width="200"  Text="{Binding ReferenceCode}"
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="DefaultTextBox_TextChanged"/>
+
+            </StackPanel>
+            <Label Name="lblNameThai" Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_name_thai}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+            <uc:UTextBox x:Name="txtNameThai" Grid.Row="2" Grid.Column="1" Width="600" TextChanged="DefaultUTxtbox_TextChanged" TextSearchNameSpace="ItemNameThaiNS"
+                Text="{Binding ItemNameThai}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            <Label Name="lblNameEng" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_name_en}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            <uc:UTextBox x:Name="txtNameEng" Grid.Row="3" Grid.Column="1" Width="600" TextChanged="DefaultUTxtbox_TextChanged" TextSearchNameSpace="ItemNameEngNS"
+               Text="{Binding ItemNameEng}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            <Label Name="lblType" Grid.Row="4" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_type}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            
+            <Grid Grid.Row="4" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <uc:UComboBox x:Name="cboType"  Width="285" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="ItemTypeCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=ItemTypes}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding ItemTypeObj}" Caption="{Binding ElementName=lblType, Path=Content}"/>
+            </Grid>
+            
+            <Label Name="lblUOM" Grid.Row="5" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_uom}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+            
+            <uc:UComboBox x:Name="cboUOM" Grid.Row="5" Grid.Column="1" Width="285" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="UomCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Uoms}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding ItemUOMObj}" Caption="{Binding ElementName=lblUOM, Path=Content}"/>
+            
+            <Label Name="lblUOMSale" Grid.Row="6" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_uom_sale}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+
+            <uc:UComboBox x:Name="cboUOMSale" Grid.Row="6" Grid.Column="1" Width="285" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="UomCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Uoms}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding ItemUOMSaleObj}" Caption="{Binding ElementName=lblUOMSale, Path=Content}"/>
+
+            <Label Name="lblBrand" Grid.Row="7" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_brand}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+
+            <uc:UComboBox x:Name="cboBrand" Grid.Row="7" Grid.Column="1" Width="285" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="BrandCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Brands}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding BrandObj}" Caption="{Binding ElementName=lblBrand, Path=Content}"/>
+
+            <Label Name="lblRemark" Grid.Row="8" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=note}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            <TextBox Name="txtRemark" Grid.Row="8" Grid.Column="1" Width="590" TextChanged="DefaultTextBox_TextChanged"
+               Text="{Binding Note}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            <Label Name="lblMinimumAllowed" Grid.Row="9" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=minimum_allowed}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+            <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Name="txtMinimumAllowed" Width="100" TextChanged="DefaultTextBox_TextChanged"   
+               Text="{Binding MinimumAllowed}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                <Button Name="cmdInterval" Margin="5,0,0,5" Width="80"  Click="cmdInterval_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width="16" Height="16" Source="{Binding PriceConfigIcon}" Margin="0,0,5,0">
+                            </Image>
+                            <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=price}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                
+                <CheckBox IsThreeState="false" Name="cboVat" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=vat_eligible}" Margin="25,5,0,5" 
+                      Unchecked="DefaultUCbobox_SelectedObjectChanged" Checked="DefaultUCbobox_SelectedObjectChanged" IsChecked="{Binding IsVatEligible}" VerticalAlignment="Center"/>
+
+                <CheckBox IsThreeState="false" Name="cboBorrow" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=borrow_eligible}" Margin="25,5,0,5" 
+                      Unchecked="DefaultUCbobox_SelectedObjectChanged" Checked="DefaultUCbobox_SelectedObjectChanged" IsChecked="{Binding IsForBorrow}" VerticalAlignment="Center"/>
+
+            </StackPanel>
+
+            <Label Name="lblItemGroup" Grid.Row="10" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_category}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" />
+            <ComboBox Name="cboItemGroup" SelectionChanged="DefaultComboBox_SelectionChanged" Margin="5,0,0,5" DisplayMemberPath="Path" SelectedValuePath="ObjSelf" 
+                      SelectedItem="ObjSelf" SelectedValue="{Binding ItemCategoryObj}" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=ItemCategoryPaths}"
+                      Grid.Row="10" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="500"/>
+        </Grid>
+
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Name="cmdOK" IsEnabled="{Binding ElementName=RootElement, Path=IsEditableMode}" TabIndex="99998"
+                    MinWidth="80"  Margin="5,5,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" 
+                    TabIndex="99999" MinWidth="80"  Margin="5,5,0,5"/>
+        </StackPanel>
+
+        <TabControl Margin="5, 10, 5, 0" KeyboardNavigation.TabNavigation="Local">
+            <TabItem Name="tbiBarcode">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                       Visibility="{Binding ElementName=tbiBarcode, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_barcode}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdBarcodeAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdBarcodeAdd_Click"/>
+
+                            <!--<Button Name="cmdMigrate" Content="Migrate"
+                                Width="80"  Margin="5,5,5,0" Click="CmdMigrate_Click"/>-->
+
+                        </StackPanel>
+
+                        <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding BarcodeItems}"
+                                         Background="{DynamicResource WindowBackgroundBrush_Grid}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Name="lblBarcodeType" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=barcode_type}" VerticalAlignment="Center" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                                        <!--<StackPanel Name="pnlParent" Width="270" Orientation="Horizontal" HorizontalAlignment="Stretch">-->
+                                        <uc:UComboBox x:Name="cboBarCodeType" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=BarcodeTypes}" IDFieldName="MasterID"
+                                                  DisplayMemberPath="Description" SelectedObject="{Binding BarcodeTypeObj}" Width="250"  HorizontalAlignment="Left" Margin="10,0,0,0" 
+                                                  Caption="{Binding ElementName=lblBarcodeType, Path=Content}" ComboLoadType="BarcodeTypeCombo" 
+                                                  SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged" />
+                                        <!--</StackPanel>-->
+                                        
+                                        <Label Name="lblBarcode" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_barcode}" VerticalAlignment="Center" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                                        <TextBox x:Name="txtBarcode" Text="{Binding Barcode}" Width="250" Margin="5,0,0,0" VerticalContentAlignment="Center" TextChanged="DefaultTextBox_TextChanged"/>
+
+                                        <Button Name="cmdBarcodeDelete" Click="cmdBarcodeDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </DockPanel>
+</src:WinBase>

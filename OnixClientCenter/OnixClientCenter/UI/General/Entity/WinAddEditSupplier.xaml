@@ -1,0 +1,302 @@
+﻿<src:WinBase x:Class="Onix.ClientCenter.UI.General.Entity.WinAddEditSupplier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        mc:Ignorable="d"
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        xmlns:src="clr-namespace:Onix.ClientCenter.Commons.Windows" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        WindowStyle="SingleBorderWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Title="{Binding ElementName=rootElement, Path=Caption}" Height="800" Width="1000" 
+        x:Name="rootElement"
+        WindowState="Maximized"
+        KeyboardNavigation.ControlTabNavigation="Cycle"
+        FocusManager.FocusedElement="{Binding ElementName=txtCode}"
+        Activated="DefaultWindow_Activated" Closing="DefaultWindow_Closing" ContentRendered="DefaultWindow_ContentRendered">
+
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="140"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Name="lblCode" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=supplier_code}" VerticalAlignment="Center" 
+                    VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,5"  />
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <uc:UTextBox x:Name="txtCode"  Width="200" Text="{Binding EntityCode}" ShowDetail="True" TextSearchNameSpace="SupplierCodeNS" Side="B"
+                                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="DefaultUTxtbox_TextChanged"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <RadioButton Name="radRvTax3"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=rv_tax_3}"
+                                 IsChecked="{Binding IsRvType3, UpdateSourceTrigger=PropertyChanged}" Margin="10,5,0,0" Checked="DefaultRadioButton_Checked" VerticalAlignment="Center" />
+
+                    <RadioButton Name="radRvTax53"   Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=rv_tax_53}" 
+                                 IsChecked="{Binding IsRvType53, UpdateSourceTrigger=PropertyChanged}" Margin="10,5,0,0" Checked="DefaultRadioButton_Checked" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Label Name="lblNamePrefix" Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=name_prefix}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+            <uc:UComboBox x:Name="cboNamePrefix"  Grid.Row="2" Grid.Column="1" Width="200" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="NamePrefixCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=NamePrefixes}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding NamePrefixObj}" Caption="{Binding ElementName=lblNamePrefix, Path=Content}"/>
+            
+            <Label Name="lblName" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=supplier_name}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+
+            <uc:UTextBox x:Name="txtName" Grid.Row="3" Grid.Column="1" Width="500" Text="{Binding EntityName}" TextSearchNameSpace="SupplierNameNS" Side="B"
+                            VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="DefaultUTxtbox_TextChanged"/>
+
+            <Label Name="lblAddress" Grid.Row="4" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=id_card_no}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+            <StackPanel Grid.Row="4" Grid.Column="1" Margin="5,0,0,5" Orientation="Horizontal">
+                <TextBox Name="txtAddress" Width="250" TextChanged="DefaultTextBox_TextChanged"
+                    Text="{Binding IDCardNumber}" VerticalContentAlignment="Center" HorizontalAlignment="Left" />
+
+                <Label Name="lblSameTaxID" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=same_tax_id}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="5,0,0,0" />
+            </StackPanel>
+
+            <Label Name="lblType" Grid.Row="5" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=supplier_type}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            
+            <uc:UComboBox x:Name="cboType"  Grid.Row="5" Grid.Column="1" Width="250" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="SupplierTypeCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=SupplierTypes}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding EntityTypeObj}" Caption="{Binding ElementName=lblType, Path=Content}"/>
+            
+            <Label Name="lblGroup" Grid.Row="6" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=supplier_group}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+
+            <uc:UComboBox x:Name="cboGroup"  Grid.Row="6" Grid.Column="1" Width="250" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="SupplierGroupCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=SupplierGroups}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding EntityGroupObj}" Caption="{Binding ElementName=lblGroup, Path=Content}"/>
+            
+            <Label Name="lblEmail" Grid.Row="7" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=email}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+            <TextBox Name="txtEmail" Grid.Row="7" Grid.Column="1" Width="300" TextChanged="DefaultTextBox_TextChanged"
+                    Text="{Binding Email}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            <Label Name="lblWebSite" Grid.Row="8" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=website}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+            <TextBox Name="txtWebSite" Grid.Row="8" Grid.Column="1" Width="300" TextChanged="DefaultTextBox_TextChanged"
+                    Text="{Binding WebSite}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            <Label Name="lblPhone" Grid.Row="9" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=telephone}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+            <TextBox Name="txtPhone" Grid.Row="9" Grid.Column="1" Width="500" TextChanged="DefaultTextBox_TextChanged"
+                    Text="{Binding Phone}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            <Label Name="lblFax" Grid.Row="10" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=fax}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+            <TextBox Name="txtFax" Grid.Row="10" Grid.Column="1" Width="250" TextChanged="DefaultTextBox_TextChanged"
+                    Text="{Binding Fax}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            <Label Name="lblCredit" Grid.Row="11" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=credit_term}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+            <StackPanel Orientation="Horizontal" Grid.Row="11" Grid.Column="1">
+                <uc:UComboBox x:Name="cboCreditTerm"  Width="250" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" Margin="5,0,0,5" ComboLoadType="CreditTermCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=CreditTerms}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding CreditTermObj}" Caption="{Binding ElementName=lblCredit, Path=Content}"/>
+
+                <Label Name="lblCreditLimit" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=credit_limit}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+                <TextBox Name="txtCreditLimit" Width="150" PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput" TextChanged="DefaultTextBox_TextChanged"
+                    Text="{Binding CreditLimit}" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+            </StackPanel>
+
+            <Label Name="lblPromptPay" Grid.Row="12" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=PromptPayID}" VerticalAlignment="Center" 
+                   VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+            <TextBox Name="txtPromptPay" Grid.Row="12" Grid.Column="1" Width="250" TextChanged="DefaultTextBox_TextChanged"
+                    Text="{Binding PromptPayID}" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+        </Grid>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Name="cmdOK" IsEnabled="{Binding ElementName=RootElement, Path=IsEditableMode}" TabIndex="998"
+                    MinWidth="80"  Margin="5,5,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" 
+                    TabIndex="999" MinWidth="80"  Margin="5,5,0,5" Click="cmdCancel_Click"/>
+        </StackPanel>
+        
+        <TabControl Margin="5, 0, 5, 0" DockPanel.Dock="Top" Focusable="True" KeyboardNavigation.DirectionalNavigation="Local">
+            <TabItem Name="tbiAddress">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                       Visibility="{Binding ElementName=tbiAddress, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=address}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdAddressAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdAddressAdd_Click"/>
+                        </StackPanel>
+
+                        <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding AddressItems}"
+                                         Background="{DynamicResource WindowBackgroundBrush_Grid}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Name="lblBarcodeType" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=address_type}" VerticalAlignment="Center" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                                        <!--<StackPanel Name="pnlParent" Width="270" Orientation="Horizontal" HorizontalAlignment="Stretch">-->
+                                        <uc:UComboBox x:Name="cboAddressType" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=AddressTypes}" IDFieldName="MasterID"
+                                                  DisplayMemberPath="Description" SelectedObject="{Binding AddressTypeObj}" Width="250"  HorizontalAlignment="Left" Margin="10,0,0,0" 
+                                                  Caption="{Binding ElementName=lblBarcodeType, Path=Content}" ComboLoadType="AddressTypeCombo" 
+                                                  SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged" />
+                                        <!--</StackPanel>-->
+
+                                        <Label Name="lblAddress" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=address}" VerticalAlignment="Center" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                                        <TextBox x:Name="txtAddress" Text="{Binding Address}" Width="700" Margin="5,0,0,0" VerticalContentAlignment="Center" TextChanged="DefaultTextBox_TextChanged"/>
+
+
+                                        <Label Name="lblOrder" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=sort_order}" VerticalAlignment="Center" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                                        <TextBox x:Name="txtSortOrder" Text="{Binding SortOrder}" Width="30" Margin="5,0,0,0" VerticalContentAlignment="Center" 
+                                                 PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput" TextChanged="DefaultTextBox_TextChanged"/>
+
+                                        <Button Name="cmdAddressDelete" Click="cmdAddressDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Name="tbiBankAccount">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                       Visibility="{Binding ElementName=tbiBankAccount, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=bank_account}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                            <Button Name="cmdAccountAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="5,5,5,0" Click="cmdAccountAdd_Click"/>
+                        </StackPanel>
+
+                        <ListBox DockPanel.Dock="Left" Margin="0,5,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding BankAccounts}"
+                                         Background="{DynamicResource WindowBackgroundBrush_Grid}">
+
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Name="lblBankAccount" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=bank_account}" VerticalAlignment="Center" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                                        <uc:UComboBox x:Name="cboBank" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Banks}" IDFieldName="MasterID"
+                                                  DisplayMemberPath="Description" SelectedObject="{Binding BankObj}" Width="200"  HorizontalAlignment="Left" Margin="10,0,0,0" 
+                                                  Caption="{Binding ElementName=lblBankAccount, Path=Content}" ComboLoadType="BankCombo" 
+                                                  SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged" />
+
+                                        <uc:UComboBox x:Name="cboAccountType" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=BankAccountTypes}" IDFieldName="MasterID"
+                                                  DisplayMemberPath="Description" SelectedObject="{Binding AccountTypeObj}" Width="200"  HorizontalAlignment="Left" Margin="10,0,0,0" 
+                                                  Caption="{Binding ElementName=lblBankAccount, Path=Content}" ComboLoadType="BankAccountTypeCombo" 
+                                                  SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged" />
+                                        
+                                        <Label Name="lblBankAccountNo" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=AccNo}" VerticalAlignment="Center" 
+                                            VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,0"  />
+
+                                        <TextBox x:Name="txtBankAccountNo" Text="{Binding AccountNo}" Width="400" Margin="5,0,0,0" VerticalContentAlignment="Center" TextChanged="DefaultTextBox_TextChanged"/>
+
+                                        <Button Name="cmdBankAccountDelete" Click="cmdBankAccountDelete_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}">
+                                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </DockPanel>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </DockPanel>
+</src:WinBase>

@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Onix.ClientCenter.UI.Inventory.InventoryItem.UInventoryItemByCategorySearch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+             xmlns:local="clr-namespace:Onix.ClientCenter.UControls"
+             xmlns:my="clr-namespace:Onix.ClientCenter"
+             xmlns:lib="clr-namespace:Onix.Client.Model;assembly=OnixClient"
+             xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+             themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"  
+             Background="{DynamicResource WindowBackgroundBrush}"    
+             mc:Ignorable="d" 
+             Name="rootElement"
+             d:DesignHeight="700" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="121*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Margin="5,42,5,5" Style="{StaticResource SearchBoxBorder}">
+            <StackPanel Orientation="Vertical">
+                <Label Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_category}" Margin="5,10,0,0"/>
+
+                <TreeView Name="trvMain" Height="550" Margin="5,5,5,5" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=ItemCategoriesTree}"
+                          SelectedItemChanged="trvMain_SelectedItemChanged">
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type TreeViewItem}">
+                            <Setter Property="IsExpanded" Value="true"/>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+
+                    <TreeView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}" FontSize="11" Click="mnuHeadAdd_Click"/>
+                            <Separator/>
+                            <MenuItem Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=refresh}" FontSize="11" Click="mnuRefresh_Click"/>
+                        </ContextMenu>
+                    </TreeView.ContextMenu>
+                    
+                    <TreeView.Resources>
+                        <Style TargetType="{x:Type TreeViewItem}">
+                            <Setter Property="IsExpanded" Value="true" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!--<Setter Property="IsExpanded" Value="false" />-->
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+
+                        <HierarchicalDataTemplate DataType="{x:Type lib:MItemCategory}" ItemsSource="{Binding ChildrenNodes}">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}" FontSize="11" Click="mnuAdd_Click"/>
+                                        <Separator/>
+                                        <MenuItem Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=edit}" FontSize="11" Click="mnuEdit_Click"/>
+                                        <Separator/>
+                                        <MenuItem Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=delete}" FontSize="11" Click="mnuDelete_Click"/>
+                                    </ContextMenu>
+                                </StackPanel.ContextMenu>
+                                
+                                <Image Width="20" Height="20" Margin="3,0" Source="pack://application:,,,/OnixClient;component/Images/bullet-red-icon-16.png" />
+                                <TextBlock Text="{Binding Caption}" Margin="2,2,2,2" Visibility="{Binding IsParent, Converter={StaticResource TrueToHiddenConverter}}" />
+                                <TextBlock Text="{Binding Caption}" Margin="2,2,2,2" Visibility="{Binding IsParent, Converter={StaticResource TrueToVisibleConverter}}" Foreground="Blue" FontWeight="Bold" />
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+
+                    </TreeView.Resources>
+                </TreeView>
+                
+            </StackPanel>    
+        </Border>
+    </Grid>
+</UserControl>

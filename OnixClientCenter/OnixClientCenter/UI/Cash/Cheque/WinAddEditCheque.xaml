@@ -1,0 +1,159 @@
+﻿<src:WinBase x:Class="Onix.ClientCenter.UI.Cash.Cheque.WinAddEditCheque"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        xmlns:src="clr-namespace:Onix.ClientCenter.Commons.Windows" 
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"    
+        x:Name="rootElement"
+        Closing="DefaultWindow_Closing"
+        ContentRendered="DefaultWindow_ContentRendered"
+        KeyboardNavigation.ControlTabNavigation="Cycle"
+        FocusManager.FocusedElement="{Binding ElementName=txtNumber}"        
+        Activated="DefaultWindow_Activated"
+        Title="{Binding ElementName=rootElement, Path=Caption}"  SizeToContent="WidthAndHeight" MinHeight="350" MinWidth="850" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="140"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Label Name="lblNumber" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=cheque_no}" Margin="0,0,0,0" Grid.Row="1" Grid.Column="0"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <TextBox Name="txtNumber" Width="300"  Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                 Text="{Binding Path=ChequeNo}" TextChanged="DefaultTextBox_TextChanged"/>
+
+            <CheckBox Name="cbxAllowNegative" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=allow_negative}" 
+                              IsChecked="{Binding Path=AllowNegative}" VerticalAlignment="Center"
+                              HorizontalAlignment="Left" Margin="10,0,0,0" Checked="DefaultCheckbox_Checked" Unchecked="DefaultCheckbox_Checked"/>
+
+            <CheckBox Name="cbxAcPayeeOnly" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ac_payee_only}" 
+                              IsChecked="{Binding Path=IsAcPayeeOnly}" VerticalAlignment="Center"
+                              HorizontalAlignment="Left" Margin="10,0,0,0" Checked="DefaultCheckbox_Checked" Unchecked="DefaultCheckbox_Checked"/>
+
+        </StackPanel>
+        
+        <Label Name="lblDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=date}" Margin="0,0,0,0" Grid.Row="2" Grid.Column="0"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+        <uc:UDateEntry x:Name="txtDate" Grid.Row="2" Grid.Column="1" Margin="5,5,0,0" Width="200" 
+                    SelectedDate="{Binding IssueDate}" HorizontalAlignment="Left" SelectedDateChanged="DefaultUDate_SelectedDateChanged"/>
+
+        <Label Name="lblDueDate" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=cheque_due_date}" Margin="0,0,0,0" Grid.Row="3" Grid.Column="0"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+        <uc:UDateEntry x:Name="dtDueDate" Grid.Row="3" Grid.Column="1" Margin="5,5,0,0" Width="200" 
+                    SelectedDate="{Binding ChequeDate}" HorizontalAlignment="Left" SelectedDateChanged="DefaultUDate_SelectedDateChanged"/>
+
+        <Label Name="lblChequeBank" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=cheque_bank_name}" Margin="0,0,5,0" Grid.Row="4" Grid.Column="0"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="4" Grid.Column="1" Margin="5,5,0,0" Orientation="Horizontal">
+            <uc:UComboBox x:Name="cboChequeBank" Width="300" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                        IDFieldName="MasterID" ComboLoadType="BankCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Banks}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged"
+                         SelectedObject="{Binding ChequeBankObj, UpdateSourceTrigger=PropertyChanged}" Caption="{Binding ElementName=lblChequeBank, Path=Content}"/>
+        </StackPanel>
+
+        <Label Name="lblBank" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=CashAcc}" Margin="0,0,5,0" Grid.Row="5" Grid.Column="0"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="5" Grid.Column="1" Margin="5,5,0,0" Orientation="Horizontal">
+            <uc:UComboBox x:Name="cboBank" Width="300" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                         IDFieldName="MasterID" ComboLoadType="BankCombo" ItemSources="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=Banks}"
+                         DisplayMemberPath="Description" SelectedObjectChanged="DefaultUCbobox_SelectedObjectChanged" GotFocus="cboBank_GotFocus"
+                         SelectedObject="{Binding BankObj}" Caption="{Binding ElementName=lblBank, Path=Content}"/>
+
+            <ComboBox Name="cboAccount" Width="280" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                  SelectedItem="ObjSelf" DisplayMemberPath="AccountDesc" SelectedValuePath="ObjSelf" SelectedValue="{Binding AccountObj}"
+                  ItemsSource="{Binding CashAccounts}"
+                  SelectionChanged="DefaultComboBox_SelectionChanged"/>
+        </StackPanel>
+
+        <Label Name="lblEntity" Grid.Row="6" Grid.Column="0" Content="{Binding ElementName=rootElement, Path=EntityName}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="5,5,5,0"/>
+
+        <uc:ULookupSearch2 x:Name="uEntity" Lookup="{Binding ElementName=rootElement, Path=LookupType}" SelectedObject="{Binding EntityObj}" 
+                              Caption="{Binding ElementName=lblEntity, Path=Content}"
+                              Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Margin="5,5,0,0" SelectedObjectChanged ="DefaultULookup_SelectedObjectChanged"/>
+
+        <Label Name="lblPayee" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=payee_name}" Margin="0,0,5,5" Grid.Row="7" Grid.Column="0"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Name="txtPayee" Grid.Row="7" Grid.Column="1" Margin="5,5,0,0" Width="585"  VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                 Text="{Binding Path=PayeeName}" TextChanged="DefaultTextBox_TextChanged" IsEnabled="{Binding ElementName=rootElement, Path=IsAp}"/>
+        
+        <Label Name="lblAmount" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=money_quantity}" Margin="0,0,0,0" Grid.Row="8" Grid.Column="0"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Name="txtAmount" Grid.Row="8" Grid.Column="1" Margin="5,5,0,0" Width="150"  HorizontalAlignment="Left" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"
+                 Text="{Binding Path=ChequeAmount}" PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput" TextChanged="DefaultTextBox_TextChanged"/>
+        
+        <Label Name="lb_note" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=note}" Margin="0,0,5,5" Grid.Row="9" Grid.Column="0"
+               HorizontalAlignment="Right" HorizontalContentAlignment="Right" VerticalAlignment="Top"/>
+        <TextBox Name="txt_note" Grid.Row="9" Grid.Column="1" Margin="5,5,0,0" Width="585"  VerticalContentAlignment="Center" HorizontalAlignment="Left"
+                 Text="{Binding Path=Note}" TextChanged="DefaultTextBox_TextChanged"/>
+
+        <DockPanel Grid.Row="10" Grid.Column="1" LastChildFill="True" Margin="5,5,0,0" KeyboardNavigation.TabNavigation="Local">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                <Button Name="cmdVerify" IsEnabled="{Binding IsEditable}" MinWidth="80" Margin="0,0,0,0" HorizontalAlignment="Right"
+                TabIndex="99994" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=verify}" Click="cmdVerify_Click"/>
+
+                <Button Name="cmdApprove" IsEnabled="{Binding IsEditable}" MinWidth="80" Margin="5,0,0,0" HorizontalAlignment="Right"
+                TabIndex="99995" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=approve}" Click="cmdApprove_Click"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Button Name="cmdOK" IsEnabled="{Binding IsEditable}" MinWidth="80" Margin="0,0,0,0" HorizontalAlignment="Right"
+                TabIndex="99990" Click="cmdOK_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                            <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Name="cmdCancel" MinWidth="80" Margin="5,0,0,0" HorizontalAlignment="Right"
+                TabIndex="99990" Content="{Binding Source={x:Static lang:CTextLabel.Instance},Path=cancel}" IsCancel="True"/>
+
+                <Button Name="cmdPreview" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=preview}" IsEnabled="{Binding ElementName=rootElement, Path=IsAp}"
+                        TabIndex="99992" HorizontalAlignment="Right" MinWidth="80"  Margin="20,0,0,0" Click="cmdPreview_Click" VerticalAlignment="Top"/>
+
+                <!--<Button Name="cmdApprovePrint" IsEnabled="{Binding ElementName=rootElement, Path=IsAp}" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=approve_print}" 
+                        TabIndex="99993" HorizontalAlignment="Right" MinWidth="120"  Margin="5,0,0,0" Click="cmdApprovePrint_Click"/>-->
+
+            </StackPanel>
+
+            
+        </DockPanel>
+
+
+    </Grid>
+</src:WinBase>

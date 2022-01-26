@@ -1,0 +1,77 @@
+﻿<src:WinBase x:Class="Onix.ClientCenter.UI.Admin.User.WinAddEditUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:src="clr-namespace:Onix.ClientCenter.Commons.Windows" 
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Activated="DefaultWindow_Activated"
+        x:Name="self"
+        Title="{Binding ElementName=self, Path=Caption}" Height="280" Width="587"
+        Closing="DefaultWindow_Closing" ContentRendered="DefaultWindow_ContentRendered">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="14*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="415*"/>
+            <ColumnDefinition Width="45*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Name="lblUser" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=user}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,4,0,5"  />
+        <TextBox Name="txtUserName" TabIndex="0" Grid.Row="1" Grid.Column="1" Width="250" Text="{Binding UserName}"
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="DefaultTextBox_TextChanged"/>
+
+        <Label Name="lblGroup" Grid.Row="4" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=user_group}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+        <ComboBox Name="cboGroup" DisplayMemberPath="GroupName" Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" HorizontalAlignment="Left" 
+                  SelectedItem="ObjSelf" SelectedValuePath="ObjSelf" SelectedValue="{Binding GroupObj}" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=UserGroups}"
+                  Margin="5,0,0,5" Width="250" SelectionChanged="DefaultComboBox_SelectionChanged" />
+
+        <Label Name="lblDescription" Grid.Row="5" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=description}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right"  Margin="0,0,0,5"/>
+        <TextBox Name="txtDescription" Grid.Row="5" Grid.Column="1" Width="400" Text="{Binding Description}"
+               VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="DefaultTextBox_TextChanged"/>
+
+        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+            <CheckBox Name="cbxIsActive" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=is_active}" Margin="5,5,0,5" 
+                      IsChecked="{Binding IsActive}" Unchecked="DefaultCheckbox_Checked" Checked="DefaultCheckbox_Checked"/>
+            <CheckBox Name="cbxIsAdmin" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=is_admin}" Margin="5,5,0,5"
+                       IsChecked="{Binding IsAdmin}" Unchecked="DefaultCheckbox_Checked" Checked="DefaultCheckbox_Checked"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
+            <Button Name="cmdOK" MinWidth="80" Margin="5,15,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" Width="80"  Margin="15,15,0,5"/>
+        </StackPanel>
+    </Grid>
+</src:WinBase>

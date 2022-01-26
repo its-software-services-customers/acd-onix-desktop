@@ -1,0 +1,156 @@
+﻿<Window x:Class="Onix.ClientCenter.Windows.WinFormConfigParam"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"   
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        xmlns:local="clr-namespace:Onix.ClientCenter.UControls"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"  
+        xmlns:model="clr-namespace:Onix.Client.Model;assembly=OnixClient"
+        Background="{DynamicResource WindowBackgroundBrush}"  
+        mc:Ignorable="d"
+        Name="rootElement"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Activated="rootElement_Activated"
+        Title="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=report_setting}" Height="700">
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="80*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <RadioButton Width="150" Name="radThai" GroupName="lang"  VerticalContentAlignment="Center"
+                         Margin="10,0,0,0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=lang_thai}"
+                             IsChecked="{Binding IsThai}"/>
+
+                <RadioButton Name="radEng" GroupName="lang"  VerticalContentAlignment="Center" IsChecked="{Binding IsEng}"
+                         Margin="5,0,0,0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=lang_english}"/>
+            </StackPanel>
+            
+
+            
+            <!--<Label Name="lblPaperType" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=paper_type}"
+                   IsEnabled="{Binding ElementName=radPredefine, Path=IsChecked}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5"  Tag="PAPER_ORIENTATION"/>
+
+            <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,0"
+                        IsEnabled="{Binding ElementName=radPredefine, Path=IsChecked}">
+                <ComboBox Name="cboPaperType"  DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedItem="ObjSelf"
+                      VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" Width="245" Tag="PAPER_TYPE" />
+
+                <RadioButton Name="radPotrait" GroupName="Orientation"  VerticalContentAlignment="Center"
+                         Margin="10,0,0,0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=potrait}" Tag="POTRAIT"/>
+                <RadioButton Name="radLandScape" GroupName="Orientation"  VerticalContentAlignment="Center"
+                         Margin="5,0,0,0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=landscape}" Tag="LANDSCAPE"/>
+            </StackPanel>-->
+
+            <Label Name="lblCustomPaperType" Grid.Row="4" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=width_cm}" 
+                   IsEnabled="{Binding ElementName=radCustom, Path=IsChecked}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5"  Tag="PAPER_ORIENTATION"/>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,0" 
+                        IsEnabled="{Binding ElementName=radCustom, Path=IsChecked}">
+                <StackPanel Orientation="Horizontal" Width="250">
+                    <TextBox Name="txtWidth" Text="{Binding PageWidthCm}" Width="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                    <Label Name="lblHeight" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=height_cm}" VerticalAlignment="Center" 
+                           Width="100" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+
+                    <TextBox Name="txtHeight"  Text="{Binding PageHeightCm}" Width="50"  VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+
+                </StackPanel>
+            </StackPanel>
+            
+            <Label Name="lblMarginLeft" Grid.Row="5" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=margin_left_cm}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+
+            <StackPanel Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,0">
+                <TextBox Name="txtLeft" Width="50" Text="{Binding MarginLeftCm}"
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" Tag="PAPER_MARGIN_LEFT"/>
+
+                <Label Name="lblMarginTop" Width="100" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=margin_top_cm}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+                <TextBox Name="txtTop" Width="50"  VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"
+                     Text="{Binding MarginTopCm}"/>
+
+                <Label Name="lblMarginRight" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=margin_right_cm}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+                <TextBox Name="txtRight" Width="50"  VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"
+                     Text="{Binding MarginRightCm}"/>
+
+                <Label Name="lblMarginBottom" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=margin_bottom_cm}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,5" />
+                <TextBox Name="txtBottom" Text="{Binding MarginBottomCm}" Width="50"  VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,5,0,5">
+            <Button Name="cmdOK" Click="cmdOK_Click" Height="35" Width="80" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}" 
+                    HorizontalAlignment="Left" Margin="5,0,0,0"/>
+
+            <Button Name="cmdCancel" IsCancel="True" Click="cmdCancel_Click" Height="35" Width="80" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" 
+                    HorizontalAlignment="Left" Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <ListBox DockPanel.Dock="Top" ItemsSource="{Binding Variables}" Background="{DynamicResource WindowBackgroundBrush}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Width="16" Height="16" Tag="{Binding ObjSelf}" Source="{StaticResource bmpInfo}" Margin="5,0,5,0">
+                            <Image.ToolTip>
+                                <uc:UToolTipText ItemsSources="{Binding ToolTipItems}"/>
+                            </Image.ToolTip>
+                        </Image>
+                        <Label Grid.Column="2" Width="200" Margin="5, 0, 0, 0" Content="{Binding VariableName}" BorderThickness="1" BorderBrush="DeepSkyBlue"
+                                               VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <Label Name="lblType"  Grid.Column="3" Width="150" Margin="5, 0, 0, 0" Content="{Binding VariableType}" BorderThickness="1" BorderBrush="DeepSkyBlue"
+                                               VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                        <TextBox Name="txtValue" Grid.Column="4" Margin="5, 0, 0, 0" Width="400" Text="{Binding VariableValue}" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" 
+                                                 Visibility="{Binding TextBoxVisibility}" TextChanged="txtValue_TextChanged"/>
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Window>

@@ -1,0 +1,80 @@
+﻿<Window x:Class="Onix.ClientCenter.WinLookupSearch2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.UControls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        Name="rootElement"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Title="{Binding ElementName=rootElement, Path=WindowTitle}"
+        WindowState="Maximized"
+        ContentRendered="Window_ContentRendered" Activated="Window_Activated">
+    <DockPanel LastChildFill="True">
+        <DockPanel LastChildFill="True" DockPanel.Dock="Top" Margin="0,10,0,0">
+            <StackPanel DockPanel.Dock="Right" Width="200">
+                <Button Name="cmdSearch" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=search}" Width="160" Click="cmdSearch_Click"/>
+            </StackPanel>
+            
+            <Grid Name="grdMain" DockPanel.Dock="Left">
+            </Grid>
+        </DockPanel>
+        
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Name="cmdOK" TabIndex="99990" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}" Width="80"  Margin="5,5,0,5" Click="cmdOK_Click"/>
+            <Button Name="cmdCancel" TabIndex="99991" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" Width="80"  Margin="15,5,0,5" Click="cmdCancel_Click"/>
+        </StackPanel>
+
+        <TabControl Margin="5, 10, 5, 0" KeyboardNavigation.TabNavigation="Local">
+            <TabItem Header="{Binding ElementName=rootElement, Path=TabItemCaption}">
+                <DockPanel LastChildFill="True">
+                    <Grid DockPanel.Dock="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="0">
+                            <Label Margin="10,5,0,5"  Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=go_to}" VerticalAlignment="Center"
+                           HorizontalAlignment="Left"/>
+                            <ComboBox Name="cboNavigate" Width="100"  Margin="10,2,0,3" IsEnabled="True" HorizontalAlignment="Left"
+                              DisplayMemberPath="ChunkNo"/>
+                            <Button Name="cmdNavigate" Width="30"  Click="cmdNavigate_Click"  HorizontalAlignment="Left" Margin="5,2,0,3">
+                                <StackPanel>
+                                    <Image Source="{StaticResource bmpNext}" />
+                                </StackPanel>
+                            </Button>
+
+                            <Label Margin="10,5,0,5" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=total_record}" VerticalAlignment="Center"
+                            HorizontalAlignment="Left"/>
+
+                            <Label Name="lblTotal" Margin="10,5,0,5" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <Button Name="cmdScreenConfig" Width="32" Height="32"  Click="cmdScreenConfig_Click"  HorizontalAlignment="Left">
+                                <StackPanel>
+                                    <Image Source="{StaticResource bmpSort}" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid>
+                        <ListView Name="lsvMain" Grid.Row="1" SizeChanged="lsvMain_SizeChanged">
+                        </ListView>
+                    </Grid>
+                </DockPanel>
+            </TabItem>
+
+        </TabControl>
+
+    </DockPanel>
+</Window>

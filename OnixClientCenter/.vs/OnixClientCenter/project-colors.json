@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ebb1ac0b-59f8-42bf-9e9c-e2eb29581a1b": {
+      "ProjectGuid": "ebb1ac0b-59f8-42bf-9e9c-e2eb29581a1b",
+      "DisplayName": "OnixClientCenter",
+      "ColorIndex": 0
+    },
+    "53b576ae-0d01-4cb0-a8da-e60e71b9175f": {
+      "ProjectGuid": "53b576ae-0d01-4cb0-a8da-e60e71b9175f",
+      "DisplayName": "OnixClient",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

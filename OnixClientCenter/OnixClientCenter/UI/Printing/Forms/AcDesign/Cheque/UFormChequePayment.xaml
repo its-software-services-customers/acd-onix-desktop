@@ -1,0 +1,67 @@
+﻿<src:UFormBase x:Class="Onix.ClientCenter.Forms.AcDesign.Cheque.UFormChequePayment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:src="clr-namespace:Onix.ClientCenter.Forms"    
+             mc:Ignorable="d" 
+             x:Name="rootElement"
+             Height="9cm" Width="17.5cm">
+    <Grid Background="White">
+        <Grid.Resources>
+            <Style x:Key="HeaderTextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="H1TextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="H2TextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="F1TextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="{Binding ElementName=rootElement, Path=TextSize}"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="ItemTextFont" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontSize" Value="{Binding ElementName=rootElement, Path=TextSize}"/>
+                <Setter Property="FontFamily" Value="{Binding ElementName=rootElement, Path=FontName}"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+        </Grid.Resources>
+
+        <TextBlock Margin="{Binding ElementName=rootElement, Path=PositionChequeDateFmt}" Text="{Binding ElementName=rootElement, Path=ChequeDateThai}" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <StackPanel Name="stkBody" Margin="{Binding ElementName=rootElement, Path=PositionCompany}" Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top">
+            <!--<TextBlock Text="{Binding ElementName=rootElement, Path=LbCompanyName}" Margin="0,0,5,0" Visibility="{Binding ElementName=rootElement, Path=NamePrefixVisibility}" Style="{StaticResource ResourceKey=H1TextFont}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock Text="{Binding ElementName=rootElement, Path=CompanyName}" Style="{StaticResource ResourceKey=H1TextFont}" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>-->
+        </StackPanel>
+
+        <TextBlock Margin="{Binding ElementName=rootElement, Path=PositionPayeeName}" Text="{Binding PayeeName}" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBlock Margin="{Binding ElementName=rootElement, Path=PositionNumberAsText}" Text="{Binding ElementName=rootElement,Path=NumberAsText}" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBlock Margin="{Binding ElementName=rootElement, Path=PositionChequeAmountFmt}" Text="{Binding ElementName=rootElement, Path=ChequeAmountFmt}" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBlock Margin="{Binding ElementName=rootElement, Path=PositionAcPayeeOnly}" Text="{Binding ElementName=rootElement, Path=IsAcPayeeOnly}" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBlock Margin="{Binding ElementName=rootElement, Path=PositionHolderMask}" Text="{Binding ElementName=rootElement, Path=MaskingText}" Style="{StaticResource ResourceKey=H2TextFont}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+    </Grid>
+</src:UFormBase>

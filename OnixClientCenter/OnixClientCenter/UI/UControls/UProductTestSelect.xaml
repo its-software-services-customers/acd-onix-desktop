@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Onix.ClientCenter.UControls.UProductTestSelect"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:my="clr-namespace:Onix.ClientCenter"
+             xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+             xmlns:uc="clr-namespace:Onix.ClientCenter.UControls" 
+             xmlns:u="clr-namespace:Onix.ClientCenter.Commons.UControls" 
+             mc:Ignorable="d" 
+             Height="Auto" Width="Auto" MinWidth="600"
+             Name="RootElement">
+    <Grid x:Name="LayoutRoot" Width="Auto" Height="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Name="cbxEnable" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=is_enable}" 
+                          HorizontalAlignment="Left" Margin="0,5,0,0" Checked="cbxEnable_Checked" Unchecked="cbxEnable_Unchecked"/>
+
+                <ComboBox Name="cboSelectionType" ItemsSource="{Binding Source={x:Static lang:CMasterReference.Instance}, Path=ProductSpecificSelectionTypes}"
+                          Width="200"  HorizontalAlignment="Left" Margin="5,0,0,0" SelectionChanged="cboSelectionType_SelectionChanged"
+                          IsEnabled="{Binding ElementName=cbxEnable, Path=IsChecked}" DisplayMemberPath="Description" />
+
+                <!--<uc:ULookupSearch x:Name="lkupItem" Lookup="InventoryItemLookup" Margin="5,0,0,0"
+                        IsEnabled="{Binding ElementName=cbxEnable, Path=IsChecked}" SelectedObjectChanged="lkupItem_SelectedObjectChanged"/>-->
+                <u:ULookupSearch2 x:Name="lkupItem" Lookup="InventoryItemLookup" IsEnabled="{Binding ElementName=cbxEnable, Path=IsChecked}"
+                              Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=customer_name}"
+                              Margin="5,0,0,0" SelectedObjectChanged ="lkupItem_SelectedObjectChanged"/>
+
+                <Label Name="lblDiscount" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=quantity}" 
+                   VerticalContentAlignment ="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Margin="5,0,0,0"/>
+
+                <TextBox Name="txtValue" Width="50"  VerticalContentAlignment ="Center" PreviewTextInput="NumberValidationTextBox"
+                         VerticalAlignment="Center"  HorizontalAlignment="Left" Margin="5,0,0,0"
+                         IsEnabled="{Binding ElementName=cbxEnable, Path=IsChecked}" TextChanged="txtValue_TextChanged"/>
+
+                <CheckBox Name="cbxTray" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=tray_package}" 
+                          IsEnabled="{Binding ElementName=cbxEnable, Path=IsChecked}" HorizontalAlignment="Left" Margin="10,5,0,0" Checked="cbxTray_Checked" Unchecked="cbxTray_Unchecked"/>
+
+                <StackPanel Orientation="Horizontal"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

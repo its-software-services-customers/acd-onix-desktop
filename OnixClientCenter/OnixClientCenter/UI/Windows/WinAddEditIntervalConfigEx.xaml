@@ -1,0 +1,144 @@
+﻿<Window x:Class="Onix.ClientCenter.Windows.WinAddEditIntervalConfigEx"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.UControls"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        Name="RootElement"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}" 
+        Activated="RootElement_Activated"
+        Title="{Binding Name}" Width="900" Height="600" ContentRendered="RootElement_ContentRendered" Closing="RootElement_Closing">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <Grid Margin="10,10,5, 0" DockPanel.Dock="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="5"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>                    
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Row="0" Grid.Column="0" HorizontalContentAlignment="Right" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item}" />
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="5,0,0,0" VerticalContentAlignment="Center" Width="500" IsEnabled="False" 
+                         Text="{Binding Name}" TextChanged="TextBox_TextChanged"/>
+
+                <Label Name="lblDesc" Grid.Row="1" Grid.Column="0" HorizontalContentAlignment="Right" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=description}" />
+                <TextBox Name="txtDesc" Grid.Row="1" Grid.Column="1" Margin="5,5,0,0" VerticalContentAlignment="Center" Text="{Binding Description}" TextChanged="TextBox_TextChanged"/>
+
+                <Label Name="lblMappingType" Grid.Row="2" Grid.Column="0" HorizontalContentAlignment="Right" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=mapping_type}" />
+                <ComboBox Name="cboMappingType" Grid.Row="2" Grid.Column="1" Width="260"  
+                              ItemsSource="{Binding ElementName=RootElement, Path=MappingTypes}" HorizontalAlignment="Left" Margin="5,5,0,0"
+                              SelectedItem="MappingTypeSelectedObj" DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding MappingTypeSelectedObj}"
+                              SelectionChanged="cboMappingType_SelectionChanged" />
+
+            </Grid>
+
+            <Border BorderThickness="1" DockPanel.Dock="Top" BorderBrush="Black" Margin="5,5,5,0" Background="{DynamicResource WindowBackgroundBrush}">
+                <Grid Margin="0,5,0,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <RadioButton Name="radStep" Grid.Row="1" Grid.Column="0" IsEnabled="{Binding ElementName=RootElement, Path=EnableStepType}" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=stepprice}" 
+                             Margin="10,5,0,0" Checked="radStep_Checked" />
+
+                    <RadioButton Name="radTier"  Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=tier}" 
+                             IsEnabled="{Binding ElementName=RootElement, Path=EnableTierType}" Margin="10,5,0,10" Checked="radTier_Checked"/>
+
+                    <ComboBox Name="cboStepUnitType" IsEnabled="{Binding ElementName=radStep, Path=IsChecked}" Grid.Row="1" Grid.Column="1" Width="260"  
+                              ItemsSource="{Binding ElementName=RootElement, Path=OutputTypesStep}" HorizontalAlignment="Left" Margin="10,0,0,0"
+                              SelectedItem="StepSelectedObj" DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding StepSelectedObj}"
+                              SelectionChanged="cboStepUnitType_SelectionChanged" Visibility="{Binding ElementName=RootElement, Path=StepTypeVisibility}"/>
+
+                    <ComboBox Name="cboTierUnitType" IsEnabled="{Binding ElementName=radTier, Path=IsChecked}" Grid.Row="2" Grid.Column="1" Width="260"  
+                              ItemsSource="{Binding ElementName=RootElement, Path=OutputTypesTier}" HorizontalAlignment="Left" Margin="10,5,0,0"
+                              SelectedItem="TierSelectedObj" DisplayMemberPath="Description" SelectedValuePath="ObjSelf" SelectedValue="{Binding TierSelectedObj}"
+                              SelectionChanged="cboStepUnitType_SelectionChanged" Visibility="{Binding ElementName=RootElement, Path=TierTypeVisibility}"/>
+                </Grid>
+            </Border>
+
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="5,0,5,5" Height="35">
+                <Button Name="cmdOK" Width="80"  Margin="0,0,5,0" Click="cmdOK_Click">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0">
+                            </Image>
+
+                            <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+
+                <Button Name="cmdCancel"  Margin="10,0,0,0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" IsEnabled="{Binding ElementName=RootElement, Path=IsEditableMode}"
+                          IsCancel="True" Width="80"  Click="cmdCancel_Click"/>
+            </StackPanel>
+
+            <Border BorderBrush="Black" BorderThickness="1" Margin="5,5,5,5" >
+                <DockPanel LastChildFill="True">
+                    <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                        <Button Name="cmdAdd" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=add}"
+                                Width="80"  Margin="0,5,5,0" Click="cmdAdd_Click"/>
+
+                        <!--<Button Name="cmdValidate" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=verify}"
+                                Width="80"  Margin="0,5,5,0" Click="cmdValidate_Click"/>
+
+                        <Button Name="cmdSort" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=sort}"
+                                Width="80"  Margin="0,5,5,0" Click="cmdSort_Click"/>-->
+                    </StackPanel>
+
+                    <ListBox Margin="5" ScrollViewer.VerticalScrollBarVisibility="Visible" ItemsSource="{Binding IntervalItems}"
+                                        Background="{DynamicResource WindowBackgroundBrush}">
+
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Name="lbfrom" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=from_qty}" Margin="10,0,0,0"/>
+                                    <Label Content="&lt;" Margin="10,0,0,0"/>
+                                    <TextBox Width="100" IsEnabled="False" VerticalContentAlignment="Center" Margin="10,0,0,0" Text="{Binding FromValue}" PreviewTextInput="TextBox_PreviewTextInput"/>
+
+                                    <Label Name="lblToQty" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=to_qty}" Margin="10,0,0,0"/>
+                                    <Label Content="&gt;=" Margin="10,0,0,0"/>
+                                    <TextBox Width="100" VerticalContentAlignment="Center" Margin="10,0,0,0" Text="{Binding ToValue}" PreviewTextInput="TextBox_PreviewTextInput"
+                                           Tag="{Binding ObjSelf}" LostFocus="TextBox_LostFocus" TextChanged="TextBox_TextChanged"/>
+
+                                    <Label Name="lbAmount" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=amount}" Margin="10,0,0,0"/>
+                                    <TextBox Width="100" VerticalContentAlignment="Center" Margin="10,0,0,0" Text="{Binding ConfigValue}" PreviewTextInput="TextBox_PreviewTextInput"
+                                             TextChanged="TextBox_TextChanged"/>
+
+
+                                    <Button Name="cmdClear" Click="cmdClear_Click" Width="30" Margin="10,0,0,0" Tag="{Binding ObjSelf}" IsEnabled="{Binding IsNotFirst}">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                            <Image Width="12" Height="12" HorizontalAlignment="Center" Source="pack://application:,,,/OnixClient;component/Images/no-icon-16.png"/>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </DockPanel>
+            </Border>
+        </DockPanel>
+    </Grid>
+</Window>

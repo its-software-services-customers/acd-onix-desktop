@@ -1,0 +1,263 @@
+﻿<Window x:Class="Onix.ClientCenter.WinItemLotInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        xmlns:uc="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:u="clr-namespace:Onix.ClientCenter.Commons.UControls"   
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Title="" Height="720" Width="1300" Loaded="Window_Loaded" Closing="Window_Closing" ContentRendered="Window_ContentRendered" Activated="Window_Activated">
+
+    <Window.Resources>
+        <!--<Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="Height" Value="25" />
+        </Style>-->
+    </Window.Resources>
+    
+    <DockPanel LastChildFill="True">
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="133*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="415*"/>
+                <ColumnDefinition Width="45*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Name="lblItem" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_code}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,5"  />
+            <TextBox Name="txtItemCode" IsEnabled="False" Grid.Row="1" Grid.Column="1" Width="200" Text="{Binding ItemCode}" 
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="txtText_TextChanged"/>
+
+            <Label Name="lblItemName" Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_name_thai}" VerticalAlignment="Center" 
+                VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,0,5"  />
+            <TextBox Name="txtItemName" IsEnabled="False" Grid.Row="2" Grid.Column="1" Width="500" Text="{Binding ItemName}" 
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="txtText_TextChanged"/>
+
+
+            <Label Name="lblLocation" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=location_name}" VerticalAlignment="Center" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,0,4" />
+            <TextBox Name="txtLocationName" IsEnabled="False" Grid.Row="3" Grid.Column="1" Width="500" Text="{Binding LocationName}" 
+                VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,5" TextChanged="txtText_TextChanged"/>
+        </Grid>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Name="cmdOK" IsEnabled="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}" Width="80"  Margin="5,5,0,5" Click="cmdOK_Click"/>
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" Width="80"  Margin="15,5,0,5"/>
+        </StackPanel>
+
+        <TabControl Margin="5, 10, 5, 0">
+            <!--AVG movement-->
+            <TabItem Name="tbiAvgMovement">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiAvgMovement, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_movement_avg}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <ListView Name="lsvMovementAvg" Grid.Row="1" SizeChanged="lsvMovementAvg_SizeChanged">
+                        <ListView.View>
+                            <GridView>
+
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Width="16" Height="16" Tag="{Binding ObjSelf}" Source="{StaticResource bmpInfo}" HorizontalAlignment="Center">
+                                                    <Image.ToolTip>
+                                                        <u:UToolTipText ItemsSources="{Binding ToolTipItems}"/>
+                                                    </Image.ToolTip>
+                                                </Image>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colDocumentDate" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_no}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Center" Text="{Binding DocumentDateFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colDocumentNoAvg" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=inventory_doc_no}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Left" Text="{Binding DocumentNo}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colInQuantityAvg" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=in_quantity}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Right" Text="{Binding InQuantityFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>                                    
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colInAmtAvg" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=in_amount_avg}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Right" Text="{Binding InAmountAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colOutQuantityAvg" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=out_quantity}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Right" Text="{Binding OutQuantityFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                
+
+                                <GridViewColumn x:Name="colOutAmtAvg" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=out_amount_avg}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Right" Text="{Binding OutAmountAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>                                    
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colLeftQuantityAvg" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=left_quantity}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Right" Text="{Binding LeftQuantityAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colLeftAmountAvg" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=left_amount_avg}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Right" Text="{Binding LeftAmountAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colUnitPriceAvg" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=unit_price_avg}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Right" Text="{Binding UnitPriceAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+
+            <!--Movement Summary -->
+            <TabItem Name="tbiMovementSummary">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource bmpGreenBullet}" 
+                                   Visibility="{Binding ElementName=tbiMovementSummary, Path=IsSelected, Converter={StaticResource boolToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_movement_summary}"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <ListView Name="lsvMovementSum" Grid.Row="1" SizeChanged="lsvMovementSum_SizeChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn x:Name="colDocumentDateSum" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=balance_date}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Center" Text="{Binding BalanceDateFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colInQuantitySum" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=in_quantity}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Right" Text="{Binding InQuantityFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colOutQuantitySum" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=out_quantity}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Right" Text="{Binding OutQuantityFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colInAmtAvgSum" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=in_amount}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Right" Text="{Binding InAmountAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colOutAmtAvgSum" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=out_amount_avg}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock TextAlignment="Right" Text="{Binding OutAmountAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colLeftQuantitySum" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=left_quantity}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Right" Text="{Binding EndQuantityFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colLeftAmountAvgSum" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=left_amount_avg}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Right" Text="{Binding EndAmountAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                                <GridViewColumn x:Name="colUnitPriceAvgSum" Header="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=unit_price_avg}">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock FontWeight="{Binding FontWeight}" TextAlignment="Right" Text="{Binding EndAvgFmt}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </DockPanel>
+</Window>

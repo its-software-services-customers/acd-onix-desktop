@@ -1,0 +1,120 @@
+﻿<src:WinBase x:Class="Onix.ClientCenter.UI.Inventory.InventoryDocument.WinAddEditBorrowReturnItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:u="clr-namespace:Onix.ClientCenter.UControls"
+        xmlns:src="clr-namespace:Onix.ClientCenter.Commons.Windows" 
+        xmlns:uc="clr-namespace:Onix.ClientCenter.Commons.UControls"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Onix.ClientCenter"
+        xmlns:lang="clr-namespace:Onix.Client.Helper;assembly=OnixClient"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        x:Name="rootElement"
+        xmlns:themes="clr-namespace:Onix.Themes;assembly=Onix.Themes"
+        themes:ThemeManager.Theme="{Binding Source={x:Static my:CThemes.Instance}, Path=ThemeName}"
+        Activated="DefaultWindow_Activated"
+        Background="{DynamicResource WindowBackgroundBrush}"        
+        Title="{Binding ElementName=rootElement, Path=Caption}" SizeToContent="WidthAndHeight" Height="300" Width="820" 
+        Closing="DefaultItemWindow_Closing" ContentRendered="DefaultItemWindow_ContentRendered">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Name="lblCode" Grid.Row="1" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_code}" 
+               VerticalContentAlignment ="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Right"  Margin="5,0,0,5"/>
+        <!--<StackPanel Orientation="Horizontal"  Grid.ColumnSpan="3">-->
+
+        <uc:ULookupSearch2 Grid.Row="1" Grid.Column="1" x:Name="lkupItem" Lookup="InventoryBorrowReturnLookup" SelectedObject="{Binding ItemObj}" 
+                           Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=item_code}"
+                           IsEnabled="{Binding ElementName=rootElement, Path=IsBorrowEditable}"                           
+                           Margin="5,0,0,5" SelectedObjectChanged ="DefaultULookup_SelectedObjectChanged"/>
+        <!--</StackPanel>-->
+
+        <Label Name="lblQuantity" Grid.Row="2" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=quantity}" 
+               VerticalContentAlignment ="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Right"  Margin="5,0,0,5"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+            <TextBox Name="txtQuantity" TextChanged="DefaultUTxtbox_TextChanged" Text="{Binding ItemQuantity, UpdateSourceTrigger=PropertyChanged}" 
+                     VerticalContentAlignment ="Center" Width="150" HorizontalAlignment="Left" Margin="5,0,0,5" 
+                     PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+
+            <TextBox Name="txtBorrowDoc" Text="{Binding BorrowDocumentNo}" IsEnabled="False"
+                     VerticalContentAlignment ="Center" Width="250" HorizontalAlignment="Left" Margin="5,0,0,5"/>
+        </StackPanel>
+        
+        <Label Name="lblUnitPrice" Grid.Row="3" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=unit_price}" 
+               VerticalContentAlignment ="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Right"  Margin="5,0,0,5"/>
+        <TextBox  Grid.Row="3" Grid.Column="1" Name="txtUnitPrice" HorizontalContentAlignment="Right" IsEnabled="False"
+                  Text="{Binding ItemPriceFmt}"
+                  VerticalContentAlignment="Center" TextChanged="DefaultUTxtbox_TextChanged" 
+                  HorizontalAlignment="Left" Width="150" Margin="5,0,0,5" PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+        
+        <Label Name="lblTotalPrice" Grid.Row="4" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=total_amount}" 
+               VerticalContentAlignment ="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Right"  Margin="5,0,0,5"/>
+        <TextBox Name="_txtItemAmount" Grid.Row="4" Grid.Column="1" TextChanged="DefaultUTxtbox_TextChanged" HorizontalContentAlignment="Right" IsEnabled="False"
+                 Text="{Binding ItemAmountFmt}" VerticalContentAlignment ="Center" HorizontalAlignment="Left" Width="150" Margin="5,0,0,5" 
+                 PreviewTextInput="DefaultTextBoxNumber_PreviewTextInput"/>
+
+        <Label Name="lblProject" Grid.Row="5" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=project}" 
+               VerticalContentAlignment ="Center" HorizontalContentAlignment="Right" HorizontalAlignment="Right"  Margin="5,0,0,5"/>
+       
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
+            <uc:ULookupSearch2 x:Name="uProject" Lookup="ProjectLookup" SelectedObject="{Binding ProjectObj}" 
+                              IsEnabled="{Binding ElementName=rootElement, Path=IsBorrowEditable}"
+                              Caption="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=project}"
+                              Grid.Row="12" Grid.Column="2" Margin="5,0,0,5" SelectedObjectChanged = "DefaultULookup_SelectedObjectChanged"/>
+        </StackPanel>
+
+        <Label Name="lblLotNo" Grid.Row="6" Grid.Column="0" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=lot_no}" 
+               Visibility="Hidden"/>
+        
+        <CheckBox  Name="cbxLotSerial" Grid.Row="6" Grid.Column="0" IsThreeState="False" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=lot_no}" 
+                   IsChecked="{Binding Path=IsLotSerial}" VerticalAlignment="Center"
+                   IsEnabled="{Binding ElementName=rootElement, Path=IsBorrowEditable}"
+                   HorizontalAlignment="Right" Margin="0,0,5,0" Checked="DefaultCheckbox_Checked" Unchecked="DefaultCheckbox_Checked"/>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
+            <uc:UTextBox x:Name="txtLotSerial1" Margin="5,0,0,5" Width="300" TextSearchNameSpace="CustomerNameNS"
+                        IsEnabled="{Binding ElementName=cbxLotSerial, Path=IsChecked}" ShowDetail="True" Text="{Binding LotNo}"
+                        Visibility="{Binding ElementName=rootElement, Path=IsBorrowEditable, Converter={StaticResource TrueToVisibleConverter}}"
+                        TextChanged="DefaultUTxtbox_TextChanged"/>
+
+            <uc:UTextBox x:Name="txtLotSerial2" Margin="5,0,0,5" Width="300" TextSearchNameSpace="CustomerNameNS"
+                        IsEnabled="False" ShowDetail="True" Text="{Binding LotNo}"
+                        Visibility="{Binding ElementName=rootElement, Path=IsBorrowEditable, Converter={StaticResource TrueToHiddenConverter}}"
+                        TextChanged="DefaultUTxtbox_TextChanged"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="1">
+            <Button Name="cmdOK" IsEnabled="{Binding IsEditable}" MinWidth="80"  Margin="5,5,0,5" Click="cmdOK_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Visibility="{Binding IsModified, Converter={StaticResource TrueToVisibleConverter}}" Width="16" Height="16" 
+                                           Source="{StaticResource bmpAlert}" Margin="0,0,5,0"/>
+
+                        <TextBlock Margin="0,0,0,0" Text="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=ok}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Name="cmdCancel" IsCancel="True" Content="{Binding Source={x:Static lang:CTextLabel.Instance}, Path=cancel}" MinWidth="80"  Margin="5,5,0,5"/>
+        </StackPanel>
+    </Grid>
+</src:WinBase>
