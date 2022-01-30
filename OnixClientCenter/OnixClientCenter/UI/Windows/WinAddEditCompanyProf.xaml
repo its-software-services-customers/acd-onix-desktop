@@ -24,12 +24,10 @@
 
         <DockPanel DockPanel.Dock="Top" LastChildFill="True">
             <StackPanel  DockPanel.Dock="Right" Width="200" Orientation="Vertical">
-                <uc:UImageBox x:Name="imgLogo" Width="170" Height="200"  Margin="0,70,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                <uc:UImageBox x:Name="imgLogo" Width="170" Height="200"
                              Caption="Logo" FileName="{Binding LogoImageName}"
                              ExtFlag ="{Binding LogoImageFlag}"
-                             SelectedFileChanged="ImgLogo_SelectedFileChanged">
-                
-                </uc:UImageBox>
+                             SelectedFileChanged="ImgLogo_SelectedFileChanged"/>
             </StackPanel>
         
             <Grid Margin="0,0,0,1" DockPanel.Dock="Left" Width="Auto">
